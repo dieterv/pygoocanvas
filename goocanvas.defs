@@ -1,0 +1,1603 @@
+;; -*- scheme -*-
+; object definitions ...
+
+(define-boxed CanvasStyle
+  (in-module "Goo")
+  (c-name "GooCanvasStyle")
+  (gtype-id "GOO_TYPE_CANVAS_STYLE")
+  (copy-func "goo_canvas_style_copy")
+  (release-func "goo_canvas_style_free")
+)
+
+(define-object CanvasGroup
+  (in-module "Goo")
+  (parent "GObject")
+  (c-name "GooCanvasGroup")
+  (gtype-id "GOO_TYPE_CANVAS_GROUP")
+  (implements "GooCanvasItem")
+)
+
+(define-object CanvasGroupView
+  (in-module "Goo")
+  (parent "GObject")
+  (c-name "GooCanvasGroupView")
+  (gtype-id "GOO_TYPE_CANVAS_GROUP_VIEW")
+  (implements "GooCanvasItemView")
+)
+
+(define-interface CanvasItem
+  (in-module "Goo")
+  (c-name "GooCanvasItem")
+  (gtype-id "GOO_TYPE_CANVAS_ITEM")
+)
+
+(define-object CanvasItemSimple
+  (in-module "Goo")
+  (parent "GObject")
+  (c-name "GooCanvasItemSimple")
+  (gtype-id "GOO_TYPE_CANVAS_ITEM_SIMPLE")
+  (implements "GooCanvasItem")
+)
+
+(define-object CanvasImage
+  (in-module "Goo")
+  (parent "GooCanvasItemSimple")
+  (c-name "GooCanvasImage")
+  (gtype-id "GOO_TYPE_CANVAS_IMAGE")
+  (implements "GooCanvasItem")
+)
+
+(define-object CanvasEllipse
+  (in-module "Goo")
+  (parent "GooCanvasItemSimple")
+  (c-name "GooCanvasEllipse")
+  (gtype-id "GOO_TYPE_CANVAS_ELLIPSE")
+  (implements "GooCanvasItem")
+)
+
+(define-interface CanvasItemView
+  (in-module "Goo")
+  (c-name "GooCanvasItemView")
+  (gtype-id "GOO_TYPE_CANVAS_ITEM_VIEW")
+)
+
+(define-object CanvasItemViewSimple
+  (in-module "Goo")
+  (parent "GObject")
+  (c-name "GooCanvasItemViewSimple")
+  (gtype-id "GOO_TYPE_CANVAS_ITEM_VIEW_SIMPLE")
+  (implements "GooCanvasItemView")
+)
+
+(define-object CanvasImageView
+  (in-module "Goo")
+  (parent "GooCanvasItemViewSimple")
+  (c-name "GooCanvasImageView")
+  (gtype-id "GOO_TYPE_CANVAS_IMAGE_VIEW")
+  (implements "GooCanvasItemView")
+)
+
+(define-object CanvasEllipseView
+  (in-module "Goo")
+  (parent "GooCanvasItemViewSimple")
+  (c-name "GooCanvasEllipseView")
+  (gtype-id "GOO_TYPE_CANVAS_ELLIPSE_VIEW")
+  (implements "GooCanvasItemView")
+)
+
+(define-interface CanvasModel
+  (in-module "Goo")
+  (c-name "GooCanvasModel")
+  (gtype-id "GOO_TYPE_CANVAS_MODEL")
+)
+
+(define-object CanvasModelSimple
+  (in-module "Goo")
+  (parent "GObject")
+  (c-name "GooCanvasModelSimple")
+  (gtype-id "GOO_TYPE_CANVAS_MODEL_SIMPLE")
+  (implements "GooCanvasModel")
+)
+
+(define-object CanvasPath
+  (in-module "Goo")
+  (parent "GooCanvasItemSimple")
+  (c-name "GooCanvasPath")
+  (gtype-id "GOO_TYPE_CANVAS_PATH")
+  (implements "GooCanvasItem")
+)
+
+(define-object CanvasPathView
+  (in-module "Goo")
+  (parent "GooCanvasItemViewSimple")
+  (c-name "GooCanvasPathView")
+  (gtype-id "GOO_TYPE_CANVAS_PATH_VIEW")
+  (implements "GooCanvasItemView")
+)
+
+(define-object CanvasPolyline
+  (in-module "Goo")
+  (parent "GooCanvasItemSimple")
+  (c-name "GooCanvasPolyline")
+  (gtype-id "GOO_TYPE_CANVAS_POLYLINE")
+  (implements "GooCanvasItem")
+)
+
+(define-object CanvasPolylineView
+  (in-module "Goo")
+  (parent "GooCanvasItemViewSimple")
+  (c-name "GooCanvasPolylineView")
+  (gtype-id "GOO_TYPE_CANVAS_POLYLINE_VIEW")
+  (implements "GooCanvasItemView")
+)
+
+(define-object CanvasRect
+  (in-module "Goo")
+  (parent "GooCanvasItemSimple")
+  (c-name "GooCanvasRect")
+  (gtype-id "GOO_TYPE_CANVAS_RECT")
+  (implements "GooCanvasItem")
+)
+
+(define-object CanvasRectView
+  (in-module "Goo")
+  (parent "GooCanvasItemViewSimple")
+  (c-name "GooCanvasRectView")
+  (gtype-id "GOO_TYPE_CANVAS_RECT_VIEW")
+  (implements "GooCanvasItemView")
+)
+
+(define-object CanvasText
+  (in-module "Goo")
+  (parent "GooCanvasItemSimple")
+  (c-name "GooCanvasText")
+  (gtype-id "GOO_TYPE_CANVAS_TEXT")
+  (implements "GooCanvasItem")
+)
+
+(define-object CanvasTextView
+  (in-module "Goo")
+  (parent "GooCanvasItemViewSimple")
+  (c-name "GooCanvasTextView")
+  (gtype-id "GOO_TYPE_CANVAS_TEXT_VIEW")
+  (implements "GooCanvasItemView")
+)
+
+(define-object CanvasView
+  (in-module "Goo")
+  (parent "GtkContainer")
+  (c-name "GooCanvasView")
+  (gtype-id "GOO_TYPE_CANVAS_VIEW")
+)
+
+;; Enumerations and flags ...
+
+(define-enum CanvasAnimateType
+  (in-module "Goo")
+  (c-name "GooCanvasAnimateType")
+  ("GOO_TYPE_CANVAS_ANIMATE_TYPE")
+  (values
+    '("freeze" "GOO_CANVAS_ANIMATE_FREEZE")
+    '("reset" "GOO_CANVAS_ANIMATE_RESET")
+    '("restart" "GOO_CANVAS_ANIMATE_RESTART")
+    '("bounce" "GOO_CANVAS_ANIMATE_BOUNCE")
+  )
+)
+
+(define-flags CanvasStyleValuesMask
+  (in-module "Goo")
+  (c-name "GooCanvasStyleValuesMask")
+  ("GOO_TYPE_CANVAS_STYLE_VALUES_MASK")
+  (values
+    '("stroke-pattern" "GOO_CANVAS_STYLE_STROKE_PATTERN")
+    '("fill-pattern" "GOO_CANVAS_STYLE_FILL_PATTERN")
+    '("fill-rule" "GOO_CANVAS_STYLE_FILL_RULE")
+    '("operator" "GOO_CANVAS_STYLE_OPERATOR")
+    '("antialias" "GOO_CANVAS_STYLE_ANTIALIAS")
+    '("line-width" "GOO_CANVAS_STYLE_LINE_WIDTH")
+    '("line-cap" "GOO_CANVAS_STYLE_LINE_CAP")
+    '("line-join" "GOO_CANVAS_STYLE_LINE_JOIN")
+    '("line-join-miter-limit" "GOO_CANVAS_STYLE_LINE_JOIN_MITER_LIMIT")
+    '("line-dash" "GOO_CANVAS_STYLE_LINE_DASH")
+  )
+)
+
+(define-flags CanvasItemViewFlags
+  (in-module "Goo")
+  (c-name "GooCanvasItemViewFlags")
+  ("GOO_TYPE_CANVAS_ITEM_VIEW_FLAGS")
+  (values
+    '("need-update" "GOO_CANVAS_ITEM_VIEW_NEED_UPDATE")
+    '("need-entire-subtree-update" "GOO_CANVAS_ITEM_VIEW_NEED_ENTIRE_SUBTREE_UPDATE")
+    '("can-focus" "GOO_CANVAS_ITEM_VIEW_CAN_FOCUS")
+  )
+)
+
+(define-enum CanvasPathCommandType
+  (in-module "Goo")
+  (c-name "GooCanvasPathCommandType")
+  ("GOO_TYPE_CANVAS_PATH_COMMAND_TYPE")
+  (values
+    '("move-to" "GOO_CANVAS_PATH_MOVE_TO")
+    '("close-path" "GOO_CANVAS_PATH_CLOSE_PATH")
+    '("line-to" "GOO_CANVAS_PATH_LINE_TO")
+    '("horizontal-line-to" "GOO_CANVAS_PATH_HORIZONTAL_LINE_TO")
+    '("vertical-line-to" "GOO_CANVAS_PATH_VERTICAL_LINE_TO")
+    '("curve-to" "GOO_CANVAS_PATH_CURVE_TO")
+    '("smooth-curve-to" "GOO_CANVAS_PATH_SMOOTH_CURVE_TO")
+    '("quadratic-curve-to" "GOO_CANVAS_PATH_QUADRATIC_CURVE_TO")
+    '("smooth-quadratic-curve-to" "GOO_CANVAS_PATH_SMOOTH_QUADRATIC_CURVE_TO")
+    '("elliptical-arc" "GOO_CANVAS_PATH_ELLIPTICAL_ARC")
+  )
+)
+
+(define-flags CanvasPointerEvents
+  (in-module "Goo")
+  (c-name "GooCanvasPointerEvents")
+  ("GOO_TYPE_CANVAS_POINTER_EVENTS")
+  (values
+    '("visible-mask" "GOO_CANVAS_EVENTS_VISIBLE_MASK")
+    '("painted-mask" "GOO_CANVAS_EVENTS_PAINTED_MASK")
+    '("fill-mask" "GOO_CANVAS_EVENTS_FILL_MASK")
+    '("stroke-mask" "GOO_CANVAS_EVENTS_STROKE_MASK")
+    '("none" "GOO_CANVAS_EVENTS_NONE")
+    '("visible-painted" "GOO_CANVAS_EVENTS_VISIBLE_PAINTED")
+    '("visible-fill" "GOO_CANVAS_EVENTS_VISIBLE_FILL")
+    '("visible-stroke" "GOO_CANVAS_EVENTS_VISIBLE_STROKE")
+    '("visible" "GOO_CANVAS_EVENTS_VISIBLE")
+    '("painted" "GOO_CANVAS_EVENTS_PAINTED")
+    '("fill" "GOO_CANVAS_EVENTS_FILL")
+    '("stroke" "GOO_CANVAS_EVENTS_STROKE")
+    '("all" "GOO_CANVAS_EVENTS_ALL")
+  )
+)
+
+(define-enum CanvasItemVisibility
+  (in-module "Goo")
+  (c-name "GooCanvasItemVisibility")
+  ("GOO_TYPE_CANVAS_ITEM_VISIBILITY")
+  (values
+    '("visible" "GOO_CANVAS_ITEM_VISIBLE")
+    '("visible-above-threshold" "GOO_CANVAS_ITEM_VISIBLE_ABOVE_THRESHOLD")
+    '("invisible" "GOO_CANVAS_ITEM_INVISIBLE")
+  )
+)
+
+
+;; From /usr/include/goocanvas/goocanvas.h
+
+
+
+;; From /usr/include/goocanvas/goocanvasellipse.h
+
+(define-function goo_canvas_ellipse_get_type
+  (c-name "goo_canvas_ellipse_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_ellipse_new
+  (c-name "goo_canvas_ellipse_new")
+  (is-constructor-of "GooCanvasEllipse")
+  (return-type "GooCanvasItem*")
+  (properties
+    '("parent" (optional))
+    '("center_x" (optional))
+    '("center_y" (optional))
+    '("radius_x" (optional))
+    '("radius_y" (optional))
+    '("first_property" (optional))
+  )
+  (varargs #t)
+)
+
+
+
+;; From /usr/include/goocanvas/goocanvasellipseview.h
+
+(define-function goo_canvas_ellipse_view_get_type
+  (c-name "goo_canvas_ellipse_view_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_ellipse_view_new
+  (c-name "goo_canvas_ellipse_view_new")
+  (is-constructor-of "GooCanvasEllipseView")
+  (return-type "GooCanvasItemView*")
+  (parameters
+    '("GooCanvasView*" "canvas_view")
+    '("GooCanvasItemView*" "parent_view")
+    '("GooCanvasEllipse*" "ellipse")
+  )
+)
+
+
+
+;; From /usr/include/goocanvas/goocanvasgroup.h
+
+(define-function goo_canvas_group_get_type
+  (c-name "goo_canvas_group_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_group_new
+  (c-name "goo_canvas_group_new")
+  (is-constructor-of "GooCanvasGroup")
+  (return-type "GooCanvasItem*")
+  (properties
+    '("parent" (optional))
+  )
+)
+
+
+
+;; From /usr/include/goocanvas/goocanvasgroupview.h
+
+(define-function goo_canvas_group_view_get_type
+  (c-name "goo_canvas_group_view_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_group_view_new
+  (c-name "goo_canvas_group_view_new")
+  (is-constructor-of "GooCanvasGroupView")
+  (return-type "GooCanvasItemView*")
+  (parameters
+    '("GooCanvasView*" "canvas_view")
+    '("GooCanvasItemView*" "parent_view")
+    '("GooCanvasGroup*" "group")
+  )
+)
+
+
+
+;; From /usr/include/goocanvas/goocanvasimage.h
+
+(define-function goo_canvas_image_get_type
+  (c-name "goo_canvas_image_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_image_new
+  (c-name "goo_canvas_image_new")
+  (is-constructor-of "GooCanvasImage")
+  (return-type "GooCanvasItem*")
+  (properties
+    '("parent" (optional))
+    '("pixbuf" (optional))
+    '("x" (optional))
+    '("y" (optional))
+    '("first_property" (optional))
+  )
+  (varargs #t)
+)
+
+
+
+;; From /usr/include/goocanvas/goocanvasimageview.h
+
+(define-function goo_canvas_image_view_get_type
+  (c-name "goo_canvas_image_view_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_image_view_new
+  (c-name "goo_canvas_image_view_new")
+  (is-constructor-of "GooCanvasImageView")
+  (return-type "GooCanvasItemView*")
+  (parameters
+    '("GooCanvasView*" "canvas_view")
+    '("GooCanvasItemView*" "parent_view")
+    '("GooCanvasImage*" "image")
+  )
+)
+
+
+
+;; From /usr/include/goocanvas/goocanvasitem.h
+
+(define-function goo_canvas_item_get_type
+  (c-name "goo_canvas_item_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_item_new
+  (c-name "goo_canvas_item_new")
+  (return-type "GooCanvasItem*")
+  (parameters
+    '("GType" "type")
+    '("const-gchar*" "first_property")
+  )
+  (varargs #t)
+)
+
+(define-method get_n_children
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_get_n_children")
+  (return-type "gint")
+)
+
+(define-method get_child
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_get_child")
+  (return-type "GooCanvasItem*")
+  (parameters
+    '("gint" "child_num")
+  )
+)
+
+(define-method add_child
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_add_child")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItem*" "item")
+    '("gint" "position")
+  )
+)
+
+(define-method move_child
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_move_child")
+  (return-type "none")
+  (parameters
+    '("gint" "old_position")
+    '("gint" "new_position")
+  )
+)
+
+(define-method remove_child
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_remove_child")
+  (return-type "none")
+  (parameters
+    '("gint" "child_num")
+  )
+)
+
+(define-method find_child
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_find_child")
+  (return-type "gint")
+  (parameters
+    '("GooCanvasItem*" "child")
+  )
+)
+
+(define-method get_model
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_get_model")
+  (return-type "GooCanvasModel*")
+)
+
+(define-method get_parent
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_get_parent")
+  (return-type "GooCanvasItem*")
+)
+
+(define-method set_parent
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_set_parent")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItem*" "parent")
+  )
+)
+
+(define-method is_container
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_is_container")
+  (return-type "gboolean")
+)
+
+(define-method raise
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_raise")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItem*" "above")
+  )
+)
+
+(define-method lower
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_lower")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItem*" "below")
+  )
+)
+
+(define-method get_transform
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_get_transform")
+  (return-type "cairo_matrix_t*")
+)
+
+(define-method set_transform
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_set_transform")
+  (return-type "none")
+  (parameters
+    '("cairo_matrix_t*" "matrix")
+  )
+)
+
+(define-method translate
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_translate")
+  (return-type "none")
+  (parameters
+    '("double" "tx")
+    '("double" "ty")
+  )
+)
+
+(define-method scale
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_scale")
+  (return-type "none")
+  (parameters
+    '("double" "sx")
+    '("double" "sy")
+  )
+)
+
+(define-method rotate
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_rotate")
+  (return-type "none")
+  (parameters
+    '("double" "degrees")
+    '("double" "cx")
+    '("double" "cy")
+  )
+)
+
+(define-method skew_x
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_skew_x")
+  (return-type "none")
+  (parameters
+    '("double" "degrees")
+    '("double" "cx")
+    '("double" "cy")
+  )
+)
+
+(define-method skew_y
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_skew_y")
+  (return-type "none")
+  (parameters
+    '("double" "degrees")
+    '("double" "cx")
+    '("double" "cy")
+  )
+)
+
+(define-method animate
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_animate")
+  (return-type "none")
+  (parameters
+    '("double" "x")
+    '("double" "y")
+    '("double" "scale")
+    '("double" "degrees")
+    '("gint" "duration")
+    '("gint" "step_time")
+    '("GooCanvasAnimateType" "type")
+  )
+)
+
+(define-method stop_animation
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_stop_animation")
+  (return-type "none")
+)
+
+
+(define-virtual get_model
+  (of-object "GooCanvasItem")
+  (return-type "GooCanvasModel*")
+)
+(define-virtual get_n_children
+  (of-object "GooCanvasItem")
+  (return-type "gint")
+)
+(define-virtual get_child
+  (of-object "GooCanvasItem")
+  (return-type "GooCanvasItem*")
+  (parameters
+    '("gint" "child_num")
+  )
+)
+(define-virtual add_child
+  (of-object "GooCanvasItem")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItem*" "child")
+    '("gint" "position")
+  )
+)
+(define-virtual move_child
+  (of-object "GooCanvasItem")
+  (return-type "none")
+  (parameters
+    '("gint" "old_position")
+    '("gint" "new_position")
+  )
+)
+(define-virtual remove_child
+  (of-object "GooCanvasItem")
+  (return-type "none")
+  (parameters
+    '("gint" "child_num")
+  )
+)
+(define-virtual get_parent
+  (of-object "GooCanvasItem")
+  (return-type "GooCanvasItem*")
+)
+(define-virtual set_parent
+  (of-object "GooCanvasItem")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItem*" "parent")
+  )
+)
+(define-virtual get_transform
+  (of-object "GooCanvasItem")
+  (return-type "cairo_matrix_t*")
+)
+(define-virtual set_transform
+  (of-object "GooCanvasItem")
+  (return-type "none")
+  (parameters
+    '("cairo_matrix_t*" "matrix")
+  )
+)
+(define-virtual create_view
+  (of-object "GooCanvasItem")
+  (return-type "GooCanvasItemView*")
+  (parameters
+    '("GooCanvasView*" "canvas_view")
+    '("GooCanvasItemView*" "parent_view")
+  )
+)
+(define-virtual child_added
+  (of-object "GooCanvasItem")
+  (return-type "none")
+  (parameters
+    '("gint" "child_num")
+  )
+)
+(define-virtual child_moved
+  (of-object "GooCanvasItem")
+  (return-type "none")
+  (parameters
+    '("gint" "old_child_num")
+    '("gint" "new_child_num")
+  )
+)
+(define-virtual child_removed
+  (of-object "GooCanvasItem")
+  (return-type "none")
+  (parameters
+    '("gint" "child_num")
+  )
+)
+(define-virtual changed
+  (of-object "GooCanvasItem")
+  (return-type "none")
+  (parameters
+    '("gboolean" "recompute_bounds")
+  )
+)
+
+
+;; From /usr/include/goocanvas/goocanvasitemsimple.h
+
+(define-function goo_canvas_style_new
+  (c-name "goo_canvas_style_new")
+  (is-constructor-of "GooCanvasStyle")
+  (return-type "GooCanvasStyle*")
+)
+
+(define-method ref
+  (of-object "GooCanvasStyle")
+  (c-name "goo_canvas_style_ref")
+  (return-type "GooCanvasStyle*")
+)
+
+(define-method unref
+  (of-object "GooCanvasStyle")
+  (c-name "goo_canvas_style_unref")
+  (return-type "none")
+)
+
+(define-function goo_canvas_item_simple_get_type
+  (c-name "goo_canvas_item_simple_get_type")
+  (return-type "GType")
+)
+
+(define-method set_style
+  (of-object "GooCanvasItemSimple")
+  (c-name "goo_canvas_item_simple_set_style")
+  (return-type "none")
+  (parameters
+    '("GooCanvasStyle*" "style")
+  )
+)
+
+(define-method set_fill_options
+  (of-object "GooCanvasItemSimple")
+  (c-name "goo_canvas_item_simple_set_fill_options")
+  (return-type "none")
+  (parameters
+    '("cairo_t*" "cr")
+  )
+)
+
+(define-method set_stroke_options
+  (of-object "GooCanvasItemSimple")
+  (c-name "goo_canvas_item_simple_set_stroke_options")
+  (return-type "none")
+  (parameters
+    '("cairo_t*" "cr")
+  )
+)
+
+(define-method get_path_bounds
+  (of-object "GooCanvasItemSimple")
+  (c-name "goo_canvas_item_simple_get_path_bounds")
+  (return-type "none")
+  (parameters
+    '("cairo_t*" "cr")
+    '("GooCanvasBounds*" "bounds")
+  )
+)
+
+(define-method user_bounds_to_device
+  (of-object "GooCanvasItemSimple")
+  (c-name "goo_canvas_item_simple_user_bounds_to_device")
+  (return-type "none")
+  (parameters
+    '("cairo_t*" "cr")
+    '("GooCanvasBounds*" "bounds")
+  )
+)
+
+(define-method check_in_path
+  (of-object "GooCanvasItemSimple")
+  (c-name "goo_canvas_item_simple_check_in_path")
+  (return-type "gboolean")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+    '("cairo_t*" "cr")
+    '("GooCanvasPointerEvents" "pointer_events")
+  )
+)
+
+(define-method paint_path
+  (of-object "GooCanvasItemSimple")
+  (c-name "goo_canvas_item_simple_paint_path")
+  (return-type "none")
+  (parameters
+    '("cairo_t*" "cr")
+  )
+)
+
+;; From /usr/include/goocanvas/goocanvasitemview.h
+
+(define-function goo_canvas_item_view_get_type
+  (c-name "goo_canvas_item_view_get_type")
+  (return-type "GType")
+)
+
+(define-method get_n_children
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_get_n_children")
+  (return-type "gint")
+)
+
+(define-method get_child
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_get_child")
+  (return-type "GooCanvasItemView*")
+  (parameters
+    '("gint" "child_num")
+  )
+)
+
+(define-method find_child
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_find_child")
+  (return-type "gint")
+  (parameters
+    '("GooCanvasItemView*" "child")
+  )
+)
+
+(define-method get_canvas_view
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_get_canvas_view")
+  (return-type "GooCanvasView*")
+)
+
+(define-method get_parent_view
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_get_parent_view")
+  (return-type "GooCanvasItemView*")
+)
+
+(define-method set_parent_view
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_set_parent_view")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItemView*" "parent_view")
+  )
+)
+
+(define-method is_container
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_is_container")
+  (return-type "gboolean")
+)
+
+(define-method get_item
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_get_item")
+  (return-type "GooCanvasItem*")
+)
+
+(define-method get_bounds
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_get_bounds")
+  (return-type "GooCanvasBounds*")
+)
+
+(define-method get_item_at
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_get_item_at")
+  (return-type "GooCanvasItemView*")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+    '("cairo_t*" "cr")
+    '("gboolean" "is_pointer_event")
+    '("gboolean" "parent_is_visible")
+  )
+)
+
+(define-method is_visible
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_is_visible")
+  (return-type "gboolean")
+)
+
+(define-method request_update
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_request_update")
+  (return-type "none")
+)
+
+(define-method ensure_updated
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_ensure_updated")
+  (return-type "none")
+)
+
+(define-method update
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_update")
+  (return-type "GooCanvasBounds*")
+  (parameters
+    '("gboolean" "entire_tree")
+    '("cairo_t*" "cr")
+  )
+)
+
+(define-method paint
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_paint")
+  (return-type "none")
+  (parameters
+    '("cairo_t*" "cr")
+    '("GooCanvasBounds*" "bounds")
+    '("gdouble" "scale")
+  )
+)
+
+(define-virtual get_canvas_view
+  (of-object "GooCanvasItemView")
+  (return-type "GooCanvasView*")
+)
+(define-virtual get_n_children
+  (of-object "GooCanvasItemView")
+  (return-type "gint")
+)
+(define-virtual get_child
+  (of-object "GooCanvasItemView")
+  (return-type "GooCanvasItemView*")
+  (parameters
+    '("gint" "child_num")
+  )
+)
+(define-virtual request_update
+  (of-object "GooCanvasItemView")
+  (return-type "none")
+)
+(define-virtual get_parent_view
+  (of-object "GooCanvasItemView")
+  (return-type "GooCanvasItemView*")
+)
+(define-virtual set_parent_view
+  (of-object "GooCanvasItemView")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItemView*" "parent_view")
+  )
+)
+(define-virtual get_item
+  (of-object "GooCanvasItemView")
+  (return-type "GooCanvasItem*")
+)
+(define-virtual get_bounds
+  (of-object "GooCanvasItemView")
+  (return-type "GooCanvasBounds*")
+)
+(define-virtual get_item_at
+  (of-object "GooCanvasItemView")
+  (return-type "GooCanvasItemView*")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+    '("cairo_t*" "cr")
+    '("gboolean" "is_pointer_event")
+    '("gboolean" "parent_is_visible")
+  )
+)
+(define-virtual is_visible
+  (of-object "GooCanvasItemView")
+  (return-type "gboolean")
+)
+(define-virtual update
+  (of-object "GooCanvasItemView")
+  (return-type "GooCanvasBounds*")
+  (parameters
+    '("gboolean" "entire_tree")
+    '("cairo_t*" "cr")
+  )
+)
+(define-virtual paint
+  (of-object "GooCanvasItemView")
+  (return-type "none")
+  (parameters
+    '("cairo_t*" "cr")
+    '("GooCanvasBounds*" "bounds")
+    '("gdouble" "scale")
+  )
+)
+(define-virtual enter_notify_event
+  (of-object "GooCanvasItemView")
+  (return-type "gboolean")
+  (parameters
+    '("GooCanvasItemView*" "target")
+    '("GdkEventCrossing*" "event")
+  )
+)
+(define-virtual leave_notify_event
+  (of-object "GooCanvasItemView")
+  (return-type "gboolean")
+  (parameters
+    '("GooCanvasItemView*" "target")
+    '("GdkEventCrossing*" "event")
+  )
+)
+(define-virtual motion_notify_event
+  (of-object "GooCanvasItemView")
+  (return-type "gboolean")
+  (parameters
+    '("GooCanvasItemView*" "target")
+    '("GdkEventMotion*" "event")
+  )
+)
+(define-virtual button_press_event
+  (of-object "GooCanvasItemView")
+  (return-type "gboolean")
+  (parameters
+    '("GooCanvasItemView*" "target")
+    '("GdkEventButton*" "event")
+  )
+)
+(define-virtual button_release_event
+  (of-object "GooCanvasItemView")
+  (return-type "gboolean")
+  (parameters
+    '("GooCanvasItemView*" "target")
+    '("GdkEventButton*" "event")
+  )
+)
+(define-virtual focus_in_event
+  (of-object "GooCanvasItemView")
+  (return-type "gboolean")
+  (parameters
+    '("GooCanvasItemView*" "target")
+    '("GdkEventFocus*" "event")
+  )
+)
+(define-virtual focus_out_event
+  (of-object "GooCanvasItemView")
+  (return-type "gboolean")
+  (parameters
+    '("GooCanvasItemView*" "target")
+    '("GdkEventFocus*" "event")
+  )
+)
+(define-virtual key_press_event
+  (of-object "GooCanvasItemView")
+  (return-type "gboolean")
+  (parameters
+    '("GooCanvasItemView*" "target")
+    '("GdkEventKey*" "event")
+  )
+)
+(define-virtual key_release_event
+  (of-object "GooCanvasItemView")
+  (return-type "gboolean")
+  (parameters
+    '("GooCanvasItemView*" "target")
+    '("GdkEventKey*" "event")
+  )
+)
+(define-virtual grab_broken_event
+  (of-object "GooCanvasItemView")
+  (return-type "gboolean")
+  (parameters
+    '("GooCanvasItemView*" "target")
+    '("GdkEventGrabBroken*" "event")
+  )
+)
+
+;; From /usr/include/goocanvas/goocanvasitemviewsimple.h
+
+(define-function goo_canvas_item_view_simple_get_type
+  (c-name "goo_canvas_item_view_simple_get_type")
+  (return-type "GType")
+)
+
+(define-method view_simple_item_changed
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_view_simple_item_changed")
+  (return-type "none")
+  (parameters
+    '("gboolean" "recompute_bounds")
+    '("GooCanvasItemViewSimple*" "simple_view")
+  )
+)
+
+(define-method setup_accessibility
+  (of-object "GooCanvasItemViewSimple")
+  (c-name "goo_canvas_item_view_simple_setup_accessibility")
+  (return-type "none")
+)
+
+;; From /usr/include/goocanvas/goocanvasmodel.h
+
+(define-function goo_canvas_model_get_type
+  (c-name "goo_canvas_model_get_type")
+  (return-type "GType")
+)
+
+(define-method get_root_item
+  (of-object "GooCanvasModel")
+  (c-name "goo_canvas_model_get_root_item")
+  (return-type "GooCanvasItem*")
+)
+
+(define-virtual get_root_item
+  (of-object "GooCanvasModel")
+  (return-type "GooCanvasItem*")
+)
+
+;; From /usr/include/goocanvas/goocanvasmodelsimple.h
+
+(define-function goo_canvas_model_simple_get_type
+  (c-name "goo_canvas_model_simple_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_model_simple_new
+  (c-name "goo_canvas_model_simple_new")
+  (is-constructor-of "GooCanvasModelSimple")
+  (return-type "GooCanvasModelSimple*")
+)
+
+;; From /usr/include/goocanvas/goocanvaspath.h
+
+(define-function goo_canvas_path_get_type
+  (c-name "goo_canvas_path_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_path_new
+  (c-name "goo_canvas_path_new")
+  (is-constructor-of "GooCanvasPath")
+  (return-type "GooCanvasItem*")
+  (properties
+    '("GooCanvasItem*" "parent")
+    '("gchar*" "path_data")
+  )
+  (varargs #t)
+)
+
+
+
+;; From /usr/include/goocanvas/goocanvaspathview.h
+
+(define-function goo_canvas_path_view_get_type
+  (c-name "goo_canvas_path_view_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_path_view_new
+  (c-name "goo_canvas_path_view_new")
+  (is-constructor-of "GooCanvasPathView")
+  (return-type "GooCanvasItemView*")
+  (properties
+    '("GooCanvasView*" "canvas_view")
+    '("GooCanvasItemView*" "parent_view")
+    '("GooCanvasPath*" "path")
+  )
+)
+
+
+
+;; From /usr/include/goocanvas/goocanvaspolyline.h
+
+(define-function goo_canvas_points_get_type
+  (c-name "goo_canvas_points_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_points_new
+  (c-name "goo_canvas_points_new")
+  (is-constructor-of "GooCanvasPoints")
+  (return-type "GooCanvasPoints*")
+  (properties
+    '("int" "num_points")
+  )
+)
+
+(define-method ref
+  (of-object "GooCanvasPoints")
+  (c-name "goo_canvas_points_ref")
+  (return-type "GooCanvasPoints*")
+)
+
+(define-method unref
+  (of-object "GooCanvasPoints")
+  (c-name "goo_canvas_points_unref")
+  (return-type "none")
+)
+
+(define-function goo_canvas_polyline_get_type
+  (c-name "goo_canvas_polyline_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_polyline_new
+  (c-name "goo_canvas_polyline_new")
+  (is-constructor-of "GooCanvasPolyline")
+  (return-type "GooCanvasItem*")
+  (properties
+    '("GooCanvasItem*" "parent")
+    '("gboolean" "close_path")
+    '("gint" "num_points")
+  )
+  (varargs #t)
+)
+
+(define-function goo_canvas_polyline_new_line
+  (c-name "goo_canvas_polyline_new_line")
+  (return-type "GooCanvasItem*")
+  (parameters
+    '("GooCanvasItem*" "parent")
+    '("gdouble" "x1")
+    '("gdouble" "y1")
+    '("gdouble" "x2")
+    '("gdouble" "y2")
+    '("const-gchar*" "first_property")
+  )
+  (varargs #t)
+)
+
+
+
+;; From /usr/include/goocanvas/goocanvaspolylineview.h
+
+(define-function goo_canvas_polyline_view_get_type
+  (c-name "goo_canvas_polyline_view_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_polyline_viewg
+  (c-name "goo_canvas_polyline_view_new")
+  (is-constructor-of "GooCanvasPolylineView")
+  (return-type "GooCanvasItemView*")
+  (properties
+    '("GooCanvasView*" "canvas_view")
+    '("GooCanvasItemView*" "parent_view")
+    '("GooCanvasPolyline*" "polyline")
+  )
+)
+
+
+
+;; From /usr/include/goocanvas/goocanvasrect.h
+
+(define-function goo_canvas_rect_get_type
+  (c-name "goo_canvas_rect_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_rect_new
+  (c-name "goo_canvas_rect_new")
+  (is-constructor-of "GooCanvasRect")
+  (return-type "GooCanvasItem*")
+  (properties
+    '("GooCanvasItem*" "parent")
+    '("gdouble" "x")
+    '("gdouble" "y")
+    '("gdouble" "width")
+    '("gdouble" "height")
+    '("const-gchar*" "first_property")
+  )
+  (varargs #t)
+)
+
+
+
+;; From /usr/include/goocanvas/goocanvasrectview.h
+
+(define-function goo_canvas_rect_view_get_type
+  (c-name "goo_canvas_rect_view_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_rect_view_new
+  (c-name "goo_canvas_rect_view_new")
+  (is-constructor-of "GooCanvasRectView")
+  (return-type "GooCanvasItemView*")
+  (properties
+    '("GooCanvasView*" "canvas_view")
+    '("GooCanvasItemView*" "parent_view")
+    '("GooCanvasRect*" "rect")
+  )
+)
+
+
+
+;; From /usr/include/goocanvas/goocanvastext.h
+
+(define-function goo_canvas_text_get_type
+  (c-name "goo_canvas_text_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_text_new
+  (c-name "goo_canvas_text_new")
+  (is-constructor-of "GooCanvasText")
+  (return-type "GooCanvasItem*")
+  (properties
+    '("GooCanvasItem*" "parent")
+    '("const-char*" "string")
+    '("gdouble" "x")
+    '("gdouble" "y")
+    '("gdouble" "width")
+    '("GtkAnchorType" "anchor")
+    '("const-gchar*" "first_property")
+  )
+  (varargs #t)
+)
+
+
+
+;; From /usr/include/goocanvas/goocanvastextview.h
+
+(define-function goo_canvas_text_view_get_type
+  (c-name "goo_canvas_text_view_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_text_view_new
+  (c-name "goo_canvas_text_view_new")
+  (is-constructor-of "GooCanvasTextView")
+  (return-type "GooCanvasItemView*")
+  (properties
+    '("GooCanvasView*" "canvas_view")
+    '("GooCanvasItemView*" "parent_view")
+    '("GooCanvasText*" "text")
+  )
+)
+
+
+
+;; From /usr/include/goocanvas/goocanvasutils.h
+
+(define-function goo_canvas_pointer_events_get_type
+  (c-name "goo_canvas_pointer_events_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_item_visibility_get_type
+  (c-name "goo_canvas_item_visibility_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_line_dash_new
+  (c-name "goo_canvas_line_dash_new")
+  (is-constructor-of "GooCanvasLineDash")
+  (return-type "GooCanvasLineDash*")
+  (properties
+    '("gint" "num_dashes")
+  )
+  (varargs #t)
+)
+
+(define-method ref
+  (of-object "GooCanvasLineDash")
+  (c-name "goo_canvas_line_dash_ref")
+  (return-type "GooCanvasLineDash*")
+)
+
+(define-method unref
+  (of-object "GooCanvasLineDash")
+  (c-name "goo_canvas_line_dash_unref")
+  (return-type "none")
+)
+
+
+
+;; From /usr/include/goocanvas/goocanvasview.h
+
+(define-function goo_canvas_view_get_type
+  (c-name "goo_canvas_view_get_type")
+  (return-type "GType")
+)
+
+(define-function goo_canvas_view_new
+  (c-name "goo_canvas_view_new")
+  (is-constructor-of "GooCanvasView")
+  (return-type "GtkWidget*")
+)
+
+(define-method get_model
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_get_model")
+  (return-type "GooCanvasModel*")
+)
+
+(define-method set_model
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_set_model")
+  (return-type "none")
+  (parameters
+    '("GooCanvasModel*" "model")
+  )
+)
+
+(define-method get_scale
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_get_scale")
+  (return-type "gdouble")
+)
+
+(define-method set_scale
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_set_scale")
+  (return-type "none")
+  (parameters
+    '("gdouble" "pixels_per_unit")
+  )
+)
+
+(define-method get_bounds
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_get_bounds")
+  (return-type "none")
+  (parameters
+    '("gdouble*" "left")
+    '("gdouble*" "top")
+    '("gdouble*" "right")
+    '("gdouble*" "bottom")
+  )
+)
+
+(define-method set_bounds
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_set_bounds")
+  (return-type "none")
+  (parameters
+    '("gdouble" "left")
+    '("gdouble" "top")
+    '("gdouble" "right")
+    '("gdouble" "bottom")
+  )
+)
+
+(define-method scroll_to
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_scroll_to")
+  (return-type "none")
+  (parameters
+    '("gdouble" "left")
+    '("gdouble" "top")
+  )
+)
+
+(define-method grab_focus
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_grab_focus")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItemView*" "item_view")
+  )
+)
+
+(define-method render
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_render")
+  (return-type "none")
+  (parameters
+    '("cairo_t*" "cr")
+    '("GooCanvasBounds*" "bounds")
+    '("gdouble" "scale")
+  )
+)
+
+(define-method convert_to_pixels
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_convert_to_pixels")
+  (return-type "none")
+  (parameters
+    '("gdouble*" "x")
+    '("gdouble*" "y")
+  )
+)
+
+(define-method convert_from_pixels
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_convert_from_pixels")
+  (return-type "none")
+  (parameters
+    '("gdouble*" "x")
+    '("gdouble*" "y")
+  )
+)
+
+(define-method convert_to_item_space
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_convert_to_item_space")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItemView*" "item_view")
+    '("gdouble*" "x")
+    '("gdouble*" "y")
+  )
+)
+
+(define-method convert_from_item_space
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_convert_from_item_space")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItemView*" "item_view")
+    '("gdouble*" "x")
+    '("gdouble*" "y")
+  )
+)
+
+(define-method pointer_grab
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_pointer_grab")
+  (return-type "GdkGrabStatus")
+  (parameters
+    '("GooCanvasItemView*" "item_view")
+    '("GdkEventMask" "event_mask")
+    '("GdkCursor*" "cursor")
+    '("guint32" "time")
+  )
+)
+
+(define-method pointer_ungrab
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_pointer_ungrab")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItemView*" "item_view")
+    '("guint32" "time")
+  )
+)
+
+(define-method keyboard_grab
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_keyboard_grab")
+  (return-type "GdkGrabStatus")
+  (parameters
+    '("GooCanvasItemView*" "item_view")
+    '("gboolean" "owner_events")
+    '("guint32" "time")
+  )
+)
+
+(define-method keyboard_ungrab
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_keyboard_ungrab")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItemView*" "item_view")
+    '("guint32" "time")
+  )
+)
+
+(define-method create_item_view
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_create_item_view")
+  (return-type "GooCanvasItemView*")
+  (parameters
+    '("GooCanvasItem*" "item")
+    '("GooCanvasItemView*" "parent_view")
+  )
+)
+
+(define-method update
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_update")
+  (return-type "none")
+)
+
+(define-method request_update
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_request_update")
+  (return-type "none")
+)
+
+(define-method request_redraw
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_request_redraw")
+  (return-type "none")
+  (parameters
+    '("GooCanvasBounds*" "bounds")
+  )
+)
+
+(define-virtual set_scroll_adjustments
+  (of-object "GooCanvasView")
+  (return-type "none")
+  (parameters
+    '("GtkAdjustment*" "hadjustment")
+    '("GtkAdjustment*" "vadjustment")
+  )
+)
+(define-virtual create_item_view
+  (of-object "GooCanvasView")
+  (return-type "GooCanvasItemView*")
+  (parameters
+    '("GooCanvasItem*" "item")
+    '("GooCanvasItemView*" "parent_view")
+  )
+)
+(define-virtual item_view_created
+  (of-object "GooCanvasView")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItemView*" "item_view")
+    '("GooCanvasItem*" "item")
+  )
+)
+

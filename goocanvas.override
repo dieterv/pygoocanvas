@@ -1,0 +1,86 @@
+%%
+headers
+#define NO_IMPORT_PYGOBJECT
+#include "pygobject.h"
+#include <goocanvas-1.0/goocanvas.h>
+#include <pygtk/pygtk.h>
+
+# include <pycairo/pycairo.h>
+extern Pycairo_CAPI_t *Pycairo_CAPI;
+
+static PyObject *
+_gslist_to_pylist_objs (GSList *source)
+{
+    GSList *iter;
+    PyObject *dest = PyList_New (0);
+    for (iter = source; iter != NULL; iter = iter->next)
+    {
+        PyObject *item = pygobject_new ((GObject *)iter->data);
+        PyList_Append (dest, item);
+        Py_DECREF (item);
+    }
+    return dest;
+}
+
+static PyObject *
+_gslist_to_pylist_strs (GSList *source)
+{
+    GSList *iter;
+    PyObject *dest = PyList_New (0);
+    for (iter = source; iter != NULL; iter = iter->next)
+    {
+        PyObject *item = PyString_FromString ((char *)iter->data);
+        PyList_Append (dest, item);
+        Py_DECREF (item);
+    }
+    return dest;
+}
+
+%%
+modulename goocanvas
+
+%%
+import gobject.GObject as PyGObject_Type
+import gtk.Container as PyGtkContainer_Type
+import gtk.Adjustment as PyGtkAdjustment_Type
+
+%%
+ignore
+goo_canvas_ellipse_view_new
+goo_canvas_group_view_new
+goo_canvas_image_view_new
+goo_canvas_path_view_new
+goo_canvas_polyline_view_new
+goo_canvas_rect_view_new
+goo_canvas_text_view_new
+
+%%
+ignore-glob	
+    *_get_type
+    _*
+
+%%
+override goo_canvas_item_get_transform noargs
+static PyObject *
+_wrap_goo_canvas_item_get_transform(PyGObject *self)
+{
+    cairo_matrix_t *matrix;
+    
+    matrix = goo_canvas_item_get_transform(GOO_CANVAS_ITEM(self->obj));
+
+    return PycairoMatrix_FromMatrix(matrix);
+}
+%%
+override goo_canvas_item_set_transform kwargs
+static PyObject *
+_wrap_goo_canvas_item_set_transform(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "matrix", NULL };
+    PyGObject *matrix;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O!:GooCanvasItem.set_transform", kwlist, &PycairoMatrix_Type, &matrix))
+        return NULL;
+    goo_canvas_item_set_transform(GOO_CANVAS_ITEM(self->obj), GOO_CANVAS_ITEM(matrix->obj));
+    Py_INCREF(Py_None);
+    return Py_None;
+}
