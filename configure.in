@@ -100,6 +100,7 @@ AC_SUBST(CODEGEN)
 dnl output
 AC_CONFIG_FILES(
   Makefile
+  demo/Makefile
 )
 
 GTK_DOC_CHECK(1.4)

@@ -1,6 +1,9 @@
 # require automake-1.7
 AUTOMAKE_OPTIONS=1.7
 
+SUBDIRS = demo
+
+
 INCLUDES = $(PYTHON_INCLUDES) $(GOOCANVAS_CFLAGS) $(PYGTK_CFLAGS) $(GTK_CFLAGS)
 
 EXTRA_DIST = goocanvas.defs goocanvas.override
