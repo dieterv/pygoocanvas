@@ -35,7 +35,7 @@ def create_canvas_model():
     root = canvas_model.get_root_item()
 
     ## Add a few simple items.
-    item = gobject.new(goocanvas.CanvasRect,
+    item = gobject.new(goocanvas.Rect,
                        x=100, y=100, width=400, height=400,
                        line_width=10.0,
                        radius_x=20.0,
@@ -44,7 +44,7 @@ def create_canvas_model():
                        fill_color="red")
     root.add_child(item)
 
-    item = gobject.new(goocanvas.CanvasText, text="Hello World",
+    item = gobject.new(goocanvas.Text, text="Hello World",
                        x=300, y=300, width=-1,
                        anchor=gtk.ANCHOR_CENTER,
                        font="Sans 24")
@@ -58,7 +58,7 @@ def create_canvas_model():
 ## This is our handler for the "item-view-created" signal of the GooCanvasView.
 ##   We connect to the "button-press-event" signal of new rect views.
 def on_item_view_created (view, item_view, item):
-    if isinstance(item, goocanvas.CanvasRect):
+    if isinstance(item, goocanvas.Rect):
         item_view.connect("button_press_event", on_rect_button_press)
 
 
