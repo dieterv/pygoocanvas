@@ -53,6 +53,12 @@ goo_canvas_path_view_new
 goo_canvas_polyline_view_new
 goo_canvas_rect_view_new
 goo_canvas_text_view_new
+goo_canvas_ellipse_new
+goo_canvas_image_new
+goo_canvas_path_new
+goo_canvas_polyline_new
+goo_canvas_rect_new
+goo_canvas_text_new
 
 %%
 ignore-glob	

@@ -35,19 +35,18 @@ def create_canvas_model():
     root = canvas_model.get_root_item()
 
     ## Add a few simple items.
-    item = gobject.new(goocanvas.Rect,
-                       x=100, y=100, width=400, height=400,
-                       line_width=10.0,
-                       radius_x=20.0,
-                       radius_y=10.0,
-                       stroke_color="yellow",
-                       fill_color="red")
+    item = goocanvas.Rect(x=100, y=100, width=400, height=400,
+                          line_width=10.0,
+                          radius_x=20.0,
+                          radius_y=10.0,
+                          stroke_color="yellow",
+                          fill_color="red")
     root.add_child(item)
 
-    item = gobject.new(goocanvas.Text, text="Hello World",
-                       x=300, y=300, width=-1,
-                       anchor=gtk.ANCHOR_CENTER,
-                       font="Sans 24")
+    item = goocanvas.Text(text="Hello World",
+                          x=300, y=300,
+                          anchor=gtk.ANCHOR_CENTER,
+                          font="Sans 24")
     root.add_child(item)
     item.rotate(45, 300, 300)
 
