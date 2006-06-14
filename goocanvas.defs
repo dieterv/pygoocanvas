@@ -6,7 +6,15 @@
   (c-name "GooCanvasStyle")
   (gtype-id "GOO_TYPE_CANVAS_STYLE")
   (copy-func "goo_canvas_style_copy")
-  (release-func "goo_canvas_style_free")
+  (release-func "goo_canvas_style_unref")
+)
+
+(define-boxed Points
+  (in-module "Goo")
+  (c-name "GooCanvasPoints")
+  (gtype-id "GOO_TYPE_CANVAS_POINTS")
+  (copy-func "goo_canvas_points_ref")
+  (release-func "goo_canvas_points_unref")
 )
 
 (define-object Group
@@ -1168,8 +1176,8 @@
   (c-name "goo_canvas_points_new")
   (is-constructor-of "GooCanvasPoints")
   (return-type "GooCanvasPoints*")
-  (properties
-    '("int" "num_points")
+  (parameters
+    '("gint" "num_points")
   )
 )
 
