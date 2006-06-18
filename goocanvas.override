@@ -90,3 +90,39 @@ _wrap_goo_canvas_item_set_transform(PyGObject *self, PyObject *args, PyObject *k
     Py_INCREF(Py_None);
     return Py_None;
 }
+%%
+override goo_canvas_item_simple_get_path_bounds kwargs
+static PyObject *
+_wrap_goo_canvas_item_simple_get_path_bounds(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "cr", "bounds", NULL };
+    PyObject *py_bounds;
+    PycairoContext *cr;
+    GooCanvasBounds *bounds;
+    gint bbounds, i;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O!O:GooCanvasItemSimple.get_path_bounds", 
+        kwlist, &PycairoContext_Type, &cr, &py_bounds))
+        return NULL;
+    
+    bbounds = PySequence_Length(py_bounds);
+    bounds = g_new(GooCanvasBounds, bbounds);
+    for (i = 0; i < bbounds; i++) {
+        PyObject *item = PySequence_GetItem(py_bounds, i);
+        Py_DECREF(item);
+        if (!PyArg_ParseTuple(item, "iiii", &bounds[i].x1, &bounds[i].y1, &bounds[i].x2, &bounds[i].y2)) {
+            PyErr_Clear();
+            PyErr_SetString(PyExc_TypeError,
+                            "sequence members must be 4-tuples");
+            g_free(bounds);
+            return NULL;
+        }
+    }   
+
+    goo_canvas_item_simple_get_path_bounds(GOO_CANVAS_ITEM_SIMPLE(self->obj), 
+                                            cr->ctx, bounds);
+    g_free(bounds);
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+%%
