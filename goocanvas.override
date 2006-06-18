@@ -82,7 +82,7 @@ static PyObject *
 _wrap_goo_canvas_item_set_transform(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
     static char *kwlist[] = { "matrix", NULL };
-    PyGObject *matrix;
+    cairo_matrix_t *matrix;
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O!:GooCanvasItem.set_transform", kwlist, &PycairoMatrix_Type, &matrix))
         return NULL;
