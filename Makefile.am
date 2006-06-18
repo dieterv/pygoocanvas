@@ -6,7 +6,7 @@ SUBDIRS = demo
 
 INCLUDES = $(PYTHON_INCLUDES) $(GOOCANVAS_CFLAGS) $(PYGTK_CFLAGS) $(GTK_CFLAGS)
 
-EXTRA_DIST = goocanvas.defs goocanvas.override
+EXTRA_DIST = goocanvas.defs goocanvas.override arg-types.py
 
 # goocanvas module
 pyexec_LTLIBRARIES = goocanvasmodule.la
@@ -14,13 +14,14 @@ goocanvasmodule_la_LDFLAGS = -module -avoid-version -export-symbols-regex initgo
 goocanvasmodule_la_LIBADD = $(GOOCANVAS_LIBS)
 goocanvasmodule_la_SOURCES = goocanvasmodule.c 
 nodist_goocanvasmodule_la_SOURCES = goocanvas.c
-goocanvas.c: goocanvas.defs goocanvas.override
+goocanvas.c: goocanvas.defs goocanvas.override arg-types.py
 CLEANFILES = goocanvas.c
 
 .defs.c:
 	(cd $(srcdir)\
 	&& $(PYTHON) $(CODEGEN) \
 		--override $*.override \
+	    --load-types arg-types.py \
 	    --register @PYGTK_DATADIR@/pygtk/2.0/defs/gdk-types.defs \
 	    --register @PYGTK_DATADIR@/pygtk/2.0/defs/pango-types.defs \
 	    --register @PYGTK_DATADIR@/pygtk/2.0/defs/gtk-types.defs \
