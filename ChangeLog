@@ -1,3 +1,12 @@
+2006-06-21  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
+	* demo/Makefile.am:
+	added fifteen-demo.py example, not finished but working
+	* demo/fifteen-demo.py:
+	added fifteen-demo.py example, not finished but working
+	* AUTHORS:
+	added Edward Hervey
+
 2006-06-18  Edward Hervey  <edward@fluendo.com>
 
 	* Makefile.am:
