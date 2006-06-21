@@ -1,3 +1,9 @@
+2006-06-22  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
+	* demo/fifteen-demo.py:
+	added signals and callbacks to fifteen-demo.py example, now you can move
+	the objects.
+
 2006-06-21  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
 	* demo/Makefile.am:
