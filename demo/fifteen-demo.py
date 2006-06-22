@@ -1,7 +1,9 @@
 import gtk
 import goocanvas
+import random
 
 PIECE_SIZE = 50
+SCRAMBLE_MOVES = 256
 
 def test_win(board):
     i = 0
@@ -13,6 +15,20 @@ def on_item_view_created (view, item_view, item):
     if item.get_parent():
         if isinstance(item, goocanvas.Group):
             item_view.connect("button_press_event", piece_button_press)
+            item_view.connect("enter_notify_event", piece_enter_notify)
+            item_view.connect("leave_notify_event", piece_leave_notify)
+
+def piece_enter_notify(view, target_view, event):
+    item = view.get_item()
+    text = item.get_data("text")
+    text.props.fill_color = "white"
+    return(False)
+
+def piece_leave_notify(view, target_view, event):
+    item = view.get_item()
+    text = item.get_data("text")
+    text.props.fill_color = "black"
+    return(False)
 
 def piece_button_press(view, target_view, event):
     item = view.get_item()
@@ -58,6 +74,44 @@ def piece_button_press(view, target_view, event):
 
     test_win(board)
 
+def scramble(object, canvas):
+    board = canvas.get_data("board")
+    
+    pos = 0
+    i = 0
+    
+    while pos < 16:
+        if board[pos] == None:
+            break
+        pos += 1
+
+    while i < SCRAMBLE_MOVES:
+            
+        dir = random.randint(0, 3)
+        
+        x = 0
+        y = 0
+        
+        if ((dir == 0) and (pos > 3)):
+            y = -1
+        elif ((dir == 1) and (pos < 12)):
+            y = 1
+        elif ((dir == 2) and ((pos % 4) != 0)):
+            x = -1
+        elif ((dir == 3) and ((pos % 4) != 3)):
+            x = 1
+        else:
+            continue
+
+        oldpos = pos + y * 4 + x
+        print pos, oldpos
+        board[pos] = board[oldpos]
+        board[oldpos] = None
+        board[pos].set_data("piece_pos", pos)
+        board[pos].translate(-x * PIECE_SIZE, -y * PIECE_SIZE)
+        pos = oldpos
+        i += 1
+
 win = gtk.Window()
 win.connect("destroy", gtk.main_quit)
 
@@ -85,6 +139,11 @@ root = canvas_model.get_root_item()
 canvas.set_data("board", board)
 
 frame.add(canvas)
+
+button = gtk.Button("Scramble")
+vbox.pack_start(button, False, False, 0)
+button.set_data("board", board)
+button.connect("clicked", scramble, canvas)
 
 def get_piece_color(piece):
     y = i / 4
