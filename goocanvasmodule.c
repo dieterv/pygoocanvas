@@ -4,7 +4,7 @@
 
 #include <pygobject.h>
 #include <pygtk/pygtk.h>
-#include <goocanvas-1.0/goocanvas.h>
+#include <goocanvas.h>
 
 # include <pycairo/pycairo.h>
 Pycairo_CAPI_t *Pycairo_CAPI;

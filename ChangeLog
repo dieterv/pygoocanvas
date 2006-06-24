@@ -1,3 +1,8 @@
+2006-06-24  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* goocanvasmodule.c: Remove the goocanvas-1.0/ part of the
+	#include, it is not needed.
+
 2006-06-23  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
 	* demo/fifteen-demo.py:
