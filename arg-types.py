@@ -33,3 +33,15 @@ class CairoParam(reversewrapper.Parameter):
 
 matcher.register_reverse("cairo_t*", CairoParam)
 
+class BoundsPtrArg(ArgType):
+
+    def write_param(self, ptype, pname, pdflt, pnull, info):
+        info.varlist.add('PyObject', '*py_' + pname)
+        info.add_parselist('O!', ['&PyGooCanvasBounds_Type', '&py_'+pname], [pname])
+        info.arglist.append("&((PyGooCanvasBounds *) py_%s)->bounds" % (pname,))
+
+    def write_return(self, ptype, ownsreturn, info):
+        info.varlist.add('GooCanvasBounds', '*ret')
+        info.codeafter.append('   return pygoo_canvas_bounds_new(ret);\n');
+
+matcher.register('GooCanvasBounds*', BoundsPtrArg())

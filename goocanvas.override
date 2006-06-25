@@ -9,6 +9,7 @@ headers
 #include <pycairo.h>
 
 extern Pycairo_CAPI_t *Pycairo_CAPI;
+extern PyTypeObject PyGooCanvasBounds_Type;
 
 #if 0
 
@@ -41,6 +42,145 @@ _gslist_to_pylist_strs (GSList *source)
 }
 
 #endif
+
+typedef struct {
+    PyObject_HEAD
+    GooCanvasBounds bounds;
+} PyGooCanvasBounds;
+
+#define bounds_getter(field)                                                    \
+static PyObject *                                                               \
+_pygoo_canvas_bounds_get_##field(PyGooCanvasBounds *self, void *closure)        \
+{                                                                               \
+    return PyFloat_FromDouble(self->bounds.field);                              \
+}
+
+#define bounds_setter(field)                                                                    \
+static int                                                                                      \
+_pygoo_canvas_bounds_set_##field(PyGooCanvasBounds *self, PyObject *value, void *closure)       \
+{                                                                                               \
+    if (!PyFloat_Check(value)) {                                                                \
+        PyErr_SetString(PyExc_TypeError, #field" must be a float");                             \
+        return -1;                                                                              \
+    }                                                                                           \
+    self->bounds.field = PyFloat_AsDouble(value);                                               \
+    return 0;                                                                                   \
+}
+
+bounds_getter(x1);
+bounds_setter(x1);
+bounds_getter(y1);
+bounds_setter(y1);
+bounds_getter(x2);
+bounds_setter(x2);
+bounds_getter(y2);
+bounds_setter(y2);
+
+
+static PyGetSetDef _PyGooCanvasBounds_getsets[] = {
+    { "x1", (getter)_pygoo_canvas_bounds_get_x1, (setter)_pygoo_canvas_bounds_set_x1 },
+    { "y1", (getter)_pygoo_canvas_bounds_get_y1, (setter)_pygoo_canvas_bounds_set_y1 },
+    { "x2", (getter)_pygoo_canvas_bounds_get_x2, (setter)_pygoo_canvas_bounds_set_x2 },
+    { "y2", (getter)_pygoo_canvas_bounds_get_y2, (setter)_pygoo_canvas_bounds_set_y2 },
+    { NULL, (getter)0, (setter)0 }
+};
+
+static PyObject *
+pygoo_canvas_bounds_tp_new(PyTypeObject *type, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "x1", "y1", "x2", "y2", NULL };
+    PyGooCanvasBounds *self;
+    GooCanvasBounds bounds = {0,};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "|ffff:goocanvas.Bounds.__init__", kwlist,
+                                     &bounds.x1, &bounds.y1, &bounds.x2, &bounds.y2))
+        return NULL;
+
+    self = (PyGooCanvasBounds *) PyObject_NEW(PyGooCanvasBounds,
+                                              &PyGooCanvasBounds_Type);
+    self->bounds = bounds;
+    return (PyObject *) self;
+}
+
+static void
+pygoo_canvas_bounds_dealloc(PyGooCanvasBounds *self)
+{
+    PyObject_DEL(self);
+}
+
+static PyMethodDef _PyGooCanvasBounds_methods[] = {
+    { NULL,  0, 0 }
+};
+
+PyTypeObject PyGooCanvasBounds_Type = {
+    PyObject_HEAD_INIT(NULL)
+    0,                                  /* ob_size */
+    "goocanvas.Bounds",                 /* tp_name */
+    sizeof(PyGooCanvasBounds),		/* tp_basicsize */
+    0,                                  /* tp_itemsize */
+    /* methods */
+    (destructor)pygoo_canvas_bounds_dealloc, /* tp_dealloc */
+    (printfunc)0,                       /* tp_print */
+    (getattrfunc)0,                     /* tp_getattr */
+    (setattrfunc)0,                     /* tp_setattr */
+    (cmpfunc)0,                         /* tp_compare */
+    (reprfunc)0,                        /* tp_repr */
+    0,                                  /* tp_as_number */
+    0,                                  /* tp_as_sequence */
+    0,                                  /* tp_as_mapping */
+    (hashfunc)0,                        /* tp_hash */
+    (ternaryfunc)0,                     /* tp_call */
+    (reprfunc)0,                        /* tp_str */
+    (getattrofunc)0,                    /* tp_getattro */
+    (setattrofunc)0,                    /* tp_setattro */
+    0,                                  /* tp_as_buffer */
+    Py_TPFLAGS_DEFAULT,   		/* tp_flags */
+    "Holds bounding box coordinates",   /* Documentation string */
+    (traverseproc)0,                    /* tp_traverse */
+    (inquiry)0,                         /* tp_clear */
+    (richcmpfunc)0,                     /* tp_richcompare */
+    0,                                  /* tp_weaklistoffset */
+    (getiterfunc)0,                     /* tp_iter */
+    (iternextfunc)0,                    /* tp_iternext */
+    _PyGooCanvasBounds_methods,         /* tp_methods */
+    0,                                  /* tp_members */
+    _PyGooCanvasBounds_getsets,         /* tp_getset */
+    (PyTypeObject *)0,                  /* tp_base */
+    (PyObject *)0,                      /* tp_dict */
+    0,                                  /* tp_descr_get */
+    0,                                  /* tp_descr_set */
+    0,                                  /* tp_dictoffset */
+    (initproc)0,                        /* tp_init */
+    0,                			/* tp_alloc */
+    pygoo_canvas_bounds_tp_new,         /* tp_new */
+    0,                                  /* tp_free */
+    (inquiry)0,                         /* tp_is_gc */
+    (PyObject *)0,                      /* tp_bases */
+};
+
+PyObject*
+pygoo_canvas_bounds_new(GooCanvasBounds *bounds)
+{
+    PyGooCanvasBounds *self;
+
+    self = (PyGooCanvasBounds *)PyObject_NEW(PyGooCanvasBounds,
+                                             &PyGooCanvasBounds_Type);
+    if (G_UNLIKELY(self == NULL))
+	return NULL;
+    if (bounds)
+        self->bounds = *bounds;
+    return (PyObject *)self;
+}
+
+%%
+init
+    if (PyType_Ready(&PyGooCanvasBounds_Type) < 0) {
+        g_return_if_reached();
+    }
+    if (PyDict_SetItemString(d, "Bounds", (PyObject *)&PyGooCanvasBounds_Type) < 0) {
+        g_return_if_reached();
+    }
 
 
 %%
@@ -107,4 +247,3 @@ _wrap_goo_canvas_item_simple_get_path_bounds(PyGObject *self, PyObject *args, Py
     Py_INCREF(Py_None);
     return Py_None;
 }
-%%
