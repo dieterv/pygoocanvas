@@ -1,6 +1,8 @@
 2006-06-25  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* goocanvas.override: Correct a couple of include paths.
+	(_gslist_to_pylist_objs, _gslist_to_pylist_strs): They're no
+	longer used, disable them.
 
 	* Makefile.am: Update to use new pkg-config defined variable.
 

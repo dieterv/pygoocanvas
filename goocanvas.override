@@ -1,3 +1,4 @@
+/* -*- Mode: C; c-basic-offset: 4 -*- */
 %%
 headers
 #define NO_IMPORT_PYGOBJECT
@@ -8,6 +9,8 @@ headers
 #include <pycairo.h>
 
 extern Pycairo_CAPI_t *Pycairo_CAPI;
+
+#if 0
 
 static PyObject *
 _gslist_to_pylist_objs (GSList *source)
@@ -36,6 +39,9 @@ _gslist_to_pylist_strs (GSList *source)
     }
     return dest;
 }
+
+#endif
+
 
 %%
 modulename goocanvas
