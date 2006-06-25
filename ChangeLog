@@ -1,3 +1,12 @@
+2006-06-25  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* configure.in: Add compiler flags -Wall -std=c9x and
+	-fno-strict-aliasing, if supported by the compiler.  The latter
+	inhibits strict aliasing which is not allowed for python
+	code (python itself uses that flag).
+
+	* acinclude.m4 (CPPFLAGS): Copy-paste JH_ADD_CFLAG macro from pygtk.
+
 2006-06-24  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* goocanvasmodule.c: Remove the goocanvas-1.0/ part of the
