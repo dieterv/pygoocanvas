@@ -1,5 +1,13 @@
 2006-06-25  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* goocanvas.override: Correct a couple of include paths.
+
+	* Makefile.am: Update to use new pkg-config defined variable.
+
+	* configure.in: Merge all pkg-config checks in a single variable.
+
+	* arg-types.py: Register argtype for cairo_t* in reverse wrapper.
+
 	* configure.in: Add compiler flags -Wall -std=c9x and
 	-fno-strict-aliasing, if supported by the compiler.  The latter
 	inhibits strict aliasing which is not allowed for python

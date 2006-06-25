@@ -2,10 +2,11 @@
 headers
 #define NO_IMPORT_PYGOBJECT
 #include "pygobject.h"
-#include <goocanvas-1.0/goocanvas.h>
+#include <goocanvas.h>
 #include <pygtk/pygtk.h>
 
-# include <pycairo/pycairo.h>
+#include <pycairo.h>
+
 extern Pycairo_CAPI_t *Pycairo_CAPI;
 
 static PyObject *

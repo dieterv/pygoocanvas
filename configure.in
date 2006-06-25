@@ -68,25 +68,21 @@ AM_PATH_GTK_2_0(gtk_required_version,,[AC_MSG_ERROR(maybe you want the gtk-gnome
 GTK_LIBS=`echo $GTK_LIBS | sed -e "s/$export_dynamic//"`
 
 dnl pygtk
-PKG_CHECK_MODULES(PYGTK, pygtk-2.0 >= pygtk_required_version,
-	CODEGENDIR=`pkg-config --variable=codegendir pygtk-2.0`
-    PYGTK_DATADIR=`pkg-config --variable=datadir pygtk-2.0`,)
+PKG_CHECK_MODULES(PYGOOCANVAS, [ dnl
+                         pygtk-2.0 >= pygtk_required_version,
+                         goocanvas >= goocanvas_required_version,
+                         pycairo >= pycairo_required_version
+                         ])
+PYGTK_DATADIR=`pkg-config --variable=datadir pygtk-2.0`
+
 AC_SUBST(PYGTK_CFLAGS)
 AC_SUBST(PYGTK_LIBS)
 AC_SUBST(PYGTK_DATADIR)
 
-dnl goocanvas
-PKG_CHECK_MODULES(GOOCANVAS, goocanvas >= goocanvas_required_version,,)
-AC_SUBST(GOOCANVAS_CFLAGS)
-AC_SUBST(GOOCANVAS_LIBS)
-
-dnl pycairo
-PKG_CHECK_MODULES(PYCAIRO, pycairo >= pycairo_required_version,
-    PYCAIRO_DATADIR=`pkg-config --variable=datadir pycairo`,)
-AC_SUBST(PYCAIRO_DATADIR)
 
 dnl codegen
-AC_MSG_CHECKING(for codegen)
+AC_MSG_CHECKING(for pygtk codegen)
+CODEGENDIR=`pkg-config --variable=codegendir pygtk-2.0`
 if test -f $CODEGENDIR/codegen.py; then
 	CODEGEN=$CODEGENDIR/codegen.py
 	AC_MSG_RESULT(yes)
