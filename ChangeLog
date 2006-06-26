@@ -1,5 +1,8 @@
 2006-06-26  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* goocanvas.override (_wrap_goo_canvas_points_new): Add this
+	wrapper, written by Gian and fixed by me.
+
 	* arg-types.py, goocanvas.override: Add some support for
 	GooCanvasBounds* parameters.  Missing the same in reverse
 	wrappers..
