@@ -254,25 +254,24 @@ static int
 _wrap_goo_canvas_points_new(PyGBoxed *self, PyObject *args, PyObject *kwargs)
 {
     static char *kwlist[] = { "data", NULL };
-
     PyObject *py_data;
     gint i, n_data;
-    double *data;
+    GooCanvasPoints *points;
     
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,
                                 "O!:GooCanvasPoints.__init__",
                                 kwlist, &PyList_Type, &py_data)) 
         return -1; 
     n_data = PyList_Size(py_data);
-    data = g_new(double, 2*n_data);
+    points = goo_canvas_points_new(n_data);
     for (i = 0; i < n_data; i ++) {
         PyObject *item = PyList_GetItem(py_data, i);
-        if (!PyArg_ParseTuple(item, "dd", &data[2*i], &data[2*i + 1])) {
-            g_free(data);
+        if (!PyArg_ParseTuple(item, "dd", &points->coords[2*i], &points->coords[2*i + 1])) {
+            goo_canvas_points_unref(points);
             return -1;
         }
     }
-    self->boxed =  g_boxed_copy(GOO_TYPE_CANVAS_POINTS, data);
+    self->boxed = points;
     self->free_on_dealloc = TRUE;
     self->gtype = GOO_TYPE_CANVAS_POINTS;
     return 0;
