@@ -1210,7 +1210,7 @@
   (varargs #t)
 )
 
-(define-function goo_canvas_polyline_new_line
+(define-function polyline_new_line
   (c-name "goo_canvas_polyline_new_line")
   (return-type "GooCanvasItem*")
   (parameters

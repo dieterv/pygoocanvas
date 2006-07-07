@@ -1,3 +1,14 @@
+2006-07-07  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
+	* goocanvas.override (_wrap_goo_canvas_polyline_new_line): Add
+	this wrapper as goocanvas.polyline_new_line() and ignore 
+    goo_canvas_item_new
+    
+    * goocanvas.defs: renamed goo_canvas_polyline_new_line to
+    polyline_new_line
+
+    * TODO: Add support for properties to polyline_new_line() 
+
 2006-06-26  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* goocanvas.override (_wrap_goo_canvas_points_new): Add this
