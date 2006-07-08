@@ -45,3 +45,21 @@ class BoundsPtrArg(ArgType):
         info.codeafter.append('   return pygoo_canvas_bounds_new(ret);\n');
 
 matcher.register('GooCanvasBounds*', BoundsPtrArg())
+
+class GooCanvasBoundPtrReturn(reversewrapper.ReturnType):
+    def get_c_type(self):
+        return self.props.get('c_type')
+    def write_decl(self):
+        self.wrapper.add_declaration("%s retval;" % self.get_c_type())
+        self.wrapper.add_declaration("PyObject *py_bounds;")
+    def write_error_return(self):
+        self.wrapper.write_code("return NULL;")
+    def write_conversion(self):
+        self.wrapper.add_pyret_parse_item("O!", "&PyGooCanvasBounds_Type, &py_bounds", prepend=True)
+        self.wrapper.write_code((
+            " /* FIXME: this leaks memory */\n"
+            "retval = g_new(GooCanvasBounds, 1);\n"
+            "*retval = ((PyGooCanvasBounds*) py_bounds)->bounds;"),
+                                code_sink=self.wrapper.post_return_code)
+
+matcher.register_reverse_ret("GooCanvasBounds*", GooCanvasBoundPtrReturn)
