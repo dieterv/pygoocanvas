@@ -31,7 +31,7 @@ initgoocanvas (void)
     init_pygobject ();
     
     pygoocanvas_register_classes (d);
-    pygoocanvas_add_constants(m, "GOO_TYPE_CANVAS_");
+    pygoocanvas_add_constants(m, "GOO_CANVAS_");
 	
     if (PyErr_Occurred ())
         Py_FatalError ("can't initialise module goocanvas");

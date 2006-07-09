@@ -1,3 +1,12 @@
+2006-07-09  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* goocanvas.defs: Add gtype-id's for most of the enums (those that
+	are glib-registered).
+	(PointerEvents): PointerEvents is enum, not flags, apparently.
+
+	* goocanvasmodule.c (initgoocanvas): Correct prefix in call to
+	pygoocanvas_add_constants.
+
 2006-07-08  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* arg-types.py: Add support for GooCanvasBounds* as return type in

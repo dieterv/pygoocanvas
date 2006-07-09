@@ -183,7 +183,7 @@
 (define-enum AnimateType
   (in-module "Goo")
   (c-name "GooCanvasAnimateType")
-  ("GOO_TYPE_CANVAS_ANIMATE_TYPE")
+  ;(gtype-id "GOO_TYPE_CANVAS_ANIMATE_TYPE")
   (values
     '("freeze" "GOO_CANVAS_ANIMATE_FREEZE")
     '("reset" "GOO_CANVAS_ANIMATE_RESET")
@@ -195,7 +195,7 @@
 (define-flags StyleValuesMask
   (in-module "Goo")
   (c-name "GooCanvasStyleValuesMask")
-  ("GOO_TYPE_CANVAS_STYLE_VALUES_MASK")
+  ;(gtype-id "GOO_TYPE_CANVAS_STYLE_VALUES_MASK")
   (values
     '("stroke-pattern" "GOO_CANVAS_STYLE_STROKE_PATTERN")
     '("fill-pattern" "GOO_CANVAS_STYLE_FILL_PATTERN")
@@ -213,7 +213,7 @@
 (define-flags ItemViewFlags
   (in-module "Goo")
   (c-name "GooCanvasItemViewFlags")
-  ("GOO_TYPE_CANVAS_ITEM_VIEW_FLAGS")
+  ;(gtype-id "GOO_TYPE_CANVAS_ITEM_VIEW_FLAGS")
   (values
     '("need-update" "GOO_CANVAS_ITEM_VIEW_NEED_UPDATE")
     '("need-entire-subtree-update" "GOO_CANVAS_ITEM_VIEW_NEED_ENTIRE_SUBTREE_UPDATE")
@@ -224,7 +224,7 @@
 (define-enum PathCommandType
   (in-module "Goo")
   (c-name "GooCanvasPathCommandType")
-  ("GOO_TYPE_CANVAS_PATH_COMMAND_TYPE")
+  ;(gtype-id "GOO_TYPE_CANVAS_PATH_COMMAND_TYPE")
   (values
     '("move-to" "GOO_CANVAS_PATH_MOVE_TO")
     '("close-path" "GOO_CANVAS_PATH_CLOSE_PATH")
@@ -239,10 +239,10 @@
   )
 )
 
-(define-flags PointerEvents
+(define-enum PointerEvents
   (in-module "Goo")
   (c-name "GooCanvasPointerEvents")
-  ("GOO_TYPE_CANVAS_POINTER_EVENTS")
+  (gtype-id "GOO_TYPE_CANVAS_POINTER_EVENTS")
   (values
     '("visible-mask" "GOO_CANVAS_EVENTS_VISIBLE_MASK")
     '("painted-mask" "GOO_CANVAS_EVENTS_PAINTED_MASK")
@@ -263,7 +263,7 @@
 (define-enum ItemVisibility
   (in-module "Goo")
   (c-name "GooCanvasItemVisibility")
-  ("GOO_TYPE_CANVAS_ITEM_VISIBILITY")
+  (gtype-id "GOO_TYPE_CANVAS_ITEM_VISIBILITY")
   (values
     '("visible" "GOO_CANVAS_ITEM_VISIBLE")
     '("visible-above-threshold" "GOO_CANVAS_ITEM_VISIBLE_ABOVE_THRESHOLD")
