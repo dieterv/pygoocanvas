@@ -1,3 +1,11 @@
+2006-07-12  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
+	* demo/features-demo.py:
+	add features-demo.py.
+	
+	*demo/Makefile.am:
+	add features-demo.py, fix fifteen-demo.py.
+
 2006-07-09  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* goocanvas.defs: Add gtype-id's for most of the enums (those that
