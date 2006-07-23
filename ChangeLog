@@ -1,5 +1,12 @@
 2006-07-23  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* goocanvas-argtypes.py (CairoParam.convert_c2py):
+	PycairoContext_FromContext steals one cairo_t reference, need to
+	call cairo_reference().
+
+	* goocanvas.override (_wrap_GooCanvasItemView__proxy_do_update):
+	Call cairo_reference() here too.
+
 	* goocanvas.defs (PointerEvents): Changed to flags.
 
 	* goocanvas.override (_wrap_GooCanvasItemView__do_update):
@@ -23,16 +30,15 @@
 
 2006-07-15  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
-	* goocanvas.override:
-    add the possibility to parse polyline properties with the constructor 
-    goocanvas.polyline_new_line()
+	* goocanvas.override: Add the possibility to parse polyline
+	properties with the constructor goocanvas.polyline_new_line()
 	
 2006-07-12  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
 	* demo/features-demo.py:
 	add features-demo.py.
 	
-	*demo/Makefile.am:
+	* demo/Makefile.am:
 	add features-demo.py, fix fifteen-demo.py.
 
 2006-07-09  Gustavo J. A. M. Carneiro  <gjc@gnome.org>

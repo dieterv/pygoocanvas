@@ -505,7 +505,7 @@ _wrap_GooCanvasItemView__proxy_do_update(GooCanvasItemView *self, gboolean entir
         return;
     }
     py_entire_tree = entire_tree? Py_True : Py_False;
-    py_cr = PycairoContext_FromContext(cr, NULL, NULL);
+    py_cr = PycairoContext_FromContext(cairo_reference(cr), NULL, NULL);
     
     py_args = PyTuple_New(2);
     Py_INCREF(py_entire_tree);
