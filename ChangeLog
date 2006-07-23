@@ -1,5 +1,9 @@
 2006-07-23  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* arg-types.py (GObjectReturn): Add modified GObject* return
+	handler for reverse wrappers, copied from pygtk, that allows
+	returning None to return NULL in C land.
+
 	* goocanvas.override (_wrap_GooCanvasItemView__proxy_do_paint):
 	Override/impl.
 
