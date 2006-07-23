@@ -239,7 +239,7 @@
   )
 )
 
-(define-enum PointerEvents
+(define-flags PointerEvents
   (in-module "Goo")
   (c-name "GooCanvasPointerEvents")
   (gtype-id "GOO_TYPE_CANVAS_POINTER_EVENTS")
@@ -868,18 +868,6 @@
   (return-type "GooCanvasBounds*")
 )
 
-(define-method get_item_at
-  (of-object "GooCanvasItemView")
-  (c-name "goo_canvas_item_view_get_item_at")
-  (return-type "GooCanvasItemView*")
-  (parameters
-    '("gdouble" "x")
-    '("gdouble" "y")
-    '("cairo_t*" "cr")
-    '("gboolean" "is_pointer_event")
-    '("gboolean" "parent_is_visible")
-  )
-)
 
 (define-method is_visible
   (of-object "GooCanvasItemView")
@@ -958,7 +946,7 @@
   (of-object "GooCanvasItemView")
   (return-type "GooCanvasBounds*")
 )
-(define-virtual get_item_at
+(define-virtual get_item_view_at
   (of-object "GooCanvasItemView")
   (return-type "GooCanvasItemView*")
   (parameters

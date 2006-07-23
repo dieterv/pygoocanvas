@@ -160,7 +160,7 @@ PyTypeObject PyGooCanvasBounds_Type = {
 };
 
 PyObject*
-pygoo_canvas_bounds_new(GooCanvasBounds *bounds)
+pygoo_canvas_bounds_new(const GooCanvasBounds *bounds)
 {
     PyGooCanvasBounds *self;
 
@@ -347,3 +347,207 @@ _wrap_goo_canvas_polyline_new_line(PyGObject *self, PyObject *args, PyObject *kw
     return pygobject_new((GObject *)ret);
 }
 %%
+override goo_canvas_item_view_get_bounds noargs
+static PyObject *
+_wrap_goo_canvas_item_view_get_bounds(PyGObject *self)
+{
+    GooCanvasBounds ret;
+    
+    goo_canvas_item_view_get_bounds(GOO_CANVAS_ITEM_VIEW(self->obj), &ret);
+    
+    return pygoo_canvas_bounds_new(&ret);
+}
+
+%%
+override goo_canvas_item_view_update kwargs
+static PyObject *
+_wrap_goo_canvas_item_view_update(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "entire_tree", "cr", NULL };
+    int entire_tree;
+    GooCanvasBounds ret;
+    PycairoContext *cr;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"iO!:GooCanvasItemView.update", kwlist,
+                                     &entire_tree, &PycairoContext_Type, &cr))
+        return NULL;
+    
+    goo_canvas_item_view_update(GOO_CANVAS_ITEM_VIEW(self->obj), entire_tree, cr->ctx, &ret);
+    
+    return pygoo_canvas_bounds_new(&ret);
+}
+
+%%
+override GooCanvasItemView__do_get_bounds kwargs
+static PyObject *
+_wrap_GooCanvasItemView__do_get_bounds(PyObject *cls, PyObject *args, PyObject *kwargs)
+{
+    GooCanvasItemViewIface *iface;
+    static char *kwlist[] = { "self", NULL };
+    PyGObject *self;
+    GooCanvasBounds ret;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasItemView.get_bounds", kwlist, &PyGooCanvasItemView_Type, &self))
+        return NULL;
+    iface = g_type_interface_peek(g_type_class_peek(pyg_type_from_object(cls)), GOO_TYPE_CANVAS_ITEM_VIEW);
+    if (iface->get_bounds)
+        iface->get_bounds(GOO_CANVAS_ITEM_VIEW(self->obj), &ret);
+    else {
+        PyErr_SetString(PyExc_NotImplementedError, "interface method GooCanvasItemView.get_bounds not implemented");
+        return NULL;
+    }
+   return pygoo_canvas_bounds_new(&ret);
+
+}
+
+%%
+override GooCanvasItemView__proxy_do_get_bounds
+static void
+_wrap_GooCanvasItemView__proxy_do_get_bounds(GooCanvasItemView *self, GooCanvasBounds *ret)
+{
+    PyGILState_STATE __py_state;
+    PyObject *py_self;
+    PyObject *py_bounds;
+    PyObject *py_retval;
+    PyObject *py_method;
+    
+    __py_state = pyg_gil_state_ensure();
+    py_self = pygobject_new((GObject *) self);
+    if (!py_self) {
+        if (PyErr_Occurred())
+            PyErr_Print();
+        pyg_gil_state_release(__py_state);
+        return;
+    }
+    
+    py_method = PyObject_GetAttrString(py_self, "do_get_bounds");
+    if (!py_method) {
+        if (PyErr_Occurred())
+            PyErr_Print();
+        Py_DECREF(py_self);
+        pyg_gil_state_release(__py_state);
+        return;
+    }
+    py_retval = PyObject_CallObject(py_method, NULL);
+    if (!py_retval) {
+        if (PyErr_Occurred())
+            PyErr_Print();
+        Py_DECREF(py_method);
+        Py_DECREF(py_self);
+        pyg_gil_state_release(__py_state);
+        return;
+    }
+    py_retval = Py_BuildValue("(N)", py_retval);
+    if (!PyArg_ParseTuple(py_retval, "O!", &PyGooCanvasBounds_Type, &py_bounds)) {
+        if (PyErr_Occurred())
+            PyErr_Print();
+        Py_DECREF(py_retval);
+        Py_DECREF(py_method);
+        Py_DECREF(py_self);
+        pyg_gil_state_release(__py_state);
+        return;
+    }
+    
+    *ret = ((PyGooCanvasBounds*) py_bounds)->bounds;
+    
+    Py_DECREF(py_retval);
+    Py_DECREF(py_method);
+    Py_DECREF(py_self);
+    pyg_gil_state_release(__py_state);
+}
+
+%%
+override GooCanvasItemView__do_update kwargs
+static PyObject *
+_wrap_GooCanvasItemView__do_update(PyObject *cls, PyObject *args, PyObject *kwargs)
+{
+    GooCanvasItemViewIface *iface;
+    static char *kwlist[] = { "self", "entire_tree", "cr", NULL };
+    PyGObject *self;
+    int entire_tree;
+    PycairoContext *cr;
+    GooCanvasBounds ret;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!iO!:GooCanvasItemView.update", kwlist,
+                                     &PyGooCanvasItemView_Type, &self, &entire_tree, &PycairoContext_Type, &cr))
+        return NULL;
+    iface = g_type_interface_peek(g_type_class_peek(pyg_type_from_object(cls)), GOO_TYPE_CANVAS_ITEM_VIEW);
+    if (iface->update)
+        iface->update(GOO_CANVAS_ITEM_VIEW(self->obj), entire_tree, cr->ctx, &ret);
+    else {
+        PyErr_SetString(PyExc_NotImplementedError, "interface method GooCanvasItemView.update not implemented");
+        return NULL;
+    }
+   return pygoo_canvas_bounds_new(&ret);
+
+}
+
+%%
+override GooCanvasItemView__proxy_do_update
+static void
+_wrap_GooCanvasItemView__proxy_do_update(GooCanvasItemView *self, gboolean entire_tree, cairo_t *cr, GooCanvasBounds *bounds)
+{
+    PyGILState_STATE __py_state;
+    PyObject *py_self;
+    PyObject *py_entire_tree;
+    PyObject *py_cr;
+    PyObject *py_bounds;
+    PyObject *py_retval;
+    PyObject *py_args;
+    PyObject *py_method;
+    
+    __py_state = pyg_gil_state_ensure();
+    py_self = pygobject_new((GObject *) self);
+    if (!py_self) {
+        if (PyErr_Occurred())
+            PyErr_Print();
+        pyg_gil_state_release(__py_state);
+        return;
+    }
+    py_entire_tree = entire_tree? Py_True : Py_False;
+    py_cr = PycairoContext_FromContext(cr, NULL, NULL);
+    
+    py_args = PyTuple_New(2);
+    Py_INCREF(py_entire_tree);
+    PyTuple_SET_ITEM(py_args, 0, py_entire_tree);
+    PyTuple_SET_ITEM(py_args, 1, py_cr);
+    
+    py_method = PyObject_GetAttrString(py_self, "do_update");
+    if (!py_method) {
+        if (PyErr_Occurred())
+            PyErr_Print();
+        Py_DECREF(py_args);
+        Py_DECREF(py_self);
+        pyg_gil_state_release(__py_state);
+        return;
+    }
+    py_retval = PyObject_CallObject(py_method, py_args);
+    if (!py_retval) {
+        if (PyErr_Occurred())
+            PyErr_Print();
+        Py_DECREF(py_method);
+        Py_DECREF(py_args);
+        Py_DECREF(py_self);
+        pyg_gil_state_release(__py_state);
+        return;
+    }
+    py_retval = Py_BuildValue("(N)", py_retval);
+    if (!PyArg_ParseTuple(py_retval, "O!", &PyGooCanvasBounds_Type, &py_bounds)) {
+        if (PyErr_Occurred())
+            PyErr_Print();
+        Py_DECREF(py_retval);
+        Py_DECREF(py_method);
+        Py_DECREF(py_args);
+        Py_DECREF(py_self);
+        pyg_gil_state_release(__py_state);
+        return;
+    }
+    
+    *bounds = ((PyGooCanvasBounds*) py_bounds)->bounds;
+    
+    Py_DECREF(py_retval);
+    Py_DECREF(py_method);
+    Py_DECREF(py_args);
+    Py_DECREF(py_self);
+    pyg_gil_state_release(__py_state);
+}

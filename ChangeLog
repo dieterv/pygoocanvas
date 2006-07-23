@@ -1,3 +1,26 @@
+2006-07-23  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* goocanvas.defs (PointerEvents): Changed to flags.
+
+	* goocanvas.override (_wrap_GooCanvasItemView__do_update):
+	Override and update to new signature.
+	(_wrap_GooCanvasItemView__proxy_do_update): Override and update to
+	new signature.
+
+	* goocanvas.defs: goocanvas.ItemView.get_item_at was renamed to
+	goocanvas.ItemView.get_item_view_at.
+
+	* goocanvas.override (pygoo_canvas_bounds_new): Add const to
+	denote that the value is copied.
+	(_wrap_goo_canvas_item_view_update): Override and update to new signature.
+	(_wrap_GooCanvasItemView__do_get_bounds): Override and update to new signature.
+	(_wrap_GooCanvasItemView__proxy_do_get_bounds): Override and update to new signature.
+
+	* goocanvas.defs: goo_canvas_item_view_get_item_at was removed.
+
+	* goocanvas.override (_wrap_goo_canvas_item_view_get_bounds):
+	Impl.
+
 2006-07-15  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
 	* goocanvas.override:
@@ -13,6 +36,10 @@
 	add features-demo.py, fix fifteen-demo.py.
 
 2006-07-09  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* goocanvasmodule.c (initgoocanvas): Add GType for
+	GOO_CANVAS_TYPE_CAIRO_MATRIX to the goocanvas module, to be used
+	when registering properties.
 
 	* goocanvas.defs: Add gtype-id's for most of the enums (those that
 	are glib-registered).

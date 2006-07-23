@@ -15,6 +15,23 @@ void pygoocanvas_add_constants(PyObject *module, const gchar *strip_prefix);
 
 extern PyMethodDef pygoocanvas_functions[];
  
+static PyObject *
+_cairo_matrix_from_gvalue(const GValue *value)
+{
+    return PycairoMatrix_FromMatrix((cairo_matrix_t *) g_value_get_boxed(value));
+}
+
+static int
+_cairo_matrix_to_gvalue(GValue *value, PyObject *obj)
+{
+    if (!(PyObject_IsInstance(obj, (PyObject *) &PycairoMatrix_Type)))
+        return -1;
+
+    g_value_set_boxed(value, &((PycairoMatrix*)(obj))->matrix);
+    return 0;
+}
+
+
 DL_EXPORT (void)
 initgoocanvas (void)
 {
@@ -32,7 +49,11 @@ initgoocanvas (void)
     
     pygoocanvas_register_classes (d);
     pygoocanvas_add_constants(m, "GOO_CANVAS_");
-	
+    PyModule_AddObject(m, "TYPE_CAIRO_MATRIX", pyg_type_wrapper_new(GOO_TYPE_CAIRO_MATRIX));
+    pyg_register_gtype_custom(GOO_TYPE_CAIRO_MATRIX,
+			      _cairo_matrix_from_gvalue,
+			      _cairo_matrix_to_gvalue);
+    
     if (PyErr_Occurred ())
         Py_FatalError ("can't initialise module goocanvas");
 }
