@@ -551,3 +551,57 @@ _wrap_GooCanvasItemView__proxy_do_update(GooCanvasItemView *self, gboolean entir
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
 }
+
+%%
+override GooCanvasItemView__proxy_do_paint
+static void
+_wrap_GooCanvasItemView__proxy_do_paint(GooCanvasItemView *self, cairo_t*cr,
+                                        GooCanvasBounds *bounds, gdouble scale)
+{
+    PyGILState_STATE __py_state;
+    PyObject *py_self;
+    PyObject *py_cr;
+    PyObject *py_scale;
+    PyObject *py_bounds;
+    PyObject *py_retval;
+    PyObject *py_args;
+    PyObject *py_method;
+    
+    __py_state = pyg_gil_state_ensure();
+    py_self = pygobject_new((GObject *) self);
+    if (!py_self) {
+        if (PyErr_Occurred())
+            PyErr_Print();
+        pyg_gil_state_release(__py_state);
+        return;
+    }
+    py_cr = PycairoContext_FromContext(cairo_reference(cr), NULL, NULL);
+    py_scale = PyFloat_FromDouble(scale);
+    py_bounds = pygoo_canvas_bounds_new(bounds);
+    py_args = Py_BuildValue("NNN", py_cr, py_bounds, py_scale);
+    
+    py_method = PyObject_GetAttrString(py_self, "do_paint");
+    if (!py_method) {
+        if (PyErr_Occurred())
+            PyErr_Print();
+        Py_DECREF(py_args);
+        Py_DECREF(py_self);
+        pyg_gil_state_release(__py_state);
+        return;
+    }
+    py_retval = PyObject_CallObject(py_method, py_args);
+    if (!py_retval) {
+        if (PyErr_Occurred())
+            PyErr_Print();
+        Py_DECREF(py_method);
+        Py_DECREF(py_args);
+        Py_DECREF(py_self);
+        pyg_gil_state_release(__py_state);
+        return;
+    }
+    Py_DECREF(py_retval);
+    Py_DECREF(py_method);
+    Py_DECREF(py_args);
+    Py_DECREF(py_self);
+    pyg_gil_state_release(__py_state);
+}

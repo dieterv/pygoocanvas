@@ -1,5 +1,8 @@
 2006-07-23  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* goocanvas.override (_wrap_GooCanvasItemView__proxy_do_paint):
+	Override/impl.
+
 	* goocanvas-argtypes.py (CairoParam.convert_c2py):
 	PycairoContext_FromContext steals one cairo_t reference, need to
 	call cairo_reference().
