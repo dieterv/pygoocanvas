@@ -64,27 +64,11 @@ class GooCanvasBoundPtrReturn(reversewrapper.ReturnType):
 
 matcher.register_reverse_ret("GooCanvasBounds*", GooCanvasBoundPtrReturn)
 
-class GObjectReturn(reversewrapper.ReturnType):
-
-    def get_c_type(self):
-        return self.props.get('c_type', 'GObject *')
-
-    def write_decl(self):
-        self.wrapper.add_declaration("%s retval;" % self.get_c_type())
-
-    def write_error_return(self):
-        self.wrapper.write_code("return NULL;")
-
+class GObjectReturn(reversewrapper.GObjectReturn):
     def write_conversion(self):
         self.wrapper.write_code(
             code=None,
             failure_expression="py_retval == Py_None")
-        self.wrapper.write_code(
-            code=None,
-            failure_expression="!PyObject_TypeCheck(py_retval, &PyGObject_Type)",
-            failure_exception='PyErr_SetString(PyExc_TypeError, "retval should be a GObject");')
-        self.wrapper.write_code("retval = (%s) pygobject_get(py_retval);"
-                                % self.get_c_type())
-        self.wrapper.write_code("g_object_ref((GObject *) retval);")
+        reversewrapper.GObjectReturn.write_conversion(self)
 
 matcher.register_reverse_ret('GObject*', GObjectReturn)

@@ -1,3 +1,10 @@
+2006-07-25  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* demo/custom.py: A custom item example.
+
+	* arg-types.py (GObjectReturn.write_conversion): Subclass and
+	modify behaviour, instead of copy-pasting everything.
+
 2006-07-23  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* arg-types.py (GObjectReturn): Add modified GObject* return
