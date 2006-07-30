@@ -8,18 +8,6 @@ import goocanvas
 class CustomItem(gobject.GObject, goocanvas.Item, goocanvas.ItemView):
 
     __gproperties__ = {
-        'x': (float, 'X position', 'X position',
-              -10e6, 10e6, 0, gobject.PARAM_READWRITE|gobject.PARAM_CONSTRUCT),
-
-        'y': (float, 'Y position', 'Y position',
-              -10e6, 10e6, 0, gobject.PARAM_READWRITE|gobject.PARAM_CONSTRUCT),
-
-        'width': (float, 'width', 'width',
-              -10e6, 10e6, 0, gobject.PARAM_READWRITE|gobject.PARAM_CONSTRUCT),
-
-        'height': (float, 'height', 'height',
-              -10e6, 10e6, 0, gobject.PARAM_READWRITE|gobject.PARAM_CONSTRUCT),
-
         'title': (str, None, None, '', gobject.PARAM_READWRITE),
         'description': (str, None, None, '', gobject.PARAM_READWRITE),
         'can-focus': (bool, None, None, False, gobject.PARAM_READWRITE),
@@ -29,53 +17,99 @@ class CustomItem(gobject.GObject, goocanvas.Item, goocanvas.ItemView):
         'transform': (goocanvas.TYPE_CAIRO_MATRIX, None, None, gobject.PARAM_READWRITE),
         }
 
-    def do_create_view(self, canvas_view, parent_view):
-        return self
 
     def __init__(self, **kwargs):
-        gobject.GObject.__init__(self, **kwargs)
         self.bounds = goocanvas.Bounds()
+        self.view = None
+        self.parent = None
+
+        ## default values for properties
+        #self.title = None
+        #self.description = None
+        #self.can_focus = False
+        #self.visibility = goocanvas.ITEM_VISIBLE
+        #self.visibility_threshold = 0.0
+        #self.pointer_events = goocanvas.EVENTS_NONE
+        #self.transform = None
+
+        ## chain to parent constructor
+        gobject.GObject.__init__(self, **kwargs)
+
+    def do_create_view(self, canvas_view, parent_view):
+        assert self.view is None
+        self.view = self
+        return self
+
+    def do_set_parent(self, parent):
+        assert self.parent is None
+        self.parent = parent
 
     def do_set_property(self, pspec, value):
-        if pspec.name == 'x':
-            self.x = value
-        elif pspec.name == 'y':
-            self.y = value
-        elif pspec.name == 'width':
-            self.width = value
-        elif pspec.name == 'height':
-            self.height = value
-        elif pspec.name == 'title':
+        if pspec.name == 'title':
             self.title = value
+        elif pspec.name == 'description':
+            self.description = value
         elif pspec.name == 'can-focus':
             self.can_focus = value
+        elif pspec.name == 'visibility':
+            self.visibility = value
+        elif pspec.name == 'visibility-threshold':
+            self.visibility_threshold = value
+        elif pspec.name == 'pointer-events':
+            self.pointer_events = value
+        elif pspec.name == 'transform':
+            self.transform = value
         else:
             raise AttributeError, 'unknown property %s' % pspec.name
         
     def do_get_property(self, pspec):
-        if pspec.name == 'x':
-            return self.x
-        elif pspec.name == 'y':
-            return self.y
-        elif pspec.name == 'width':
-            return self.width
-        elif pspec.name == 'height':
-            return self.height
-        elif pspec.name == 'title':
+        if pspec.name == 'title':
             return self.title
+        elif pspec.name == 'description':
+            return self.description
         elif pspec.name == 'can-focus':
             return self.can_focus
+        elif pspec.name == 'visibility':
+            return self.visibility
+        elif pspec.name == 'visibility-threshold':
+            return self.visibility_threshold
+        elif pspec.name == 'pointer-events':
+            return self.pointer_events
+        elif pspec.name == 'transform':
+            return self.transform
         else:
             raise AttributeError, 'unknown property %s' % pspec.name
 
-    def do_update(self, entire_tree, cr):
-        self.bounds.x1 = self.x
-        self.bounds.y1 = self.y
-        self.bounds.x2 = self.x + self.width
-        self.bounds.y2 = self.y + self.height
+    ## optional methods
+    def do_get_bounds(self):
         return self.bounds
 
-    def do_get_bounds(self):
+    def do_get_item_view_at(self, x, y, cr, is_pointer_event, parent_is_visible):
+        return None
+
+    ## mandatory methods
+    def do_update(self, entire_tree, cr):
+        raise NotImplementedError
+
+    def do_paint(self, cr, bounds, scale):
+        raise NotImplementedError
+
+
+
+class CustomRectItem(CustomItem):
+
+    def __init__(self, x, y, width, height, **kwargs):
+        CustomItem.__init__(self, **kwargs)
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+
+    def do_update(self, entire_tree, cr):
+        self.bounds.x1 = float(self.x)
+        self.bounds.y1 = float(self.y)
+        self.bounds.x2 = float(self.x + self.width)
+        self.bounds.y2 = float(self.y + self.height)
         return self.bounds
 
     def do_paint(self, cr, bounds, scale):
@@ -84,12 +118,7 @@ class CustomItem(gobject.GObject, goocanvas.Item, goocanvas.ItemView):
         cr.stroke()
         return self.bounds
 
-    def do_get_item_view_at(self, x, y, cr, is_pointer_event, parent_is_visible):
-        return None
 
-    def do_set_parent(self, parent):
-        pass
-    
 
 def main(argv):
     window = gtk.Window()
@@ -118,7 +147,7 @@ def main(argv):
 def create_canvas_model():
     canvas_model = goocanvas.CanvasModelSimple()
     root = canvas_model.get_root_item()
-    item = CustomItem(x=100, y=100, width=400, height=400)
+    item = CustomRectItem(x=100, y=100, width=400, height=400)
     root.add_child(item)
     item = goocanvas.Text(text="Hello World",
                           x=300, y=300,

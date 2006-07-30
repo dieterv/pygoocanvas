@@ -1,3 +1,9 @@
+2006-07-30  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* demo/custom.py: Split the custom item in two classes: CustomItem
+	is an abstract base class that makes it easy to create custom
+	items; CustomRectItem is our sample item.
+
 2006-07-25  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* demo/custom.py: A custom item example.
