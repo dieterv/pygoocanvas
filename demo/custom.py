@@ -87,6 +87,9 @@ class CustomItem(gobject.GObject, goocanvas.Item, goocanvas.ItemView):
     def do_get_item_view_at(self, x, y, cr, is_pointer_event, parent_is_visible):
         return None
 
+    def do_set_parent_view(self, parent_view):
+        pass
+
     ## mandatory methods
     def do_update(self, entire_tree, cr):
         raise NotImplementedError
@@ -98,23 +101,26 @@ class CustomItem(gobject.GObject, goocanvas.Item, goocanvas.ItemView):
 
 class CustomRectItem(CustomItem):
 
-    def __init__(self, x, y, width, height, **kwargs):
+    def __init__(self, x, y, width, height, line_width, **kwargs):
         CustomItem.__init__(self, **kwargs)
         self.x = x
         self.y = y
         self.width = width
         self.height = height
+        self.line_width = line_width
 
     def do_update(self, entire_tree, cr):
-        self.bounds.x1 = float(self.x)
-        self.bounds.y1 = float(self.y)
-        self.bounds.x2 = float(self.x + self.width)
-        self.bounds.y2 = float(self.y + self.height)
+        half_lw = self.line_width/2
+        self.bounds.x1 = float(self.x - half_lw)
+        self.bounds.y1 = float(self.y - half_lw)
+        self.bounds.x2 = float(self.x + self.width + half_lw)
+        self.bounds.y2 = float(self.y + self.height + half_lw)
         return self.bounds
 
     def do_paint(self, cr, bounds, scale):
         cr.rectangle(self.x, self.y, self.width, self.height)
-        cr.set_line_width(self.width/20)
+        cr.set_line_width(self.line_width)
+        cr.set_source_rgb(0, 0, 0)
         cr.stroke()
         return self.bounds
 
@@ -147,7 +153,7 @@ def main(argv):
 def create_canvas_model():
     canvas_model = goocanvas.CanvasModelSimple()
     root = canvas_model.get_root_item()
-    item = CustomRectItem(x=100, y=100, width=400, height=400)
+    item = CustomRectItem(x=100, y=100, width=400, height=400, line_width=20)
     root.add_child(item)
     item = goocanvas.Text(text="Hello World",
                           x=300, y=300,

@@ -1,3 +1,9 @@
+2006-07-31  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* demo/custom.py (CustomRectItem): Add a line_width parameter;
+	correct the bounding box to account for half line witdth in each
+	direction.  Add do_set_parent_view.
+
 2006-07-30  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* demo/custom.py: Split the custom item in two classes: CustomItem
