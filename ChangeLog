@@ -1,3 +1,8 @@
+2006-08-02  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* goocanvas.override: Ignore *_ref and *_unref APIs, that don't
+	make sense in python and can cause leaks or crashes if used.
+
 2006-07-31  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* demo/custom.py (CustomRectItem): Add a line_width parameter;
