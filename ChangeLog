@@ -1,3 +1,11 @@
+2006-08-05  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
+	* demo/paths-demo.py:
+	add paths-demo.py.
+	
+	* demo/Makefile.am:
+	add paths-demo.py
+
 2006-08-02  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* goocanvas.override: Ignore *_ref and *_unref APIs, that don't
