@@ -1,5 +1,9 @@
 2006-08-05  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
+	* goocanvas.override: remove unused variable
+
+2006-08-05  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
 	* demo/paths-demo.py:
 	add paths-demo.py.
 	
