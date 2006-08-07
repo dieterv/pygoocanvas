@@ -503,7 +503,7 @@
   (c-name "goo_canvas_item_raise")
   (return-type "none")
   (parameters
-    '("GooCanvasItem*" "above")
+    '("GooCanvasItem*" "above" (null-ok))
   )
 )
 
@@ -512,7 +512,7 @@
   (c-name "goo_canvas_item_lower")
   (return-type "none")
   (parameters
-    '("GooCanvasItem*" "below")
+    '("GooCanvasItem*" "below" (null-ok))
   )
 )
 
@@ -1569,6 +1569,17 @@
   (return-type "none")
   (parameters
     '("GooCanvasBounds*" "bounds")
+  )
+)
+
+(define-method get_item_view_at
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_get_item_view_at")
+  (return-type "GooCanvasItemView*")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+    '("gboolean" "is_pointer_event")
   )
 )
 

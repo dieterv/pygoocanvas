@@ -1,3 +1,13 @@
+2006-08-07  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* goocanvas.defs (raise, lower): Allow None.
+	(get_item_view_at): Add goo_canvas_view_get_item_view_at.
+
+2006-08-03  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* goocanvas.override (pygoo_canvas_bounds_tp_new): Fix bug in
+	parameter parsing (should be dddd for double not ffff for float).
+
 2006-08-05  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
 	* goocanvas.override: remove unused variable
@@ -11,6 +21,9 @@
 	add paths-demo.py
 
 2006-08-02  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* goocanvas.override (_wrap_goo_canvas_polyline_new_line): Fix a
+	signed vs unsigned warning.
 
 	* goocanvas.override: Ignore *_ref and *_unref APIs, that don't
 	make sense in python and can cause leaks or crashes if used.

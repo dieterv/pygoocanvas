@@ -93,7 +93,7 @@ pygoo_canvas_bounds_tp_new(PyTypeObject *type, PyObject *args, PyObject *kwargs)
     GooCanvasBounds bounds = {0,};
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs,
-                                     "|ffff:goocanvas.Bounds.__init__", kwlist,
+                                     "|dddd:goocanvas.Bounds.__init__", kwlist,
                                      &bounds.x1, &bounds.y1, &bounds.x2, &bounds.y2))
         return NULL;
 
@@ -288,7 +288,7 @@ _wrap_goo_canvas_polyline_new_line(PyGObject *self, PyObject *args, PyObject *kw
     double          x1, y1, x2, y2;
     GooCanvasItem   *ret;
     GObjectClass    *class;
-    guint           pos;
+    int             pos;
     PyObject        *value;
     PyObject        *key;
     GType           type;
