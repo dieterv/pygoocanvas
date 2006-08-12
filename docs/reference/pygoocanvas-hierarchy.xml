@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE synopsis PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+    "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<synopsis><link linkend="class-gobject">gobject.GObject</link>
+    <link linkend="class-gtkobject">gtk.Object</link>
+        <link linkend="class-gtkwidget">gtk.Widget</link>
+            <link linkend="class-gtkcontainer">gtk.Container</link>
+                <link linkend="class-canvas-view">goocanvas.CanvasView</link>
+</synopsis>

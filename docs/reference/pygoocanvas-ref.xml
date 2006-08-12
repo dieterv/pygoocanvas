@@ -1,0 +1,44 @@
+<?xml version='1.0'?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" 
+[
+<!ENTITY % entities SYSTEM "entities.docbook"> 
+%entities;
+]>
+
+<book id="pygoocanvas-reference" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <bookinfo>
+    <pubdate>&builddate;</pubdate>
+    <title>PyGoocanvas 0.3 Reference Manual</title>
+    <edition>PyGoocanvas Reference Manual for PyGoocanvas &version;</edition>
+    <releaseinfo>For PyGoocanvas version &version;</releaseinfo>
+    <authorgroup>
+      <author>
+        <firstname>Gian Mario</firstname>
+        <surname>Tagliaretti</surname>
+      </author>
+    </authorgroup>
+    <abstract>
+      <para>This reference describes the classes of the Python PyGoocanvas module.</para>
+    </abstract>
+  </bookinfo>
+  <toc>
+  </toc>
+
+  <chapter id="class-hierarchy">
+    <title>PyGoocanvas Class Hierarchy</title>
+
+    <xi:include href="pygoocanvas-hierarchy.xml"/>
+
+  </chapter>
+
+<!-- the reference page chapters for the PyGoocanvas classes -->
+
+  <xi:include href="pygoocanvas-core-classes.xml"/>
+
+  <!--
+  <xi:include href="pygoocanvas-stdcanvas-classes.xml"/>
+  <xi:include href="pygoocanvas-views-classes.xml"/>
+  <xi:include href="pygoocanvas-misc-classes.xml"/>
+  -->
+
+</book>
