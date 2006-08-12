@@ -1,3 +1,9 @@
+2006-08-12  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
+    * goocanvas.override: wrap goo_canvas_view_convert_from_item_space,
+    goo_canvas_view_convert_to_item_space, goo_canvas_view_convert_from_pixels,
+    goo_canvas_view_convert_to_pixels
+
 2006-08-10  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
 	* docs/: imported the docs infrastructure
