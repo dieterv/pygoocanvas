@@ -1,3 +1,11 @@
+2006-08-10  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
+	* docs/: imported the docs infrastructure
+	
+	* Makefile.am: added docs stuff
+	
+	* configure.in: depend from pygobject-2.11.1 to build the docs
+
 2006-08-07  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* goocanvas.defs (raise, lower): Allow None.
