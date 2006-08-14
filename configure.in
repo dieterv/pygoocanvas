@@ -73,7 +73,7 @@ AC_SUBST(PYGOBJECT_DATADIR)
 PYGOBJECT_FIXXREF="$PYTHON `$PKG_CONFIG --variable=fixxref pygobject-2.0`"
 AC_SUBST(PYGOBJECT_FIXXREF)
 
-PYGOBJECT_PYGDOCS="$PYTHON `$PKG_CONFIG --variable=pygdocs pygobject-2.0`"
+PYGOBJECT_PYGDOCS="`$PKG_CONFIG --variable=pygdocs pygobject-2.0`"
 AC_SUBST(PYGOBJECT_PYGDOCS)
 
 dnl Building documentation

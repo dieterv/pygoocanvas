@@ -1,3 +1,11 @@
+2006-08-15  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
+	* docs/Makefile.am: fix docs build
+
+	* configure.in: fix docs build
+
+	* docs/reference/*.xml: more docs
+
 2006-08-14  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
 	* goocanvasmodule.c: fix wrong import of pycairo, thanks to

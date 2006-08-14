@@ -7,34 +7,40 @@ HTML_STYLE = $(PYGOBJECT_DATADIR)/pygobject/xsl/ref-html-style.xsl
 PDF_STYLE = $(PYGOBJECT_DATADIR)/pygobject/xsl/pdf-style.xsl
 
 XMLFILES = 					\
-	reference/pygoocanvas-ref.xml			\
+	reference/pygoocanvas-ref.xml		\
 	reference/pygoocanvas-core-classes.xml 	\
-    reference/pygoocanvas-canvas-view.xml
+	reference/pygoocanvas-canvas-view.xml
 
 
 HTMLdir = $(datadir)/gtk-doc/html/pygoocanvas
-HTML_DATA =                                 \
-    html/class-hierarchy.html                    \
-    html/pygoocanvas-core-classes.html   \
-    html/class-canvas-view.html                  \
-    html/index.html                              \
-    html/index.sgml                              \
-    html/pygoocanvas.devhelp			\
-    $(PYGOBJECT_PYGDOCS)/style.css
+HTML_DATA =					\
+	html/class-hierarchy.html		\
+	html/pygoocanvas-core-classes.html	\
+	html/class-canvas-view.html		\
+	html/index.html				\
+	html/index.sgml				\
+	html/pygoocanvas.devhelp
+
+CSS_FILES = $(PYGOBJECT_PYGDOCS)/style.css
+CSSdir = $(HTMLdir)
+CSS_DATA = $(CSS_FILES)
 
 BUILT_SOURCES = 			\
 	build_stamp 			\
+	reference/builddate.xml         \
 	$(HTML_DATA)
 
 CLEANFILES = 				\
 	build_stamp 			\
-	PYGOOCANVAS-ref.*			\
+	pygoocanvas-ref.*		\
+	reference/builddate.xml         \
 	$(HTML_DATA)
 
 EXTRA_DIST = 				\
 	$(XMLFILES) 			\
 	$(XSLFILES)			\
-	$(FIX_XREF)
+	$(FIX_XREF)			\
+	$(CSS_FILES)
 
 REFERENCE_DEPS = 			\
 	reference 			\
@@ -43,7 +49,10 @@ REFERENCE_DEPS = 			\
 
 $(HTML_DATA): build_stamp
 
-build_stamp: $(REFERENCE_DEPS)
+reference/builddate.xml: $(REFERENCE_DEPS)
+	$(PYTHON) -c 'import datetime; print datetime.date.today()' > $@
+
+build_stamp: $(REFERENCE_DEPS)reference/builddate.xml
 	xsltproc --nonet --xinclude -o $(BUILDDIR)/html/ \
 		 --path $(BUILDDIR)/reference:$(srcdir)/reference \
                  --stringparam gtkdoc.bookname "pygoocanvas" \
