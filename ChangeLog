@@ -10,6 +10,8 @@
 
 2006-08-14  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* arg-types.py (BoundsPtrArg.write_param): Handle pdflt and pnull.
+
 	* goocanvas.defs (goo_canvas_view_render): Make bounds accept
 	None; make bounds and scale optional.
 

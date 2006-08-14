@@ -36,9 +36,24 @@ matcher.register_reverse("cairo_t*", CairoParam)
 class BoundsPtrArg(ArgType):
 
     def write_param(self, ptype, pname, pdflt, pnull, info):
-        info.varlist.add('PyObject', '*py_' + pname)
-        info.add_parselist('O!', ['&PyGooCanvasBounds_Type', '&py_'+pname], [pname])
-        info.arglist.append("&((PyGooCanvasBounds *) py_%s)->bounds" % (pname,))
+        if pdflt:
+            info.varlist.add('PyObject', '*py_' + pname + " = " + pdflt)
+        else:
+            info.varlist.add('PyObject', '*py_' + pname)
+        if pnull:
+            info.add_parselist('O', ['&py_'+pname], [pname])
+            info.codebefore.append(
+                '    if (!(py_%(name)s == NULL || py_%(name)s == Py_None || \n'
+                '        PyObject_IsInstance(py_%(name)s, (PyObject *) &PyGooCanvasBounds_Type))) {\n'
+                '        PyErr_SetString(PyExc_TypeError, "parameter %(name)s must be goocanvas.Bounds or None");\n'
+                '        return NULL;\n'
+                '    }\n' % dict(name=pname))
+            info.arglist.append("(py_%s == NULL || py_%s == Py_None)? NULL :"
+                                " &((PyGooCanvasBounds *) py_%s)->bounds" % (pname, pname, pname))
+        else:
+            info.add_parselist('O!', ['&PyGooCanvasBounds_Type', '&py_'+pname], [pname])
+            info.arglist.append("(py_%s == NULL)? NULL :"
+                                " &((PyGooCanvasBounds *) py_%s)->bounds" % (pname, pname))
 
     def write_return(self, ptype, ownsreturn, info):
         info.varlist.add('GooCanvasBounds', '*ret')
