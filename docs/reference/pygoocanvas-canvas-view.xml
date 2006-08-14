@@ -15,8 +15,7 @@
     <classsynopsis language="python">
       <ooclass><classname>goocanvas.CanvasView</classname></ooclass>
       <ooclass><classname>gtk.Container</classname></ooclass>
-      
-      <!--START NOT YET IMPLEMENTED
+
       <methodsynopsis language="python">
         <methodname><link linkend="method-goocanvasview-convert-from-item-space">convert_from_item_space</link></methodname>
         <methodparam><parameter role="keyword">item_view</parameter></methodparam>
@@ -29,15 +28,13 @@
         <methodparam><parameter role="keyword">x</parameter></methodparam>
         <methodparam><parameter role="keyword">y</parameter></methodparam>
       </methodsynopsis>
-      END NOT YET IMPLEMENTED -->
-      
+
       <methodsynopsis language="python">
         <methodname><link linkend="method-goocanvasview--create-item-view">create_item_view</link></methodname>
         <methodparam><parameter role="keyword">item</parameter></methodparam>
         <methodparam><parameter role="keyword">parent_view</parameter></methodparam>
       </methodsynopsis>
-      
-      <!--START NOT YET IMPLEMENTED
+
       <methodsynopsis language="python">
         <methodname><link linkend="method-goocanvasview-convert-from-pixel">convert_from_pixel</link></methodname>
         <methodparam><parameter role="keyword">x</parameter></methodparam>
@@ -48,6 +45,8 @@
         <methodparam><parameter role="keyword">x</parameter></methodparam>
         <methodparam><parameter role="keyword">y</parameter></methodparam>
       </methodsynopsis>
+      
+      <!--START NOT YET IMPLEMENTED
       <methodsynopsis language="python">
         <methodname><link linkend="method-goocanvasview-get-bounds">get_bounds</link></methodname>
         <methodparam><parameter role="keyword">left</parameter></methodparam>

@@ -620,8 +620,7 @@ _wrap_goo_canvas_view_convert_to_pixels(PyGObject *self, PyObject *args, PyObjec
     
     goo_canvas_view_convert_to_pixels(GOO_CANVAS_VIEW(self->obj), &x, &y);
     
-    Py_INCREF(Py_None);
-    return Py_None;
+    return Py_BuildValue("dd", x, y);
 }
 
 %%
@@ -637,8 +636,7 @@ _wrap_goo_canvas_view_convert_from_pixels(PyGObject *self, PyObject *args, PyObj
     
     goo_canvas_view_convert_from_pixels(GOO_CANVAS_VIEW(self->obj), &x, &y);
     
-    Py_INCREF(Py_None);
-    return Py_None;
+    return Py_BuildValue("dd", x, y);
 }
 
 %%
@@ -656,8 +654,7 @@ _wrap_goo_canvas_view_convert_to_item_space(PyGObject *self, PyObject *args, PyO
     
     goo_canvas_view_convert_to_item_space(GOO_CANVAS_VIEW(self->obj), GOO_CANVAS_ITEM_VIEW(item_view->obj), &x, &y);
     
-    Py_INCREF(Py_None);
-    return Py_None;
+    return Py_BuildValue("dd", x, y);
 }
 
 %%
@@ -674,7 +671,6 @@ _wrap_goo_canvas_view_convert_from_item_space(PyGObject *self, PyObject *args, P
         return NULL;
     
     goo_canvas_view_convert_from_item_space(GOO_CANVAS_VIEW(self->obj), GOO_CANVAS_ITEM_VIEW(item_view->obj), &x, &y);
-    
-    Py_INCREF(Py_None);
-    return Py_None;
+
+    return Py_BuildValue("dd", x, y);
 }

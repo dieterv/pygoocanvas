@@ -1,3 +1,9 @@
+2006-08-12  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
+    * goocanvas.override: goo_canvas_view_convert_from_item_space,
+    goo_canvas_view_convert_to_item_space, goo_canvas_view_convert_from_pixels,
+    goo_canvas_view_convert_to_pixels need to return the new value not None
+
 2006-08-14  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
     * docs/Makefile.am: change css to style.css according to pygtk
