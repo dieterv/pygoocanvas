@@ -20,7 +20,7 @@ HTML_DATA =                                 \
     html/index.html                              \
     html/index.sgml                              \
     html/pygoocanvas.devhelp			\
-    $(PYGOBJECT_PYGDOCS)/pyg-docs.css
+    $(PYGOBJECT_PYGDOCS)/style.css
 
 BUILT_SOURCES = 			\
 	build_stamp 			\
