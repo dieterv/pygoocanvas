@@ -1451,8 +1451,8 @@
   (return-type "none")
   (parameters
     '("cairo_t*" "cr")
-    '("GooCanvasBounds*" "bounds")
-    '("gdouble" "scale")
+    '("GooCanvasBounds*" "bounds" (null-ok) (default "NULL"))
+    '("gdouble" "scale" (default "1.0"))
   )
 )
 
