@@ -172,12 +172,48 @@
 
   <refsect1>
     <title>Description</title>
-  
+
   </refsect1>
 
   <refsect1>
     <title>Methods</title>
 
+    <refsect2 id="method-goocanvasview--convert-from-item-space">
+      <title>goocanvas.CanvasView.convert_from_item_space</title>
+
+      <programlisting><methodsynopsis language="python">
+        <methodname>convert_from_item_space</methodname>
+          <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+          <methodparam><parameter role="keyword">x</parameter></methodparam>
+          <methodparam><parameter role="keyword">y</parameter></methodparam>
+        </methodsynopsis></programlisting>
+
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">item_view</parameter>&nbsp;:</term>
+          <listitem><simpara>A <link linkend="class-canvas-item-view">goocanvas.CanvasItemView
+              </link></simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">x</parameter>&nbsp;:</term>
+          <listitem><simpara>The x coordinate to convert.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">y</parameter>&nbsp;:</term>
+          <listitem><simpara>The y coordinate to convert.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><emphasis>Returns</emphasis>&nbsp;:</term>
+          <listitem><simpara>A new item view.</simpara></listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>
+        Creates a new item view for the given item, It emits the "item-view-created" 
+        signal after creating the view, so application code can connect signal 
+        handlers to the new view if desired.
+      </para>
+    </refsect2>
     <refsect2 id="method-goocanvasview--create-item-view">
       <title>goocanvas.CanvasView.create_item_view</title>
 
