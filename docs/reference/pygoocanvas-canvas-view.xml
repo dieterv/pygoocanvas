@@ -141,10 +141,10 @@
     <title>Ancestry</title>
 
 <synopsis>+-- <link linkend="class-gobject">gobject.GObject</link>
-    +-- <link linkend="class-gtkobject">gtk.Object</link>
-        +-- <link linkend="class-gtkwidget">gtk.Widget</link>
-            +-- <link linkend="class-gtkcontainer">gtk.Container</link>
-                +-- <link linkend="class-canvas-view">goocanvas.CanvasView</link>
+	+-- <link linkend="class-gtkobject">gtk.Object</link>
+		+-- <link linkend="class-gtkwidget">gtk.Widget</link>
+			+-- <link linkend="class-gtkcontainer">gtk.Container</link>
+				+-- <link linkend="class-canvas-view">goocanvas.CanvasView</link>
 </synopsis>
 
   </refsect1>
@@ -565,7 +565,7 @@
       <para>Grabs the keyboard focus for the given item.</para>
     </refsect2>
     
-    <refsect2 id="method-goocanvasview--keyword-ungrab">
+    <refsect2 id="method-goocanvasview--keyboard-ungrab">
       <title>goocanvas.CanvasView.keyboard_ungrab</title>
       
       <programlisting><methodsynopsis language="python">

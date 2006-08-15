@@ -1,0 +1,76 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+    "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="class-canvas-model">
+	<refnamediv>
+		<refname>goocanvas.CanvasModel</refname>
+		<refpurpose>The Canvas Model</refpurpose>
+	</refnamediv>
+
+	<refsect1>
+		<title>Synopsis</title>
+		<classsynopsis language="python">
+			<ooclass><classname>goocanvas.CanvasModel</classname></ooclass>
+			<ooclass><classname>gobject.GInterface</classname></ooclass>
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasmodel--get-root-item">get_root_item</link></methodname>
+				<methodparam></methodparam>
+			</methodsynopsis>
+		</classsynopsis>
+
+	</refsect1>
+
+	<refsect1>
+    	<title>Ancestry</title>
+
+<synopsis>+-- <link linkend="class-gobjectginterfacet">gobject.GInterface</link>
+	+-- <link linkend="class-canvas-model">goocanvas.CanvasModel</link>
+</synopsis>
+	</refsect1>
+
+	<refsect1>
+		<title>Known Implementation</title>
+
+		<para>
+			<link linkend="class-canvas-model"><classname>goocanvas.CanvasModel</classname></link>
+			is implementated by 
+			<link linkend="class-canvas-model-simple"><classname>goocanvas.CanvasModelSimple</classname></link>
+		</para>
+	</refsect1>
+
+	<refsect1>
+		<title>Description</title>
+
+		<para>
+			<link linkend="class-canvas-model"><classname>goocanvas.CanvasModel</classname></link>
+			defines the interface that canvas models must implement.
+		</para>
+		<para>
+			Currently it consists of a single method which returns the root canvas item.
+		</para>
+	</refsect1>
+
+	<refsect1>
+    	<title>Methods</title>
+
+		<refsect2 id="method-goocanvasmodel--get-root-item">
+			<title>goocanvas.CanvasModel.get_root_item</title>
+
+			<programlisting><methodsynopsis language="python">
+				<methodname>get_root_item</methodname>
+			</methodsynopsis></programlisting>
+
+			<variablelist>
+				<varlistentry>
+					<term><emphasis>Returns</emphasis>&nbsp;:</term>
+					<listitem><simpara>The root canvas item.</simpara></listitem>
+				</varlistentry>
+			</variablelist>
+
+			<para>
+				Returns the root canvas item of the model.
+			</para>
+		</refsect2>
+	</refsect1>
+</refentry>

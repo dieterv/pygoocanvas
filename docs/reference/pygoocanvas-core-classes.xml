@@ -1,11 +1,12 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 <chapter id="pygoocanvas-core-classes" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>PyGooCanvas Core Class Reference</title>
+	<title>PyGooCanvas Core Class Reference</title>
 
 <!-- GooCanvas OBJECTS -->
 
-  <xi:include href="pygoocanvas-canvas-view.xml"/>
+	<xi:include href="pygoocanvas-canvas-view.xml"/>
+	<xi:include href="pygoocanvas-canvas-model.xml"/>
 
 
 </chapter>
