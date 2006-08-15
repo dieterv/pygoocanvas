@@ -2,6 +2,8 @@
 
 	* configure.in: we require at least pycairo 1.2.0
 
+	* docs/Makefile.am: fix cross reference links with other docs
+
 2006-08-15  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* demo/dashes.py: A small demo showing how to do line dashes.

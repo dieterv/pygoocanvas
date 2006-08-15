@@ -58,7 +58,7 @@ build_stamp: $(REFERENCE_DEPS)reference/builddate.xml
                  --stringparam gtkdoc.bookname "pygoocanvas" \
                  --stringparam gtkdoc.version ${REF_VERSION} \
                  $(HTML_STYLE) $(srcdir)/reference/pygoocanvas-ref.xml
-	$(PYGOBJECT_FIXXREF) $(BUILDDIR)/html
+	$(PYGOBJECT_FIXXREF) -i /usr/share/gtk-doc/html/pygtk/ $(BUILDDIR)/html 
 	touch $@
 
 pdf: $(REFERENCE_DEPS) reference/builddate.xml
