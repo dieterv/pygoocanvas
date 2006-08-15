@@ -127,7 +127,7 @@
       </methodsynopsis>
       <methodsynopsis language="python">
         <methodname><link linkend="method-goocanvasview--set-scale">set_scale</link></methodname>
-        <methodparam><parameter role="keyword">scale</parameter></methodparam>
+        <methodparam><parameter role="keyword">pixel_per_unit</parameter></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
         <methodname><link linkend="method-goocanvasview--update">update</link></methodname>
@@ -224,24 +224,24 @@
 
       <variablelist>
       <varlistentry>
-        <term>"<link linkend="signal-goocanvasview--item-view-created">item-view-created</link>"</term>
+        <term><link linkend="signal-goocanvasview--item-view-created">"item-view-created</link>"</term>
         <listitem>
           <methodsynopsis language="python"><methodname>callback</methodname>
             <methodparam><parameter>canvas_view</parameter></methodparam>
             <methodparam><parameter>item</parameter></methodparam>
-            <methodparam><parameter>user_param1</parameter></methodparam>
+            <methodparam><parameter>user_param</parameter></methodparam>
             <methodparam><parameter>...</parameter></methodparam>
           </methodsynopsis>
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term>"<link linkend="signal-goocanvasview--set-scroll-adjustments">set-scroll-adjustments</link>"</term>
+        <term><link linkend="signal-goocanvasview--set-scroll-adjustments">"set-scroll-adjustments</link>"</term>
         <listitem>
           <methodsynopsis language="python"><methodname>callback</methodname>
             <methodparam><parameter>canvas_view</parameter></methodparam>
             <methodparam><parameter>hadjustment</parameter></methodparam>
             <methodparam><parameter>vadjustment</parameter></methodparam>
-            <methodparam><parameter>user_param1</parameter></methodparam>
+            <methodparam><parameter>user_param</parameter></methodparam>
             <methodparam><parameter>...</parameter></methodparam>
           </methodsynopsis>
         </listitem>
@@ -547,12 +547,14 @@
           <term><parameter role="keyword">owner_events</parameter>&nbsp;:</term>
           <listitem><simpara><literal>True</literal> if keyboard events for this application 
               will be reported normally, or <literal>False</literal> if all keyboard events will 
-              be reported with respect to the grab item view..</simpara></listitem>
+              be reported with respect to the grab item view.</simpara></listitem>
         </varlistentry>
         <varlistentry>
           <term><parameter role="keyword">time</parameter>&nbsp;:</term>
           <listitem><simpara>The time of the event that lead to the keyboard grab. 
-              This should come from the relevant gtk.gdk.Event</simpara></listitem>
+              This should come from the relevant 
+              <link linkend="class-gdkevent"><classname>gtk.gdk.Event</classname></link>
+          </simpara></listitem>
         </varlistentry>
         <varlistentry>
           <term><emphasis>Returns</emphasis>&nbsp;:</term>
@@ -561,6 +563,295 @@
       </variablelist>
       
       <para>Grabs the keyboard focus for the given item.</para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvasview--keyword-ungrab">
+      <title>goocanvas.CanvasView.keyboard_ungrab</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>keyboard_grab</methodname>
+          <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+          <methodparam><parameter role="keyword">time</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">item_view</parameter>&nbsp;:</term>
+          <listitem><simpara>The item view that has the keyboard grab.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">time</parameter>&nbsp;:</term>
+          <listitem><simpara>The time of the event that lead to the keyboard ungrab. 
+              This should come from the relevant 
+              <link linkend="class-gdkevent"><classname>gtk.gdk.Event</classname></link>
+          </simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>Ungrabs the pointer, if the given item view has the pointer grab.</para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvasview--pointer-grab">
+      <title>goocanvas.CanvasView.pointer_grab</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>pointer_grab</methodname>
+          <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+          <methodparam><parameter role="keyword">event_mask</parameter></methodparam>
+          <methodparam><parameter role="keyword">cursor</parameter></methodparam>
+          <methodparam><parameter role="keyword">time</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">item_view</parameter>&nbsp;:</term>
+          <listitem><simpara>The item view to grab the pointer for.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">event_mask</parameter>&nbsp;:</term>
+          <listitem><simpara>The events to receive during the grab.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">cursor</parameter>&nbsp;:</term>
+          <listitem><simpara>The cursor to display during the grab, or <literal>None</literal>.
+          </simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">time</parameter>&nbsp;:</term>
+          <listitem><simpara>The time of the event that lead to the pointer grab. 
+              This should come from the relevant 
+              <link linkend="class-gdkevent"><classname>gtk.gdk.Event</classname></link>.
+          </simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><emphasis>Returns</emphasis>&nbsp;:</term>
+          <listitem><simpara>gtk.gdk.GRAB_SUCCESS if the grab succeeded.</simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>Attempts to grab the pointer for the given item view.</para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvasview--pointer-ungrab">
+      <title>goocanvas.CanvasView.pointer_ungrab</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>pointer_ungrab</methodname>
+          <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+          <methodparam><parameter role="keyword">time</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">item_view</parameter>&nbsp;:</term>
+          <listitem><simpara>The item view that has the pointer grab.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">time</parameter>&nbsp;:</term>
+          <listitem><simpara>The time of the event that lead to the pointer ungrab. 
+              This should come from the relevant 
+              <link linkend="class-gdkevent"><classname>gtk.gdk.Event</classname></link>
+            </simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>Ungrabs the pointer, if the given item view has the pointer grab.</para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvasview--render">
+      <title>goocanvas.CanvasView.render</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>render</methodname>
+          <methodparam><parameter role="keyword">cr</parameter></methodparam>
+          <methodparam><parameter role="keyword">bounds</parameter></methodparam>
+          <methodparam><parameter role="keyword">scale</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">cr</parameter>&nbsp;:</term>
+          <listitem><simpara>A cairo context.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">bounds</parameter>&nbsp;:</term>
+          <listitem><simpara>The area to render, or <literal>None</literal> 
+              to render the entire canvas.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">scale</parameter>&nbsp;:</term>
+          <listitem><simpara>The scale to compare with each item's visibility threshold to see 
+              if they should be rendered. This only affects items that have their visibility set 
+              to goocanvas.ITEM_VISIBLE_ABOVE_THRESHOLD.</simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>Renders all or part of a canvas to the given cairo context.</para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvasview--request-redraw">
+      <title>goocanvas.CanvasView.request_redraw</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>request_redraw</methodname>
+          <methodparam><parameter role="keyword">bounds</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">bounds</parameter>&nbsp;:</term>
+          <listitem><simpara>The bounds to redraw.</simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>Requests that the given bounds be redrawn.</para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvasview--request-update">
+      <title>goocanvas.CanvasView.request_update</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>request_update</methodname>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+      </variablelist>
+      
+      <para>
+        Schedules an update of the 
+        <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link>. 
+        This will be performed in the idle loop, after all pending events have been handled, 
+        but before the canvas has been repainted.
+      </para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvasview--scroll-to">
+      <title>goocanvas.CanvasView.scroll_to</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>scroll_to</methodname>
+          <methodparam><parameter role="keyword">left</parameter></methodparam>
+          <methodparam><parameter role="keyword">top</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">left</parameter>&nbsp;:</term>
+          <listitem><simpara>The x coordinate to scroll to.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">top</parameter>&nbsp;:</term>
+          <listitem><simpara>The y coordinate to scroll to.</simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>
+        Scrolls the canvas, placing the given point as close to the top-left of 
+        the view as possible.
+      </para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvasview--set-bounds">
+      <title>goocanvas.CanvasView.set_bounds</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>set_bounds</methodname>
+          <methodparam><parameter role="keyword">left</parameter></methodparam>
+          <methodparam><parameter role="keyword">top</parameter></methodparam>
+          <methodparam><parameter role="keyword">right</parameter></methodparam>
+          <methodparam><parameter role="keyword">bottom</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">left</parameter>&nbsp;:</term>
+          <listitem><simpara>The left edge.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">top</parameter>&nbsp;:</term>
+          <listitem><simpara>The top edge.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">right</parameter>&nbsp;:</term>
+          <listitem><simpara>The right edge.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">bottom</parameter>&nbsp;:</term>
+          <listitem><simpara>The bottom edge.</simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>
+        Sets the bounds of the 
+        <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link> 
+        in device units. By default, device units are the same as pixels, though 
+        <methodname><link linkend="method-goocanvasview--set-scale">set_scale</link></methodname> 
+        can be used to specify a different scale.
+      </para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvasview--set-model">
+      <title>goocanvas.CanvasView.set_model</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>set_model</methodname>
+          <methodparam><parameter role="keyword">model</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">model</parameter>&nbsp;:</term>
+          <listitem><simpara>
+              A <link linkend="class-canvas-view"><classname>goocanvas.CanvasModel</classname></link>.
+          </simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>
+        Sets the model to be displayed in the 
+        <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link>.
+        A hierarchy of item views will be created, corresponding to the hierarchy of items in the model.
+      </para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvasview--set-scale">
+      <title>goocanvas.CanvasView.set_scale</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>set_scale</methodname>
+          <methodparam><parameter role="keyword">pixel_per_unit</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">pixel_per_unit</parameter>&nbsp;:</term>
+          <listitem><simpara>The new scale setting.</simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>
+        Sets the current scale of the canvas, i.e. the number of pixels to use for each device unit.
+      </para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvasview--update">
+      <title>goocanvas.CanvasView.update</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>update</methodname>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+      </variablelist>
+      
+      <para>
+        Updates any item views that need updating.
+        This is only intended to be used by subclasses of 
+        <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link> or
+        <link linkend="class-canvas-item-view"><classname>goocanvas.CanvasItemView</classname></link> 
+        implementation. If the bounds of items change, they will request a redraw of the old and 
+        new bounds so the display is updated correctly.
+      </para>
     </refsect2>
 
   </refsect1>
@@ -575,7 +866,7 @@
             <methodparam><parameter>canvas_view</parameter></methodparam>
             <methodparam><parameter>item_view</parameter></methodparam>
             <methodparam><parameter>item</parameter></methodparam>
-            <methodparam><parameter>user_param1</parameter></methodparam>
+            <methodparam><parameter>user_param</parameter></methodparam>
             <methodparam><parameter>...</parameter></methodparam>
           </methodsynopsis></programlisting>
 
@@ -599,7 +890,7 @@
           </simpara></listitem>
         </varlistentry>
         <varlistentry>
-          <term><parameter>user_param1</parameter>&nbsp;:</term>
+          <term><parameter>user_param</parameter>&nbsp;:</term>
           <listitem><simpara>the first user parameter (if any) specified
             with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link>
             method
@@ -616,6 +907,58 @@
         Applications can set up signal handlers for the new item views here.
       </para>
 
+    </refsect2>
+    
+    <refsect2 id="signal-goocanvasview--set-scroll-adjustments">
+      <title>The "set-scroll-adjustments" goocanvas.CanvasView Signal</title>
+      
+      <programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+          <methodparam><parameter>canvas_view</parameter></methodparam>
+          <methodparam><parameter>hadjustment</parameter></methodparam>
+          <methodparam><parameter>vadjustment</parameter></methodparam>
+          <methodparam><parameter>user_param</parameter></methodparam>
+          <methodparam><parameter>...</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter>canvas_view</parameter>&nbsp;:</term>
+          <listitem><simpara>
+              The <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link>.
+            </simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter>hadjustment</parameter>&nbsp;:</term>
+          <listitem><simpara>
+              The horizontal adjustment.
+            </simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter>vadjustment</parameter>&nbsp;:</term>
+          <listitem><simpara>
+              The vertical adjustment.
+            </simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter>user_param</parameter>&nbsp;:</term>
+          <listitem><simpara>the first user parameter (if any) specified
+              with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link>
+              method
+            </simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter>...</parameter>&nbsp;:</term>
+          <listitem><simpara>additional user parameters (if any)</simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>
+        The 'set-scroll-adjustments" signal is emitted when the GooCanvas is placed inside a
+        <link linkend="class-gtkscolledwindow"><classname>gtk.ScrolledWindow</classname></link>, 
+        to connect up the adjustments so scrolling works properly.
+        It isn't useful for applications.
+      </para>
+      
     </refsect2>
 
 </refsect1>
