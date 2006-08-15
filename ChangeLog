@@ -1,3 +1,13 @@
+2006-08-15  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* goocanvas.override (_wrap_goo_canvas_line_dash_newv): Impl.
+
+	* goocanvasmodule.c (initgoocanvas): Register GValue convertors
+	for GOO_TYPE_CAIRO_PATTERN.
+
+	* goocanvas.defs: Add boxed type definitions for
+	GOO_TYPE_CAIRO_DASHES.
+
 2006-08-15  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
 	* docs/Makefile.am: fix docs build

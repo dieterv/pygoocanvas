@@ -207,6 +207,7 @@ goo_canvas_polyline_new
 goo_canvas_rect_new
 goo_canvas_text_new
 goo_canvas_item_new
+goo_canvas_line_dash_new
 
 %%
 ignore-glob	
@@ -605,6 +606,45 @@ _wrap_GooCanvasItemView__proxy_do_paint(GooCanvasItemView *self, cairo_t*cr,
     Py_DECREF(py_args);
     Py_DECREF(py_self);
     pyg_gil_state_release(__py_state);
+}
+
+%%
+override goo_canvas_line_dash_newv kwargs
+static int
+_wrap_goo_canvas_line_dash_newv(PyGBoxed *self, PyObject *args, PyObject *kwargs)
+{
+    static char *kwlist[] = { "dashes", NULL };
+    int num_dashes, i;
+    double *dashes;
+    PyObject *py_dashes;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"O!:GooCanvasLineDash.__init__", kwlist,
+                                     &PyList_Type, &py_dashes))
+        return -1;
+
+    num_dashes = PyList_Size(py_dashes);
+    dashes = g_new(double, num_dashes);
+    for (i = 0; i < num_dashes; ++i) {
+        PyObject *item = PyList_GET_ITEM(py_dashes, i);
+        if (!PyFloat_Check(item)) {
+            g_free(dashes);
+            PyErr_SetString(PyExc_TypeError, "parameter must be a list of floats");
+            return -1;
+        }
+        dashes[i] = PyFloat_AsDouble(item);
+    }
+
+    self->gtype = GOO_TYPE_CANVAS_LINE_DASH;
+    self->free_on_dealloc = FALSE;
+    self->boxed = goo_canvas_line_dash_newv(num_dashes, dashes);
+
+    if (!self->boxed) {
+        g_free(dashes);
+        PyErr_SetString(PyExc_RuntimeError, "could not create GooCanvasLineDash object");
+        return -1;
+    }
+    self->free_on_dealloc = TRUE;
+    return 0;
 }
 
 %%

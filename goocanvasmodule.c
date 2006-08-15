@@ -31,6 +31,21 @@ _cairo_matrix_to_gvalue(GValue *value, PyObject *obj)
     return 0;
 }
 
+static PyObject *
+_cairo_pattern_from_gvalue(const GValue *value)
+{
+    return PycairoPattern_FromPattern(cairo_pattern_reference((cairo_pattern_t *) g_value_get_boxed(value)));
+}
+
+static int
+_cairo_pattern_to_gvalue(GValue *value, PyObject *obj)
+{
+    if (!(PyObject_IsInstance(obj, (PyObject *) &PycairoPattern_Type)))
+        return -1;
+
+    g_value_set_boxed(value, &((PycairoPattern*)(obj))->pattern);
+    return 0;
+}
 
 DL_EXPORT (void)
 initgoocanvas (void)
@@ -53,6 +68,9 @@ initgoocanvas (void)
     pyg_register_gtype_custom(GOO_TYPE_CAIRO_MATRIX,
 			      _cairo_matrix_from_gvalue,
 			      _cairo_matrix_to_gvalue);
+    pyg_register_gtype_custom(GOO_TYPE_CAIRO_PATTERN,
+			      _cairo_pattern_from_gvalue,
+			      _cairo_pattern_to_gvalue);
     
     if (PyErr_Occurred ())
         Py_FatalError ("can't initialise module goocanvas");
