@@ -1,5 +1,7 @@
 2006-08-15  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* demo/dashes.py: A small demo showing how to do line dashes.
+
 	* goocanvas.override (_wrap_goo_canvas_line_dash_newv): Impl.
 
 	* goocanvasmodule.c (initgoocanvas): Register GValue convertors
