@@ -2,6 +2,7 @@
 
 	* docs/: add docs for CanvasModelSimple
 
+	*goocanvas.override: ignore goo_canvas_item_view_simple_item_changed
 
 2006-08-15  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
