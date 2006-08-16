@@ -16,6 +16,11 @@
       <ooclass><classname>goocanvas.CanvasView</classname></ooclass>
       <ooclass><classname>gtk.Container</classname></ooclass>
 
+      <constructorsynopsis language="python">
+        <methodname><link linkend="constructor-canvas-view">goocanvas.CanvasView</link></methodname>
+        <methodparam></methodparam>
+      </constructorsynopsis>
+
       <methodsynopsis language="python">
         <methodname><link linkend="method-goocanvasview--convert-from-item-space">convert_from_item_space</link></methodname>
         <methodparam><parameter role="keyword">item_view</parameter></methodparam>
@@ -255,7 +260,27 @@
 
   </refsect1>
 
-  <refsect1>
+  <refsect1 id="constructor-canvas-view">
+	  <title>Constructor</title>
+	  
+	  <programlisting><constructorsynopsis language="python">
+			  <methodname>goocanvas.CanvasView</methodname>
+		  </constructorsynopsis></programlisting>
+	  
+	  <variablelist>
+		  <varlistentry>
+			  <term><emphasis>Returns</emphasis>&nbsp;:</term>
+			  <listitem><simpara>A new 
+					  <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link>
+				  </simpara></listitem>
+		  </varlistentry>
+	  </variablelist>
+	  <para>
+		  Creates a new canvas view.
+	  </para>
+	</refsect1>
+
+	<refsect1>
     <title>Methods</title>
 
     <refsect2 id="method-goocanvasview--convert-from-item-space">

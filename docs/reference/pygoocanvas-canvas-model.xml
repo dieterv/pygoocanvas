@@ -5,7 +5,7 @@
 <refentry id="class-canvas-model">
 	<refnamediv>
 		<refname>goocanvas.CanvasModel</refname>
-		<refpurpose>The Canvas Model</refpurpose>
+		<refpurpose>The Canvas Model interface</refpurpose>
 	</refnamediv>
 
 	<refsect1>

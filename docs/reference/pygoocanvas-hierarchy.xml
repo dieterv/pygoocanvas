@@ -6,6 +6,7 @@
 		  +--<link linkend="class-gtkwidget">gtk.Widget</link>
 			 +--<link linkend="class-gtkcontainer">gtk.Container</link>
 				 +--<link linkend="class-canvas-view">goocanvas.CanvasView</link>
+ +--<link linkend="class-canvas-model-simple">goocanvas.CanvasModelSimlple</link>
 <link linkend="class-gobjectginterface">gobject.GInterface</link>
 	 +--<link linkend="class-canvas-model">goocanvas.CanvasModel</link>
 </synopsis>
