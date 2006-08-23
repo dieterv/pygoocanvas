@@ -1598,6 +1598,16 @@
   )
 )
 
+(define-method get_item_view
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_get_item_view")
+  (return-type "GooCanvasItemView*")
+  (parameters
+    '("GooCanvasItem*" "item")
+  )
+)
+
+
 (define-virtual set_scroll_adjustments
   (of-object "GooCanvasView")
   (return-type "none")

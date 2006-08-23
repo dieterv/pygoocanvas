@@ -1,8 +1,13 @@
+2006-08-23  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* goocanvas.defs (get_item_view): Wrap the new
+	goo_canvas_view_get_item_view.
+
 2006-08-17  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
 	* docs/: add docs for CanvasModelSimple
 
-	*goocanvas.override: ignore goo_canvas_item_view_simple_item_changed
+	* goocanvas.override: ignore goo_canvas_item_view_simple_item_changed
 
 2006-08-15  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
