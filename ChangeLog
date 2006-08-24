@@ -1,5 +1,8 @@
 2006-08-24  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* goocanvasmodule.c (initgoocanvas): Add a pygoocanvas_version
+	version tuple to the module.
+
 	* configure.in: AM_PATH_GTK_2_0 is not needed; we use pkg-config.
 	Filter out -export-dynamic in $PYGOOCANVAS_LIBS.
 	Require goocanvas version 0.4, now that it's out.

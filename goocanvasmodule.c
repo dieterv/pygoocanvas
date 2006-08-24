@@ -71,6 +71,12 @@ initgoocanvas (void)
     pyg_register_gtype_custom(GOO_TYPE_CAIRO_PATTERN,
 			      _cairo_pattern_from_gvalue,
 			      _cairo_pattern_to_gvalue);
+
+    PyModule_AddObject(m, "pygoocanvas_version",
+                       Py_BuildValue("iii",
+                                     PYGOOCANVAS_MAJOR_VERSION,
+                                     PYGOOCANVAS_MINOR_VERSION,
+                                     PYGOOCANVAS_MICRO_VERSION));
     
     if (PyErr_Occurred ())
         Py_FatalError ("can't initialise module goocanvas");
