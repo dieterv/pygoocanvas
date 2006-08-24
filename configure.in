@@ -10,7 +10,7 @@ dnl versions of packages we require ...
 m4_define(pygobject_required_version, 2.11.3)
 m4_define(gtk_required_version, 2.8.0)
 m4_define(pygtk_required_version, 2.9.0)
-m4_define(goocanvas_required_version, 0.3)
+m4_define(goocanvas_required_version, 0.4)
 m4_define(pycairo_required_version,    1.2.0)
 
 AC_INIT(pygoocanvas, pygoocanvas_version, [http://developer.berlios.de/projects/pygoocanvas/])
@@ -93,16 +93,13 @@ AM_CONDITIONAL(ENABLE_DOCS, test x$enable_docs != xno)
 dnl get rid of the -export-dynamic stuff from the configure flags ...
 export_dynamic=`(./libtool --config; echo eval echo \\$export_dynamic_flag_spec) | sh`
 
-dnl gtk+
-AM_PATH_GTK_2_0(gtk_required_version,,[AC_MSG_ERROR(maybe you want the gtk-gnome-1-2 branch?)],$extra_mods)
-GTK_LIBS=`echo $GTK_LIBS | sed -e "s/$export_dynamic//"`
-
 dnl pygtk
 PKG_CHECK_MODULES(PYGOOCANVAS, [ dnl
                          pygtk-2.0 >= pygtk_required_version,
                          goocanvas >= goocanvas_required_version,
                          pycairo >= pycairo_required_version
                          ])
+PYGOOCANVAS_LIBS=`echo $PYGOOCANVAS_LIBS | sed -e "s/$export_dynamic//"`
 PYGTK_DATADIR=`pkg-config --variable=datadir pygtk-2.0`
 
 AC_SUBST(PYGTK_CFLAGS)
@@ -118,7 +115,7 @@ if test -f $CODEGENDIR/codegen.py; then
 	AC_MSG_RESULT(yes)
 else 
 	AC_MSG_RESULT(no)
-	AC_MSG_ERROR(Error: codegen not found (should be shipped with pygtk!))
+	AC_MSG_ERROR([Error: codegen not found (should be shipped with pygtk!)])
 fi
 AC_SUBST(CODEGEN)
 
