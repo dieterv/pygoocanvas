@@ -44,8 +44,7 @@ CLEANFILES = 				\
 EXTRA_DIST = 			\
 	$(XMLFILES) 		\
 	$(XSLFILES)			\
-	$(FIX_XREF)			\
-	$(CSS_FILES)
+	$(FIX_XREF)
 
 REFERENCE_DEPS = 		\
 	reference 			\
