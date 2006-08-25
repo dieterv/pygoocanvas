@@ -1,5 +1,9 @@
 2006-08-25  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* goocanvas.override (_wrap_goo_canvas_item_remove_child):
+	Override and make it accept either an integer or a goocanvas.Item,
+	transparently calling goo_canvas_item_find_child if necessary.
+
 	* goocanvas.defs: Wrap goo_canvas_view_get_root_view.
 
 2006-08-24  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
