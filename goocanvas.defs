@@ -1587,6 +1587,12 @@
   )
 )
 
+(define-method get_root_view
+  (of-object "GooCanvasView")
+  (c-name "goo_canvas_view_get_root_view")
+  (return-type "GooCanvasItemView*")
+)
+
 (define-method get_item_view_at
   (of-object "GooCanvasView")
   (c-name "goo_canvas_view_get_item_view_at")
