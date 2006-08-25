@@ -1,3 +1,9 @@
+2006-08-25  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
+	* configure.in: require pygobject 2.10.1 which is the minumum 
+	required version to compile without docs and change version 
+	to 0.4 according to goocanvas version.
+
 2006-08-25  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* goocanvas.override (_wrap_goo_canvas_item_remove_child):
