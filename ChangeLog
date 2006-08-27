@@ -9,6 +9,9 @@
 	GooCanvasItemViewSimple.item setter.
 	(_wrap_goo_canvas_item_view_simple__set_flags): Implement
 	GooCanvasItemViewSimple.flags setter.
+	(_wrap_goo_canvas_item_view_simple__set_bounds) 
+	(_wrap_goo_canvas_item_view_simple__get_bounds): Implement getter
+	and setter for GooCanvasItemViewSimple.bounds.
 
 	* goocanvas.defs: Add GooCanvasItemSimple fields. Idem for
 	GooCanvasItemViewSimple.

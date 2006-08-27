@@ -773,7 +773,7 @@ _wrap_goo_canvas_item_view_simple__set_parent_view(PyGObject *self,
                                                    PyObject *value, void *closure)
 {
     if (!PyObject_IsInstance(value, (PyObject *) &PyGooCanvasItemView_Type)) {
-        PyErr_SetString(PyExc_TypeError, "value must be a goocanvas.CanvasItemView instance");
+        PyErr_SetString(PyExc_TypeError, "value must be a goocanvas.ItemView instance");
         return -1;
     }
     if (GOO_CANVAS_ITEM_VIEW_SIMPLE(self->obj)->parent_view)
@@ -790,7 +790,7 @@ _wrap_goo_canvas_item_view_simple__set_item(PyGObject *self,
                                             PyObject *value, void *closure)
 {
     if (!PyObject_IsInstance(value, (PyObject *) &PyGooCanvasItemSimple_Type)) {
-        PyErr_SetString(PyExc_TypeError, "value must be a goocanvas.CanvasItemSimple instance");
+        PyErr_SetString(PyExc_TypeError, "value must be a goocanvas.ItemSimple instance");
         return -1;
     }
     if (GOO_CANVAS_ITEM_VIEW_SIMPLE(self->obj)->item)
@@ -812,4 +812,25 @@ _wrap_goo_canvas_item_view_simple__set_flags(PyGObject *self,
     }
     GOO_CANVAS_ITEM_VIEW_SIMPLE(self->obj)->flags = (int) PyInt_AsLong(value);
     return 0;
+}
+
+%%
+override-attr GooCanvasItemViewSimple.bounds
+
+static int
+_wrap_goo_canvas_item_view_simple__set_bounds(PyGObject *self,
+                                             PyObject *value, void *closure)
+{
+    if (!PyObject_IsInstance(value, (PyObject *) &PyGooCanvasBounds_Type)) {
+        PyErr_SetString(PyExc_TypeError, "value must be a goocanvas.Bounds instance");
+        return -1;
+    }
+    GOO_CANVAS_ITEM_VIEW_SIMPLE(self->obj)->bounds = ((PyGooCanvasBounds *) value)->bounds;
+    return 0;
+}
+
+static PyObject *
+_wrap_goo_canvas_item_view_simple__get_bounds(PyGObject *self, void *closure)
+{
+   return pygoo_canvas_bounds_new(&GOO_CANVAS_ITEM_VIEW_SIMPLE(self->obj)->bounds);
 }
