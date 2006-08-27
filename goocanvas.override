@@ -799,3 +799,17 @@ _wrap_goo_canvas_item_view_simple__set_item(PyGObject *self,
     return 0;
 }
 
+%%
+override-attr GooCanvasItemViewSimple.flags
+
+static int
+_wrap_goo_canvas_item_view_simple__set_flags(PyGObject *self,
+                                             PyObject *value, void *closure)
+{
+    if (!PyInt_Check(value)) {
+        PyErr_SetString(PyExc_TypeError, "value must be an int");
+        return -1;
+    }
+    GOO_CANVAS_ITEM_VIEW_SIMPLE(self->obj)->flags = (int) PyInt_AsLong(value);
+    return 0;
+}

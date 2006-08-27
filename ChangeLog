@@ -7,6 +7,8 @@
 	GooCanvasItemViewSimple.parent_view setter.
 	(_wrap_goo_canvas_item_view_simple__set_item): Implement
 	GooCanvasItemViewSimple.item setter.
+	(_wrap_goo_canvas_item_view_simple__set_flags): Implement
+	GooCanvasItemViewSimple.flags setter.
 
 	* goocanvas.defs: Add GooCanvasItemSimple fields. Idem for
 	GooCanvasItemViewSimple.
