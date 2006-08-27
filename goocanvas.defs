@@ -45,6 +45,16 @@
   (c-name "GooCanvasItemSimple")
   (gtype-id "GOO_TYPE_CANVAS_ITEM_SIMPLE")
   (implements "GooCanvasItem")
+  (fields
+     ("GooCanvasItem*" "parent")
+     ("GooCanvasStyle*" "style")
+     ("cairo_matrix_t*" "transform")
+     ("GooCanvasItemVisibility" "visibility")
+     ("gdouble" "visibility_threshold")
+     ("GooCanvasPointerEvents" "pointer_events")
+     ("gchar*" "title")
+     ("gchar*" "description")
+  )
 )
 
 (define-object Image
@@ -75,6 +85,14 @@
   (c-name "GooCanvasItemViewSimple")
   (gtype-id "GOO_TYPE_CANVAS_ITEM_VIEW_SIMPLE")
   (implements "GooCanvasItemView")
+  (fields
+   ("GooCanvasView*" "canvas_view")
+   ("GooCanvasItemView*" "parent_view")
+   ("GooCanvasItemSimple*" "item")
+   ("cairo_matrix_t*" "transform")
+   ("GooCanvasBounds" "bounds")
+   ("GooCanvasItemViewFlags" "flags")
+  )
 )
 
 (define-object ImageView

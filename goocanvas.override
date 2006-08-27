@@ -748,3 +748,54 @@ _wrap_goo_canvas_item_remove_child(PyGObject *self, PyObject *args, PyObject *kw
     return Py_None;
 }
 
+%%
+override-attr GooCanvasItemViewSimple.canvas_view
+
+static int
+_wrap_goo_canvas_item_view_simple__set_canvas_view(PyGObject *self,
+                                                   PyObject *value, void *closure)
+{
+    if (!PyObject_IsInstance(value, (PyObject *) &PyGooCanvasView_Type)) {
+        PyErr_SetString(PyExc_TypeError, "value must be a goocanvas.CanvasView instance");
+        return -1;
+    }
+    if (GOO_CANVAS_ITEM_VIEW_SIMPLE(self->obj)->canvas_view)
+        g_object_unref(GOO_CANVAS_ITEM_VIEW_SIMPLE(self->obj)->canvas_view);
+    GOO_CANVAS_ITEM_VIEW_SIMPLE(self->obj)->canvas_view = g_object_ref(pygobject_get(value));
+    return 0;
+}
+
+%%
+override-attr GooCanvasItemViewSimple.parent_view
+
+static int
+_wrap_goo_canvas_item_view_simple__set_parent_view(PyGObject *self,
+                                                   PyObject *value, void *closure)
+{
+    if (!PyObject_IsInstance(value, (PyObject *) &PyGooCanvasItemView_Type)) {
+        PyErr_SetString(PyExc_TypeError, "value must be a goocanvas.CanvasItemView instance");
+        return -1;
+    }
+    if (GOO_CANVAS_ITEM_VIEW_SIMPLE(self->obj)->parent_view)
+        g_object_unref(GOO_CANVAS_ITEM_VIEW_SIMPLE(self->obj)->parent_view);
+    GOO_CANVAS_ITEM_VIEW_SIMPLE(self->obj)->parent_view = g_object_ref(pygobject_get(value));
+    return 0;
+}
+
+%%
+override-attr GooCanvasItemViewSimple.item
+
+static int
+_wrap_goo_canvas_item_view_simple__set_item(PyGObject *self,
+                                            PyObject *value, void *closure)
+{
+    if (!PyObject_IsInstance(value, (PyObject *) &PyGooCanvasItemSimple_Type)) {
+        PyErr_SetString(PyExc_TypeError, "value must be a goocanvas.CanvasItemSimple instance");
+        return -1;
+    }
+    if (GOO_CANVAS_ITEM_VIEW_SIMPLE(self->obj)->item)
+        g_object_unref(GOO_CANVAS_ITEM_VIEW_SIMPLE(self->obj)->item);
+    GOO_CANVAS_ITEM_VIEW_SIMPLE(self->obj)->item = g_object_ref(pygobject_get(value));
+    return 0;
+}
+
