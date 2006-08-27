@@ -208,7 +208,6 @@ goo_canvas_rect_new
 goo_canvas_text_new
 goo_canvas_item_new
 goo_canvas_line_dash_new
-goo_canvas_item_view_simple_item_changed
 
 %%
 ignore-glob	

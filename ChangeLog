@@ -1,5 +1,11 @@
 2006-08-27  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* goocanvas.override: Don't ignore
+	goo_canvas_item_view_simple_item_changed, it is useful.
+
+	* goocanvas.defs: Wrap goo_canvas_item_view_simple_item_changed as
+	function, not method.
+
 	* goocanvas.override
 	(_wrap_goo_canvas_item_view_simple__set_canvas_view): Implement
 	GooCanvasItemViewSimple.canvas_view setter.
