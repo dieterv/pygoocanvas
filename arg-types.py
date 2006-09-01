@@ -15,7 +15,12 @@ class CairoMatrixArg(ArgType):
 
     def write_return(self, ptype, ownsreturn, info):
         info.varlist.add('cairo_matrix_t', '*ret')
-        info.codeafter.append('   return PycairoMatrix_FromMatrix(ret);\n');
+        info.codeafter.append('    if (ret)\n'
+                              '        return PycairoMatrix_FromMatrix(ret);\n'
+                              '    else {\n'
+                              '        Py_INCREF(Py_None);\n'
+                              '        return Py_None;\n'
+                              '    }');
 
 matcher.register('cairo_matrix_t*', CairoMatrixArg())
 
