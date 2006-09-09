@@ -43,7 +43,7 @@ _cairo_pattern_to_gvalue(GValue *value, PyObject *obj)
     if (!(PyObject_IsInstance(obj, (PyObject *) &PycairoPattern_Type)))
         return -1;
 
-    g_value_set_boxed(value, cairo_pattern_reference(((PycairoPattern*)(obj))->pattern));
+    g_value_set_boxed(value, ((PycairoPattern*)(obj))->pattern);
     return 0;
 }
 
