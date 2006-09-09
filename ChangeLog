@@ -1,3 +1,8 @@
+2006-09-09  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* goocanvasmodule.c (_cairo_pattern_to_gvalue): Fix a reference
+	counting bug detected by Gonzalo Odiard.
+
 2006-09-01  Marco Pesenti Gritti <mpg@redhat.com>
 
 	* arg-types.py (CairoMatrixArg.write_return): return None rather
