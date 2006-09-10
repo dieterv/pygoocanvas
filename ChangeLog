@@ -1,6 +1,10 @@
+=== 0.4.1 ===
 2006-09-10  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* NEWS: Update.
+
 	* configure.ac, autogen.sh: configure.in renamed to configure.ac.
+	Bump version to 0.4.1.
 
 2006-09-09  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 

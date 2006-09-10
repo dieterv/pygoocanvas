@@ -1,0 +1,7 @@
+PyGooCanvas 0.4.1	(Sep 10 2006)
+=================
+
+ o Much better support for subclassing ItemSimple / ItemSimpleView (Gustavo)
+ o Don't crash an functions returning NULL CairoMatrix (Marco Pesenti Gritti)
+ o CairoPattern property convertion bug fixed (Gustavo)
+
