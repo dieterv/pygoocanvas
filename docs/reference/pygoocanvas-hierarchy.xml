@@ -9,4 +9,5 @@
  +--<link linkend="class-canvas-model-simple">goocanvas.CanvasModelSimlple</link>
 <link linkend="class-gobjectginterface">gobject.GInterface</link>
 	 +--<link linkend="class-canvas-model">goocanvas.CanvasModel</link>
+	 +--<link linkend="class-canvas-model">goocanvas.Item</link>
 </synopsis>

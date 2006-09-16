@@ -1,0 +1,980 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+      "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="class-canvas-item">
+
+    <refnamediv>
+        <refname>goocanvas.Item</refname>
+        <refpurpose>The interface for canvas items.</refpurpose>
+    </refnamediv>
+
+    <refsect1>
+        <title>Synopsis</title>
+
+        <classsynopsis language="python">
+            <ooclass><classname>goocanvas.Item</classname></ooclass>
+            <ooclass><classname>gobject.GInterface</classname></ooclass>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--add-child">add_child</link></methodname>
+                <methodparam><parameter role="keyword">item</parameter></methodparam>
+                <methodparam><parameter role="keyword">position</parameter></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--animate">animate</link></methodname>
+                <methodparam><parameter role="keyword">x</parameter></methodparam>
+                <methodparam><parameter role="keyword">y</parameter></methodparam>
+                <methodparam><parameter role="keyword">scale</parameter></methodparam>
+                <methodparam><parameter role="keyword">degrees</parameter></methodparam>
+                <methodparam><parameter role="keyword">duration</parameter></methodparam>
+                <methodparam><parameter role="keyword">step_time</parameter></methodparam>
+                <methodparam><parameter role="keyword">type</parameter></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--find-child">find_child</link></methodname>
+                <methodparam><parameter role="keyword">child</parameter></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--get-child">get_child</link></methodname>
+                <methodparam><parameter role="keyword">child_num</parameter></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--get-model">get_model</link></methodname>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--get-n-children">get_n_children</link></methodname>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--get-parent">get_parent</link></methodname>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--get-transform">get_transform</link></methodname>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--is-container">is_container</link></methodname>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--lower">lower</link></methodname>
+                <methodparam><parameter role="keyword">below</parameter></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--move-child">move_child</link></methodname>
+                <methodparam><parameter role="keyword">old_position</parameter></methodparam>
+                <methodparam><parameter role="keyword">new_position</parameter></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--raise-">raise_</link></methodname>
+                <methodparam><parameter role="keyword">above</parameter></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--remove-child">remove_child</link></methodname>
+                <methodparam><parameter role="keyword">child_num</parameter></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--rotate">rotate</link></methodname>
+                <methodparam><parameter role="keyword">degrees</parameter></methodparam>
+                <methodparam><parameter role="keyword">cx</parameter></methodparam>
+                <methodparam><parameter role="keyword">cy</parameter></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--scale">scale</link></methodname>
+                <methodparam><parameter role="keyword">sx</parameter></methodparam>
+                <methodparam><parameter role="keyword">sy</parameter></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--set-parent">set_parent</link></methodname>
+                <methodparam><parameter role="keyword">parent</parameter></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--set-transform">set_transform</link></methodname>
+                <methodparam><parameter role="keyword">matrix</parameter></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--skew-x">skew_x</link></methodname>
+                <methodparam><parameter role="keyword">degrees</parameter></methodparam>
+                <methodparam><parameter role="keyword">cx</parameter></methodparam>
+                <methodparam><parameter role="keyword">cy</parameter></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--skew-y">skew_y</link></methodname>
+                <methodparam><parameter role="keyword">degrees</parameter></methodparam>
+                <methodparam><parameter role="keyword">cx</parameter></methodparam>
+                <methodparam><parameter role="keyword">cy</parameter></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--stop-animation">stop_animation</link></methodname>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--translate">translate</link></methodname>
+                <methodparam><parameter role="keyword">tx</parameter></methodparam>
+                <methodparam><parameter role="keyword">ty</parameter></methodparam>
+            </methodsynopsis>
+        </classsynopsis>
+    </refsect1>
+
+    <refsect1>
+        <title>Ancestry</title>
+
+<synopsis>+-- <link linkend="class-gobjectginterface">gobject.GInterface</link>
+    +-- <link linkend="class-canvas-item">goocanvas.Item</link>
+</synopsis>
+
+    </refsect1>
+
+    <refsect1 id="properties-goocanvasitem">
+        <title>goocanvas.Item Properties</title>
+
+        <blockquote role="properties">
+            <informaltable pgwide="1" frame="none">
+                <tgroup cols="3">
+                    <colspec column="1" colwidth="1in"/>
+                    <colspec column="2" colwidth="1in"/>
+                    <colspec column="3" colwidth="3.5in"/>
+                        <tbody>
+
+                        <row valign="top">
+                            <entry>"description"</entry>
+                            <entry>Read / Write</entry>
+                            <entry>A description of the item for use by assistive technologies. Default value: NULL</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"pointer-events"</entry>
+                            <entry>Read / Write</entry>
+                            <entry>Specifies when the item receives pointer events. Default value:
+                                goocanvas.EVENTS_VISIBLE_MASK|goocanvas.EVENTS_PAINTED_MASK|
+                                goocanvas.EVENTS_FILL_MASK|goocanvas.EVENTS_STROKE_MASK</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"title"</entry>
+                            <entry>Read / Write</entry>
+                            <entry>A short context-rich description of the item for use by 
+                                assistive technologies. Default value: NULL</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"transform"</entry>
+                            <entry>Read / Write</entry>
+                            <entry>The transformation matrix of the item. </entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"visibility"</entry>
+                            <entry>Read / Write</entry>
+                            <entry>When the canvas item is visible. Default value: GOO_CANVAS_ITEM_VISIBLE.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"visibility-threshold"</entry>
+                            <entry>Read / Write</entry>
+                            <entry>The scale threshold at which the item becomes visible. 
+                                Allowed values: >= 0 Default value: 0</entry>
+                        </row>
+
+                    </tbody>
+                </tgroup>
+            </informaltable>
+        </blockquote>
+
+	</refsect1>
+	<refsect1 id="signal-prototypes-goocanvasitem">
+		<title>goocanvas.Item Signal Prototypes</title>
+		<variablelist>
+			<varlistentry>
+				<term><link linkend="signal-goocanvasitem--changed">"changed"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>item</parameter></methodparam>
+						<methodparam><parameter>recompute_bounds</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><link linkend="signal-goocanvasitem--child-added">"child-added"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>item</parameter></methodparam>
+						<methodparam><parameter>child_num</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><link linkend="signal-goocanvasitem--child-moved">"child-moved"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>item</parameter></methodparam>
+						<methodparam><parameter>old_child_num</parameter></methodparam>
+						<methodparam><parameter>new_child_num</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><link linkend="signal-goocanvasitem--child-removed">"child-removed"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>item</parameter></methodparam>
+						<methodparam><parameter>child_num</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</refsect1>
+
+	<refsect1>
+		<title>Known Implementation</title>
+		<para>
+			<link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>
+			is implementated by 
+			<link linkend="class-canvas-rect"><classname>goocanvas.Rect</classname></link>
+			<link linkend="class-canvas-rect"><classname>goocanvas.Ellipse</classname></link>
+			<link linkend="class-canvas-rect"><classname>goocanvas.Path</classname></link>
+			<link linkend="class-canvas-rect"><classname>goocanvas.Polyline</classname></link>
+			<link linkend="class-canvas-rect"><classname>goocanvas.Text</classname></link>
+			<link linkend="class-canvas-rect"><classname>goocanvas.Image</classname></link>
+			<link linkend="class-canvas-rect"><classname>goocanvas.Group</classname></link>
+			<link linkend="class-canvas-item-simple"><classname>goocanvas.ItemSimple</classname></link>
+		</para>
+	</refsect1>
+
+	<refsect1>
+		<title>Description</title>
+			<link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
+			defines the interface that canvas items must implement, and contains methods for operating on canvas items.
+    </refsect1>
+
+    <refsect1>
+    <title>Methods</title>
+        <refsect2 id="method-goocanvasitem--add-child">
+            <title>goocanvas.Item.add_child</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>add_child</methodname>
+                <methodparam><parameter role="keyword">item</parameter></methodparam>
+                <methodparam><parameter role="keyword">position</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">item</parameter>&nbsp;:</term>
+                    <listitem><simpara>The item to add.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">position</parameter>&nbsp;:</term>
+                    <listitem><simpara>the position of the item, or -1 to place it 
+                            last (at the top of the stacking order).</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Adds a child item to a container item at the given stack position.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--animate">
+            <title>goocanvas.Item.animate</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>animate</methodname>
+                <methodparam><parameter role="keyword">x</parameter></methodparam>
+                <methodparam><parameter role="keyword">y</parameter></methodparam>
+                <methodparam><parameter role="keyword">scale</parameter></methodparam>
+                <methodparam><parameter role="keyword">degrees</parameter></methodparam>
+                <methodparam><parameter role="keyword">duration</parameter></methodparam>
+                <methodparam><parameter role="keyword">step_time</parameter></methodparam>
+                <methodparam><parameter role="keyword">type</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">x</parameter>&nbsp;:</term>
+                    <listitem><simpara>the final x offset from the current position.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">y</parameter>&nbsp;:</term>
+                    <listitem><simpara>the final y offset from the current position.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">scale</parameter>&nbsp;:</term>
+                    <listitem><simpara>the final scale of the item.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">degrees</parameter>&nbsp;:</term>
+                    <listitem><simpara>the final rotation of the item.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">duration</parameter>&nbsp;:</term>
+                    <listitem><simpara>the duration of the animation, in milliseconds 
+                            (1/1000ths of a second).</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">step_time</parameter>&nbsp;:</term>
+                    <listitem><simpara>the time between each animation step, in milliseconds.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">type</parameter>&nbsp;:</term>
+                    <listitem><simpara>specifies what happens when the animation finishes.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Animates an item from its current position to the given offsets, scale and rotation.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--find-child">
+            <title>goocanvas.Item.find_child</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>find_child</methodname>
+                <methodparam><parameter role="keyword">child</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">child</parameter>&nbsp;:</term>
+                    <listitem><simpara>the child item to find.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>The position of the given child item, or -1 if it isn't found.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Attempts to find the given child item with the container's stack.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--get-child">
+            <title>goocanvas.Item.get_child</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>get_child</methodname>
+                <methodparam><parameter role="keyword">child_num</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">child_num</parameter>&nbsp;:</term>
+                    <listitem><simpara>the position of a child in the container's stack.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>The child item at the given stack position.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Gets the child item at the given stack position.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--get-model">
+            <title>goocanvas.Item.get_model</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>get_model</methodname>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>the canvas model, or NULL of 
+                            the item isn't in a model.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Gets the canvas model containing the given item.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--get-n-children">
+            <title>goocanvas.Item.get_n_children</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>get_n_children</methodname>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>The number of children.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Gets the number of children of the container.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--get-parent">
+            <title>goocanvas.Item.get_parent</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>get_parent</methodname>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>The parent item, or NULL if the 
+                            item has no parent.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Gets the parent of the given item.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--get-transform">
+            <title>goocanvas.Item.get_transform</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>get_transform</methodname>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>The item's transformation matrix.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Gets the transformation matrix of an item.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--is-container">
+            <title>goocanvas.Item.is_container</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>is_container</methodname>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>TRUE if the item is a container.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Tests to see if the given item is a container.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--lower">
+            <title>goocanvas.Item.lower</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>lower</methodname>
+                <methodparam><parameter role="keyword">below</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">below</parameter>&nbsp;:</term>
+                    <listitem><simpara>the item to lower item below, 
+                            or NULL to lower item to the bottom of the stack.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Lowers an item in the stacking order.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--move-child">
+            <title>goocanvas.Item.move_child</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>move_child</methodname>
+                <methodparam><parameter role="keyword">old_position</parameter></methodparam>
+                <methodparam><parameter role="keyword">new_position</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">old_position</parameter>&nbsp;:</term>
+                    <listitem><simpara>the current position of the child item.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">new_position</parameter>&nbsp;:</term>
+                    <listitem><simpara>the new position of the child item.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Moves a child item to a new stack position within the container.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--raise-">
+            <title>goocanvas.Item.raise_</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>raise_</methodname>
+                <methodparam><parameter role="keyword">above</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">above</parameter>&nbsp;:</term>
+                    <listitem><simpara>the item to raise item above, or 
+                            NULL to raise item to the top of the stack.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Raises an item in the stacking order.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--remove-child">
+            <title>goocanvas.Item.remove_child</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>remove_child</methodname>
+                <methodparam><parameter role="keyword">child_num</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">child_num</parameter>&nbsp;:</term>
+                    <listitem><simpara>the position of the child item to remove.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Removes the child item at the given position.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--rotate">
+            <title>goocanvas.Item.rotate</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>rotate</methodname>
+                <methodparam><parameter role="keyword">degrees</parameter></methodparam>
+                <methodparam><parameter role="keyword">cx</parameter></methodparam>
+                <methodparam><parameter role="keyword">cy</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">degrees</parameter>&nbsp;:</term>
+                    <listitem><simpara>the clockwise angle of rotation.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">cx</parameter>&nbsp;:</term>
+                    <listitem><simpara>the x coordinate of the origin of the rotation.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">cy</parameter>&nbsp;:</term>
+                    <listitem><simpara>the y coordinate of the origin of the rotation.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Rotates the item's coordinate system by the given amount, about the given origin.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--scale">
+            <title>goocanvas.Item.scale</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>scale</methodname>
+                <methodparam><parameter role="keyword">sx</parameter></methodparam>
+                <methodparam><parameter role="keyword">sy</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">sx</parameter>&nbsp;:</term>
+                    <listitem><simpara>the amount to scale the horizontal axis.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">sy</parameter>&nbsp;:</term>
+                    <listitem><simpara>the amount to scale the vertical axis.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Scales the item's coordinate system by the given amounts.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--set-parent">
+            <title>goocanvas.Item.set_parent</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>set_parent</methodname>
+                <methodparam><parameter role="keyword">parent</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">parent</parameter>&nbsp;:</term>
+                    <listitem><simpara>the new parent item.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Sets the parent of the item.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--set-transform">
+            <title>goocanvas.Item.set_transform</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>set_transform</methodname>
+                <methodparam><parameter role="keyword">matrix</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">matrix</parameter>&nbsp;:</term>
+                    <listitem><simpara>the new transformation matrix, or NULL to reset 
+                            the transformation to the identity matrix.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Sets the transformation matrix of an item.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--skew-x">
+            <title>goocanvas.Item.skew_x</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>skew_x</methodname>
+                <methodparam><parameter role="keyword">degrees</parameter></methodparam>
+                <methodparam><parameter role="keyword">cx</parameter></methodparam>
+                <methodparam><parameter role="keyword">cy</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">degrees</parameter>&nbsp;:</term>
+                    <listitem><simpara>the skew angle.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">cx</parameter>&nbsp;:</term>
+                    <listitem><simpara>the x coordinate of the origin of the skew transform.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">cy</parameter>&nbsp;:</term>
+                    <listitem><simpara>the y coordinate of the origin of the skew transform.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Skews the item's coordinate system along the x axis by the given amount, about the given origin.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--skew-y">
+            <title>goocanvas.Item.skew_y</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>skew_y</methodname>
+                <methodparam><parameter role="keyword">degrees</parameter></methodparam>
+                <methodparam><parameter role="keyword">cx</parameter></methodparam>
+                <methodparam><parameter role="keyword">cy</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">degrees</parameter>&nbsp;:</term>
+                    <listitem><simpara>the skew angle.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">cx</parameter>&nbsp;:</term>
+                    <listitem><simpara>the x coordinate of the origin of the skew transform.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">cy</parameter>&nbsp;:</term>
+                    <listitem><simpara>the y coordinate of the origin of the skew transform.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Skews the item's coordinate system along the y axis by the given amount, about the given origin.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--stop-animation">
+            <title>goocanvas.Item.stop_animation</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>stop_animation</methodname>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+            </variablelist>
+
+            <para>
+                Stops any current animation for the given item, leaving it at its current position.
+            </para>
+        </refsect2>
+
+
+
+        <refsect2 id="method-goocanvasitem--translate">
+            <title>goocanvas.Item.translate</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>translate</methodname>
+                <methodparam><parameter role="keyword">tx</parameter></methodparam>
+                <methodparam><parameter role="keyword">ty</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">tx</parameter>&nbsp;:</term>
+                    <listitem><simpara>the amount to move the origin in the horizontal direction.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">ty</parameter>&nbsp;:</term>
+                    <listitem><simpara>the amount to move the origin in the vertical direction.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Translates the origin of the item's coordinate system by the given amounts.
+            </para>
+        </refsect2>
+    </refsect1>
+
+	<refsect1>
+		<title>Signals</title>
+		
+		<refsect2 id="signal-goocanvasitem--changed">
+			<title>The "changed" goocanvas.Item Signal</title>
+			
+			<programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+					<methodparam><parameter>item</parameter></methodparam>
+					<methodparam><parameter>recompute_bounds</parameter></methodparam>
+					<methodparam><parameter>user_param</parameter></methodparam>
+					<methodparam><parameter>...</parameter></methodparam>
+				</methodsynopsis></programlisting>
+			
+			<variablelist>
+				<varlistentry>
+					<term><parameter>item</parameter>&nbsp;:</term>
+					<listitem><simpara>
+							The <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
+							that received the signal.
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>recompute_bounds</parameter>&nbsp;:</term>
+					<listitem><simpara>
+							If the bounds of the item need to be recomputed.
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>user_param</parameter>&nbsp;:</term>
+					<listitem><simpara>the first user parameter (if any) specified
+							with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link>
+							method
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>...</parameter>&nbsp;:</term>
+					<listitem><simpara>additional user parameters (if any)</simpara></listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				The 'changed" signal is emitted when the item has been changed.
+			</para>
+			
+		</refsect2>
+		
+		<refsect2 id="signal-goocanvasitem--child-added">
+			<title>The "child-added" goocanvas.Item Signal</title>
+			
+			<programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+					<methodparam><parameter>item</parameter></methodparam>
+					<methodparam><parameter>child_num</parameter></methodparam>
+					<methodparam><parameter>user_param</parameter></methodparam>
+					<methodparam><parameter>...</parameter></methodparam>
+				</methodsynopsis></programlisting>
+			
+			<variablelist>
+				<varlistentry>
+					<term><parameter>item</parameter>&nbsp;:</term>
+					<listitem><simpara>
+							The <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
+							that received the signal.
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>child_num</parameter>&nbsp;:</term>
+					<listitem><simpara>
+							The index of the new child.
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>user_param</parameter>&nbsp;:</term>
+					<listitem><simpara>the first user parameter (if any) specified
+							with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link>
+							method
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>...</parameter>&nbsp;:</term>
+					<listitem><simpara>additional user parameters (if any)</simpara></listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				The "child-added" signal is emitted when a child has been added to the container item.
+			</para>
+		</refsect2>
+
+		<refsect2 id="signal-goocanvasitem--child-moved">
+			<title>The "child-moved" goocanvas.Item Signal</title>
+			
+			<programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+					<methodparam><parameter>item</parameter></methodparam>
+					<methodparam><parameter>old_child_num</parameter></methodparam>
+					<methodparam><parameter>new_child_num</parameter></methodparam>
+					<methodparam><parameter>user_param</parameter></methodparam>
+					<methodparam><parameter>...</parameter></methodparam>
+				</methodsynopsis></programlisting>
+			
+			<variablelist>
+				<varlistentry>
+					<term><parameter>item</parameter>&nbsp;:</term>
+					<listitem><simpara>
+							The <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
+							that received the signal.
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>old_child_num</parameter>&nbsp;:</term>
+					<listitem><simpara>
+							The old index of the child.
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>new_child_num</parameter>&nbsp;:</term>
+					<listitem><simpara>
+							The new index of the child.
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>user_param</parameter>&nbsp;:</term>
+					<listitem><simpara>the first user parameter (if any) specified
+							with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link>
+							method
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>...</parameter>&nbsp;:</term>
+					<listitem><simpara>additional user parameters (if any)</simpara></listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				The "child-moved" signal is emitted when a child has been moved in the stacking order of a container item.
+			</para>
+		</refsect2>
+		<refsect2 id="signal-goocanvasitem--child-removed">
+			<title>The "child-removed" goocanvas.Item Signal</title>
+			
+			<programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+					<methodparam><parameter>item</parameter></methodparam>
+					<methodparam><parameter>child_num</parameter></methodparam>
+					<methodparam><parameter>user_param</parameter></methodparam>
+					<methodparam><parameter>...</parameter></methodparam>
+				</methodsynopsis></programlisting>
+			
+			<variablelist>
+				<varlistentry>
+					<term><parameter>item</parameter>&nbsp;:</term>
+					<listitem><simpara>
+							The <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
+							that received the signal.
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>child_num</parameter>&nbsp;:</term>
+					<listitem><simpara>
+							The index of the child that was removed.
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>user_param</parameter>&nbsp;:</term>
+					<listitem><simpara>the first user parameter (if any) specified
+							with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link>
+							method
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>...</parameter>&nbsp;:</term>
+					<listitem><simpara>additional user parameters (if any)</simpara></listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				The "child-removed" signal is emitted when a child has been removed from the container item.
+			</para>
+		</refsect2>
+	</refsect1>
+</refentry>

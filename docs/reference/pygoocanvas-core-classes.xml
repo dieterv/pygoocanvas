@@ -8,6 +8,6 @@
 	<xi:include href="pygoocanvas-canvas-view.xml"/>
 	<xi:include href="pygoocanvas-canvas-model.xml"/>
 	<xi:include href="pygoocanvas-canvas-model-simple.xml"/>
-
+	<xi:include href="pygoocanvas-canvas-item.xml"/>
 
 </chapter>

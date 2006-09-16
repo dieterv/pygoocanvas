@@ -1,4 +1,8 @@
-2006-08-25  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+2006-09-16  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
+	* docs/reference/pygoocanvas-canvas-item.xml: More docs.
+
+2006-09-16  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
 	* demo/arrowhead-demo.py: New large arrowhead example.
 
