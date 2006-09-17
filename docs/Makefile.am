@@ -13,7 +13,8 @@ XMLFILES = 											\
 	reference/pygoocanvas-canvas-view.xml			\
 	reference/pygoocanvas-canvas-model.xml			\
 	reference/pygoocanvas-canvas-model-simple.xml	\
-	reference/pygoocanvas-canvas-item.xml
+	reference/pygoocanvas-canvas-item.xml			\
+	reference/pygoocanvas-canvas-item-simple.xml
 
 
 HTMLdir = $(datadir)/gtk-doc/html/pygoocanvas
@@ -24,6 +25,7 @@ HTML_DATA =								\
 	html/class-canvas-model.html		\
 	html/class-canvas-model-simple.html	\
 	html/class-canvas-item.html			\
+	html/class-canvas-item-simple.html	\
 	html/index.html						\
 	html/index.sgml						\
 	html/pygoocanvas.devhelp
