@@ -1,5 +1,10 @@
 2006-09-17  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
+	* goocanvas.defs: added missing methods of ItemView, get_transform, 
+	set_transform, get_combined_transform, get_item_view_at.
+
+2006-09-17  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
 	* docs/reference/pygoocanvas-canvas-item-simple.xml: More docs.
 
 2006-09-16  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>

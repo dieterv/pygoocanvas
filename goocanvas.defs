@@ -874,6 +874,30 @@
   (return-type "gboolean")
 )
 
+(define-method get_transform
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_get_transform")
+  (return-type "cairo_matrix_t*")
+)
+
+(define-method set_transform
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_set_transform")
+  (return-type "none")
+  (parameters
+    '("cairo_matrix_t*" "matrix")
+  )
+)
+
+(define-method get_combined_transform
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_get_combined_transform")
+  (return-type "gboolean")
+  (parameters
+    '("cairo_matrix_t*" "result")
+  )
+)
+
 (define-method get_item
   (of-object "GooCanvasItemView")
   (c-name "goo_canvas_item_view_get_item")
@@ -886,6 +910,18 @@
   (return-type "GooCanvasBounds*")
 )
 
+(define-method get_item_view_at
+  (of-object "GooCanvasItemView")
+  (c-name "goo_canvas_item_view_get_item_view_at")
+  (return-type "GooCanvasItemView*")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+    '("cairo_t*" "cr")
+    '("gboolean" "is_pointer_event")
+    '("gboolean" "parent_is_visible")
+  )
+)
 
 (define-method is_visible
   (of-object "GooCanvasItemView")
