@@ -1,5 +1,9 @@
 2006-09-18  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
+	* goocanvas.defs: fix function item_view_simple_item_changed
+
+2006-09-18  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
 	* docs/reference/pygoocanvas-canvas-item-view.xml: More docs.
 
 2006-09-17  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>

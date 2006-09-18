@@ -1121,7 +1121,6 @@
 )
 
 (define-function item_view_simple_item_changed
-  (of-object "GooCanvasItem")
   (c-name "goo_canvas_item_view_simple_item_changed")
   (return-type "none")
   (parameters
