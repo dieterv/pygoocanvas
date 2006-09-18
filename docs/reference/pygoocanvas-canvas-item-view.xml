@@ -1,0 +1,1176 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+      "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="class-canvas-item-view">
+
+	<refnamediv>
+		<refname>goocanvas.ItemView</refname>
+		<refpurpose>The interface for views of canvas items.</refpurpose>
+	</refnamediv>
+	
+	<refsect1>
+		<title>Synopsis</title>
+	
+		<classsynopsis language="python">
+			<ooclass><classname>goocanvas.ItemView</classname></ooclass>
+			<ooclass><classname>gobject.GInterface</classname></ooclass>
+	
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--ensure-updated">ensure_updated</link></methodname>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--find-child">find_child</link></methodname>
+				<methodparam><parameter role="keyword">child</parameter></methodparam>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--get-bounds">get_bounds</link></methodname>
+				<methodparam><parameter role="keyword">bounds</parameter></methodparam>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--get-canvas-view">get_canvas_view</link></methodname>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--get-child">get_child</link></methodname>
+				<methodparam><parameter role="keyword">child_num</parameter></methodparam>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--get-combined-transform">get_combined_transform</link></methodname>
+				<methodparam><parameter role="keyword">result</parameter></methodparam>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--get-item">get_item</link></methodname>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--get-item-view-at">get_item_view_at</link></methodname>
+				<methodparam><parameter role="keyword">x</parameter></methodparam>
+				<methodparam><parameter role="keyword">y</parameter></methodparam>
+				<methodparam><parameter role="keyword">cr</parameter></methodparam>
+				<methodparam><parameter role="keyword">is_pointer_event</parameter></methodparam>
+				<methodparam><parameter role="keyword">parent_is_visible</parameter></methodparam>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--get-n-children">get_n_children</link></methodname>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--get-parent-view">get_parent_view</link></methodname>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--get-transform">get_transform</link></methodname>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--is-container">is_container</link></methodname>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--is-visible">is_visible</link></methodname>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--paint">paint</link></methodname>
+				<methodparam><parameter role="keyword">cr</parameter></methodparam>
+				<methodparam><parameter role="keyword">bounds</parameter></methodparam>
+				<methodparam><parameter role="keyword">scale</parameter></methodparam>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--request-update">request_update</link></methodname>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--set-parent-view">set_parent_view</link></methodname>
+				<methodparam><parameter role="keyword">parent_view</parameter></methodparam>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--set-transform">set_transform</link></methodname>
+				<methodparam><parameter role="keyword">matrix</parameter></methodparam>
+			</methodsynopsis>
+			
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemview--update">update</link></methodname>
+				<methodparam><parameter role="keyword">entire_tree</parameter></methodparam>
+				<methodparam><parameter role="keyword">cr</parameter></methodparam>
+				<methodparam><parameter role="keyword">bounds</parameter></methodparam>
+			</methodsynopsis>
+		</classsynopsis>
+	</refsect1>
+
+	<refsect1>
+		<title>Ancestry</title>
+
+<synopsis>+-- <link linkend="class-gobjectginterface">gobject.GInterface</link>
+    +-- <link linkend="class-canvas-item-view">goocanvas.ItemView</link>
+</synopsis>
+
+	</refsect1>
+	
+	<refsect1 id="properties-goocanvasitemview">
+		<title>goocanvas.ItemView Properties</title>
+	
+		<blockquote role="properties">
+			<informaltable pgwide="1" frame="none">
+				<tgroup cols="3">
+					<colspec column="1" colwidth="1in"/>
+					<colspec column="2" colwidth="1in"/>
+					<colspec column="3" colwidth="3.5in"/>
+						<tbody>
+	
+						<row valign="top">
+							<entry>"can-focus"</entry>
+							<entry>Read / Write</entry>
+							<entry>If the item can take the keyboard focus. Default value: <literal>False</literal></entry>
+						</row>
+
+					</tbody>
+				</tgroup>
+			</informaltable>
+		</blockquote>
+
+	</refsect1>
+	<refsect1 id="signal-prototypes-goocanvasitemview">
+		<title>goocanvas.ItemView Signal Prototypes</title>
+		<variablelist>
+			<varlistentry>
+				<term><link linkend="signal-goocanvasitemview--button-press-event">"button-press-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>view</parameter></methodparam>
+						<methodparam><parameter>target_view</parameter></methodparam>
+						<methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><link linkend="signal-goocanvasitemview--button-release-event">"button-release-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>view</parameter></methodparam>
+						<methodparam><parameter>target_view</parameter></methodparam>
+						<methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><link linkend="signal-goocanvasitemview--enter-notify-event">"enter-notify-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>view</parameter></methodparam>
+						<methodparam><parameter>target_view</parameter></methodparam>
+						<methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><link linkend="signal-goocanvasitemview--focus-in-event">"focus-in-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>view</parameter></methodparam>
+						<methodparam><parameter>target_view</parameter></methodparam>
+						<methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><link linkend="signal-goocanvasitemview--focus-out-event">"focus-out-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>view</parameter></methodparam>
+						<methodparam><parameter>target_view</parameter></methodparam>
+						<methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><link linkend="signal-goocanvasitemview--grab-broken-event">"grab-broken-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>view</parameter></methodparam>
+						<methodparam><parameter>target_view</parameter></methodparam>
+						<methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><link linkend="signal-goocanvasitemview--key-press-event">"key-press-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>view</parameter></methodparam>
+						<methodparam><parameter>target_view</parameter></methodparam>
+						<methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><link linkend="signal-goocanvasitemview--key-release-event">"key-release-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>view</parameter></methodparam>
+						<methodparam><parameter>target_view</parameter></methodparam>
+						<methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><link linkend="signal-goocanvasitemview--leave-notify-event">"leave-notify-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>view</parameter></methodparam>
+						<methodparam><parameter>target_view</parameter></methodparam>
+						<methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><link linkend="signal-goocanvasitemview--motion-notify-event">"motion-notify-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>view</parameter></methodparam>
+						<methodparam><parameter>target_view</parameter></methodparam>
+						<methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</refsect1>
+
+	<refsect1>
+		<title>Known Implementation</title>
+		<para>
+			<link linkend="class-canvas-item"><classname>goocanvas.ItemView</classname></link>
+			is implementated by 
+			<link linkend="class-canvas-rect"><classname>goocanvas.RectView</classname></link>
+			<link linkend="class-canvas-rect"><classname>goocanvas.EllipseView</classname></link>
+			<link linkend="class-canvas-rect"><classname>goocanvas.PathView</classname></link>
+			<link linkend="class-canvas-rect"><classname>goocanvas.PolylineView</classname></link>
+			<link linkend="class-canvas-rect"><classname>goocanvas.TextView</classname></link>
+			<link linkend="class-canvas-rect"><classname>goocanvas.ImageView</classname></link>
+			<link linkend="class-canvas-rect"><classname>goocanvas.GroupView</classname></link>
+			<link linkend="class-canvas-item-view-simple"><classname>goocanvas.ItemViewSimple</classname></link>
+		</para>
+	</refsect1>
+
+	<refsect1>
+		<title>Description</title>
+			<link linkend="class-canvas-item-view"><classname>goocanvas.ItemView</classname></link> 
+			defines the interface that item views must implement, and contains methods for operating on item views.
+	</refsect1>
+
+	<refsect1>
+	<title>Methods</title>
+	<refsect2 id="method-goocanvasitemview--ensure-updated">
+		<title>goocanvas.ItemView.ensure_updated</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>ensure_updated</methodname>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+		</variablelist>
+		
+		<para>
+			Updates the canvas immediately, if an update is scheduled. This ensures that all item bounds are up-to-date.
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--find-child">
+		<title>goocanvas.ItemView.find_child</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>find_child</methodname>
+				<methodparam><parameter role="keyword">child</parameter></methodparam>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">child</parameter>&nbsp;:</term>
+				<listitem><simpara>A child view.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara> The index of the given child item view.</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		
+		<para>
+			Gets the index of the child item view, counting from 0.
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--get-bounds">
+		<title>goocanvas.ItemView.get_bounds</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>get_bounds</methodname>
+				<methodparam><parameter role="keyword">bounds</parameter></methodparam>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">bounds</parameter>&nbsp;:</term>
+				<listitem><simpara>A GooCanvasBounds to return the bounds in.</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		
+		<para>
+			Gets the bounds of the item view. Note that the bounds includes the entire fill and stroke extents of the item view, whether they are painted or not.
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--get-canvas-view">
+		<title>goocanvas.ItemView.get_canvas_view</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>get_canvas_view</methodname>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara> The GooCanvasView.</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		
+		<para>
+			Returns the GooCanvasView containing the given GooCanvasItemView.
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--get-child">
+		<title>goocanvas.ItemView.get_child</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>get_child</methodname>
+				<methodparam><parameter role="keyword">child_num</parameter></methodparam>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">child_num</parameter>&nbsp;:</term>
+				<listitem><simpara>The index of the child within the view, counting from 0.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara> The child at the given index.</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		
+		<para>
+			Returns the child view at the given index, or NULL if the item has no children or the index is out of range.
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--get-combined-transform">
+		<title>goocanvas.ItemView.get_combined_transform</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>get_combined_transform</methodname>
+				<methodparam><parameter role="keyword">result</parameter></methodparam>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">result</parameter>&nbsp;:</term>
+				<listitem><simpara>the matrix to store the resulting transform in.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara> <literal>True</literal> if there is a transformation.</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		
+		<para>
+			Gets the total transformation matrix of an item view, which is a combination of the item's transformation and the item view's transformation.
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--get-item">
+		<title>goocanvas.ItemView.get_item</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>get_item</methodname>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara> The GooCanvasItem that the view is displaying.</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		
+		<para>
+			Returns the item the view is displaying.
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--get-item-view-at">
+		<title>goocanvas.ItemView.get_item_view_at</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>get_item_view_at</methodname>
+				<methodparam><parameter role="keyword">x</parameter></methodparam>
+				<methodparam><parameter role="keyword">y</parameter></methodparam>
+				<methodparam><parameter role="keyword">cr</parameter></methodparam>
+				<methodparam><parameter role="keyword">is_pointer_event</parameter></methodparam>
+				<methodparam><parameter role="keyword">parent_is_visible</parameter></methodparam>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">x</parameter>&nbsp;:</term>
+				<listitem><simpara>the x coordinate of the point.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><parameter role="keyword">y</parameter>&nbsp;:</term>
+				<listitem><simpara>the y coordinate of the point.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><parameter role="keyword">cr</parameter>&nbsp;:</term>
+				<listitem><simpara>a cairo contect.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><parameter role="keyword">is_pointer_event</parameter>&nbsp;:</term>
+				<listitem><simpara><literal>True</literal> if the "pointer-events" properties of items should be used to determine which parts of the item are tested.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><parameter role="keyword">parent_is_visible</parameter>&nbsp;:</term>
+				<listitem><simpara><literal>True</literal> if the parent item view is visible (which implies that all ancestors are also visible).</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara> The item view found at the given point, or NULL if no item view was found.</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		
+		<para>
+			Gets the item view at the given point.
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--get-n-children">
+		<title>goocanvas.ItemView.get_n_children</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>get_n_children</methodname>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara> The number of children of the GooCanvasItemView, or 0 if the view is not a container.</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		
+		<para>
+			Returns the number of children of the given GooCanvasItemView.
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--get-parent-view">
+		<title>goocanvas.ItemView.get_parent_view</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>get_parent_view</methodname>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara> The parent view of the item.</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		
+		<para>
+			Returns the parent view of the given GooCanvasItemView.
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--get-transform">
+		<title>goocanvas.ItemView.get_transform</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>get_transform</methodname>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara> The item view's transformation matrix. </simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		
+		<para>
+			Gets the transformation matrix of an item view.
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--is-container">
+		<title>goocanvas.ItemView.is_container</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>is_container</methodname>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara> <literal>True</literal> if the item view is a container.</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		
+		<para>
+			Returns <literal>True</literal> if the given GooCanvasItemView is a container, i.e. it may contain children;
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--is-visible">
+		<title>goocanvas.ItemView.is_visible</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>is_visible</methodname>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara> <literal>True</literal> if the item is visible.</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		
+		<para>
+			Checks if the item is visible. This entails checking the item's own visibility setting, 
+			as well as those of its ancestors. Note that this the item may be scrolled off the screen 
+			and so may not be actually visible to the user.
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--paint">
+		<title>goocanvas.ItemView.paint</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>paint</methodname>
+				<methodparam><parameter role="keyword">cr</parameter></methodparam>
+				<methodparam><parameter role="keyword">bounds</parameter></methodparam>
+				<methodparam><parameter role="keyword">scale</parameter></methodparam>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">cr</parameter>&nbsp;:</term>
+				<listitem><simpara>a cairo context.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><parameter role="keyword">bounds</parameter>&nbsp;:</term>
+				<listitem><simpara>the bounds that need to be repainted.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><parameter role="keyword">scale</parameter>&nbsp;:</term>
+				<listitem><simpara>the scale to use to determine whether an item should be painted. See GooCanvasItem</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		
+		<para>
+			Paints the item view and all children if they intersect the given bounds. 
+			Note that the scale argument may be different to the current scale in the GooCanvasView, e.g. 
+			when the canvas is being printed.
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--request-update">
+		<title>goocanvas.ItemView.request_update</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>request_update</methodname>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+		</variablelist>
+		
+		<para>
+			Requests that an update of the item is scheduled. It will be performed as soon as the application is idle, and before the canvas is redrawn.
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--set-parent-view">
+		<title>goocanvas.ItemView.set_parent_view</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>set_parent_view</methodname>
+				<methodparam><parameter role="keyword">parent_view</parameter></methodparam>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">parent_view</parameter>&nbsp;:</term>
+				<listitem><simpara>the parent view.</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		
+		<para>
+			Sets the parent view of the given GooCanvasItemView
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--set-transform">
+		<title>goocanvas.ItemView.set_transform</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>set_transform</methodname>
+				<methodparam><parameter role="keyword">matrix</parameter></methodparam>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">matrix</parameter>&nbsp;:</term>
+				<listitem><simpara>the new transformation matrix, or NULL to reset the transformation to the identity matrix.</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		
+		<para>
+			Sets the transformation matrix of an item view.
+		</para>
+	</refsect2>
+
+	<refsect2 id="method-goocanvasitemview--update">
+		<title>goocanvas.ItemView.update</title>
+		<programlisting><methodsynopsis language="python">
+				<methodname>update</methodname>
+				<methodparam><parameter role="keyword">entire_tree</parameter></methodparam>
+				<methodparam><parameter role="keyword">cr</parameter></methodparam>
+				<methodparam><parameter role="keyword">bounds</parameter></methodparam>
+			</methodsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">entire_tree</parameter>&nbsp;:</term>
+				<listitem><simpara>if the entire subtree should be updated.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><parameter role="keyword">cr</parameter>&nbsp;:</term>
+				<listitem><simpara>a cairo context.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><parameter role="keyword">bounds</parameter>&nbsp;:</term>
+				<listitem><simpara>a GooCanvasBounds to return the new bounds in.</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		
+		<para>
+			Updates the item view, if needed, and any children.
+		</para>
+		</refsect2>
+	</refsect1>
+
+	<refsect1>
+		<title>Signals</title>
+		
+		<refsect2 id="signal-goocanvasitemview--button-press-event">
+			<title>The "button-press-event" goocanvas.ItemView Signal</title>
+			
+			<programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+					<methodparam><parameter>view</parameter></methodparam>
+					<methodparam><parameter>target_view</parameter></methodparam>
+					<methodparam><parameter>event</parameter></methodparam>
+					<methodparam><parameter>user_param</parameter></methodparam>
+					<methodparam><parameter>...</parameter></methodparam>
+				</methodsynopsis></programlisting>
+			
+			<variablelist>
+				<varlistentry>
+					<term><parameter>view</parameter>&nbsp;:</term>
+					<listitem><simpara>the item view that received the signal.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>target_view</parameter>&nbsp;:</term>
+					<listitem><simpara>the target of the event.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>event</parameter>&nbsp;:</term>
+					<listitem><simpara>the event data, with coordinates translated to canvas coordinates.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>user_param</parameter>&nbsp;:</term>
+					<listitem><simpara>the first user parameter (if any) specified
+							with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link> method
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>...</parameter>&nbsp;:</term>
+					<listitem><simpara>additional user parameters (if any)</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><emphasis>Returns</emphasis>&nbsp;:</term>
+					<listitem><simpara> <literal>True</literal> to stop the signal emission, or <literal>False</literal> to let it continue.</simpara></listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				The 'button-press-event" signal is emitted when a mouse button is pressed in an item view.
+			</para>
+			
+		</refsect2>
+		
+		
+		<refsect2 id="signal-goocanvasitemview--button-release-event">
+			<title>The "button-release-event" goocanvas.ItemView Signal</title>
+			
+			<programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+					<methodparam><parameter>view</parameter></methodparam>
+					<methodparam><parameter>target_view</parameter></methodparam>
+					<methodparam><parameter>event</parameter></methodparam>
+					<methodparam><parameter>user_param</parameter></methodparam>
+					<methodparam><parameter>...</parameter></methodparam>
+				</methodsynopsis></programlisting>
+			
+			<variablelist>
+				<varlistentry>
+					<term><parameter>view</parameter>&nbsp;:</term>
+					<listitem><simpara>the item view that received the signal.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>target_view</parameter>&nbsp;:</term>
+					<listitem><simpara>the target of the event.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>event</parameter>&nbsp;:</term>
+					<listitem><simpara>the event data, with coordinates translated to canvas coordinates.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>user_param</parameter>&nbsp;:</term>
+					<listitem><simpara>the first user parameter (if any) specified
+							with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link> method
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>...</parameter>&nbsp;:</term>
+					<listitem><simpara>additional user parameters (if any)</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><emphasis>Returns</emphasis>&nbsp;:</term>
+					<listitem><simpara> <literal>True</literal> to stop the signal emission, or <literal>False</literal> to let it continue.</simpara></listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				The 'button-release-event" signal is emitted when a mouse button is released in an item view.
+			</para>
+			
+		</refsect2>
+		
+		
+		<refsect2 id="signal-goocanvasitemview--enter-notify-event">
+			<title>The "enter-notify-event" goocanvas.ItemView Signal</title>
+			
+			<programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+					<methodparam><parameter>view</parameter></methodparam>
+					<methodparam><parameter>target_view</parameter></methodparam>
+					<methodparam><parameter>event</parameter></methodparam>
+					<methodparam><parameter>user_param</parameter></methodparam>
+					<methodparam><parameter>...</parameter></methodparam>
+				</methodsynopsis></programlisting>
+			
+			<variablelist>
+				<varlistentry>
+					<term><parameter>view</parameter>&nbsp;:</term>
+					<listitem><simpara>the item view that received the signal.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>target_view</parameter>&nbsp;:</term>
+					<listitem><simpara>the target of the event.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>event</parameter>&nbsp;:</term>
+					<listitem><simpara>the event data, with coordinates translated to canvas coordinates.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>user_param</parameter>&nbsp;:</term>
+					<listitem><simpara>the first user parameter (if any) specified
+							with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link> method
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>...</parameter>&nbsp;:</term>
+					<listitem><simpara>additional user parameters (if any)</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><emphasis>Returns</emphasis>&nbsp;:</term>
+					<listitem><simpara> <literal>True</literal> to stop the signal emission, or <literal>False</literal> to let it continue.</simpara></listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				The 'enter-notify-event" signal is emitted when the mouse enters an item view.
+			</para>
+			
+		</refsect2>
+		
+		
+		<refsect2 id="signal-goocanvasitemview--focus-in-event">
+			<title>The "focus-in-event" goocanvas.ItemView Signal</title>
+			
+			<programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+					<methodparam><parameter>view</parameter></methodparam>
+					<methodparam><parameter>target_view</parameter></methodparam>
+					<methodparam><parameter>event</parameter></methodparam>
+					<methodparam><parameter>user_param</parameter></methodparam>
+					<methodparam><parameter>...</parameter></methodparam>
+				</methodsynopsis></programlisting>
+			
+			<variablelist>
+				<varlistentry>
+					<term><parameter>view</parameter>&nbsp;:</term>
+					<listitem><simpara>the item view that received the signal.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>target_view</parameter>&nbsp;:</term>
+					<listitem><simpara>the target of the event.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>event</parameter>&nbsp;:</term>
+					<listitem><simpara>the event data.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>user_param</parameter>&nbsp;:</term>
+					<listitem><simpara>the first user parameter (if any) specified
+							with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link> method
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>...</parameter>&nbsp;:</term>
+					<listitem><simpara>additional user parameters (if any)</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><emphasis>Returns</emphasis>&nbsp;:</term>
+					<listitem><simpara> <literal>True</literal> to stop the signal emission, or <literal>False</literal> to let it continue.</simpara></listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				The 'focus-in-event" signal is emitted when the item receives the keyboard focus.
+			</para>
+			
+		</refsect2>
+		
+		
+		<refsect2 id="signal-goocanvasitemview--focus-out-event">
+			<title>The "focus-out-event" goocanvas.ItemView Signal</title>
+			
+			<programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+					<methodparam><parameter>view</parameter></methodparam>
+					<methodparam><parameter>target_view</parameter></methodparam>
+					<methodparam><parameter>event</parameter></methodparam>
+					<methodparam><parameter>user_param</parameter></methodparam>
+					<methodparam><parameter>...</parameter></methodparam>
+				</methodsynopsis></programlisting>
+			
+			<variablelist>
+				<varlistentry>
+					<term><parameter>view</parameter>&nbsp;:</term>
+					<listitem><simpara>the item view that received the signal.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>target_view</parameter>&nbsp;:</term>
+					<listitem><simpara>the target of the event.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>event</parameter>&nbsp;:</term>
+					<listitem><simpara>the event data.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>user_param</parameter>&nbsp;:</term>
+					<listitem><simpara>the first user parameter (if any) specified
+							with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link> method
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>...</parameter>&nbsp;:</term>
+					<listitem><simpara>additional user parameters (if any)</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><emphasis>Returns</emphasis>&nbsp;:</term>
+					<listitem><simpara> <literal>True</literal> to stop the signal emission, or <literal>False</literal> to let it continue.</simpara></listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				The 'focus-out-event" signal is emitted when the item loses the keyboard focus.
+			</para>
+			
+		</refsect2>
+		
+		
+		<refsect2 id="signal-goocanvasitemview--grab-broken-event">
+			<title>The "grab-broken-event" goocanvas.ItemView Signal</title>
+			
+			<programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+					<methodparam><parameter>view</parameter></methodparam>
+					<methodparam><parameter>target_view</parameter></methodparam>
+					<methodparam><parameter>event</parameter></methodparam>
+					<methodparam><parameter>user_param</parameter></methodparam>
+					<methodparam><parameter>...</parameter></methodparam>
+				</methodsynopsis></programlisting>
+			
+			<variablelist>
+				<varlistentry>
+					<term><parameter>view</parameter>&nbsp;:</term>
+					<listitem><simpara>the item view that received the signal.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>target_view</parameter>&nbsp;:</term>
+					<listitem><simpara>the target of the event.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>event</parameter>&nbsp;:</term>
+					<listitem><simpara>the event data.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>user_param</parameter>&nbsp;:</term>
+					<listitem><simpara>the first user parameter (if any) specified
+							with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link> method
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>...</parameter>&nbsp;:</term>
+					<listitem><simpara>additional user parameters (if any)</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><emphasis>Returns</emphasis>&nbsp;:</term>
+					<listitem><simpara> <literal>True</literal> to stop the signal emission, or <literal>False</literal> to let it continue.</simpara></listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				The 'grab-broken-event" signal is emitted when the item view's keyboard or pointer grab was lost unexpectedly.
+			</para>
+			
+		</refsect2>
+		
+		
+		<refsect2 id="signal-goocanvasitemview--key-press-event">
+			<title>The "key-press-event" goocanvas.ItemView Signal</title>
+			
+			<programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+					<methodparam><parameter>view</parameter></methodparam>
+					<methodparam><parameter>target_view</parameter></methodparam>
+					<methodparam><parameter>event</parameter></methodparam>
+					<methodparam><parameter>user_param</parameter></methodparam>
+					<methodparam><parameter>...</parameter></methodparam>
+				</methodsynopsis></programlisting>
+			
+			<variablelist>
+				<varlistentry>
+					<term><parameter>view</parameter>&nbsp;:</term>
+					<listitem><simpara>the item view that received the signal.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>target_view</parameter>&nbsp;:</term>
+					<listitem><simpara>the target of the event.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>event</parameter>&nbsp;:</term>
+					<listitem><simpara>the event data.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>user_param</parameter>&nbsp;:</term>
+					<listitem><simpara>the first user parameter (if any) specified
+							with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link> method
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>...</parameter>&nbsp;:</term>
+					<listitem><simpara>additional user parameters (if any)</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><emphasis>Returns</emphasis>&nbsp;:</term>
+					<listitem><simpara> <literal>True</literal> to stop the signal emission, or <literal>False</literal> to let it continue.</simpara></listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				The 'key-press-event" signal is emitted when a key is pressed and the item view has the keyboard focus.
+			</para>
+			
+		</refsect2>
+		
+		
+		<refsect2 id="signal-goocanvasitemview--key-release-event">
+			<title>The "key-release-event" goocanvas.ItemView Signal</title>
+			
+			<programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+					<methodparam><parameter>view</parameter></methodparam>
+					<methodparam><parameter>target_view</parameter></methodparam>
+					<methodparam><parameter>event</parameter></methodparam>
+					<methodparam><parameter>user_param</parameter></methodparam>
+					<methodparam><parameter>...</parameter></methodparam>
+				</methodsynopsis></programlisting>
+			
+			<variablelist>
+				<varlistentry>
+					<term><parameter>view</parameter>&nbsp;:</term>
+					<listitem><simpara>the item view that received the signal.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>target_view</parameter>&nbsp;:</term>
+					<listitem><simpara>the target of the event.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>event</parameter>&nbsp;:</term>
+					<listitem><simpara>the event data.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>user_param</parameter>&nbsp;:</term>
+					<listitem><simpara>the first user parameter (if any) specified
+							with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link> method
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>...</parameter>&nbsp;:</term>
+					<listitem><simpara>additional user parameters (if any)</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><emphasis>Returns</emphasis>&nbsp;:</term>
+					<listitem><simpara> <literal>True</literal> to stop the signal emission, or <literal>False</literal> to let it continue.</simpara></listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				The 'key-release-event" signal is emitted when a key is released and the item view has the keyboard focus.
+			</para>
+			
+		</refsect2>
+		
+		
+		<refsect2 id="signal-goocanvasitemview--leave-notify-event">
+			<title>The "leave-notify-event" goocanvas.ItemView Signal</title>
+			
+			<programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+					<methodparam><parameter>view</parameter></methodparam>
+					<methodparam><parameter>target_view</parameter></methodparam>
+					<methodparam><parameter>event</parameter></methodparam>
+					<methodparam><parameter>user_param</parameter></methodparam>
+					<methodparam><parameter>...</parameter></methodparam>
+				</methodsynopsis></programlisting>
+			
+			<variablelist>
+				<varlistentry>
+					<term><parameter>view</parameter>&nbsp;:</term>
+					<listitem><simpara>the item view that received the signal.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>target_view</parameter>&nbsp;:</term>
+					<listitem><simpara>the target of the event.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>event</parameter>&nbsp;:</term>
+					<listitem><simpara>the event data, with coordinates translated to canvas coordinates.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>user_param</parameter>&nbsp;:</term>
+					<listitem><simpara>the first user parameter (if any) specified
+							with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link> method
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>...</parameter>&nbsp;:</term>
+					<listitem><simpara>additional user parameters (if any)</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><emphasis>Returns</emphasis>&nbsp;:</term>
+					<listitem><simpara> <literal>True</literal> to stop the signal emission, or <literal>False</literal> to let it continue.</simpara></listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				The 'leave-notify-event" signal is emitted when the mouse leaves an item view.
+			</para>
+			
+		</refsect2>
+		
+		
+		<refsect2 id="signal-goocanvasitemview--motion-notify-event">
+			<title>The "motion-notify-event" goocanvas.ItemView Signal</title>
+			
+			<programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+					<methodparam><parameter>view</parameter></methodparam>
+					<methodparam><parameter>target_view</parameter></methodparam>
+					<methodparam><parameter>event</parameter></methodparam>
+					<methodparam><parameter>user_param</parameter></methodparam>
+					<methodparam><parameter>...</parameter></methodparam>
+				</methodsynopsis></programlisting>
+			
+			<variablelist>
+				<varlistentry>
+					<term><parameter>view</parameter>&nbsp;:</term>
+					<listitem><simpara>the item view that received the signal.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>target_view</parameter>&nbsp;:</term>
+					<listitem><simpara>the target of the event.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>event</parameter>&nbsp;:</term>
+					<listitem><simpara>the event data, with coordinates translated to canvas coordinates.</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>user_param</parameter>&nbsp;:</term>
+					<listitem><simpara>the first user parameter (if any) specified
+							with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link> method
+						</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><parameter>...</parameter>&nbsp;:</term>
+					<listitem><simpara>additional user parameters (if any)</simpara></listitem>
+				</varlistentry>
+				<varlistentry>
+					<term><emphasis>Returns</emphasis>&nbsp;:</term>
+					<listitem><simpara> <literal>True</literal> to stop the signal emission, or <literal>False</literal> to let it continue.</simpara></listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				The 'motion-notify-event" signal is emitted when the mouse moves within an item view.
+			</para>
+			
+		</refsect2>
+	</refsect1>
+</refentry>

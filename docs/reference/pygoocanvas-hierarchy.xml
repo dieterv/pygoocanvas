@@ -11,4 +11,5 @@
 <link linkend="class-gobjectginterface">gobject.GInterface</link>
 	 +--<link linkend="class-canvas-model">goocanvas.CanvasModel</link>
 	 +--<link linkend="class-canvas-item">goocanvas.Item</link>
+	 +--<link linkend="class-canvas-item-view">goocanvas.ItemView</link>
 </synopsis>
