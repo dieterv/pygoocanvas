@@ -8,6 +8,7 @@
 				 +--<link linkend="class-canvas-view">goocanvas.CanvasView</link>
 	 +--<link linkend="class-canvas-model-simple">goocanvas.CanvasModelSimlple</link>
 	 +--<link linkend="class-canvas-item-simple">goocanvas.ItemSimple</link>
+	 +--<link linkend="class-canvas-item-simple">goocanvas.ItemViewSimple</link>
 <link linkend="class-gobjectginterface">gobject.GInterface</link>
 	 +--<link linkend="class-canvas-model">goocanvas.CanvasModel</link>
 	 +--<link linkend="class-canvas-item">goocanvas.Item</link>

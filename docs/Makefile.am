@@ -6,30 +6,32 @@ FULL_VERSION = $(REF_VERSION).$(PYGOOCANVAS_MICRO_VERSION)
 HTML_STYLE = $(PYGOBJECT_DATADIR)/pygobject/xsl/ref-html-style.xsl
 PDF_STYLE = $(PYGOBJECT_DATADIR)/pygobject/xsl/pdf-style.xsl
 
-XMLFILES = 											\
-	reference/pygoocanvas-ref.xml					\
-	reference/pygoocanvas-hierarchy.xml				\
-	reference/pygoocanvas-core-classes.xml			\
-	reference/pygoocanvas-canvas-view.xml			\
-	reference/pygoocanvas-canvas-model.xml			\
-	reference/pygoocanvas-canvas-model-simple.xml	\
-	reference/pygoocanvas-canvas-item.xml			\
-	reference/pygoocanvas-canvas-item-simple.xml	\
-	reference/pygoocanvas-canvas-item-view.xml
+XMLFILES = 												\
+	reference/pygoocanvas-ref.xml						\
+	reference/pygoocanvas-hierarchy.xml					\
+	reference/pygoocanvas-core-classes.xml				\
+	reference/pygoocanvas-canvas-view.xml				\
+	reference/pygoocanvas-canvas-model.xml				\
+	reference/pygoocanvas-canvas-model-simple.xml		\
+	reference/pygoocanvas-canvas-item.xml				\
+	reference/pygoocanvas-canvas-item-simple.xml		\
+	reference/pygoocanvas-canvas-item-view.xml			\
+	reference/pygoocanvas-canvas-item-view-simple.xml
 
 
 HTMLdir = $(datadir)/gtk-doc/html/pygoocanvas
-HTML_DATA =								\
-	html/class-hierarchy.html			\
-	html/pygoocanvas-core-classes.html	\
-	html/class-canvas-view.html			\
-	html/class-canvas-model.html		\
-	html/class-canvas-model-simple.html	\
-	html/class-canvas-item.html			\
-	html/class-canvas-item-simple.html	\
-	html/class-canvas-item-view.html	\
-	html/index.html						\
-	html/index.sgml						\
+HTML_DATA =									\
+	html/class-hierarchy.html				\
+	html/pygoocanvas-core-classes.html		\
+	html/class-canvas-view.html				\
+	html/class-canvas-model.html			\
+	html/class-canvas-model-simple.html		\
+	html/class-canvas-item.html				\
+	html/class-canvas-item-simple.html		\
+	html/class-canvas-item-view.html		\
+	html/class-canvas-item-view-simple.html	\
+	html/index.html							\
+	html/index.sgml							\
 	html/pygoocanvas.devhelp
 
 CSS_FILES = $(PYGOBJECT_PYGDOCS)/style.css
