@@ -34,6 +34,7 @@
 <!-- the reference page chapters for the PyGoocanvas classes -->
 
   <xi:include href="pygoocanvas-core-classes.xml"/>
+  <xi:include href="pygoocanvas-std-items.xml"/>
 
   <!--
   <xi:include href="pygoocanvas-stdcanvas-classes.xml"/>

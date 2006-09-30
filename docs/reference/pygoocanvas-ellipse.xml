@@ -1,0 +1,135 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+      "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="class-canvas-ellipse">
+
+	<refnamediv>
+		<refname>goocanvas.Ellipse</refname>
+		<refpurpose>An ellipse item.</refpurpose>
+	</refnamediv>
+	
+	<refsect1>
+		<title>Synopsis</title>
+	
+		<classsynopsis language="python">
+			<ooclass><classname>goocanvas.Ellipse</classname></ooclass>
+			<ooclass><classname>goocanvas.ItemSimple</classname></ooclass>
+			
+			<constructorsynopsis language="python">
+				<methodname><link linkend="constructor-goocanvasellipse">goocanvas.Ellipse</link></methodname>
+				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis>
+		</classsynopsis>
+	</refsect1>
+
+	<refsect1>
+		<title>Ancestry</title>
+
+<synopsis>+-- <link linkend="class-gobject">gobject.GObject</link>
+	+-- <link linkend="class-canvas-item-simple">goocanvas.ItemSimple</link>
+		+-- <link linkend="class-canvas-ellipse">goocanvas.Ellipse</link>
+</synopsis>
+
+	</refsect1>
+	
+	<refsect1 id="properties-goocanvasellipse">
+		<title>goocanvas.Ellipse Properties</title>
+	
+		<blockquote role="properties">
+			<informaltable pgwide="1" frame="none">
+				<tgroup cols="3">
+					<colspec column="1" colwidth="1in"/>
+					<colspec column="2" colwidth="1in"/>
+					<colspec column="3" colwidth="3.5in"/>
+						<tbody>
+						<row valign="top">
+							<entry>"center_x"</entry>
+							<entry>Read / Write</entry>
+							<entry>The x coordinate of the center of the ellipse. Default value: 0.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"center_y"</entry>
+							<entry>Write</entry>
+							<entry>The y coordinate of the center of the ellipse. Default value: 0.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"radius_x"</entry>
+							<entry>Write</entry>
+							<entry>The horizontal radius of the ellipse. Allowed values: >= 0. Default value: 0.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"radius_y"</entry>
+							<entry>Read / Write</entry>
+							<entry>The vertical radius of the ellipse. Allowed values: >= 0. Default value: 0.</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</informaltable>
+		</blockquote>
+	</refsect1>
+
+	<refsect1>
+		<title>Implemented Interfaces</title>
+		<para>
+			<link linkend="class-canvas-ellipse"><classname>goocanvas.Ellipse</classname></link>
+			implements 
+			<link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>
+		</para>
+	</refsect1>
+
+	<refsect1>
+		<title>Description</title>
+			<link linkend="class-canvas-ellipse"><classname>goocanvas.Ellipse</classname></link> 
+			represents an ellipse item. It is a subclass of 
+			<link linkend="class-canvas-item-simple"><classname>goocanvas.ItemSimple</classname></link> 
+			and so inherits all of the style properties such as "stroke-color", "fill-color" and "line-width". 
+			It also implements the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
+			interface, so you can use the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
+			functions such as <methodname><link linkend="method-goocanvasitem--raise-">goocanvas.Item.raise_()</link></methodname> 
+			and <methodname><link linkend="method-goocanvasitem--rotate-">goocanvas.Item.rotate()</link></methodname> 
+			To respond to events such as mouse clicks on the ellipse you must connect to the signal handlers of the corresponding 
+			<link linkend="class-canvas-ellipse-view"><classname>goocanvas.EllipseView</classname></link> object. 
+			(See <methodname><link linkend="method-goocanvasview--get-item-view">goocanvas.CanvasView.get_item_view()</link></methodname>
+			and <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link> signal 
+			<link linkend="signal-goocanvasview--item-view-created">"item-view-created"</link>)
+	</refsect1>
+
+	<refsect1 id="constructor-canvas-ellipse">
+		<title>Constructor</title>
+		
+		<programlisting><constructorsynopsis language="python">
+				<methodname>goocanvas.Ellipse</methodname>
+			</constructorsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">properties</parameter>&nbsp;:</term>
+				<listitem><simpara>A comma separated list of properties.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><emphasis>properties</emphasis>&nbsp;:</term>
+				<listitem><simpara>A new 
+						<link linkend="class-canvas-ellipse"><classname>goocanvas.Ellipse</classname></link>
+					</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		<para>
+			Creates a new canvas ellipse item.
+		</para>
+		<para>
+			Here's an example showing how to create an ellipse centered at (100.0, 100.0), 
+			with a horizontal radius of 50.0 and a vertical radius of 30.0. It is drawn with a 
+			red outline with a width of 5.0 and filled with blue:
+		</para>
+<programlisting>
+ellipse = goocanvas.Ellipse(center_x=100, center_y=100, radius_x=50, radius_y=30,
+				stroke_color="red", fill_color="blue",
+				line_width=5.0)
+</programlisting>
+	</refsect1>
+
+</refentry>

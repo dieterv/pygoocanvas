@@ -3,12 +3,30 @@
     "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 <synopsis><link linkend="class-gobject">gobject.GObject</link>
 	 +--<link linkend="class-gtkobject">gtk.Object</link>
-		  +--<link linkend="class-gtkwidget">gtk.Widget</link>
-			 +--<link linkend="class-gtkcontainer">gtk.Container</link>
-				 +--<link linkend="class-canvas-view">goocanvas.CanvasView</link>
+	 |	  +--<link linkend="class-gtkwidget">gtk.Widget</link>
+	 |		 +--<link linkend="class-gtkcontainer">gtk.Container</link>
+	 |			 +--<link linkend="class-canvas-view">goocanvas.CanvasView</link>
+	 |
 	 +--<link linkend="class-canvas-model-simple">goocanvas.CanvasModelSimlple</link>
+	 |
 	 +--<link linkend="class-canvas-item-simple">goocanvas.ItemSimple</link>
-	 +--<link linkend="class-canvas-item-simple">goocanvas.ItemViewSimple</link>
+	 |	 +--<link linkend="class-canvas-ellipse">goocanvas.Ellipse</link>
+	 |	 +--<link linkend="class-canvas-ellipse">goocanvas.Image</link>
+	 |	 +--<link linkend="class-canvas-ellipse">goocanvas.Path</link>
+	 |	 +--<link linkend="class-canvas-ellipse">goocanvas.Polyline</link>
+	 |	 +--<link linkend="class-canvas-ellipse">goocanvas.Rect</link>
+	 |	 +--<link linkend="class-canvas-ellipse">goocanvas.Text</link>
+	 |	 +--<link linkend="class-canvas-ellipse">goocanvas.Group</link>
+	 |
+	 +--<link linkend="class-canvas-item-view-simple">goocanvas.ItemViewSimple</link>
+	 	 +--<link linkend="class-canvas-ellipse-view">goocanvas.EllipseView</link>
+	 	 +--<link linkend="class-canvas-ellipse-view">goocanvas.ImageView</link>
+	 	 +--<link linkend="class-canvas-ellipse-view">goocanvas.PathView</link>
+	 	 +--<link linkend="class-canvas-ellipse-view">goocanvas.PolylineView</link>
+	 	 +--<link linkend="class-canvas-ellipse-view">goocanvas.RectView</link>
+	 	 +--<link linkend="class-canvas-ellipse-view">goocanvas.TextView</link>
+	 	 +--<link linkend="class-canvas-ellipse-view">goocanvas.GroupView</link>
+
 <link linkend="class-gobjectginterface">gobject.GInterface</link>
 	 +--<link linkend="class-canvas-model">goocanvas.CanvasModel</link>
 	 +--<link linkend="class-canvas-item">goocanvas.Item</link>
