@@ -2,22 +2,22 @@
 <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
       "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 
-<refentry id="class-canvas-ellipse">
+<refentry id="class-canvas-image">
 
 	<refnamediv>
-		<refname>goocanvas.Ellipse</refname>
-		<refpurpose>An ellipse item.</refpurpose>
+		<refname>goocanvas.Image</refname>
+		<refpurpose>An Image item.</refpurpose>
 	</refnamediv>
 	
 	<refsect1>
 		<title>Synopsis</title>
 	
 		<classsynopsis language="python">
-			<ooclass><classname>goocanvas.Ellipse</classname></ooclass>
+			<ooclass><classname>goocanvas.Image</classname></ooclass>
 			<ooclass><classname>goocanvas.ItemSimple</classname></ooclass>
 			
 			<constructorsynopsis language="python">
-				<methodname><link linkend="constructor-goocanvasellipse">goocanvas.Ellipse</link></methodname>
+				<methodname><link linkend="constructor-goocanvasimage">goocanvas.Image</link></methodname>
 				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
 			</constructorsynopsis>
 		</classsynopsis>
@@ -28,13 +28,13 @@
 
 <synopsis>+-- <link linkend="class-gobject">gobject.GObject</link>
 	+-- <link linkend="class-canvas-item-simple">goocanvas.ItemSimple</link>
-		+-- <link linkend="class-canvas-ellipse">goocanvas.Ellipse</link>
+		+-- <link linkend="class-canvas-image">goocanvas.Image</link>
 </synopsis>
 
 	</refsect1>
 	
-	<refsect1 id="properties-goocanvasellipse">
-		<title>goocanvas.Ellipse Properties</title>
+	<refsect1 id="properties-goocanvasimage">
+		<title>goocanvas.Image Properties</title>
 	
 		<blockquote role="properties">
 			<informaltable pgwide="1" frame="none">
@@ -44,27 +44,39 @@
 					<colspec column="3" colwidth="3.5in"/>
 						<tbody>
 						<row valign="top">
-							<entry>"center_x"</entry>
+							<entry>"height"</entry>
 							<entry>Read / Write</entry>
-							<entry>The x coordinate of the center of the ellipse. Default value: 0.</entry>
+							<entry>The height of the image. Allowed values: >= 0. Default value: 0.</entry>
 						</row>
 
 						<row valign="top">
-							<entry>"center_y"</entry>
-							<entry>Write</entry>
-							<entry>The y coordinate of the center of the ellipse. Default value: 0.</entry>
-						</row>
-
-						<row valign="top">
-							<entry>"radius_x"</entry>
-							<entry>Write</entry>
-							<entry>The horizontal radius of the ellipse. Allowed values: >= 0. Default value: 0.</entry>
-						</row>
-
-						<row valign="top">
-							<entry>"radius_y"</entry>
+							<entry>"pattern"</entry>
 							<entry>Read / Write</entry>
-							<entry>The vertical radius of the ellipse. Allowed values: >= 0. Default value: 0.</entry>
+							<entry>The cairo pattern to paint.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"pixbuf"</entry>
+							<entry>Write</entry>
+							<entry>The GdkPixbuf to display.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"width"</entry>
+							<entry>Read / Write</entry>
+							<entry>The width of the image. Allowed values: >= 0 Default value: 0.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"x"</entry>
+							<entry>Read / Write</entry>
+							<entry>The x coordinate of the image. Default value: 0.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"y"</entry>
+							<entry>Read / Write</entry>
+							<entry>The y coordinate of the image. Default value: 0.</entry>
 						</row>
 					</tbody>
 				</tgroup>
@@ -75,7 +87,7 @@
 	<refsect1>
 		<title>Implemented Interfaces</title>
 		<para>
-			<link linkend="class-canvas-ellipse"><classname>goocanvas.Ellipse</classname></link>
+			<link linkend="class-canvas-image"><classname>goocanvas.Image</classname></link>
 			implements 
 			<link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>
 		</para>
@@ -83,26 +95,26 @@
 
 	<refsect1>
 		<title>Description</title>
-			<link linkend="class-canvas-ellipse"><classname>goocanvas.Ellipse</classname></link> 
-			represents an ellipse item. It is a subclass of 
+			<link linkend="class-canvas-image"><classname>goocanvas.Image</classname></link> 
+			represents an image item. It is a subclass of 
 			<link linkend="class-canvas-item-simple"><classname>goocanvas.ItemSimple</classname></link> 
-			and so inherits all of the style properties such as "stroke-color", "fill-color" and "line-width". 
+			and so inherits all of the style properties such as "operator" and "pointer-events". 
 			It also implements the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
 			interface, so you can use the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
 			functions such as <methodname><link linkend="method-goocanvasitem--raise-">goocanvas.Item.raise_()</link></methodname> 
 			and <methodname><link linkend="method-goocanvasitem--rotate-">goocanvas.Item.rotate()</link></methodname> 
-			To respond to events such as mouse clicks on the ellipse you must connect to the signal handlers of the corresponding 
-			<link linkend="class-canvas-ellipse-view"><classname>goocanvas.EllipseView</classname></link> object. 
+			To respond to events such as mouse clicks on the image you must connect to the signal handlers of the corresponding 
+			<link linkend="class-canvas-image-view"><classname>goocanvas.ImageView</classname></link> object. 
 			(See <methodname><link linkend="method-goocanvasview--get-item-view">goocanvas.CanvasView.get_item_view()</link></methodname>
 			and <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link> signal 
 			<link linkend="signal-goocanvasview--item-view-created">"item-view-created"</link>)
 	</refsect1>
 
-	<refsect1 id="constructor-canvas-ellipse">
+	<refsect1 id="constructor-canvas-image">
 		<title>Constructor</title>
 		
 		<programlisting><constructorsynopsis language="python">
-				<methodname>goocanvas.Ellipse</methodname>
+				<methodname>goocanvas.Image</methodname>
 				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
 			</constructorsynopsis></programlisting>
 		
@@ -114,22 +126,19 @@
 			<varlistentry>
 				<term><emphasis>Returns</emphasis>&nbsp;:</term>
 				<listitem><simpara>A new 
-						<link linkend="class-canvas-ellipse"><classname>goocanvas.Ellipse</classname></link>
+						<link linkend="class-canvas-image"><classname>goocanvas.Image</classname></link>
 					</simpara></listitem>
 			</varlistentry>
 		</variablelist>
 		<para>
-			Creates a new canvas ellipse item.
+			Creates a new canvas image item.
 		</para>
 		<para>
-			Here's an example showing how to create an ellipse centered at (100.0, 100.0), 
-			with a horizontal radius of 50.0 and a vertical radius of 30.0. It is drawn with a 
-			red outline with a width of 5.0 and filled with blue:
+			Here's an example showing how to create an image at (100.0, 100.0), 
+			using the given pixbuf at its natural width and height:
 		</para>
 <programlisting>
-ellipse = goocanvas.Ellipse(center_x=100, center_y=100, radius_x=50, radius_y=30,
-				stroke_color="red", fill_color="blue",
-				line_width=5.0)
+image = goocanvas.Image(pixbuf=pixbuf, x=100, y=100)
 </programlisting>
 	</refsect1>
 

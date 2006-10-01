@@ -6,5 +6,8 @@
 <!-- GooCanvas OBJECTS -->
 
 	<xi:include href="pygoocanvas-ellipse.xml"/>
-
+	<xi:include href="pygoocanvas-image.xml"/>
+	<xi:include href="pygoocanvas-path.xml"/>
+	<xi:include href="pygoocanvas-polyline.xml"/>
+	
 </chapter>

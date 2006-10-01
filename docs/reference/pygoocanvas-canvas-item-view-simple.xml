@@ -76,7 +76,7 @@
 
 	<refsect1>
 		<title>Functions</title>
-		<refsect2 id="function-gtk--about-dialog-set-email-hook">
+		<refsect2 id="function-goocanvas--item-view-simple-item-changed">
 			<title>goocanvas.item_view_simple_item_changed</title>
 
 			<programlisting><methodsynopsis language="python">
