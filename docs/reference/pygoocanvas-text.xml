@@ -1,0 +1,166 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+      "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="class-canvas-text">
+
+	<refnamediv>
+		<refname>goocanvas.Text</refname>
+		<refpurpose>A text item.</refpurpose>
+	</refnamediv>
+	
+	<refsect1>
+		<title>Synopsis</title>
+	
+		<classsynopsis language="python">
+			<ooclass><classname>goocanvas.Text</classname></ooclass>
+			<ooclass><classname>goocanvas.ItemSimple</classname></ooclass>
+			
+			<constructorsynopsis language="python">
+				<methodname><link linkend="constructor-goocanvastext">goocanvas.Text</link></methodname>
+				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis>
+		</classsynopsis>
+	</refsect1>
+
+	<refsect1>
+		<title>Ancestry</title>
+
+<synopsis>+-- <link linkend="class-gobject">gobject.GObject</link>
+	+-- <link linkend="class-canvas-item-simple">goocanvas.ItemSimple</link>
+		+-- <link linkend="class-canvas-text">goocanvas.Text</link>
+</synopsis>
+
+	</refsect1>
+	
+	<refsect1 id="properties-goocanvastext">
+		<title>goocanvas.Text Properties</title>
+	
+		<blockquote role="properties">
+			<informaltable pgwide="1" frame="none">
+				<tgroup cols="3">
+					<colspec column="1" colwidth="1in"/>
+					<colspec column="2" colwidth="1in"/>
+					<colspec column="3" colwidth="3.5in"/>
+						<tbody>
+
+						<row valign="top">
+							<entry>"alignment"</entry>
+							<entry>Read / Write</entry>
+							<entry>How to align the text. Default value: pango.ALIGN_LEFT.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"anchor"</entry>
+							<entry>Read / Write</entry>
+							<entry>How to position the text relative to the given x and y coordinates. Default value: gtk.ANCHOR_NORTH_WEST.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"font"</entry>
+							<entry>Read / Write</entry>
+							<entry>The base font to use for the text. Default value: None.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"font-desc"</entry>
+							<entry>Read / Write</entry>
+							<entry>The attributes specifying which font to use.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"text"</entry>
+							<entry>Read / Write</entry>
+							<entry>The text to display. Default value: None.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"use-markup"</entry>
+							<entry>Read / Write</entry>
+							<entry>Whether to parse PangoMarkup in the text, to support different styles. Default value: False.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"width"</entry>
+							<entry>Read / Write</entry>
+							<entry>The width to use to layout the text. Default value: -1.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"x"</entry>
+							<entry>Read / Write</entry>
+							<entry>The x coordinate of the text. Default value: 0.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"y"</entry>
+							<entry>Read / Write</entry>
+							<entry>The y coordinate of the text. Default value: 0.</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</informaltable>
+		</blockquote>
+	</refsect1>
+
+	<refsect1>
+		<title>Implemented Interfaces</title>
+		<para>
+			<link linkend="class-canvas-text"><classname>goocanvas.Text</classname></link>
+			implements 
+			<link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>
+		</para>
+	</refsect1>
+
+	<refsect1>
+		<title>Description</title>
+			<link linkend="class-canvas-text"><classname>goocanvas.Text</classname></link> 
+			represents a text item. It is a subclass of 
+			<link linkend="class-canvas-item-simple"><classname>goocanvas.ItemSimple</classname></link> 
+			and so inherits all of the style properties such as "stroke-color", "fill-color" and "line-width". 
+			It also implements the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
+			interface, so you can use the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
+			functions such as <methodname><link linkend="method-goocanvasitem--raise-">goocanvas.Item.raise_()</link></methodname> 
+			and <methodname><link linkend="method-goocanvasitem--rotate-">goocanvas.Item.rotate()</link></methodname> 
+			To respond to events such as mouse clicks on the ellipse you must connect to the signal handlers of the corresponding 
+			<link linkend="class-canvas-text-view"><classname>goocanvas.TextView</classname></link> object. 
+			(See <methodname><link linkend="method-goocanvasview--get-item-view">goocanvas.CanvasView.get_item_view()</link></methodname>
+			and <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link> signal 
+			<link linkend="signal-goocanvasview--item-view-created">"item-view-created"</link>)
+	</refsect1>
+
+	<refsect1 id="constructor-canvas-text">
+		<title>Constructor</title>
+		
+		<programlisting><constructorsynopsis language="python">
+				<methodname>goocanvas.Text</methodname>
+				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">properties</parameter>&nbsp;:</term>
+				<listitem><simpara>A comma separated list of properties.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara>A new 
+						<link linkend="class-canvas-text"><classname>goocanvas.Text</classname></link>
+					</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		<para>
+			Creates a new canvas text item.
+		</para>
+		<para>
+			Here's an example showing how to create a text item with the bottom
+			right of the text box placed at (500,500):
+		</para>
+<programlisting>
+text = goocanvas.Text(string="Hello, World!", x=500, y=500
+						width=200, anchor=gtk.ANCHOR_SE,
+						fill_color="blue")
+</programlisting>
+	</refsect1>
+
+</refentry>
