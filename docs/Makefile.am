@@ -21,7 +21,8 @@ XMLFILES = 												\
 	reference/pygoocanvas-ellipse.xml					\
 	reference/pygoocanvas-image.xml						\
 	reference/pygoocanvas-path.xml						\
-	reference/pygoocanvas-polyline.xml
+	reference/pygoocanvas-polyline.xml					\
+	reference/pygoocanvas-rect.xml
 
 
 HTMLdir = $(datadir)/gtk-doc/html/pygoocanvas
@@ -40,6 +41,7 @@ HTML_DATA =									\
 	html/class-canvas-image.html			\
 	html/class-canvas-path.html				\
 	html/class-canvas-polyline.html			\
+	html/class-canvas-rect.html				\
 	html/index.html							\
 	html/index.sgml							\
 	html/pygoocanvas.devhelp
