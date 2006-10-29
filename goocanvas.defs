@@ -354,7 +354,14 @@
   )
 )
 
-
+(define-method set_model
+  (of-object "GooCanvasGroup")
+  (c-name "goo_canvas_group_set_model")
+  (return-type "none")
+  (parameters
+    '("GooCanvasModel*" "model")
+  )
+)
 
 ;; From /usr/include/goocanvas/goocanvasgroupview.h
 
