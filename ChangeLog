@@ -1,3 +1,7 @@
+2006-10-29  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
+	* goocanvas.defs: add missing goocanvas.Group.set_model method.
+
 2006-09-19  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
 	* docs/reference/pygoocanvas-canvas-item-view-simple.xml: More docs.
