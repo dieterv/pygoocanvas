@@ -1,3 +1,12 @@
+PyGooCanvas 0.4.2	(Dec 18 2006)
+=================
+
+ o Wrapped missing method goocanvas.Group.set_model (Gian Mario)
+ o Wrapped missing methods of goocanvas.ItemView (Gian Mario)
+ o Fixed function item_view_simple_item_changed (Gian Mario)
+ o Improved documentation (Gian Mario)
+
+
 PyGooCanvas 0.4.1	(Sep 10 2006)
 =================
 
