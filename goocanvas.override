@@ -192,6 +192,21 @@ import gtk.Container as PyGtkContainer_Type
 import gtk.Adjustment as PyGtkAdjustment_Type
 
 %%
+ignore
+goo_canvas_ellipse_new
+goo_canvas_group_new
+goo_canvas_image_new
+goo_canvas_path_new
+goo_canvas_polyline_new
+goo_canvas_rect_new
+goo_canvas_text_new
+goo_canvas_item_new
+goo_canvas_line_dash_new
+goo_canvas_points_new
+goo_canvas_style_new
+goo_canvas_table_new
+goo_canvas_widget_new
+%%
 ignore-glob	
     *_get_type
     _*
