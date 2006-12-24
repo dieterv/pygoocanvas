@@ -1,3 +1,10 @@
+2006-12-24  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
+	* goocanvas.defs: regenerated with new goocanvas include files.
+	* goocanvas.override: updated manually wrapped API and ignored *_new
+	* demo/simple-demo.py: updated with new API
+	* demo/mv-simple-demo.py: new example model-view
+	
 === 0.4.2 ===
 2006-10-29  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
