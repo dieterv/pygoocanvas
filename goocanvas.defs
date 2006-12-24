@@ -7,152 +7,152 @@
   (gtype-id "GOO_TYPE_CANVAS")
 )
 
-(define-object CanvasItem
+(define-object Item
   (in-module "Goo")
   (c-name "GooCanvasItem")
   (gtype-id "GOO_TYPE_CANVAS_ITEM")
 )
 
-(define-object CanvasItemModel
+(define-object ItemModel
   (in-module "Goo")
   (c-name "GooCanvasItemModel")
   (gtype-id "GOO_TYPE_CANVAS_ITEM_MODEL")
 )
 
-(define-object CanvasItemModelSimple
+(define-object ItemModelSimple
   (in-module "Goo")
   (parent "GObject")
   (c-name "GooCanvasItemModelSimple")
   (gtype-id "GOO_TYPE_CANVAS_ITEM_MODEL_SIMPLE")
 )
 
-(define-object CanvasImageModel
+(define-object ImageModel
   (in-module "Goo")
   (parent "GooCanvasItemModelSimple")
   (c-name "GooCanvasImageModel")
   (gtype-id "GOO_TYPE_CANVAS_IMAGE_MODEL")
 )
 
-(define-object CanvasGroupModel
+(define-object GroupModel
   (in-module "Goo")
   (parent "GooCanvasItemModelSimple")
   (c-name "GooCanvasGroupModel")
   (gtype-id "GOO_TYPE_CANVAS_GROUP_MODEL")
 )
 
-(define-object CanvasEllipseModel
+(define-object EllipseModel
   (in-module "Goo")
   (parent "GooCanvasItemModelSimple")
   (c-name "GooCanvasEllipseModel")
   (gtype-id "GOO_TYPE_CANVAS_ELLIPSE_MODEL")
 )
 
-(define-object CanvasItemSimple
+(define-object ItemSimple
   (in-module "Goo")
   (parent "GObject")
   (c-name "GooCanvasItemSimple")
   (gtype-id "GOO_TYPE_CANVAS_ITEM_SIMPLE")
 )
 
-(define-object CanvasImage
+(define-object Image
   (in-module "Goo")
   (parent "GooCanvasItemSimple")
   (c-name "GooCanvasImage")
   (gtype-id "GOO_TYPE_CANVAS_IMAGE")
 )
 
-(define-object CanvasGroup
+(define-object Group
   (in-module "Goo")
   (parent "GooCanvasItemSimple")
   (c-name "GooCanvasGroup")
   (gtype-id "GOO_TYPE_CANVAS_GROUP")
 )
 
-(define-object CanvasEllipse
+(define-object Ellipse
   (in-module "Goo")
   (parent "GooCanvasItemSimple")
   (c-name "GooCanvasEllipse")
   (gtype-id "GOO_TYPE_CANVAS_ELLIPSE")
 )
 
-(define-object CanvasPath
+(define-object Path
   (in-module "Goo")
   (parent "GooCanvasItemSimple")
   (c-name "GooCanvasPath")
   (gtype-id "GOO_TYPE_CANVAS_PATH")
 )
 
-(define-object CanvasPathModel
+(define-object PathModel
   (in-module "Goo")
   (parent "GooCanvasItemModelSimple")
   (c-name "GooCanvasPathModel")
   (gtype-id "GOO_TYPE_CANVAS_PATH_MODEL")
 )
 
-(define-object CanvasPolyline
+(define-object Polyline
   (in-module "Goo")
   (parent "GooCanvasItemSimple")
   (c-name "GooCanvasPolyline")
   (gtype-id "GOO_TYPE_CANVAS_POLYLINE")
 )
 
-(define-object CanvasPolylineModel
+(define-object PolylineModel
   (in-module "Goo")
   (parent "GooCanvasItemModelSimple")
   (c-name "GooCanvasPolylineModel")
   (gtype-id "GOO_TYPE_CANVAS_POLYLINE_MODEL")
 )
 
-(define-object CanvasRect
+(define-object Rect
   (in-module "Goo")
   (parent "GooCanvasItemSimple")
   (c-name "GooCanvasRect")
   (gtype-id "GOO_TYPE_CANVAS_RECT")
 )
 
-(define-object CanvasRectModel
+(define-object RectModel
   (in-module "Goo")
   (parent "GooCanvasItemModelSimple")
   (c-name "GooCanvasRectModel")
   (gtype-id "GOO_TYPE_CANVAS_RECT_MODEL")
 )
 
-(define-object CanvasStyle
+(define-object Style
   (in-module "Goo")
   (parent "GObject")
   (c-name "GooCanvasStyle")
   (gtype-id "GOO_TYPE_CANVAS_STYLE")
 )
 
-(define-object CanvasTable
+(define-object Table
   (in-module "Goo")
   (parent "GooCanvasGroup")
   (c-name "GooCanvasTable")
   (gtype-id "GOO_TYPE_CANVAS_TABLE")
 )
 
-(define-object CanvasTableModel
+(define-object TableModel
   (in-module "Goo")
   (parent "GooCanvasGroupModel")
   (c-name "GooCanvasTableModel")
   (gtype-id "GOO_TYPE_CANVAS_TABLE_MODEL")
 )
 
-(define-object CanvasText
+(define-object Text
   (in-module "Goo")
   (parent "GooCanvasItemSimple")
   (c-name "GooCanvasText")
   (gtype-id "GOO_TYPE_CANVAS_TEXT")
 )
 
-(define-object CanvasTextModel
+(define-object TextModel
   (in-module "Goo")
   (parent "GooCanvasItemModelSimple")
   (c-name "GooCanvasTextModel")
   (gtype-id "GOO_TYPE_CANVAS_TEXT_MODEL")
 )
 
-(define-object CanvasWidget
+(define-object Widget
   (in-module "Goo")
   (parent "GooCanvasItemSimple")
   (c-name "GooCanvasWidget")
@@ -1781,5 +1781,3 @@
   )
   (varargs #t)
 )
-
-
