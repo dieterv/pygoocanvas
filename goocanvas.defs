@@ -787,7 +787,7 @@
   (c-name "goo_canvas_item_raise")
   (return-type "none")
   (parameters
-    '("GooCanvasItem*" "above")
+    '("GooCanvasItem*" "above" (null-ok))
   )
 )
 
@@ -796,7 +796,7 @@
   (c-name "goo_canvas_item_lower")
   (return-type "none")
   (parameters
-    '("GooCanvasItem*" "below")
+    '("GooCanvasItem*" "below" (null-ok))
   )
 )
 
@@ -1439,7 +1439,7 @@
   (varargs #t)
 )
 
-(define-function goo_canvas_polyline_new_line
+(define-function polyline_new_line
   (c-name "goo_canvas_polyline_new_line")
   (return-type "GooCanvasItem*")
   (parameters
