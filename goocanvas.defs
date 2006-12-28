@@ -89,6 +89,14 @@
   (gtype-id "GOO_TYPE_CANVAS_PATH_MODEL")
 )
 
+(define-boxed Points
+  (in-module "Goo")
+  (c-name "GooCanvasPoints")
+  (gtype-id "GOO_TYPE_CANVAS_POINTS")
+  (copy-func "goo_canvas_points_ref")
+  (release-func "goo_canvas_points_unref")
+)
+
 (define-object Polyline
   (in-module "Goo")
   (parent "GooCanvasItemSimple")
