@@ -210,7 +210,6 @@ goo_canvas_text_model_new
 goo_canvas_item_new
 goo_canvas_item_model_new
 goo_canvas_line_dash_new
-goo_canvas_points_new
 goo_canvas_style_new
 goo_canvas_table_new
 goo_canvas_table_model_new
