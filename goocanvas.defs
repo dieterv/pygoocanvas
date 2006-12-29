@@ -1702,8 +1702,15 @@
   (varargs #t)
 )
 
+(define-boxed LineDash
+  (in-module "Goo")
+  (c-name "GooCanvasLineDash")
+  (gtype-id "GOO_TYPE_CANVAS_LINE_DASH")
+)
+
 (define-function goo_canvas_line_dash_newv
   (c-name "goo_canvas_line_dash_newv")
+  (is-constructor-of "GooCanvasLineDash")
   (return-type "GooCanvasLineDash*")
   (parameters
     '("gint" "num_dashes")
