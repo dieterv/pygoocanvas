@@ -8,7 +8,7 @@ import goocanvas
 def main(argv):
     window = gtk.Window()
     window.set_default_size(640, 600)
-    window.show()
+    window.show_all()
     window.connect("delete_event", on_delete_event)
     
     scrolled_win = gtk.ScrolledWindow()
@@ -16,7 +16,7 @@ def main(argv):
     scrolled_win.show()
     window.add(scrolled_win)
     
-    canvas = goocanvas.CanvasView()
+    canvas = goocanvas.Canvas()
     canvas.set_size_request(600, 450)
     canvas.set_bounds(0, 0, 1000, 1000)
     canvas.show()
@@ -24,34 +24,15 @@ def main(argv):
     
     canvas.connect("button_press_event", on_arrow_button_press)
 
-    ## Create the canvas model
-    canvas_model = create_canvas_model()
-    canvas.set_model(canvas_model)
-
-    gtk.main()
-
-
-def create_canvas_model():
-    canvas_model = goocanvas.CanvasModelSimple()
-
-    root = canvas_model.get_root_item()
+    root = canvas.get_root_item()
 
     ## Add a few simple items.
     global item
     item = goocanvas.polyline_new_line(root, 300, 200, 200, 200)
     item.props.end_arrow = True
     item.props.line_width = 10
-
-    return canvas_model
-
-
-
-## This is our handler for the "item-view-created" signal of the GooCanvasView.
-##   We connect to the "button-press-event" signal of new rect views.
-def on_item_view_created (view, item_view, item):
-    if isinstance(item, goocanvas.Polyline):
-        item_view.connect("button_press_event", on_arrow_button_press)
-
+    
+    gtk.main()
 
 ## This handles button presses in item views. We simply output a message to
 ##   the console.

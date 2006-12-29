@@ -1,9 +1,8 @@
 import goocanvas
-import gtk
-import cairo
-import pango
-import array
-import math
+import gtk, cairo, pango
+import array, math
+import fifteen_demo, arrowhead_demo, features_demo
+import paths_demo
 
 class MyCanvas(object):
     def __init__(self):
@@ -23,7 +22,10 @@ class MyCanvas(object):
         window.add(notebook)
 
         notebook.append_page(self.create_canvas_primitives (), gtk.Label("Primitives"))
-
+        notebook.append_page(arrowhead_demo.create_canvas_arrowhead (), gtk.Label("Arrowhead"))
+        notebook.append_page(fifteen_demo.create_canvas_fifteen (), gtk.Label("Fifteen"))
+        notebook.append_page(features_demo.create_canvas_features (), gtk.Label("Features"))
+        notebook.append_page(paths_demo.create_paths_page (), gtk.Label("Paths"))
         window.show_all()
 
     def main(self):
@@ -294,17 +296,15 @@ class MyCanvas(object):
         item.skew_y (30, x, y)
     
     def setup_divisions (self, root):
-        group = goocanvas.Group ()
+        group = goocanvas.Group (parent = root)
         group.translate (2, 2)
         
-        root.add_child(group, 0)
-        
-        item = goocanvas.Rect (x = 0,
+        item = goocanvas.Rect (parent = group,
+                               x = 0,
                                y = 0,
                                width = 600,
                                height = 450,
                                line_width = 4.0)
-        group.add_child(item, 0)
         
         item = goocanvas.polyline_new_line (group, 0, 150, 600, 150,
                                             line_width = 4.0)
@@ -340,45 +340,46 @@ class MyCanvas(object):
         stipple_data = array.array('i', [0, 0, 0, 255,   0, 0, 0, 0,   
                                          0, 0, 0, 0,   0, 0, 0, 255])
         
-        item = goocanvas.Rect (x = 20,
+        item = goocanvas.Rect (parent = root,
+                               x = 20,
                                y = 30,
                                width = 50,
                                height = 30,
                                stroke_color = "red",
                                line_width = 8.0)
-        root.add_child(item, -1)
         self.setup_item_signals (item)
         
         pattern = self.create_stipple ("mediumseagreen", stipple_data)
-        item = goocanvas.Rect (x = 90,
+        item = goocanvas.Rect (parent = root,
+                               x = 90,
                                y = 40,
                                width =  90,
                                height =  60,
                                fill_pattern = pattern,
                                stroke_color = "black",
                                line_width = 4.0)
-        root.add_child(item, -1)
         self.setup_item_signals (item)
         
-        item = goocanvas.Rect (x = 10,
+        item = goocanvas.Rect (parent = root,
+                               x = 10,
                                y = 80,
                                width = 70,
                                height = 60,
                                fill_color = "steelblue")
-        root.add_child(item, -1)
         self.setup_item_signals (item)
     
-        item = goocanvas.Rect (x = 20,
+        item = goocanvas.Rect (parent = root,
+                               x = 20,
                                y = 90,
                                width = 70,
                                height = 60,
                                fill_color_rgba = 0x3cb37180,
                                stroke_color = "blue",
                                line_width = 2.0)
-        root.add_child(item, -1)
         self.setup_item_signals (item)
     
-        item = goocanvas.Rect (x = 110,
+        item = goocanvas.Rect (parent = root,
+                               x = 110,
                                y = 80,
                                width = 50,
                                height = 30,
@@ -386,30 +387,30 @@ class MyCanvas(object):
                                radius_y = 10.0,
                                stroke_color = "yellow",
                                fill_color_rgba = 0x3cb3f180)
-        root.add_child(item, -1)
         self.setup_item_signals (item)
     
-        item = goocanvas.Rect (x = 30,
+        item = goocanvas.Rect (parent = root,
+                               x = 30,
                                y = 20,
                                width = 50,
                                height = 30,
                                fill_color = "yellow")
-        root.add_child(item, -1)
         self.setup_item_signals (item)
         
     def setup_ellipses (self, root):
         stipple_data = array.array('i', [0, 0, 0, 255,   0, 0, 0, 0,   
                                          0, 0, 0, 0,   0, 0, 0, 255])
-        ellipse1 = goocanvas.Ellipse (center_x = 245,
+        ellipse1 = goocanvas.Ellipse (parent = root,
+                                      center_x = 245,
                                       center_y = 45,
                                       radius_x = 25,
                                       radius_y = 15,
                                       stroke_color = "goldenrod",
                                       line_width = 8.0)
-        root.add_child(ellipse1, -1)
         self.setup_item_signals (ellipse1)
         
-        self.ellipse2 = goocanvas.Ellipse (center_x = 335,
+        self.ellipse2 = goocanvas.Ellipse (parent = root,
+                                           center_x = 335,
                                            center_y = 70,
                                            radius_x = 45,
                                            radius_y = 30,
@@ -417,24 +418,23 @@ class MyCanvas(object):
                                            stroke_color = "midnightblue",
                                            line_width = 4.0,
                                            title = "An ellipse")
-        root.add_child(self.ellipse2, -1)
         self.setup_item_signals (self.ellipse2)
         
         pattern = self.create_stipple ("cadetblue", stipple_data)
-        ellipse3 = goocanvas.Ellipse (center_x = 245,
+        ellipse3 = goocanvas.Ellipse (parent = root,
+                                      center_x = 245,
                                       center_y = 110,
                                       radius_x = 35,
                                       radius_y = 30,
                                       fill_pattern = pattern,
                                       stroke_color = "black",
                                       line_width = 1.0)
-        root.add_child(ellipse3, -1)
         self.setup_item_signals (ellipse3)    
 
     def polish_diamond (self, root):
-        group = goocanvas.Group (line_width = 1.0,
+        group = goocanvas.Group (parent = root,
+                                 line_width = 1.0,
                                  line_cap = cairo.LINE_CAP_ROUND)
-        root.add_child(group, -1)
         group.translate (270, 230)
         self.setup_item_signals (group)
         
@@ -468,7 +468,8 @@ class MyCanvas(object):
         ''' Arrow tests '''
         p = goocanvas.Points ([(340.0, 170.0), (340.0, 230.0), 
                                     (390.0, 230.0), (390.0, 170.0)])
-        polyline1 = goocanvas.Polyline (points = p,
+        polyline1 = goocanvas.Polyline (parent = root,
+                                        points = p,
                                         close_path = False,
                                         stroke_color = "midnightblue",
                                         line_width = 3.0,
@@ -477,11 +478,11 @@ class MyCanvas(object):
                                         arrow_tip_length =3.0,
                                         arrow_length = 4.0,
                                         arrow_width = 3.5)
-        root.add_child(polyline1, -1)
         self.setup_item_signals (polyline1)
         
         p = goocanvas.Points ([(356.0, 180.0), (374.0, 220.0)])
-        polyline2 = goocanvas.Polyline (points = p,
+        polyline2 = goocanvas.Polyline (parent = root,
+                                        points = p,
                                         close_path = False,
                                         stroke_color = "blue",
                                         line_width = 1.0,
@@ -490,11 +491,11 @@ class MyCanvas(object):
                                         arrow_tip_length =5.0,
                                         arrow_length = 6.0,
                                         arrow_width = 6.5)
-        root.add_child(polyline2, -1)
         self.setup_item_signals (polyline2)
         
         p = goocanvas.Points ([(356.0, 220.0), (374.0, 180.0)])
-        polyline3 = goocanvas.Polyline (points = p,
+        polyline3 = goocanvas.Polyline (parent = root,
+                                        points = p,
                                         close_path = False,
                                         stroke_color = "blue",
                                         line_width = 1.0,
@@ -503,33 +504,32 @@ class MyCanvas(object):
                                         arrow_tip_length =5.0,
                                         arrow_length = 6.0,
                                         arrow_width = 6.5)
-        root.add_child(polyline3, -1)
         self.setup_item_signals (polyline3)
 
         ''' Test polyline without any coords. '''
-        polyline4 = goocanvas.Polyline ()
-        root.add_child(polyline4, -1)
+        polyline4 = goocanvas.Polyline (parent = root)
         self.setup_item_signals (polyline4)
 
         ''' Test polyline with 1 coord and arrows. '''
         p = goocanvas.Points ([(356.0, 220.0),])
-        polyline5 = goocanvas.Polyline (points = p,
+        polyline5 = goocanvas.Polyline (parent = root,
+                                        points = p,
                                         start_arrow = True,
                                         end_arrow = True)
-        root.add_child(polyline5, -1)
         self.setup_item_signals (polyline5)
     
     def setup_polygons (self, root):
         stipple_data = array.array('i', [0, 0, 0, 255,   0, 0, 0, 0,   
                                          0, 0, 0, 0,   0, 0, 0, 255])
-        points = goocanvas.Points ([(210.0, 320.0), (210.0, 380.0), (260.0, 350.0)])
+        points = goocanvas.Points ([(210.0, 320.0), (210.0, 380.0), 
+                                    (260.0, 350.0)])
         pattern = self.create_stipple ("blue", stipple_data)
-        polyline1 = goocanvas.Polyline (close_path = True,
+        polyline1 = goocanvas.Polyline (parent = root,
+                                        close_path = True,
                                         line_width = 1.0,
                                         points = points,
                                         fill_pattern = pattern,
                                         stroke_color = "black")
-        root.add_child(polyline1, -1)
         self.setup_item_signals (polyline1)
         
         points = goocanvas.Points ([(270.0, 330.0), (270.0, 430.0),
@@ -539,31 +539,29 @@ class MyCanvas(object):
                                     (330.0, 370.0), (330.0, 350.0),
                                     (370.0, 350.0), (370.0, 410.0),
                                     (290.0, 410.0), (290.0, 330.0)])
-        polyline2 = goocanvas.Polyline (close_path = True,
+        polyline2 = goocanvas.Polyline (parent = root,
+                                        close_path = True,
                                         line_width = 1.0,
                                         points = points,
                                         fill_color = "tan",
                                         stroke_color = "black")
-        root.add_child(polyline2, -1)
         self.setup_item_signals (polyline2)    
 
     def make_anchor (self, root, x, y):
         trans = cairo.Matrix(0.8, 0.2, -0.3, 0.5, x, y)
 
-        group = goocanvas.Group ()
-
-        root.add_child(group, -1)
+        group = goocanvas.Group (parent = root)
 
         group.translate (x, y)
 
         group.props.transform = trans
 
-        item = goocanvas.Rect (x = -2.5,
+        item = goocanvas.Rect (parent = group,
+                               x = -2.5,
                                y = -2.5,
                                width = 4,
                                height = 4,
                                line_width = 1.0)
-        group.add_child(item, -1)
         self.setup_item_signals (item)
 
         return group
@@ -572,19 +570,20 @@ class MyCanvas(object):
         stipple_data = array.array('i', [0, 0, 0, 255,   0, 0, 0, 0,   
                                          0, 0, 0, 0,   0, 0, 0, 255])
         pattern = self.create_stipple ("blue", stipple_data)
-        parent = self.make_anchor (root, 420.0, 20.0)
-        item = goocanvas.Text (text = "Anchor NW",
+        par = self.make_anchor (root, 420.0, 20.0)
+        item = goocanvas.Text (parent = par,
+                               text = "Anchor NW",
                                x = 0, 
                                y = 0,
                                width = -1,
                                anchor = gtk.ANCHOR_NW,
                                font = "Sans Bold 24",
                                fill_pattern = pattern)
-        parent.add_child(item, -1)
         self.setup_item_signals (item)
         
-        parent = self.make_anchor (root, 470, 75)
-        item = goocanvas.Text (text = "Anchor center\nJustify center\nMultiline text\nb8bit text",
+        par = self.make_anchor (root, 470, 75)
+        item = goocanvas.Text (parent = par,
+                               text = "Anchor center\nJustify center\nMultiline text\nb8bit text",
                                x = 0,
                                y = 0,
                                width = -1,
@@ -592,30 +591,127 @@ class MyCanvas(object):
                                font = "monospace bold 14",
                                alignment = pango.ALIGN_CENTER,
                                fill_color = "firebrick")
-        parent.add_child(item, -1)
         self.setup_item_signals (item);
         
-        parent = self.make_anchor (root, 420, 240)
-        textitem = goocanvas.Text (text = "This is a very long paragraph that will need to be wrapped over several lines so we can see what happens to line-breaking as the view is zoomed in and out.",
+        par = self.make_anchor (root, 420, 240)
+        textitem = goocanvas.Text (parent = par,
+                                   text = "This is a very long paragraph that will need to be wrapped over several lines so we can see what happens to line-breaking as the view is zoomed in and out.",
                                    x = 0,
                                    y = 0,
                                    width = 180,
                                    anchor = gtk.ANCHOR_W,
                                    font = "Sans 12",
                                    fill_color = "goldenrod")
-        parent.add_child(textitem, -1)
         self.setup_item_signals (textitem)
 
     def setup_invisible_texts (self, root):
-        text = goocanvas.Text (text = "Visible above 0.8x",
+        text = goocanvas.Text (parent = root,
+                               text = "Visible above 0.8x",
                                x = 500,
                                y = 330,
                                width = -1,
                                anchor = gtk.ANCHOR_CENTER,
                                visibility = goocanvas.ITEM_VISIBLE_ABOVE_THRESHOLD,
                                visibility_threshold = 0.8)
-        root.add_child(text, -1)
-    
+        
+        goocanvas.Rect (parent = root,
+                        x = 410.5,
+                        y = 322.5,
+                        width = 180,
+                        height = 15,
+                        line_width = 1.0,
+                        visibility = goocanvas.ITEM_VISIBLE_ABOVE_THRESHOLD,
+                        visibility_threshold = 0.8)
+        
+        text = goocanvas.Text (parent = root,
+                               text = "Visible above 1.5x",
+                               x = 500,
+                               y = 350,
+                               width = -1,
+                               anchor = gtk.ANCHOR_CENTER,
+                               visibility = goocanvas.ITEM_VISIBLE_ABOVE_THRESHOLD,
+                               visibility_threshold = 1.5)
+
+        goocanvas.Rect (parent = root,
+                        x = 410.5,
+                        y = 342.5,
+                        width = 180,
+                        height = 15,
+                        line_width = 1.0,
+                        visibility = goocanvas.ITEM_VISIBLE_ABOVE_THRESHOLD,
+                        visibility_threshold = 1.5)
+
+        text = goocanvas.Text (parent = root,
+                               text = "Visible above 3.0x",
+                               x = 500,
+                               y = 370,
+                               width = -1,
+                               anchor = gtk.ANCHOR_CENTER,
+                               visibility = goocanvas.ITEM_VISIBLE_ABOVE_THRESHOLD,
+                               visibility_threshold = 3.0)
+
+        goocanvas.Rect (parent = root,
+                        x = 410.5,
+                        y = 362.5,
+                        width = 180,
+                        height = 15,
+                        line_width = 1.0,
+                        visibility = goocanvas.ITEM_VISIBLE_ABOVE_THRESHOLD,
+                        visibility_threshold = 3.0)
+        
+        ''' This should never be seen. '''
+        text = goocanvas.Text (parent = root,
+                               text = "Always Invisible",
+                               x = 500,
+                               y = 390,
+                               width = -1,
+                               anchor = gtk.ANCHOR_CENTER,
+                               visibility = goocanvas.ITEM_INVISIBLE)
+
+        goocanvas.Rect (parent = root,
+                        x = 410.5,
+                        y = 350.5,
+                        width = 180,
+                        height = 15,
+                        line_width = 1.0,
+                        visibility = goocanvas.ITEM_INVISIBLE)
+
+    def plant_flower (self, root, x, y, anchor):
+        surface = cairo.ImageSurface.create_from_png ("flower.png")
+        
+        w = surface.get_width ()
+        h = surface.get_height ()
+        
+        pattern = cairo.SurfacePattern(surface)
+        
+        image = goocanvas.Image (parent = root,
+                                 x = x, 
+                                 y = y,
+                                 pattern = pattern,
+                                 width = w,
+                                 height = h)
+        self.setup_item_signals (image)
+        
+    def setup_images (self, root):
+        im = gtk.gdk.pixbuf_new_from_file ("toroid.png")
+        
+        if im:
+            w = im.get_width ()
+            h = im.get_height ()
+            image = goocanvas.Image (parent = root,
+                                     pixbuf = im,
+                                     x = 100.0 - w / 2,
+                                     y = 225.0 - h / 2,
+                                     width = w,
+                                     height = h)
+            self.setup_item_signals (image)
+        else:
+            print "Could not find the toroid.png sample file"
+        self.plant_flower (root,  20.0, 170.0, gtk.ANCHOR_NW)
+        self.plant_flower (root, 180.0, 170.0, gtk.ANCHOR_NE)
+        self.plant_flower (root,  20.0, 280.0, gtk.ANCHOR_SW)
+        self.plant_flower (root, 180.0, 280.0, gtk.ANCHOR_SE)
+
     def setup_canvas (self, canvas):
         root = canvas.get_root_item ()
         root.connect("button_press_event", self.on_background_button_press)
@@ -626,6 +722,7 @@ class MyCanvas(object):
         self.setup_polygons (root)
         self.setup_texts (root)
         self.setup_invisible_texts (root)
+        self.setup_images(root)
 
 if __name__ == "__main__":
     mycanvas = MyCanvas()
