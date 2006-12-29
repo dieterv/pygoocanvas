@@ -353,17 +353,6 @@ _wrap_goo_canvas_polyline_new_line(PyGObject *self, PyObject *args, PyObject *kw
     
     return pygobject_new((GObject *)ret);
 }
-%%
-override goo_canvas_item_view_get_bounds noargs
-static PyObject *
-_wrap_goo_canvas_item_view_get_bounds(PyGObject *self)
-{
-    GooCanvasBounds ret;
-    
-    goo_canvas_item_view_get_bounds(GOO_CANVAS_ITEM_VIEW(self->obj), &ret);
-    
-    return pygoo_canvas_bounds_new(&ret);
-}
 
 %%
 override goo_canvas_line_dash_newv kwargs
