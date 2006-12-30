@@ -3,6 +3,7 @@ import gtk, cairo, pango
 import array, math
 import fifteen_demo, arrowhead_demo, features_demo
 import paths_demo, scalability_demo, grabs_demo
+import events_demo
 
 class MyCanvas(object):
     def __init__(self):
@@ -27,6 +28,7 @@ class MyCanvas(object):
         notebook.append_page(features_demo.create_canvas_features (), gtk.Label("Features"))
         notebook.append_page(scalability_demo.create_canvas_scalability (), gtk.Label("Scalability"))
         notebook.append_page(grabs_demo.create_grabs_page (), gtk.Label("Grabs"))
+        notebook.append_page(events_demo.create_events_page (), gtk.Label("Events"))
         notebook.append_page(paths_demo.create_paths_page (), gtk.Label("Paths"))
         window.show_all()
 
