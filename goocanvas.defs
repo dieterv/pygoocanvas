@@ -413,7 +413,7 @@
   (parameters
     '("GooCanvasItem*" "item")
     '("GdkEventMask" "event_mask")
-    '("GdkCursor*" "cursor")
+    '("GdkCursor*" "cursor" (null-ok))
     '("guint32" "time")
   )
 )
