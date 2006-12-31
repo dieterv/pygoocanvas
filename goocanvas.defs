@@ -169,7 +169,7 @@
 
 ;; Enumerations and flags ...
 
-(define-enum CanvasAnimateType
+(define-enum AnimateType
   (in-module "Goo")
   (c-name "GooCanvasAnimateType")
   (gtype-id "GOO_TYPE_CANVAS_ANIMATE_TYPE")
