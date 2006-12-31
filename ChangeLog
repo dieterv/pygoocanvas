@@ -1,5 +1,7 @@
 2006-12-31  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* goocanvas.defs: Add missing (define-virtual ...)'s.
+
 	* goocanvas.defs (Item): GooCanvasItem is an interface.
 	(ItemModel): Idem.
 
