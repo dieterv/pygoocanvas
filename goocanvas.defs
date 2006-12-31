@@ -180,11 +180,10 @@
     '("bounce" "GOO_CANVAS_ANIMATE_BOUNCE")
   )
 )
-
-(define-enum CanvasPathCommandType
+(define-enum PathCommandType
   (in-module "Goo")
   (c-name "GooCanvasPathCommandType")
-  (gtype-id "GOO_TYPE_CANVAS_PATH_COMMAND_TYPE")
+  ;(gtype-id "GOO_TYPE_CANVAS_PATH_COMMAND_TYPE")
   (values
     '("move-to" "GOO_CANVAS_PATH_MOVE_TO")
     '("close-path" "GOO_CANVAS_PATH_CLOSE_PATH")
@@ -199,7 +198,7 @@
   )
 )
 
-(define-flags CanvasPointerEvents
+(define-flags PointerEvents
   (in-module "Goo")
   (c-name "GooCanvasPointerEvents")
   (gtype-id "GOO_TYPE_CANVAS_POINTER_EVENTS")
@@ -220,7 +219,7 @@
   )
 )
 
-(define-enum CanvasItemVisibility
+(define-enum ItemVisibility
   (in-module "Goo")
   (c-name "GooCanvasItemVisibility")
   (gtype-id "GOO_TYPE_CANVAS_ITEM_VISIBILITY")
