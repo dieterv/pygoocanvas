@@ -5,7 +5,7 @@ import gobject
 import gtk
 import goocanvas
 
-class CustomItem(gobject.GObject, goocanvas.Item, goocanvas.ItemView):
+class CustomItem(gobject.GObject, goocanvas.Item):
 
     __gproperties__ = {
         'title': (str, None, None, '', gobject.PARAM_READWRITE),
@@ -15,6 +15,7 @@ class CustomItem(gobject.GObject, goocanvas.Item, goocanvas.ItemView):
         'visibility': (goocanvas.ItemVisibility, None, None, goocanvas.ITEM_VISIBLE, gobject.PARAM_READWRITE),
         'pointer-events': (goocanvas.PointerEvents, None, None, goocanvas.EVENTS_NONE, gobject.PARAM_READWRITE),
         'transform': (goocanvas.TYPE_CAIRO_MATRIX, None, None, gobject.PARAM_READWRITE),
+        'parent': (gobject.GObject, None, None, gobject.PARAM_READWRITE),
         }
 
 
@@ -35,11 +36,6 @@ class CustomItem(gobject.GObject, goocanvas.Item, goocanvas.ItemView):
         ## chain to parent constructor
         gobject.GObject.__init__(self, **kwargs)
 
-    def do_create_view(self, canvas_view, parent_view):
-        assert self.view is None
-        self.view = self
-        return self
-
     def do_set_parent(self, parent):
         assert self.parent is None
         self.parent = parent
@@ -59,6 +55,8 @@ class CustomItem(gobject.GObject, goocanvas.Item, goocanvas.ItemView):
             self.pointer_events = value
         elif pspec.name == 'transform':
             self.transform = value
+        elif pspec.name == 'parent':
+            self.parent = value
         else:
             raise AttributeError, 'unknown property %s' % pspec.name
         
@@ -77,6 +75,8 @@ class CustomItem(gobject.GObject, goocanvas.Item, goocanvas.ItemView):
             return self.pointer_events
         elif pspec.name == 'transform':
             return self.transform
+        elif pspec.name == 'parent':
+            return self.parent
         else:
             raise AttributeError, 'unknown property %s' % pspec.name
 
@@ -84,11 +84,8 @@ class CustomItem(gobject.GObject, goocanvas.Item, goocanvas.ItemView):
     def do_get_bounds(self):
         return self.bounds
 
-    def do_get_item_view_at(self, x, y, cr, is_pointer_event, parent_is_visible):
+    def do_get_item_at(self, x, y, cr, is_pointer_event, parent_is_visible):
         return None
-
-    def do_set_parent_view(self, parent_view):
-        pass
 
     ## mandatory methods
     def do_update(self, entire_tree, cr):
@@ -122,8 +119,8 @@ class CustomRectItem(CustomItem):
         cr.set_line_width(self.line_width)
         cr.set_source_rgb(0, 0, 0)
         cr.stroke()
-        return self.bounds
 
+gobject.type_register(CustomRectItem)
 
 
 def main(argv):
@@ -137,22 +134,12 @@ def main(argv):
     scrolled_win.show()
     window.add(scrolled_win)
     
-    canvas = goocanvas.CanvasView()
+    canvas = goocanvas.Canvas()
     canvas.set_size_request(600, 450)
     canvas.set_bounds(0, 0, 1000, 1000)
-    canvas.show()
-    scrolled_win.add(canvas)
-    
-    ## Create the canvas model
-    canvas_model = create_canvas_model()
-    canvas.set_model(canvas_model)
-
-    gtk.main()
 
 
-def create_canvas_model():
-    canvas_model = goocanvas.CanvasModelSimple()
-    root = canvas_model.get_root_item()
+    root = canvas.get_root_item()
     item = CustomRectItem(x=100, y=100, width=400, height=400, line_width=20)
     root.add_child(item)
     item = goocanvas.Text(text="Hello World",
@@ -162,7 +149,13 @@ def create_canvas_model():
     root.add_child(item)
     item.rotate(45, 300, 300)
 
-    return canvas_model
+    
+    canvas.show()
+    scrolled_win.add(canvas)
+    
+
+    gtk.main()
+
 
 
 if __name__ == "__main__":

@@ -84,6 +84,19 @@ class GooCanvasBoundPtrReturn(reversewrapper.ReturnType):
 
 matcher.register_reverse_ret("GooCanvasBounds*", GooCanvasBoundPtrReturn)
 
+class GooCanvasBoundPtrParam(reversewrapper.Parameter):
+    def get_c_type(self):
+        return self.props.get('c_type').replace('const-', 'const ')
+    def convert_c2py(self):
+        self.wrapper.add_declaration("PyObject *py_%s;" % self.name)
+        self.wrapper.write_code(
+            code=('py_%s = pygoo_canvas_bounds_new(%s);' %
+                  (self.name, self.name)),
+            cleanup=("Py_DECREF(py_%s);" % self.name))
+        self.wrapper.add_pyargv_item("py_%s" % self.name)
+
+matcher.register_reverse("GooCanvasBounds*", GooCanvasBoundPtrParam)
+
 class GObjectReturn(reversewrapper.GObjectReturn):
     def write_conversion(self):
         self.wrapper.write_code(
