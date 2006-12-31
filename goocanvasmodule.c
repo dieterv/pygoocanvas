@@ -40,6 +40,11 @@ _cairo_pattern_from_gvalue(const GValue *value)
 static int
 _cairo_pattern_to_gvalue(GValue *value, PyObject *obj)
 {
+    if (obj == Py_None) {
+        g_value_set_boxed(value, NULL);
+        return 0;
+    }
+
     if (!(PyObject_IsInstance(obj, (PyObject *) &PycairoPattern_Type)))
         return -1;
 
