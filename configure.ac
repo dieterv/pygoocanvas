@@ -2,14 +2,14 @@ AC_PREREQ(2.52)
 
 dnl the pygoocanvas version number
 m4_define(pygoocanvas_major_version, 0)
-m4_define(pygoocanvas_minor_version, 4)
-m4_define(pygoocanvas_micro_version, 2)
+m4_define(pygoocanvas_minor_version, 5)
+m4_define(pygoocanvas_micro_version, 0)
 m4_define(pygoocanvas_version, pygoocanvas_major_version.pygoocanvas_minor_version.pygoocanvas_micro_version)
 
 dnl versions of packages we require ...
 m4_define(pygobject_required_version, 2.10.1)
-m4_define(pygtk_required_version, 2.8.4)
-m4_define(goocanvas_required_version, 0.4)
+m4_define(pygtk_required_version, 2.10.0)
+m4_define(goocanvas_required_version, 0.5)
 m4_define(pycairo_required_version,    1.2.0)
 
 AC_INIT(pygoocanvas, pygoocanvas_version, [http://developer.berlios.de/projects/pygoocanvas/])

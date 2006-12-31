@@ -1,5 +1,9 @@
 2006-12-30  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
+	* configure.in: bump to rev. 0.5.0 and update dependencies
+
+2006-12-30  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
 	* goocanvas.defs: fix method Canvas.pointer_grab it has to 
 	accept cursor = None
 	demo/*: some more examples
