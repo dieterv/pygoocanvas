@@ -7,13 +7,13 @@
   (gtype-id "GOO_TYPE_CANVAS")
 )
 
-(define-object Item
+(define-interface Item
   (in-module "Goo")
   (c-name "GooCanvasItem")
   (gtype-id "GOO_TYPE_CANVAS_ITEM")
 )
 
-(define-object ItemModel
+(define-interface ItemModel
   (in-module "Goo")
   (c-name "GooCanvasItemModel")
   (gtype-id "GOO_TYPE_CANVAS_ITEM_MODEL")
