@@ -1,3 +1,10 @@
+2006-12-31  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
+	* configure.in: bump to rev. 0.5.0 and update dependencies
+	* goocanvas.defs: fix Enumerations and flags (Gustavo)
+	* demo/focus_demo.py: added example
+	* demo/demo.py: added example
+
 2006-12-31  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* goocanvasmodule.c (_cairo_pattern_to_gvalue): Allow pattern=None
