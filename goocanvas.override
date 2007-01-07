@@ -615,3 +615,61 @@ _wrap_goo_canvas_style_set_property(PyGObject *self, PyObject *args, PyObject *k
     return Py_None;
 }
 
+%%
+override-slot GooCanvasStyle.tp_as_mapping
+
+static PyObject *
+goo_canvas_style_subscript(PyGObject *self, PyObject *arg)
+{
+    const GValue *value;
+    const char *name;
+    if (!PyString_Check(arg)) {
+        PyErr_SetString(PyExc_TypeError, "key must be a string");
+        return NULL;
+    }
+    name = PyString_AsString(arg);
+    value = goo_canvas_style_get_property(GOO_CANVAS_STYLE(self->obj),
+                                          g_quark_from_string(name));
+    if (!value) {
+        PyErr_Format(PyExc_KeyError, "goocanvas.Style object has no property named '%s'",
+                     name);
+        return NULL;
+    }
+    return pyg_value_as_pyobject(value, TRUE);
+
+}
+
+static int
+_wrap_goo_canvas_style_ass_subscript(PyGObject *self, PyObject *key, PyObject *py_value)
+{
+    char *name;
+    GValue value = {0,};
+
+    if (!PyString_Check(key)) {
+        PyErr_SetString(PyExc_TypeError, "key must be a string");
+        return -1;
+    }
+    name = PyString_AsString(key);
+    if (py_value == Py_None) {
+        goo_canvas_style_set_property(GOO_CANVAS_STYLE(self->obj), g_quark_from_string(name), NULL);
+    } else {
+        g_value_init(&value, pyg_type_from_object((PyObject *) py_value->ob_type));
+        if (PyErr_Occurred())
+            return -1;
+        if (pyg_value_from_pyobject(&value, py_value)) {
+            PyErr_SetString(PyExc_TypeError, "unable to convert value");
+            return -1;
+        }
+        goo_canvas_style_set_property(GOO_CANVAS_STYLE(self->obj), g_quark_from_string(name), &value);
+        g_value_unset(&value);
+    }
+    return 0;
+}
+
+
+static PyMappingMethods _wrap_goo_canvas_style_tp_as_mapping = {
+    NULL, /* inquiry mp_length; */
+    (binaryfunc) goo_canvas_style_subscript, /* mp_subscript; */
+    (objobjargproc) _wrap_goo_canvas_style_ass_subscript, /* objobjargproc mp_ass_subscript; */
+};
+
