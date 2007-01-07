@@ -1,3 +1,10 @@
+2007-01-07  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* goocanvas.override (_wrap_goo_canvas_style_get_property)
+	(_wrap_goo_canvas_style_set_property): Temporarily wrap
+	goocanvas.Style.[gs]et_property.  Later we'll have to rename these
+	methods, though, since they shadow GObject.[gs]et_property.
+
 2007-01-01  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* demo/custom-simple.py: Add a new custom item example; this one
