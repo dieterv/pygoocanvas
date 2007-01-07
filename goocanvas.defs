@@ -1992,7 +1992,7 @@
   )
 )
 
-(define-method get_property
+(define-method get_style_property
   (of-object "GooCanvasStyle")
   (c-name "goo_canvas_style_get_property")
   (return-type "GValue*")
@@ -2001,7 +2001,7 @@
   )
 )
 
-(define-method set_property
+(define-method set_style_property
   (of-object "GooCanvasStyle")
   (c-name "goo_canvas_style_set_property")
   (return-type "none")

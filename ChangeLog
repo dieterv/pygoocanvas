@@ -1,5 +1,9 @@
 2007-01-07  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* goocanvas.defs (get_style_property): rename get_property to
+	get_style_property.
+	(set_style_property): rename set_property to set_style_property.
+
 	* goocanvas.override (_wrap_goo_canvas_style_get_property)
 	(_wrap_goo_canvas_style_set_property): Temporarily wrap
 	goocanvas.Style.[gs]et_property.  Later we'll have to rename these
