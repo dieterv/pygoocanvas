@@ -1,5 +1,8 @@
 2007-01-07  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* goocanvas.override (_wrap_goo_canvas_style_set_property):
+	Missing g_value_init.
+
 	* goocanvas.defs (get_style_property): rename get_property to
 	get_style_property.
 	(set_style_property): rename set_property to set_style_property.
