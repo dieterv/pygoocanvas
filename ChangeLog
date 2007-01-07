@@ -2,6 +2,8 @@
 
 	* goocanvas.override (_wrap_goo_canvas_style_set_property):
 	Missing g_value_init.
+	(_wrap_goo_canvas_style_set_property): Call pyg_type_from_object
+	with the type, not the value.
 
 	* goocanvas.defs (get_style_property): rename get_property to
 	get_style_property.
