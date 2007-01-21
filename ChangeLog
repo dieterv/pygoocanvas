@@ -1,3 +1,7 @@
+2006-1-21  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
+
+	* demo/demo.py: some adjustments
+
 2007-01-07  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* goocanvas.override: Implement mapping methods in

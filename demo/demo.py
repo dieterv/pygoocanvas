@@ -203,7 +203,7 @@ class MyCanvas(object):
     
             w = gtk.Button ("Write PDF")
             hbox.pack_start (w, False, False, 0)
-            #w.connect ("clicked", write_pdf_clicked, canvas)
+            w.connect ("clicked", self.write_pdf_clicked, canvas)
     
         hbox = gtk.HBox (False, 4)
         vbox.pack_start (hbox, False, False, 0)
@@ -287,6 +287,19 @@ class MyCanvas(object):
         self.setup_canvas (canvas)
     
         return vbox
+
+    def write_pdf_clicked (self, button, canvas):
+    	print "In write_pdf_clicked"
+
+  	surface = cairo.PDFSurface ("demo.pdf", 9 * 72, 10 * 72)
+	cr = cairo.Context (surface)
+
+	''' Place it in the middle of our 9x10 page. '''
+  	cr.translate (20, 130)
+
+  	canvas.render (cr, None, 1.0)
+
+  	cr.show_page ()
     
     def setup_heading (self, root, text, pos):
         x = (pos % 3) * 200 + 100
