@@ -1,3 +1,12 @@
+2007-01-28  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* goocanvas.override (_py_canvas_style_get_property)
+	(_py_goo_canvas_style_set_property)
+	(_wrap_goo_canvas_style_get_property)
+	(_wrap_goo_canvas_style_set_property, goo_canvas_style_subscript)
+	(_wrap_goo_canvas_style_ass_subscript): Refactor to make
+	subscripting and style methods use common code.
+
 2006-1-21  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
 	* demo/demo.py: some adjustments
