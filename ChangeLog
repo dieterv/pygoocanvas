@@ -1,5 +1,15 @@
 2007-01-28  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* demo/custom-simple.py (CustomRectItem): Add note explaining how
+	to modify the bounding box.
+
+	* goocanvas.override: Add setters for bounds_x1, bounds_x2, bounds_y1,
+	bounds_y2 of goocanvas.ItemSimple.  Closes LP#81992.
+
+	* goocanvas.defs (ItemSimple): Declare bounds.x1,y1,x2,y2 fields,
+	accesible from python as bounds_x1, bounds_x2, bounds_y1,
+	bounds_y2 attributes.
+
 	* goocanvas.override (_py_goo_canvas_style_set_property): Allow
 	setting property values of cairo types Matrix and Pattern.
 	Fixes LP#78363.

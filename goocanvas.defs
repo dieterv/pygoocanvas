@@ -52,6 +52,11 @@
   (parent "GObject")
   (c-name "GooCanvasItemSimple")
   (gtype-id "GOO_TYPE_CANVAS_ITEM_SIMPLE")
+  (fields
+   ("double" "bounds.x1")
+   ("double" "bounds.x2")
+   ("double" "bounds.y1")
+   ("double" "bounds.y2"))
 )
 
 (define-object Image

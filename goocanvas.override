@@ -682,3 +682,58 @@ static PyMappingMethods _wrap_goo_canvas_style_tp_as_mapping = {
     (objobjargproc) _wrap_goo_canvas_style_ass_subscript, /* objobjargproc mp_ass_subscript; */
 };
 
+%%
+override-attr GooCanvasItemSimple.bounds_x1
+
+static int
+_wrap_goo_canvas_item_simple__set_bounds_x1(PyGObject *self, PyObject *py_value, void *closure)
+{
+    if (!PyFloat_Check(py_value)) {
+        PyErr_SetString(PyExc_TypeError, "value must be a float");
+        return -1;
+    }
+    GOO_CANVAS_ITEM_SIMPLE(pygobject_get(self))->bounds.x1 = PyFloat_AsDouble(py_value);
+    return 0;
+}
+
+%%
+override-attr GooCanvasItemSimple.bounds_x2
+
+static int
+_wrap_goo_canvas_item_simple__set_bounds_x2(PyGObject *self, PyObject *py_value, void *closure)
+{
+    if (!PyFloat_Check(py_value)) {
+        PyErr_SetString(PyExc_TypeError, "value must be a float");
+        return -1;
+    }
+    GOO_CANVAS_ITEM_SIMPLE(pygobject_get(self))->bounds.x2 = PyFloat_AsDouble(py_value);
+    return 0;
+}
+
+%%
+override-attr GooCanvasItemSimple.bounds_y1
+
+static int
+_wrap_goo_canvas_item_simple__set_bounds_y1(PyGObject *self, PyObject *py_value, void *closure)
+{
+    if (!PyFloat_Check(py_value)) {
+        PyErr_SetString(PyExc_TypeError, "value must be a float");
+        return -1;
+    }
+    GOO_CANVAS_ITEM_SIMPLE(pygobject_get(self))->bounds.y1 = PyFloat_AsDouble(py_value);
+    return 0;
+}
+
+%%
+override-attr GooCanvasItemSimple.bounds_y2
+
+static int
+_wrap_goo_canvas_item_simple__set_bounds_y2(PyGObject *self, PyObject *py_value, void *closure)
+{
+    if (!PyFloat_Check(py_value)) {
+        PyErr_SetString(PyExc_TypeError, "value must be a float");
+        return -1;
+    }
+    GOO_CANVAS_ITEM_SIMPLE(pygobject_get(self))->bounds.y2 = PyFloat_AsDouble(py_value);
+    return 0;
+}

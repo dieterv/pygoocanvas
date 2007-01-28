@@ -9,6 +9,9 @@ import goocanvas
 
 class CustomRectItem(goocanvas.ItemSimple):
 
+    ## Note to read or modify the bounding box of ItemSimple use
+    ## self.bounds_x1,x2,y1,y2
+
     def __init__(self, x, y, width, height, **kwargs):
         super(CustomRectItem, self).__init__(**kwargs)
         self.x = x
@@ -17,6 +20,7 @@ class CustomRectItem(goocanvas.ItemSimple):
         self.height = height
 
     def do_create_path(self, cr):
+
         cr.rectangle(self.x, self.y, self.width, self.height)
         cr.move_to(self.x, self.y)
         cr.line_to(self.x + self.width, self.y + self.height)
