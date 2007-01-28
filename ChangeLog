@@ -1,5 +1,9 @@
 2007-01-28  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* goocanvas.override (_py_goo_canvas_style_set_property): Allow
+	setting property values of cairo types Matrix and Pattern.
+	Fixes LP#78363.
+	
 	* goocanvas.override (_py_canvas_style_get_property)
 	(_py_goo_canvas_style_set_property)
 	(_wrap_goo_canvas_style_get_property)

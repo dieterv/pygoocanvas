@@ -591,9 +591,19 @@ _py_goo_canvas_style_set_property(GooCanvasStyle *style,
     if (py_value == Py_None) {
         goo_canvas_style_set_property(style, g_quark_from_string(name), NULL);
     } else {
-        g_value_init(&value, pyg_type_from_object((PyObject *) py_value->ob_type));
-        if (PyErr_Occurred())
-            return -1;
+        GType gtype = pyg_type_from_object((PyObject *) py_value->ob_type);
+        if (gtype == 0) {
+              /* check to see if it is one of our specially supported types */
+            if (PyObject_IsInstance(py_value, (PyObject *) &PycairoMatrix_Type)) {
+                PyErr_Clear();
+                gtype = GOO_TYPE_CAIRO_MATRIX;
+            } else if (PyObject_IsInstance(py_value, (PyObject *) &PycairoPattern_Type)) {
+                PyErr_Clear();
+                gtype = GOO_TYPE_CAIRO_PATTERN;
+            } else /* give up; we really don't support this type */
+                return -1;
+        }
+        g_value_init(&value, gtype);
         if (pyg_value_from_pyobject(&value, py_value)) {
             PyErr_SetString(PyExc_TypeError, "unable to convert value");
             return -1;
