@@ -1,3 +1,7 @@
+2007-02-02  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* goocanvas.override: wrap goo_canvas_item_set_child_properties 
+
 2007-01-28  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* demo/custom-simple.py (CustomRectItem): Add note explaining how
