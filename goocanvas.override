@@ -897,3 +897,159 @@ _wrap_goo_canvas_item_get_child_properties(PyGObject *self, PyObject *args)
 
     return tuple;
 }
+
+%%
+override goo_canvas_item_model_set_child_properties kwargs
+static PyObject *
+_wrap_goo_canvas_item_model_set_child_properties(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    PyGObject           *pychild;
+    GObjectClass        *class;
+    GooCanvasItemModel  *parent, *child;
+    Py_ssize_t          pos;
+    int                 len;
+    gint                c_pos;
+    PyObject            *value;
+    PyObject            *key;
+    
+    if ((len = PyTuple_Size(args)) < 1) {
+        PyErr_SetString(PyExc_TypeError, "requires at least one argument");
+        return NULL;
+    }
+    pychild = (PyGObject*)PyTuple_GetItem(args, 0);
+    
+    if (!pygobject_check(pychild, &PyGooCanvasItemModel_Type)) {
+        PyErr_SetString(PyExc_TypeError,
+                        "first argument should be a GooCanvasItemModel");
+        return NULL;
+    }
+    
+    parent = GOO_CANVAS_ITEM_MODEL(self->obj);
+    child = GOO_CANVAS_ITEM_MODEL(pychild->obj);
+    
+    c_pos = goo_canvas_item_model_find_child(parent, child);
+    if (c_pos == -1) {
+        PyErr_SetString(PyExc_TypeError,
+                        "first argument must be a child");
+        return NULL;
+    }
+    
+    class = G_OBJECT_GET_CLASS(pychild->obj);
+    
+    g_object_freeze_notify (G_OBJECT(pychild->obj));
+    pos = 0;
+
+    while (kwargs && PyDict_Next (kwargs, &pos, &key, &value)) {
+    gchar *key_str = PyString_AsString (key);
+    GParamSpec *pspec;
+    GValue gvalue ={ 0, };
+
+    pspec = g_object_class_find_property (class, key_str);
+    if (!pspec) {
+	    gchar buf[512];
+
+	    g_snprintf(buf, sizeof(buf),
+		       "object `%s' doesn't support property `%s'",
+		       g_type_name(G_OBJECT_TYPE(pychild->obj)), key_str);
+	    PyErr_SetString(PyExc_TypeError, buf);
+	    return NULL;
+	}
+
+	g_value_init(&gvalue, G_PARAM_SPEC_VALUE_TYPE(pspec));
+	if (pyg_value_from_pyobject(&gvalue, value)) {
+	    gchar buf[512];
+
+	    g_snprintf(buf, sizeof(buf),
+		       "could not convert value for property `%s'", key_str);
+	    PyErr_SetString(PyExc_TypeError, buf);
+	    return NULL;
+	}
+	g_object_set_property(G_OBJECT(pychild->obj), key_str, &gvalue);
+	g_value_unset(&gvalue);
+    }
+
+    g_object_thaw_notify (G_OBJECT(pychild->obj));
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+%%
+override goo_canvas_item_model_get_child_properties args
+static PyObject *
+_wrap_goo_canvas_item_model_get_child_properties(PyGObject *self, PyObject *args)
+{
+    GObjectClass        *class;
+    GooCanvasItemModel  *parent, *child;
+    PyGObject           *pychild;
+    int                 i, len;
+    gint                c_pos;
+    PyObject            *tuple;
+    
+    if ((len = PyTuple_Size(args)) < 1) {
+        PyErr_SetString(PyExc_TypeError, "requires at least one argument");
+        return NULL;
+    }
+    
+    pychild = (PyGObject*)PyTuple_GetItem(args, 0);
+    
+    if (!pygobject_check(pychild, &PyGooCanvasItemModel_Type)) {
+        PyErr_SetString(PyExc_TypeError,
+                        "first argument should be a GooCanvasItemModel");
+        return NULL;
+    }
+    
+    parent = GOO_CANVAS_ITEM_MODEL(self->obj);
+    child = GOO_CANVAS_ITEM_MODEL(pychild->obj);
+    
+    c_pos = goo_canvas_item_model_find_child(parent, child);
+    if (c_pos == -1) {
+        PyErr_SetString(PyExc_TypeError,
+                        "first argument must be a child");
+        return NULL;
+    }
+
+    tuple = PyTuple_New(len-1);
+    
+    class = G_OBJECT_GET_CLASS(pychild->obj);
+    
+    for (i = 1; i < len; i++) {
+        PyObject *py_property = PyTuple_GetItem(args, i);
+        gchar *property_name;
+        GParamSpec *pspec;
+        GValue value = { 0 };
+        PyObject *item;
+
+        if (!PyString_Check(py_property)) {
+            PyErr_SetString(PyExc_TypeError,
+                            "Expected string argument for property.");
+            return NULL;
+        }
+
+        property_name = PyString_AsString(py_property);
+
+        pspec = g_object_class_find_property(G_OBJECT_GET_CLASS(pychild->obj),
+					 property_name);
+        if (!pspec) {
+	    PyErr_Format(PyExc_TypeError,
+		         "object of type `%s' does not have property `%s'",
+		         g_type_name(G_OBJECT_TYPE(pychild->obj)), property_name);
+    	return NULL;
+        }
+        if (!(pspec->flags & G_PARAM_READABLE)) {
+	    PyErr_Format(PyExc_TypeError, "property %s is not readable",
+		        property_name);
+	    return NULL;
+        }
+        g_value_init(&value, G_PARAM_SPEC_VALUE_TYPE(pspec));
+
+        g_object_get_property(pychild->obj, property_name, &value);
+
+        item = pyg_value_as_pyobject(&value, TRUE);
+        PyTuple_SetItem(tuple, i-1, item);
+
+        g_value_unset(&value);
+    }
+
+    return tuple;
+}
