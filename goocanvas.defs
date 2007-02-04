@@ -1906,7 +1906,7 @@
   (varargs #t)
 )
 
-(define-function goo_canvas_polyline_model_new_line
+(define-function polyline_model_new_line
   (c-name "goo_canvas_polyline_model_new_line")
   (return-type "GooCanvasItemModel*")
   (parameters

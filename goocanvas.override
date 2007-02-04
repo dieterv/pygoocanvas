@@ -218,6 +218,10 @@ goo_canvas_style_new
 goo_canvas_table_new
 goo_canvas_table_model_new
 goo_canvas_widget_new
+goo_canvas_item_get_child_properties_valist
+goo_canvas_item_set_child_properties_valist
+goo_canvas_item_model_get_child_properties_valist
+goo_canvas_item_model_set_child_properties_valist
 %%
 ignore-glob	
     *_get_type
@@ -298,7 +302,7 @@ _wrap_goo_canvas_polyline_new_line(PyGObject *self, PyObject *args, PyObject *kw
     double          x1, y1, x2, y2;
     GooCanvasItem   *ret;
     GObjectClass    *class;
-    int             pos;
+    Py_ssize_t      pos;
     PyObject        *value;
     PyObject        *key;
     GType           type;
@@ -333,6 +337,74 @@ _wrap_goo_canvas_polyline_new_line(PyGObject *self, PyObject *args, PyObject *kw
 
 	    g_snprintf(buf, sizeof(buf),
 		       "canvas item `%s' doesn't support property `%s'",
+		       g_type_name(type), key_str);
+	    PyErr_SetString(PyExc_TypeError, buf);
+	    gtk_object_destroy(GTK_OBJECT(ret));
+	    return NULL;
+	}
+
+	g_value_init(&gvalue, G_PARAM_SPEC_VALUE_TYPE(pspec));
+	if (pyg_value_from_pyobject(&gvalue, value)) {
+	    gchar buf[512];
+
+	    g_snprintf(buf, sizeof(buf),
+		       "could not convert value for property `%s'", key_str);
+	    PyErr_SetString(PyExc_TypeError, buf);
+	    gtk_object_destroy(GTK_OBJECT(ret));
+	    return NULL;
+	}
+	g_object_set_property(G_OBJECT(ret), key_str, &gvalue);
+	g_value_unset(&gvalue);
+    }
+
+    g_object_thaw_notify (G_OBJECT(ret));
+    
+    return pygobject_new((GObject *)ret);
+}
+%%
+override goo_canvas_polyline_model_new_line kwargs
+static PyObject *
+_wrap_goo_canvas_polyline_model_new_line(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    PyGObject           *parent; 
+    double              x1, y1, x2, y2;
+    GooCanvasItemModel  *ret;
+    GObjectClass        *class;
+    Py_ssize_t          pos;
+    PyObject            *value;
+    PyObject            *key;
+    GType               type;
+    
+    if (!PyArg_ParseTuple(args, "O!dddd:polyline_model_new_line", 
+                          &PyGooCanvasItemModel_Type, &parent, &x1, 
+                          &y1, &x2, &y2))
+        return NULL;
+    
+    ret = goo_canvas_polyline_model_new_line(GOO_CANVAS_ITEM_MODEL(parent->obj), x1, 
+                                       y1, x2, y2, NULL);
+    
+    type = goo_canvas_polyline_model_get_type();
+    
+    if (!ret) {
+    PyErr_SetString (PyExc_RuntimeError, "could not create canvas item model object");
+    return NULL;
+    }
+
+    class = G_OBJECT_GET_CLASS(ret);
+    g_object_freeze_notify (G_OBJECT(ret));
+    pos = 0;
+
+    while (kwargs && PyDict_Next (kwargs, &pos, &key, &value)) {
+    gchar *key_str = PyString_AsString (key);
+    GParamSpec *pspec;
+    GValue gvalue ={ 0, };
+
+    pspec = g_object_class_find_property (class, key_str);
+    if (!pspec) {
+	    gchar buf[512];
+
+	    g_snprintf(buf, sizeof(buf),
+		       "canvas item model `%s' doesn't support property `%s'",
 		       g_type_name(type), key_str);
 	    PyErr_SetString(PyExc_TypeError, buf);
 	    gtk_object_destroy(GTK_OBJECT(ret));
