@@ -499,16 +499,11 @@ _wrap_goo_canvas_item_remove_child(PyGObject *self, PyObject *args, PyObject *kw
     return Py_None;
 }
 %%
-override goo_canvas_get_bounds kwargs
+override goo_canvas_get_bounds args
 static PyObject *
-_wrap_goo_canvas_get_bounds(PyGObject *self, PyObject *args, PyObject *kwargs)
+_wrap_goo_canvas_get_bounds(PyGObject *self, PyObject *args)
 {
-    static char *kwlist[] = { "left", "top", "right", "bottom", NULL };
     gdouble left, right, top, bottom;
-
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs,"dddd:GooCanvas.get_bounds", 
-    				     kwlist, &left, &right, &top, &bottom))
-        return NULL;
     
     goo_canvas_get_bounds(GOO_CANVAS(self->obj), &left, &right, &top, &bottom);
     

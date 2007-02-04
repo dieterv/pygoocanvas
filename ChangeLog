@@ -1,5 +1,9 @@
 2007-02-04  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
+	* goocanvas.override: fix goocanvas.get_bounds()
+
+2007-02-04  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
 	* goocanvas.override: wrap function  goo_canvas_polyline_model_new_line()
 	fix goo_canvas_polyline_new_line for python-2.5.
 	
