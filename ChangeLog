@@ -1,5 +1,9 @@
 2007-02-11  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
+	* demo/table_demo.py: new example.
+
+2007-02-11  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
 	* goocanvas.override: fix set_child_properties() of both Item 
 	and ItemModel.
 
