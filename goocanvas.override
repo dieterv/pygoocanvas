@@ -928,7 +928,7 @@ _wrap_goo_canvas_item_get_child_properties(PyGObject *self, PyObject *args)
 
     tuple = PyTuple_New(len-1);
     
-    class = G_OBJECT_GET_CLASS(pychild->obj);
+    class = G_OBJECT_GET_CLASS(self->obj);
     
     for (i = 1; i < len; i++) {
         PyObject *py_property = PyTuple_GetItem(args, i);
@@ -945,22 +945,24 @@ _wrap_goo_canvas_item_get_child_properties(PyGObject *self, PyObject *args)
 
         property_name = PyString_AsString(py_property);
 
-        pspec = g_object_class_find_property(G_OBJECT_GET_CLASS(pychild->obj),
-					 property_name);
+        pspec = goo_canvas_item_class_find_child_property (class, property_name);
         if (!pspec) {
 	    PyErr_Format(PyExc_TypeError,
-		         "object of type `%s' does not have property `%s'",
-		         g_type_name(G_OBJECT_TYPE(pychild->obj)), property_name);
-    	return NULL;
+		    "object of type `%s' does not have child property `%s'",
+		    g_type_name(G_OBJECT_TYPE(self->obj)), property_name);
+    	    return NULL;
         }
         if (!(pspec->flags & G_PARAM_READABLE)) {
-	    PyErr_Format(PyExc_TypeError, "property %s is not readable",
-		        property_name);
-	    return NULL;
+            PyErr_Format(PyExc_TypeError, "property %s is not readable", property_name);
+            return NULL;
         }
         g_value_init(&value, G_PARAM_SPEC_VALUE_TYPE(pspec));
+        GooCanvasItemIface *iface;
 
-        g_object_get_property(pychild->obj, property_name, &value);
+	    iface = g_type_interface_peek (class, GOO_TYPE_CANVAS_ITEM);
+	    iface->get_child_property ((GooCanvasItem*) parent,
+		                           (GooCanvasItem*) child,
+                                    pspec->param_id, &value, pspec);
 
         item = pyg_value_as_pyobject(&value, TRUE);
         PyTuple_SetItem(tuple, i-1, item);
@@ -1089,7 +1091,7 @@ _wrap_goo_canvas_item_model_get_child_properties(PyGObject *self, PyObject *args
 
     tuple = PyTuple_New(len-1);
     
-    class = G_OBJECT_GET_CLASS(pychild->obj);
+    class = G_OBJECT_GET_CLASS(self->obj);
     
     for (i = 1; i < len; i++) {
         PyObject *py_property = PyTuple_GetItem(args, i);
@@ -1105,13 +1107,12 @@ _wrap_goo_canvas_item_model_get_child_properties(PyGObject *self, PyObject *args
         }
 
         property_name = PyString_AsString(py_property);
+        pspec = goo_canvas_item_model_class_find_child_property (class, property_name);
 
-        pspec = g_object_class_find_property(G_OBJECT_GET_CLASS(pychild->obj),
-					 property_name);
         if (!pspec) {
 	    PyErr_Format(PyExc_TypeError,
-		         "object of type `%s' does not have property `%s'",
-		         g_type_name(G_OBJECT_TYPE(pychild->obj)), property_name);
+		         "object of type `%s' does not have child property `%s'",
+		         g_type_name(G_OBJECT_TYPE(self->obj)), property_name);
     	return NULL;
         }
         if (!(pspec->flags & G_PARAM_READABLE)) {
@@ -1120,8 +1121,12 @@ _wrap_goo_canvas_item_model_get_child_properties(PyGObject *self, PyObject *args
 	    return NULL;
         }
         g_value_init(&value, G_PARAM_SPEC_VALUE_TYPE(pspec));
+        GooCanvasItemModelIface *iface;
 
-        g_object_get_property(pychild->obj, property_name, &value);
+	    iface = g_type_interface_peek (class, GOO_TYPE_CANVAS_ITEM_MODEL);
+	    iface->get_child_property ((GooCanvasItemModel*) parent,
+		                           (GooCanvasItemModel*) child,
+                                    pspec->param_id, &value, pspec);
 
         item = pyg_value_as_pyobject(&value, TRUE);
         PyTuple_SetItem(tuple, i-1, item);
