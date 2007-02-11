@@ -845,9 +845,9 @@ _wrap_goo_canvas_item_set_child_properties(PyGObject *self, PyObject *args, PyOb
         return NULL;
     }
     
-    class = G_OBJECT_GET_CLASS(pychild->obj);
+    class = G_OBJECT_GET_CLASS(self->obj);
     
-    g_object_freeze_notify (G_OBJECT(pychild->obj));
+    g_object_freeze_notify (G_OBJECT(self->obj));
     pos = 0;
 
     while (kwargs && PyDict_Next (kwargs, &pos, &key, &value)) {
@@ -855,12 +855,12 @@ _wrap_goo_canvas_item_set_child_properties(PyGObject *self, PyObject *args, PyOb
     GParamSpec *pspec;
     GValue gvalue ={ 0, };
 
-    pspec = g_object_class_find_property (class, key_str);
+    pspec = goo_canvas_item_class_find_child_property (class, key_str);
     if (!pspec) {
 	    gchar buf[512];
 
 	    g_snprintf(buf, sizeof(buf),
-		       "object `%s' doesn't support property `%s'",
+		       "object `%s' doesn't support child property `%s'",
 		       g_type_name(G_OBJECT_TYPE(pychild->obj)), key_str);
 	    PyErr_SetString(PyExc_TypeError, buf);
 	    return NULL;
@@ -875,11 +875,17 @@ _wrap_goo_canvas_item_set_child_properties(PyGObject *self, PyObject *args, PyOb
 	    PyErr_SetString(PyExc_TypeError, buf);
 	    return NULL;
 	}
-	g_object_set_property(G_OBJECT(pychild->obj), key_str, &gvalue);
+	GooCanvasItemIface *iface;
+
+	iface = g_type_interface_peek (class, GOO_TYPE_CANVAS_ITEM);
+	iface->set_child_property ((GooCanvasItem*) parent,
+	                           (GooCanvasItem*) child,
+	                           pspec->param_id, &gvalue, pspec);
+	
 	g_value_unset(&gvalue);
     }
 
-    g_object_thaw_notify (G_OBJECT(pychild->obj));
+    g_object_thaw_notify (G_OBJECT(self->obj));
 
     Py_INCREF(Py_None);
     return Py_None;
@@ -1001,9 +1007,9 @@ _wrap_goo_canvas_item_model_set_child_properties(PyGObject *self, PyObject *args
         return NULL;
     }
     
-    class = G_OBJECT_GET_CLASS(pychild->obj);
+    class = G_OBJECT_GET_CLASS(self->obj);
     
-    g_object_freeze_notify (G_OBJECT(pychild->obj));
+    g_object_freeze_notify (G_OBJECT(self->obj));
     pos = 0;
 
     while (kwargs && PyDict_Next (kwargs, &pos, &key, &value)) {
@@ -1011,12 +1017,12 @@ _wrap_goo_canvas_item_model_set_child_properties(PyGObject *self, PyObject *args
     GParamSpec *pspec;
     GValue gvalue ={ 0, };
 
-    pspec = g_object_class_find_property (class, key_str);
+    pspec = goo_canvas_item_model_class_find_child_property (class, key_str);
     if (!pspec) {
 	    gchar buf[512];
 
 	    g_snprintf(buf, sizeof(buf),
-		       "object `%s' doesn't support property `%s'",
+		       "object `%s' doesn't support child property `%s'",
 		       g_type_name(G_OBJECT_TYPE(pychild->obj)), key_str);
 	    PyErr_SetString(PyExc_TypeError, buf);
 	    return NULL;
@@ -1031,11 +1037,16 @@ _wrap_goo_canvas_item_model_set_child_properties(PyGObject *self, PyObject *args
 	    PyErr_SetString(PyExc_TypeError, buf);
 	    return NULL;
 	}
-	g_object_set_property(G_OBJECT(pychild->obj), key_str, &gvalue);
+	GooCanvasItemModelIface *iface;
+
+	iface = g_type_interface_peek (class, GOO_TYPE_CANVAS_ITEM_MODEL);
+	iface->set_child_property ((GooCanvasItemModel*) parent,
+	                           (GooCanvasItemModel*) child,
+	                           pspec->param_id, &gvalue, pspec);
 	g_value_unset(&gvalue);
     }
 
-    g_object_thaw_notify (G_OBJECT(pychild->obj));
+    g_object_thaw_notify (G_OBJECT(self->obj));
 
     Py_INCREF(Py_None);
     return Py_None;
