@@ -229,6 +229,7 @@
   (c-name "GooCanvasItemVisibility")
   (gtype-id "GOO_TYPE_CANVAS_ITEM_VISIBILITY")
   (values
+    '("hidden" "GOO_CANVAS_ITEM_HIDDEN")
     '("visible" "GOO_CANVAS_ITEM_VISIBLE")
     '("visible-above-threshold" "GOO_CANVAS_ITEM_VISIBLE_ABOVE_THRESHOLD")
     '("invisible" "GOO_CANVAS_ITEM_INVISIBLE")
