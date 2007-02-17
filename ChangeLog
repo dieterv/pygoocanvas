@@ -2,6 +2,8 @@
 
 	* demo/custom-simple.py (CustomRectItem.do_simple_create_path):
 	Update to new API.
+	(CustomRectItem.do_button_press_event): Demonstrate catching
+	button-press events by overriding a virtual function.
 
 2007-02-17  Gian Mario Tagliaretti  <gianmt@gnome.org>
 

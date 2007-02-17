@@ -7,7 +7,7 @@ import goocanvas
 
 
 
-class CustomRectItem(goocanvas.ItemSimple):
+class CustomRectItem(goocanvas.ItemSimple, goocanvas.Item):
 
     ## Note to read or modify the bounding box of ItemSimple use
     ## self.bounds_x1,x2,y1,y2
@@ -26,6 +26,9 @@ class CustomRectItem(goocanvas.ItemSimple):
         cr.line_to(self.x + self.width, self.y + self.height)
         cr.move_to(self.x + self.width, self.y)
         cr.line_to(self.x, self.y + self.height)
+
+    def do_button_press_event(self, target, event):
+        print "button press!"
 
 gobject.type_register(CustomRectItem)
 
