@@ -851,6 +851,18 @@
   )
 )
 
+(define-method set_simple_transform
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_set_simple_transform")
+  (return-type "none")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+    '("gdouble" "scale")
+    '("gdouble" "rotation")
+  )
+)
+
 (define-method translate
   (of-object "GooCanvasItem")
   (c-name "goo_canvas_item_translate")
@@ -928,6 +940,7 @@
     '("double" "y")
     '("double" "scale")
     '("double" "degrees")
+    '("gboolean" "absolute")
     '("gint" "duration")
     '("gint" "step_time")
     '("GooCanvasAnimateType" "type")
@@ -1518,6 +1531,7 @@
     '("double" "y")
     '("double" "scale")
     '("double" "degrees")
+    '("gboolean" "absolute")
     '("gint" "duration")
     '("gint" "step_time")
     '("GooCanvasAnimateType" "type")
@@ -1759,21 +1773,21 @@
 )
 
 
-(define-virtual create_path
+(define-virtual simple_create_path
   (of-object "GooCanvasItemSimple")
   (return-type "none")
   (parameters
     '("cairo_t*" "cr")
   )
 )
-(define-virtual update
+(define-virtual simple_update
   (of-object "GooCanvasItemSimple")
   (return-type "none")
   (parameters
     '("cairo_t*" "cr")
   )
 )
-(define-virtual paint
+(define-virtual simple_paint
   (of-object "GooCanvasItemSimple")
   (return-type "none")
   (parameters
@@ -1781,7 +1795,7 @@
     '("GooCanvasBounds*" "bounds")
   )
 )
-(define-virtual get_item_at
+(define-virtual simple_get_item_at
   (of-object "GooCanvasItemSimple")
   (return-type "GooCanvasItem*")
   (parameters
@@ -2116,6 +2130,23 @@
 
 
 ;; From goocanvasutils.h
+
+(define-function goo_canvas_parse_path_data
+  (c-name "goo_canvas_parse_path_data")
+  (return-type "GArray*")
+  (parameters
+    '("const-gchar*" "path_data")
+  )
+)
+
+(define-function goo_canvas_create_path
+  (c-name "goo_canvas_create_path")
+  (return-type "none")
+  (parameters
+    '("GArray*" "commands")
+    '("cairo_t*" "cr")
+  )
+)
 
 (define-function goo_canvas_line_dash_get_type
   (c-name "goo_canvas_line_dash_get_type")
