@@ -9,7 +9,7 @@ m4_define(pygoocanvas_version, pygoocanvas_major_version.pygoocanvas_minor_versi
 dnl versions of packages we require ...
 m4_define(pygobject_required_version, 2.10.1)
 m4_define(pygtk_required_version, 2.10.0)
-m4_define(goocanvas_required_version, 0.5)
+m4_define(goocanvas_required_version, 0.6)
 m4_define(pycairo_required_version,    1.2.0)
 
 AC_INIT(pygoocanvas, pygoocanvas_version, [http://developer.berlios.de/projects/pygoocanvas/])
