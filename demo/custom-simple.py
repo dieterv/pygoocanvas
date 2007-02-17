@@ -19,7 +19,7 @@ class CustomRectItem(goocanvas.ItemSimple):
         self.width = width
         self.height = height
 
-    def do_create_path(self, cr):
+    def do_simple_create_path(self, cr):
 
         cr.rectangle(self.x, self.y, self.width, self.height)
         cr.move_to(self.x, self.y)
