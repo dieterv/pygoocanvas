@@ -1,3 +1,27 @@
+PyGooCanvas 0.6.0	(Feb 19 2007)
+=================
+
+ o Rename and implement latest API changes according to
+   goocanvas 0.6 (Gian Mario)
+ o wrap GooCanvasItem.find_child_property as classmethod (Gian Mario)
+ o New example of Table (Gian Mario)
+ o Wrap goo_canvas_polyline_model_new_line Gian Mario)
+ o Wrap goo_canvas_item_model_[get|set]_child_properties (Gian Mario)
+ o Wrap goo_canvas_item_[get|set]_child_properties (Gian Mario)
+ o Add setters for bounds_x1, bounds_x2, bounds_y1,
+   bounds_y2 of goocanvas.ItemSimple.  Closes LP#81992. (Gustavo)
+ o Wrap all new methods of goocanvas.Style (Gustavo)
+ o Implement mapping methods in goocanvas.Style (Gustavo)
+ o _wrap_GooCanvasItem__proxy_do_get_bounds,
+   _wrap_GooCanvasItem__proxy_do_update,
+   Override to implement proper 'return value' semantics for the
+   bounds parameter. (Gustavo)
+ o Add a reversewrapper. Parameter handler for GooCanvasBounds* (Gustavo)
+ o Added new examples (Gian Mario, Gustavo)
+ o _cairo_pattern_to_gvalue: allow pattern=None in properties (Gustavo)
+ o Regenerated defs files with new goocanvas include files (Gian Mario)
+
+
 PyGooCanvas 0.4.2	(Dec 18 2006)
 =================
 

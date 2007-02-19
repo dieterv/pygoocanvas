@@ -2,7 +2,7 @@ AC_PREREQ(2.52)
 
 dnl the pygoocanvas version number
 m4_define(pygoocanvas_major_version, 0)
-m4_define(pygoocanvas_minor_version, 5)
+m4_define(pygoocanvas_minor_version, 6)
 m4_define(pygoocanvas_micro_version, 0)
 m4_define(pygoocanvas_version, pygoocanvas_major_version.pygoocanvas_minor_version.pygoocanvas_micro_version)
 
