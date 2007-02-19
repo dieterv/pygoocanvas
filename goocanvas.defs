@@ -1454,6 +1454,18 @@
   )
 )
 
+(define-method set_simple_transform
+  (of-object "GooCanvasItemModel")
+  (c-name "goo_canvas_item_model_set_simple_transform")
+  (return-type "none")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+    '("gdouble" "scale")
+    '("gdouble" "rotation")
+  )
+)
+
 (define-method translate
   (of-object "GooCanvasItemModel")
   (c-name "goo_canvas_item_model_translate")

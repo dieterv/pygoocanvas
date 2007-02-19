@@ -222,6 +222,7 @@ goo_canvas_item_get_child_properties_valist
 goo_canvas_item_set_child_properties_valist
 goo_canvas_item_model_get_child_properties_valist
 goo_canvas_item_model_set_child_properties_valist
+goo_canvas_item_class_find_child_property
 %%
 ignore-glob	
     *_get_type
@@ -1135,4 +1136,45 @@ _wrap_goo_canvas_item_model_get_child_properties(PyGObject *self, PyObject *args
     }
 
     return tuple;
+}
+
+%%
+define GooCanvasItem.find_child_property kwargs classmethod
+static PyObject *
+_wrap_goo_canvas_item_find_child_property (PyObject *cls,
+                                           PyObject *args,
+                                           PyObject *kwargs)
+{
+    static char         *kwlist[] = { "property_id", NULL };
+    GObjectClass        *klass;
+    GType               itype;
+    const gchar         *prop_name;
+    GParamSpec          *pspec;
+    
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "s:item_class_find_child_property",
+                                     kwlist,
+                                     &prop_name))
+        return NULL;
+    
+    if ((itype = pyg_type_from_object(cls)) == 0)
+	return NULL;
+    
+    klass = g_type_class_ref(itype);
+    
+    if (!klass) {
+	PyErr_SetString(PyExc_RuntimeError,
+			"could not get a reference to type class");
+	return NULL;
+    }
+    
+    pspec = goo_canvas_item_class_find_child_property (klass, prop_name);
+    
+    if(!pspec){
+        PyErr_Format(PyExc_KeyError,
+                        "object %s does not support property %s",
+                        g_type_name(itype), prop_name);
+	return NULL;
+    }
+    return pyg_param_spec_new(pspec);
 }

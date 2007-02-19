@@ -1,3 +1,9 @@
+2007-02-17  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* goocanvas.defs: add goo_canvas_item_model_set_simple_transform
+	* goocanvas.override: wrap GooCanvasItem.find_child_property
+	as classmethod
+
 2007-02-17  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* configure.ac: Require goocanvas >= 0.6.
