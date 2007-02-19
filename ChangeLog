@@ -3,6 +3,8 @@
 
 	* NEWS: Update.
 
+	* demo/Makefile.am: Fix distfiles
+
 	* configure.ac bump version to 0.6.0
 
 2007-02-17  Gian Mario Tagliaretti  <gianmt@gnome.org>
