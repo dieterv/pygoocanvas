@@ -226,6 +226,8 @@ goo_canvas_item_class_find_child_property
 goo_canvas_item_model_class_find_child_property
 goo_canvas_item_class_list_child_properties
 goo_canvas_item_model_class_list_child_properties
+goo_canvas_item_class_install_child_property
+goo_canvas_item_model_class_install_child_property
 %%
 ignore-glob	
     *_get_type
@@ -1305,4 +1307,108 @@ _wrap_goo_canvas_item_model_list_child_properties (PyObject *cls,
     g_type_class_unref(klass);
 
     return list;
+}
+
+%%
+define GooCanvasItem.install_child_property kwargs classmethod
+static PyObject *
+_wrap_goo_canvas_item_install_child_property (PyObject *cls,
+                                              PyObject *args,
+                                              PyObject* kwargs)
+{
+    static char         *kwlist[] = { "property_id", "pspec", NULL };
+    PyObject            *property;
+    GType               itype;
+    GObjectClass        *klass;
+    guint               property_id;
+    GParamSpec          *pspec;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+				     "iO:item_class_install_child_property",
+				     kwlist,
+				     &property_id, &property))
+	return NULL;
+
+
+    if ((itype = pyg_type_from_object(cls)) == 0)
+	return NULL;
+
+    klass = g_type_class_ref(itype);
+    if (!klass) {
+	PyErr_SetString(PyExc_RuntimeError,
+			"could not get a reference to type class");
+	return NULL;
+    }
+
+    pspec = pyg_param_spec_from_object(property);
+    if(!pspec) {
+	g_type_class_unref(klass);
+	return NULL;
+    }
+
+    if (goo_canvas_item_class_find_child_property(G_OBJECT_CLASS(klass), pspec->name)) {
+	PyErr_Format(PyExc_TypeError,
+		     "there is already a '%s' property installed", pspec->name);
+	g_type_class_unref(klass);
+	return NULL;
+    }
+    
+    goo_canvas_item_class_install_child_property(klass, property_id, pspec);
+	
+    g_type_class_unref(klass);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+%%
+define GooCanvasItemModel.install_child_property kwargs classmethod
+static PyObject *
+_wrap_goo_canvas_item_model_install_child_property (PyObject *cls,
+                                                    PyObject *args,
+                                                    PyObject* kwargs)
+{
+    static char         *kwlist[] = { "property_id", "pspec", NULL };
+    PyObject            *property;
+    GType               itype;
+    GObjectClass        *klass;
+    guint               property_id;
+    GParamSpec          *pspec;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+				     "iO:item_model_class_install_child_property",
+				     kwlist,
+				     &property_id, &property))
+	return NULL;
+
+
+    if ((itype = pyg_type_from_object(cls)) == 0)
+	return NULL;
+
+    klass = g_type_class_ref(itype);
+    if (!klass) {
+	PyErr_SetString(PyExc_RuntimeError,
+			"could not get a reference to type class");
+	return NULL;
+    }
+
+    pspec = pyg_param_spec_from_object(property);
+    if(!pspec) {
+	g_type_class_unref(klass);
+	return NULL;
+    }
+
+    if (goo_canvas_item_model_class_find_child_property(G_OBJECT_CLASS(klass), pspec->name)) {
+	PyErr_Format(PyExc_TypeError,
+		     "there is already a '%s' property installed", pspec->name);
+	g_type_class_unref(klass);
+	return NULL;
+    }
+    
+    goo_canvas_item_model_class_install_child_property(klass, property_id, pspec);
+	
+    g_type_class_unref(klass);
+
+    Py_INCREF(Py_None);
+    return Py_None;
 }

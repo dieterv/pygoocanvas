@@ -1,5 +1,10 @@
 2007-02-20  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
+	* goocanvas.override: wrap GooCanvasItem.install_child_property,
+	GooCanvasItemModel.install_child_property as classmethods
+
+2007-02-20  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
 	* goocanvas.override: wrap GooCanvasItemModel.find_child_property,
 	GooCanvasItem.list_child_properties,
 	GooCanvasItemModel.list_child_properties as classmethods
