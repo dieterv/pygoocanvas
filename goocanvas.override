@@ -223,6 +223,9 @@ goo_canvas_item_set_child_properties_valist
 goo_canvas_item_model_get_child_properties_valist
 goo_canvas_item_model_set_child_properties_valist
 goo_canvas_item_class_find_child_property
+goo_canvas_item_model_class_find_child_property
+goo_canvas_item_class_list_child_properties
+goo_canvas_item_model_class_list_child_properties
 %%
 ignore-glob	
     *_get_type
@@ -1145,7 +1148,7 @@ _wrap_goo_canvas_item_find_child_property (PyObject *cls,
                                            PyObject *args,
                                            PyObject *kwargs)
 {
-    static char         *kwlist[] = { "property_id", NULL };
+    static char         *kwlist[] = { "property", NULL };
     GObjectClass        *klass;
     GType               itype;
     const gchar         *prop_name;
@@ -1177,4 +1180,129 @@ _wrap_goo_canvas_item_find_child_property (PyObject *cls,
 	return NULL;
     }
     return pyg_param_spec_new(pspec);
+}
+
+%%
+define GooCanvasItemModel.find_child_property kwargs classmethod
+static PyObject *
+_wrap_goo_canvas_item_model_find_child_property (PyObject *cls,
+                                                 PyObject *args,
+                                                 PyObject *kwargs)
+{
+    static char         *kwlist[] = { "property", NULL };
+    GObjectClass        *klass;
+    GType               itype;
+    const gchar         *prop_name;
+    GParamSpec          *pspec;
+    
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "s:item_model_class_find_child_property",
+                                     kwlist,
+                                     &prop_name))
+        return NULL;
+    
+    if ((itype = pyg_type_from_object(cls)) == 0)
+	return NULL;
+    
+    klass = g_type_class_ref(itype);
+    
+    if (!klass) {
+	PyErr_SetString(PyExc_RuntimeError,
+			"could not get a reference to type class");
+	return NULL;
+    }
+    
+    pspec = goo_canvas_item_model_class_find_child_property (klass, prop_name);
+    
+    if(!pspec){
+        PyErr_Format(PyExc_KeyError,
+                        "object %s does not support property %s",
+                        g_type_name(itype), prop_name);
+	return NULL;
+    }
+    return pyg_param_spec_new(pspec);
+}
+
+%%
+define GooCanvasItem.list_child_properties noargs classmethod
+static PyObject *
+_wrap_goo_canvas_item_list_child_properties (PyObject *cls,
+                                             PyObject *args,
+                                             PyObject *kwargs)
+{
+    GParamSpec      **specs;
+    PyObject        *list;
+    GType           itype;
+    GObjectClass    *klass;
+    guint           nprops;
+    guint           i;
+    
+    if ((itype = pyg_type_from_object(cls)) == 0)
+	return NULL;
+
+    klass = g_type_class_ref(itype);
+    if (!klass) {
+	PyErr_SetString(PyExc_RuntimeError,
+			"could not get a reference to type class");
+	return NULL;
+    }
+
+    specs = goo_canvas_item_class_list_child_properties(klass, &nprops);
+    list = PyList_New(nprops);
+    if (list == NULL) {
+	g_free(specs);
+	g_type_class_unref(klass);
+	return NULL;
+    }
+    
+    for (i = 0; i < nprops; i++) {
+	PyList_SetItem(list, i, pyg_param_spec_new(specs[i]));
+    }
+    
+    g_free(specs);
+    g_type_class_unref(klass);
+
+    return list;
+}
+
+%%
+define GooCanvasItemModel.list_child_properties noargs classmethod
+static PyObject *
+_wrap_goo_canvas_item_model_list_child_properties (PyObject *cls,
+                                                   PyObject *args,
+                                                   PyObject *kwargs)
+{
+    GParamSpec      **specs;
+    PyObject        *list;
+    GType           itype;
+    GObjectClass    *klass;
+    guint           nprops;
+    guint           i;
+    
+    if ((itype = pyg_type_from_object(cls)) == 0)
+	return NULL;
+
+    klass = g_type_class_ref(itype);
+    if (!klass) {
+	PyErr_SetString(PyExc_RuntimeError,
+			"could not get a reference to type class");
+	return NULL;
+    }
+
+    specs = goo_canvas_item_model_class_list_child_properties(klass, &nprops);
+    list = PyList_New(nprops);
+    if (list == NULL) {
+	g_free(specs);
+	g_type_class_unref(klass);
+	return NULL;
+    }
+    
+    for (i = 0; i < nprops; i++) {
+	PyList_SetItem(list, i, pyg_param_spec_new(specs[i]));
+    }
+    
+    g_free(specs);
+    g_type_class_unref(klass);
+
+    return list;
 }
