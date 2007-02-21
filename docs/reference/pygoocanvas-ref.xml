@@ -8,7 +8,7 @@
 <book id="pygoocanvas-reference" xmlns:xi="http://www.w3.org/2001/XInclude">
   <bookinfo>
     <pubdate>&builddate;</pubdate>
-    <title>PyGooCanvas 0.4 Reference Manual</title>
+    <title>PyGooCanvas 0.6.0 Reference Manual</title>
     <edition>PyGooCanvas Reference Manual for PyGooCanvas &version;</edition>
     <releaseinfo>For PyGooCanvas version &version;</releaseinfo>
     <authorgroup>

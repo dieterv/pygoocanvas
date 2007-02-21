@@ -2,140 +2,160 @@
 <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
     "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 
-<refentry id="class-canvas-view">
+<refentry id="class-canvas">
 
   <refnamediv>
-    <refname>goocanvas.CanvasView</refname>
-      <refpurpose>The Canvas View</refpurpose>
+    <refname>goocanvas.Canvas</refname>
+      <refpurpose>The Canvas</refpurpose>
   </refnamediv>
 
   <refsect1>
     <title>Synopsis</title>
 
     <classsynopsis language="python">
-      <ooclass><classname>goocanvas.CanvasView</classname></ooclass>
+      <ooclass><classname>goocanvas.Canvas</classname></ooclass>
       <ooclass><classname>gtk.Container</classname></ooclass>
 
       <constructorsynopsis language="python">
-        <methodname><link linkend="constructor-canvas-view">goocanvas.CanvasView</link></methodname>
+        <methodname><link linkend="constructor-canvas">goocanvas.Canvas</link></methodname>
         <methodparam></methodparam>
       </constructorsynopsis>
 
       <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--convert-from-item-space">convert_from_item_space</link></methodname>
-        <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+        <methodname><link linkend="method-goocanvas--convert-from-item-space">convert_from_item_space</link></methodname>
+        <methodparam><parameter role="keyword">item</parameter></methodparam>
         <methodparam><parameter role="keyword">x</parameter></methodparam>
         <methodparam><parameter role="keyword">y</parameter></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--convert-to-item-space">convert_to_item_space</link></methodname>
-        <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+        <methodname><link linkend="method-goocanvas--convert-to-item-space">convert_to_item_space</link></methodname>
+        <methodparam><parameter role="keyword">item</parameter></methodparam>
         <methodparam><parameter role="keyword">x</parameter></methodparam>
         <methodparam><parameter role="keyword">y</parameter></methodparam>
       </methodsynopsis>
      <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--convert-from-pixel">convert_from_pixel</link></methodname>
+        <methodname><link linkend="method-goocanvas--convert-from-pixel">convert_from_pixel</link></methodname>
         <methodparam><parameter role="keyword">x</parameter></methodparam>
         <methodparam><parameter role="keyword">y</parameter></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--convert-to-pixel">convert_to_pixel</link></methodname>
+        <methodname><link linkend="method-goocanvas--convert-to-pixel">convert_to_pixel</link></methodname>
         <methodparam><parameter role="keyword">x</parameter></methodparam>
         <methodparam><parameter role="keyword">y</parameter></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--create-item-view">create_item_view</link></methodname>
+        <methodname><link linkend="method-goocanvas--create-item">create_item</link></methodname>
+        <methodparam><parameter role="keyword">model</parameter></methodparam>
+      </methodsynopsis>
+      <methodsynopsis language="python">
+        <methodname><link linkend="method-goocanvas--get-bounds">get_bounds</link></methodname>
+        <methodparam></methodparam>
+      </methodsynopsis>
+      <methodsynopsis language="python">
+        <methodname><link linkend="method-goocanvas--get-default-line-width">get_default_line_width</link></methodname>
+        <methodparam></methodparam>
+      </methodsynopsis>
+      <methodsynopsis language="python">
+        <methodname><link linkend="method-goocanvas--get-item">get_item</link></methodname>
+        <methodparam><parameter role="keyword">model</parameter></methodparam>
+      </methodsynopsis>
+      <methodsynopsis language="python">
+        <methodname><link linkend="method-goocanvas--get-item-at">get_item_at</link></methodname>
+        <methodparam><parameter role="keyword">x</parameter></methodparam>
+        <methodparam><parameter role="keyword">y</parameter></methodparam>
+        <methodparam><parameter role="keyword">is_pointer_event</parameter></methodparam>
+      </methodsynopsis>
+      <methodsynopsis language="python">
+        <methodname><link linkend="method-goocanvas--get-root-item">get_root_item</link></methodname>
+        <methodparam></methodparam>
+      </methodsynopsis>
+      <methodsynopsis language="python">
+        <methodname><link linkend="method-goocanvas--get-root-item-model">get_root_item_model</link></methodname>
+        <methodparam></methodparam>
+      </methodsynopsis>
+      <methodsynopsis language="python">
+        <methodname><link linkend="method-goocanvas--get-scale">get_scale</link></methodname>
+        <methodparam></methodparam>
+      </methodsynopsis>
+      <methodsynopsis language="python">
+        <methodname><link linkend="method-goocanvas--grab-focus">grab_focus</link></methodname>
         <methodparam><parameter role="keyword">item</parameter></methodparam>
-        <methodparam><parameter role="keyword">parent_view</parameter></methodparam>
-      </methodsynopsis>
-      
-      <!--START NOT YET IMPLEMENTED
-      <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview-get-bounds">get_bounds</link></methodname>
-        <methodparam><parameter role="keyword">left</parameter></methodparam>
-        <methodparam><parameter role="keyword">top</parameter></methodparam>
-        <methodparam><parameter role="keyword">right</parameter></methodparam>
-        <methodparam><parameter role="keyword">bottom</parameter></methodparam>
-      </methodsynopsis>
-      END NOT YET IMPLEMENTED -->
-      
-      <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--get-item-view-at">get_item_view_at</link></methodname>
-        <methodparam><parameter role="keyword">x</parameter></methodparam>
-        <methodparam><parameter role="keyword">y</parameter></methodparam>
-        <methodparam><parameter role="keyword">pointer_event</parameter></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--get-model">get_model</link></methodname>
-        <methodparam></methodparam>
-      </methodsynopsis>
-      <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--get-scale">get_scale</link></methodname>
-        <methodparam></methodparam>
-      </methodsynopsis>
-      <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--grab-focus">grab_focus</link></methodname>
-        <methodparam><parameter role="keyword">item_view</parameter></methodparam>
-      </methodsynopsis>
-      <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--keyword-grab">keyboard_grab</link></methodname>
-        <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+        <methodname><link linkend="method-goocanvas--keyword-grab">keyboard_grab</link></methodname>
+        <methodparam><parameter role="keyword">item</parameter></methodparam>
         <methodparam><parameter role="keyword">owner_events</parameter></methodparam>
         <methodparam><parameter role="keyword">time</parameter></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--keyboard-ungrab">keyboard_ungrab</link></methodname>
-        <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+        <methodname><link linkend="method-goocanvas--keyboard-ungrab">keyboard_ungrab</link></methodname>
+        <methodparam><parameter role="keyword">item</parameter></methodparam>
         <methodparam><parameter role="keyword">time</parameter></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--pointer-grab">pointer_grab</link></methodname>
-        <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+        <methodname><link linkend="method-goocanvas--pointer-grab">pointer_grab</link></methodname>
+        <methodparam><parameter role="keyword">item</parameter></methodparam>
         <methodparam><parameter role="keyword">event_mask</parameter></methodparam>
         <methodparam><parameter role="keyword">cursor</parameter></methodparam>
         <methodparam><parameter role="keyword">time</parameter></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--pointer-ungrab">pointer_ungrab</link></methodname>
-        <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+        <methodname><link linkend="method-goocanvas--pointer-ungrab">pointer_ungrab</link></methodname>
+        <methodparam><parameter role="keyword">item</parameter></methodparam>
         <methodparam><parameter role="keyword">time</parameter></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--render">render</link></methodname>
+        <methodname><link linkend="method-goocanvas--register-widget-item">register_widget_item</link></methodname>
+        <methodparam><parameter role="keyword">witem</parameter></methodparam>
+      </methodsynopsis>
+      <methodsynopsis language="python">
+        <methodname><link linkend="method-goocanvas--render">render</link></methodname>
         <methodparam><parameter role="keyword">cr</parameter></methodparam>
         <methodparam><parameter role="keyword">bounds</parameter></methodparam>
         <methodparam><parameter role="keyword">scale</parameter></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--request-redraw">request_redraw</link></methodname>
+        <methodname><link linkend="method-goocanvas--request-redraw">request_redraw</link></methodname>
         <methodparam><parameter role="keyword">bounds</parameter></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--request-update">request_update</link></methodname>
+        <methodname><link linkend="method-goocanvas--request-update">request_update</link></methodname>
         <methodparam></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--scroll-to">scroll_to</link></methodname>
+        <methodname><link linkend="method-goocanvas--scroll-to">scroll_to</link></methodname>
         <methodparam><parameter role="keyword">left</parameter></methodparam>
         <methodparam><parameter role="keyword">top</parameter></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--set-bounds">set_bounds</link></methodname>
+        <methodname><link linkend="method-goocanvas--set-bounds">set_bounds</link></methodname>
         <methodparam><parameter role="keyword">left</parameter></methodparam>
         <methodparam><parameter role="keyword">top</parameter></methodparam>
         <methodparam><parameter role="keyword">right</parameter></methodparam>
         <methodparam><parameter role="keyword">bottom</parameter></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--set-model">set_model</link></methodname>
+        <methodname><link linkend="method-goocanvas--set-root-item">set_root_item</link></methodname>
+        <methodparam><parameter role="keyword">item</parameter></methodparam>
+      </methodsynopsis>
+      <methodsynopsis language="python">
+        <methodname><link linkend="method-goocanvas--set-root-item-model">set_root_item_model</link></methodname>
         <methodparam><parameter role="keyword">model</parameter></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--set-scale">set_scale</link></methodname>
-        <methodparam><parameter role="keyword">pixel_per_unit</parameter></methodparam>
+        <methodname><link linkend="method-goocanvas--set-scale">set_scale</link></methodname>
+        <methodparam><parameter role="keyword">scale</parameter></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
-        <methodname><link linkend="method-goocanvasview--update">update</link></methodname>
+        <methodname><link linkend="method-goocanvas--unregister-item">unregister_item</link></methodname>
+        <methodparam><parameter role="keyword">model</parameter></methodparam>
+      </methodsynopsis>
+      <methodsynopsis language="python">
+        <methodname><link linkend="method-goocanvas--unregister-widget-item">unregister_widget_item</link></methodname>
+        <methodparam><parameter role="keyword">witem</parameter></methodparam>
+      </methodsynopsis>
+      <methodsynopsis language="python">
+        <methodname><link linkend="method-goocanvas--update">update</link></methodname>
         <methodparam></methodparam>
       </methodsynopsis>
 </classsynopsis>
@@ -149,13 +169,13 @@
 	+-- <link linkend="class-gtkobject">gtk.Object</link>
 		+-- <link linkend="class-gtkwidget">gtk.Widget</link>
 			+-- <link linkend="class-gtkcontainer">gtk.Container</link>
-				+-- <link linkend="class-canvas-view">goocanvas.CanvasView</link>
+				+-- <link linkend="class-canvas-view">goocanvas.Canvas</link>
 </synopsis>
 
   </refsect1>
   
-  <refsect1 id="properties-goocanvasview">
-    <title>goocanvas.CanvasView Properties</title>
+  <refsect1 id="properties-goocanvas">
+    <title>goocanvas.Canvas Properties</title>
     
     <para><link linkend="properties-gtkobject">gtk.Object Properties</link></para>
     <para><link linkend="properties-gtkwidget">gtk.Widget Properties</link></para>
@@ -177,9 +197,17 @@
             </row>
             
             <row valign="top">
-              <entry>"model"</entry>
+              <entry>"resolution_x"</entry>
               <entry>Read/Write</entry>
-              <entry>The model for the canvas view.</entry>
+              <entry>The horizontal resolution of the display, in dots per inch. Allowed values: >= 0
+                     Default value: 96</entry>
+            </row>
+            
+            <row valign="top">
+              <entry>"resolution_y"</entry>
+              <entry>Read/Write</entry>
+              <entry>The vertical resolution of the display, in dots per inch. Allowed values: >= 0
+                     Default value: 96</entry>
             </row>
             
             <row valign="top">
@@ -224,23 +252,24 @@
     
   </refsect1>
 
-  <refsect1 id="signal-prototypes-goocanvasview">
-    <title>goocanvas.CanvasView Signal Prototypes</title>
+  <refsect1 id="signal-prototypes-goocanvas">
+    <title>goocanvas.Canvas Signal Prototypes</title>
 
       <variablelist>
       <varlistentry>
-        <term><link linkend="signal-goocanvasview--item-view-created">"item-view-created</link>"</term>
+        <term><link linkend="signal-goocanvas--item-created">"item-created"</link></term>
         <listitem>
           <methodsynopsis language="python"><methodname>callback</methodname>
-            <methodparam><parameter>canvas_view</parameter></methodparam>
+            <methodparam><parameter>canvas</parameter></methodparam>
             <methodparam><parameter>item</parameter></methodparam>
+            <methodparam><parameter>model</parameter></methodparam>
             <methodparam><parameter>user_param</parameter></methodparam>
             <methodparam><parameter>...</parameter></methodparam>
           </methodsynopsis>
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term><link linkend="signal-goocanvasview--set-scroll-adjustments">"set-scroll-adjustments</link>"</term>
+        <term><link linkend="signal-goocanvas--set-scroll-adjustments">"set-scroll-adjustments"</link></term>
         <listitem>
           <methodsynopsis language="python"><methodname>callback</methodname>
             <methodparam><parameter>canvas_view</parameter></methodparam>
@@ -257,46 +286,49 @@
 
   <refsect1>
     <title>Description</title>
-
+      <para>
+        <link linkend="class-canvas"><classname>goocanvas.Canvas</classname></link>
+        is the main widget containing a number of canvas items.
+      </para>
   </refsect1>
 
-  <refsect1 id="constructor-canvas-view">
+  <refsect1 id="constructor-canvas">
 	  <title>Constructor</title>
 	  
 	  <programlisting><constructorsynopsis language="python">
-			  <methodname>goocanvas.CanvasView</methodname>
+			  <methodname>goocanvas.Canvas</methodname>
 		  </constructorsynopsis></programlisting>
 	  
 	  <variablelist>
 		  <varlistentry>
 			  <term><emphasis>Returns</emphasis>&nbsp;:</term>
 			  <listitem><simpara>A new 
-					  <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link>
+					  <link linkend="class-canvas"><classname>goocanvas.Canvas</classname></link>
 				  </simpara></listitem>
 		  </varlistentry>
 	  </variablelist>
 	  <para>
-		  Creates a new canvas view.
+		  Creates a new canvas.
 	  </para>
 	</refsect1>
 
 	<refsect1>
     <title>Methods</title>
 
-    <refsect2 id="method-goocanvasview--convert-from-item-space">
-      <title>goocanvas.CanvasView.convert_from_item_space</title>
+    <refsect2 id="method-goocanvas--convert-from-item-space">
+      <title>goocanvas.Canvas.convert_from_item_space</title>
 
       <programlisting><methodsynopsis language="python">
         <methodname>convert_from_item_space</methodname>
-          <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+          <methodparam><parameter role="keyword">item</parameter></methodparam>
           <methodparam><parameter role="keyword">x</parameter></methodparam>
           <methodparam><parameter role="keyword">y</parameter></methodparam>
         </methodsynopsis></programlisting>
 
       <variablelist>
         <varlistentry>
-          <term><parameter role="keyword">item_view</parameter>&nbsp;:</term>
-          <listitem><simpara>A <link linkend="class-canvas-item-view">goocanvas.CanvasItemView
+          <term><parameter role="keyword">item</parameter>&nbsp;:</term>
+          <listitem><simpara>A <link linkend="class-canvas-item">goocanvas.Item
               </link></simpara></listitem>
         </varlistentry>
         <varlistentry>
@@ -314,13 +346,13 @@
       </variablelist>
 
       <para>
-        Converts a coordinate from the given item's coordinate space to the canvas view coordinate space, 
+        Converts a coordinate from the given item's coordinate space to the canvas coordinate space, 
         applying all transformation matrices including the item's own transformation matrix, if it has one.
       </para>
     </refsect2>
 
-    <refsect2 id="method-goocanvasview--convert-from-pixel">
-      <title>goocanvas.CanvasView.convert_from_pixel</title>
+    <refsect2 id="method-goocanvas--convert-from-pixel">
+      <title>goocanvas.Canvas.convert_from_pixel</title>
 
       <programlisting><methodsynopsis language="python">
           <methodname>convert_from_pixel</methodname>
@@ -344,29 +376,29 @@
       </variablelist>
 
       <para>
-        Converts a coordinate from pixels to the canvas view coordinate space.
+        Converts a coordinate from pixels to the canvas coordinate space.
         The pixel coordinate space specifies pixels from the top-left of the entire canvas window, 
         according to the current scale setting. See 
-        <methodname><link linkend="method-goocanvasview--set-scale">set_scale</link></methodname>.
+        <methodname><link linkend="method-goocanvas--set-scale">set_scale()</link></methodname>.
         The canvas view coordinate space is specified in the call to 
-        <methodname><link linkend="method-goocanvasview--set-bounds">set_bounds</link></methodname>.
+        <methodname><link linkend="method-goocanvas--set-bounds">set_bounds()</link></methodname>.
       </para>
     </refsect2>
 
-    <refsect2 id="method-goocanvasview--convert-to-item-space">
-      <title>goocanvas.CanvasView.convert_to_item_space</title>
+    <refsect2 id="method-goocanvas--convert-to-item-space">
+      <title>goocanvas.Canvas.convert_to_item_space</title>
 
       <programlisting><methodsynopsis language="python">
           <methodname>convert_to_item_space</methodname>
-          <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+          <methodparam><parameter role="keyword">item</parameter></methodparam>
           <methodparam><parameter role="keyword">x</parameter></methodparam>
           <methodparam><parameter role="keyword">y</parameter></methodparam>
         </methodsynopsis></programlisting>
 
       <variablelist>
         <varlistentry>
-          <term><parameter role="keyword">item_view</parameter>&nbsp;:</term>
-          <listitem><simpara>A <link linkend="class-canvas-item-view">goocanvas.CanvasItemView
+          <term><parameter role="keyword">item</parameter>&nbsp;:</term>
+          <listitem><simpara>A <link linkend="class-canvas-item">goocanvas.Item
               </link></simpara></listitem>
         </varlistentry>
         <varlistentry>
@@ -384,13 +416,13 @@
       </variablelist>
 
       <para>
-        Converts a coordinate from the canvas view coordinate space to the given item's coordinate space, 
+        Converts a coordinate from the canvas coordinate space to the given item's coordinate space, 
         applying all transformation matrices including the item's own transformation matrix, if it has one.
       </para>
     </refsect2>
 
-    <refsect2 id="method-goocanvasview--convert-to-pixel">
-      <title>goocanvas.CanvasView.convert_to_pixel</title>
+    <refsect2 id="method-goocanvas--convert-to-pixel">
+      <title>goocanvas.Canvas.convert_to_pixel</title>
 
       <programlisting><methodsynopsis language="python">
           <methodname>convert_to_pixel</methodname>
@@ -414,105 +446,200 @@
       </variablelist>
 
       <para>
-        Converts a coordinate from the canvas view coordinate space to pixels.
-        The canvas view coordinate space is specified in the call to 
-        <methodname><link linkend="method-goocanvasview--set-bounds">set_bounds</link></methodname>
+        Converts a coordinate from the canvas coordinate space to pixels.
+        The canvas coordinate space is specified in the call to 
+        <methodname><link linkend="method-goocanvas--set-bounds">set_bounds</link></methodname>
         The pixel coordinate space specifies pixels from the top-left of the entire canvas window, 
         according to the current scale setting. See 
-        <methodname><link linkend="method-goocanvasview--set-scale">set_scale</link></methodname>
+        <methodname><link linkend="method-goocanvas--set-scale">set_scale</link></methodname>
       </para>
     </refsect2>
 
-    <refsect2 id="method-goocanvasview--create-item-view">
-      <title>goocanvas.CanvasView.create_item_view</title>
+    <refsect2 id="method-goocanvas--create-item">
+      <title>goocanvas.Canvas.create_item</title>
 
       <programlisting><methodsynopsis language="python">
-        <methodname>create_item_view</methodname>
-        <methodparam><parameter role="keyword">item</parameter></methodparam>
-        <methodparam><parameter role="keyword">parent_view</parameter></methodparam>
+        <methodname>create_item</methodname>
+        <methodparam><parameter role="keyword">model</parameter></methodparam>
       </methodsynopsis></programlisting>
 
       <variablelist>
         <varlistentry>
-          <term><parameter role="keyword">item</parameter>&nbsp;:</term>
-          <listitem><simpara>The the item to create a view for.</simpara></listitem>
-        </varlistentry>
-        <varlistentry>
-          <term><parameter role="keyword">parent_view</parameter>&nbsp;:</term>
-          <listitem><simpara>The parent view of the new item.</simpara></listitem>
+          <term><parameter role="keyword">model</parameter>&nbsp;:</term>
+          <listitem><simpara>The item model to create a canvas item for.</simpara></listitem>
         </varlistentry>
         <varlistentry>
           <term><emphasis>Returns</emphasis>&nbsp;:</term>
-          <listitem><simpara>A new item view.</simpara></listitem>
+          <listitem><simpara>A new canvas item.</simpara></listitem>
         </varlistentry>
       </variablelist>
 
       <para>
-        Creates a new item view for the given item, It emits the "item-view-created" 
-        signal after creating the view, so application code can connect signal 
-        handlers to the new view if desired.
+        Creates a new canvas item for the given item model, and recursively creates items for any children.
+        It uses the <link linkend="method-goocanvas--create-item">create_item</link> virtual method if it has been set.
+        Subclasses of GooCanvas can define this method if they want to use custom views for items.
+        It emits the <link linkend="signal-goocanvas--item-created">"item-created"</link> signal after
+        creating the view, so application code can connect signal handlers to the new view if desired.
       </para>
     </refsect2>
 
-    <refsect2 id="method-goocanvasview--get-item-view-at">
-      <title>goocanvas.CanvasView.get_item_view_at</title>
+    <refsect2 id="method-goocanvas--get-bounds">
+      <title>goocanvas.Canvas.get_bounds</title>
 
       <programlisting><methodsynopsis language="python">
-        <methodname>get_item_view_at</methodname>
-        <methodparam><parameter role="keyword">x</parameter></methodparam>
-        <methodparam><parameter role="keyword">y</parameter></methodparam>
-        <methodparam><parameter role="keyword">pointer_event</parameter></methodparam>
-      </methodsynopsis></programlisting>
-
-      <variablelist>
-        <varlistentry>
-          <term><parameter role="keyword">x</parameter>&nbsp;:</term>
-          <listitem><simpara>The x coordinate of the point</simpara></listitem>
-        </varlistentry>
-        <varlistentry>
-          <term><parameter role="keyword">y</parameter>&nbsp;:</term>
-          <listitem><simpara>The y coordinate of the point</simpara></listitem>
-        </varlistentry>
-        <varlistentry>
-          <term><parameter role="keyword">pointer_event</parameter>&nbsp;:</term>
-          <listitem><simpara><literal>True</literal>if the "pointer-events" 
-              properties of items should be used to determine which parts 
-              of the item are tested.</simpara></listitem>
-        </varlistentry>
-        <varlistentry>
-          <term><emphasis>Returns</emphasis>&nbsp;:</term>
-          <listitem><simpara>  the item view found at the given point, 
-              or None if no item view was found.</simpara></listitem>
-        </varlistentry>
-      </variablelist>
-
-      <para>
-        Gets the item view at the given point.
-      </para>
-    </refsect2>
-
-    <refsect2 id="method-goocanvasview--get-model">
-      <title>goocanvas.CanvasView.get_model</title>
-
-      <programlisting><methodsynopsis language="python">
-        <methodname>get_model</methodname>
+        <methodname>get_bounds</methodname>
       </methodsynopsis></programlisting>
 
       <variablelist>
         <varlistentry>
           <term><emphasis>Returns</emphasis>&nbsp;:</term>
-          <listitem><simpara>  the <link linkend="class-canvas-model">goocanvas.CanvasModel</link>
-              being displayed.</simpara></listitem>
+          <listitem><simpara>A tuple with the four coordinates.</simpara></listitem>
         </varlistentry>
       </variablelist>
 
       <para>
-        Gets the model being displayed in the canvas.
+        Gets the bounds of the canvas, in canvas units. By default, canvas units are pixels,
+        though the GooCanvas:units property can be used to change the units to points,
+        inches or millimeters.
       </para>
     </refsect2>
     
-    <refsect2 id="method-goocanvasview--get-scale">
-      <title>goocanvas.CanvasView.get_scale</title>
+    <refsect2 id="method-goocanvas--get-default-line-width">
+      <title>goocanvas.Canvas.get_default_line_width</title>
+
+      <programlisting><methodsynopsis language="python">
+        <methodname>get_default_line_width</methodname>
+      </methodsynopsis></programlisting>
+
+      <variablelist>
+        <varlistentry>
+          <term><emphasis>Returns</emphasis>&nbsp;:</term>
+          <listitem><simpara>The default line width of the canvas.</simpara></listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>
+        Gets the default line width, which depends on the current units setting.
+      </para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvas--get-item">
+      <title>goocanvas.Canvas.get_item</title>
+
+      <programlisting><methodsynopsis language="python">
+        <methodname>get_item</methodname>
+        <methodparam><parameter role="keyword">model</parameter></methodparam>
+      </methodsynopsis></programlisting>
+
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">model</parameter>&nbsp;:</term>
+          <listitem><simpara>A
+              <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link>
+          </simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><emphasis>Returns</emphasis>&nbsp;:</term>
+          <listitem><simpara>The canvas item corresponding to the given
+                      <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link>
+                      or None if no canvas item has been created for it yet.
+          </simpara></listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>
+        Gets the canvas item associated with the given
+        <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link>.
+        This is only useful when <link linkend="method-goocanvas--set-root-item-model">set_root_item_model</link>
+        has been used to set a model for the canvas.
+      </para>
+      <para>
+        For simple applications you can use <link linkend="method-goocanvas--get-item">get_item</link>
+        to set up signal handlers for your items, e.g.
+      </para>
+      <programlisting>
+        item = canvas.get_item (my_item)
+        item.connect ("button_press_event", on_my_item_button_press)</programlisting>
+      <para>
+        More complex applications may want to use the GooCanvas::item-created signal to hook up their signal handlers.
+      </para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvas--get-item-at">
+      <title>goocanvas.Canvas.get_item_at</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>get_item_at</methodname>
+          <methodparam><parameter role="keyword">x</parameter></methodparam>
+          <methodparam><parameter role="keyword">y</parameter></methodparam>
+          <methodparam><parameter role="keyword">is_pointer_event</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">x</parameter>&nbsp;:</term>
+          <listitem><simpara>The x coordinate of the point.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">y</parameter>&nbsp;:</term>
+          <listitem><simpara>The y coordinate of the point.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">is_pointer_event</parameter>&nbsp;:</term>
+          <listitem><simpara>True if the "pointer-events" property of items should be used
+                             to determine which parts of the item are tested.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><emphasis>Returns</emphasis>&nbsp;:</term>
+          <listitem><simpara>The item found at the given point, or None if no item was found.</simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>Gets the item at the given point.</para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvas--get-root-item">
+      <title>goocanvas.Canvas.get_root_item</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>get_root_item</methodname>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><emphasis>Returns</emphasis>&nbsp;:</term>
+          <listitem><simpara>The root item, or None if there is no root item.</simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>
+        Gets the root item of the canvas, usually a
+        <link linkend="class-canvas-group"><classname>goocanvas.Group</classname></link>.
+      </para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvas--get-root-item-model">
+      <title>goocanvas.Canvas.get_root_item_model</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>get_root_item_model</methodname>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><emphasis>Returns</emphasis>&nbsp;:</term>
+          <listitem><simpara>The root item model, or None if there is no root item.</simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>
+        Gets the root item model of the canvas, usually a
+        <link linkend="class-canvas-group-model"><classname>goocanvas.GroupModel</classname></link>.
+      </para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvas--get-scale">
+      <title>goocanvas.Canvas.get_scale</title>
       
       <programlisting><methodsynopsis language="python">
           <methodname>get_scale</methodname>
@@ -530,49 +657,44 @@
       </para>
     </refsect2>
 
-    <refsect2 id="method-goocanvasview--grab-focus">
-      <title>goocanvas.CanvasView.grab_focus</title>
+    <refsect2 id="method-goocanvas--grab-focus">
+      <title>goocanvas.Canvas.grab_focus</title>
 
       <programlisting><methodsynopsis language="python">
         <methodname>grab_focus</methodname>
-        <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+        <methodparam><parameter role="keyword">item</parameter></methodparam>
       </methodsynopsis></programlisting>
 
       <variablelist>
         <varlistentry>
-          <term><parameter role="keyword">item_view</parameter>&nbsp;:</term>
-          <listitem><simpara>The item view to grab the focus.</simpara></listitem>
-        </varlistentry>
-        <varlistentry>
-          <term><emphasis>Returns</emphasis>&nbsp;:</term>
-          <listitem><simpara>A <link linkend="class-canvas-view">goocanvas.CanvasView</link>
-            </simpara></listitem>
+          <term><parameter role="keyword">item</parameter>&nbsp;:</term>
+          <listitem><simpara>The item to grab the focus.</simpara></listitem>
         </varlistentry>
       </variablelist>
 
       <para>Grabs the keyboard focus for the given item.</para>
     </refsect2>
     
-    <refsect2 id="method-goocanvasview--keyword-grab">
-      <title>goocanvas.CanvasView.keyboard_grab</title>
+    <refsect2 id="method-goocanvas--keyword-grab">
+      <title>goocanvas.Canvas.keyboard_grab</title>
       
       <programlisting><methodsynopsis language="python">
           <methodname>keyboard_grab</methodname>
-          <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+          <methodparam><parameter role="keyword">item</parameter></methodparam>
           <methodparam><parameter role="keyword">owner_events</parameter></methodparam>
           <methodparam><parameter role="keyword">time</parameter></methodparam>
         </methodsynopsis></programlisting>
       
       <variablelist>
         <varlistentry>
-          <term><parameter role="keyword">item_view</parameter>&nbsp;:</term>
-          <listitem><simpara>The item view to grab the keyword for.</simpara></listitem>
+          <term><parameter role="keyword">item</parameter>&nbsp;:</term>
+          <listitem><simpara>The item to grab the keyword for.</simpara></listitem>
         </varlistentry>
         <varlistentry>
           <term><parameter role="keyword">owner_events</parameter>&nbsp;:</term>
           <listitem><simpara><literal>True</literal> if keyboard events for this application 
               will be reported normally, or <literal>False</literal> if all keyboard events will 
-              be reported with respect to the grab item view.</simpara></listitem>
+              be reported with respect to the grab item.</simpara></listitem>
         </varlistentry>
         <varlistentry>
           <term><parameter role="keyword">time</parameter>&nbsp;:</term>
@@ -590,19 +712,19 @@
       <para>Grabs the keyboard focus for the given item.</para>
     </refsect2>
     
-    <refsect2 id="method-goocanvasview--keyboard-ungrab">
-      <title>goocanvas.CanvasView.keyboard_ungrab</title>
+    <refsect2 id="method-goocanvas--keyboard-ungrab">
+      <title>goocanvas.Canvas.keyboard_ungrab</title>
       
       <programlisting><methodsynopsis language="python">
           <methodname>keyboard_grab</methodname>
-          <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+          <methodparam><parameter role="keyword">item</parameter></methodparam>
           <methodparam><parameter role="keyword">time</parameter></methodparam>
         </methodsynopsis></programlisting>
       
       <variablelist>
         <varlistentry>
-          <term><parameter role="keyword">item_view</parameter>&nbsp;:</term>
-          <listitem><simpara>The item view that has the keyboard grab.</simpara></listitem>
+          <term><parameter role="keyword">item</parameter>&nbsp;:</term>
+          <listitem><simpara>The item that has the keyboard grab.</simpara></listitem>
         </varlistentry>
         <varlistentry>
           <term><parameter role="keyword">time</parameter>&nbsp;:</term>
@@ -616,12 +738,12 @@
       <para>Ungrabs the pointer, if the given item view has the pointer grab.</para>
     </refsect2>
     
-    <refsect2 id="method-goocanvasview--pointer-grab">
-      <title>goocanvas.CanvasView.pointer_grab</title>
+    <refsect2 id="method-goocanvas--pointer-grab">
+      <title>goocanvas.Canvas.pointer_grab</title>
       
       <programlisting><methodsynopsis language="python">
           <methodname>pointer_grab</methodname>
-          <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+          <methodparam><parameter role="keyword">item</parameter></methodparam>
           <methodparam><parameter role="keyword">event_mask</parameter></methodparam>
           <methodparam><parameter role="keyword">cursor</parameter></methodparam>
           <methodparam><parameter role="keyword">time</parameter></methodparam>
@@ -629,8 +751,8 @@
       
       <variablelist>
         <varlistentry>
-          <term><parameter role="keyword">item_view</parameter>&nbsp;:</term>
-          <listitem><simpara>The item view to grab the pointer for.</simpara></listitem>
+          <term><parameter role="keyword">item</parameter>&nbsp;:</term>
+          <listitem><simpara>The item to grab the pointer for.</simpara></listitem>
         </varlistentry>
         <varlistentry>
           <term><parameter role="keyword">event_mask</parameter>&nbsp;:</term>
@@ -654,22 +776,22 @@
         </varlistentry>
       </variablelist>
       
-      <para>Attempts to grab the pointer for the given item view.</para>
+      <para>Attempts to grab the pointer for the given item.</para>
     </refsect2>
     
-    <refsect2 id="method-goocanvasview--pointer-ungrab">
-      <title>goocanvas.CanvasView.pointer_ungrab</title>
+    <refsect2 id="method-goocanvas--pointer-ungrab">
+      <title>goocanvas.Canvas.pointer_ungrab</title>
       
       <programlisting><methodsynopsis language="python">
           <methodname>pointer_ungrab</methodname>
-          <methodparam><parameter role="keyword">item_view</parameter></methodparam>
+          <methodparam><parameter role="keyword">item</parameter></methodparam>
           <methodparam><parameter role="keyword">time</parameter></methodparam>
         </methodsynopsis></programlisting>
       
       <variablelist>
         <varlistentry>
-          <term><parameter role="keyword">item_view</parameter>&nbsp;:</term>
-          <listitem><simpara>The item view that has the pointer grab.</simpara></listitem>
+          <term><parameter role="keyword">item</parameter>&nbsp;:</term>
+          <listitem><simpara>The item that has the pointer grab.</simpara></listitem>
         </varlistentry>
         <varlistentry>
           <term><parameter role="keyword">time</parameter>&nbsp;:</term>
@@ -683,8 +805,34 @@
       <para>Ungrabs the pointer, if the given item view has the pointer grab.</para>
     </refsect2>
     
-    <refsect2 id="method-goocanvasview--render">
-      <title>goocanvas.CanvasView.render</title>
+    <refsect2 id="method-goocanvas--register-widget-item">
+      <title>goocanvas.Canvas.register_widget_item</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>register_widget_item</methodname>
+          <methodparam><parameter role="keyword">witem</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">witem</parameter>&nbsp;:</term>
+          <listitem><simpara>A <link linkend="class-canvas-widget"><classname>goocanvas.Widget</classname></link>.
+          </simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>Registers a widget item with the canvas, so that the canvas can do the necessary
+        actions to move and resize the widget as needed.
+      </para>
+      <para>
+        This function should only be used by
+        <link linkend="class-canvas-widget"><classname>goocanvas.Widget</classname></link>
+        and subclass implementations.
+      </para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvas--render">
+      <title>goocanvas.Canvas.render</title>
       
       <programlisting><methodsynopsis language="python">
           <methodname>render</methodname>
@@ -714,8 +862,8 @@
       <para>Renders all or part of a canvas to the given cairo context.</para>
     </refsect2>
     
-    <refsect2 id="method-goocanvasview--request-redraw">
-      <title>goocanvas.CanvasView.request_redraw</title>
+    <refsect2 id="method-goocanvas--request-redraw">
+      <title>goocanvas.Canvas.request_redraw</title>
       
       <programlisting><methodsynopsis language="python">
           <methodname>request_redraw</methodname>
@@ -732,8 +880,8 @@
       <para>Requests that the given bounds be redrawn.</para>
     </refsect2>
     
-    <refsect2 id="method-goocanvasview--request-update">
-      <title>goocanvas.CanvasView.request_update</title>
+    <refsect2 id="method-goocanvas--request-update">
+      <title>goocanvas.Canvas.request_update</title>
       
       <programlisting><methodsynopsis language="python">
           <methodname>request_update</methodname>
@@ -744,14 +892,14 @@
       
       <para>
         Schedules an update of the 
-        <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link>. 
+        <link linkend="class-canvas"><classname>goocanvas.Canvas</classname></link>. 
         This will be performed in the idle loop, after all pending events have been handled, 
         but before the canvas has been repainted.
       </para>
     </refsect2>
     
-    <refsect2 id="method-goocanvasview--scroll-to">
-      <title>goocanvas.CanvasView.scroll_to</title>
+    <refsect2 id="method-goocanvas--scroll-to">
+      <title>goocanvas.Canvas.scroll_to</title>
       
       <programlisting><methodsynopsis language="python">
           <methodname>scroll_to</methodname>
@@ -776,8 +924,8 @@
       </para>
     </refsect2>
     
-    <refsect2 id="method-goocanvasview--set-bounds">
-      <title>goocanvas.CanvasView.set_bounds</title>
+    <refsect2 id="method-goocanvas--set-bounds">
+      <title>goocanvas.Canvas.set_bounds</title>
       
       <programlisting><methodsynopsis language="python">
           <methodname>set_bounds</methodname>
@@ -808,39 +956,57 @@
       
       <para>
         Sets the bounds of the 
-        <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link> 
+        <link linkend="class-canvas"><classname>goocanvas.Canvas</classname></link> 
         in device units. By default, device units are the same as pixels, though 
-        <methodname><link linkend="method-goocanvasview--set-scale">set_scale</link></methodname> 
+        <methodname><link linkend="method-goocanvas--set-scale">set_scale</link></methodname> 
         can be used to specify a different scale.
       </para>
     </refsect2>
     
-    <refsect2 id="method-goocanvasview--set-model">
-      <title>goocanvas.CanvasView.set_model</title>
+    <refsect2 id="method-goocanvas--set-root-item">
+      <title>goocanvas.Canvas.set_root_item</title>
       
       <programlisting><methodsynopsis language="python">
-          <methodname>set_model</methodname>
+          <methodname>set_root_item</methodname>
+          <methodparam><parameter role="keyword">item</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">item</parameter>&nbsp;:</term>
+          <listitem><simpara>The root canvas item.</simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>
+        Sets the root item of the canvas. Any existing canvas items are removed.
+      </para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvas--set-root-item-model">
+      <title>goocanvas.Canvas.set_root_item_model</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>set_root_item_model</methodname>
           <methodparam><parameter role="keyword">model</parameter></methodparam>
         </methodsynopsis></programlisting>
       
       <variablelist>
         <varlistentry>
           <term><parameter role="keyword">model</parameter>&nbsp;:</term>
-          <listitem><simpara>
-              A <link linkend="class-canvas-view"><classname>goocanvas.CanvasModel</classname></link>.
-          </simpara></listitem>
+          <listitem><simpara>The root canvas item model.</simpara></listitem>
         </varlistentry>
       </variablelist>
       
       <para>
-        Sets the model to be displayed in the 
-        <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link>.
-        A hierarchy of item views will be created, corresponding to the hierarchy of items in the model.
+        Sets the root item of the canvas. A hierarchy of canvas items will be created,
+        corresponding to the hierarchy of items in the model.
+        Any current canvas items will be removed.        
       </para>
     </refsect2>
     
-    <refsect2 id="method-goocanvasview--set-scale">
-      <title>goocanvas.CanvasView.set_scale</title>
+    <refsect2 id="method-goocanvas--set-scale">
+      <title>goocanvas.Canvas.set_scale</title>
       
       <programlisting><methodsynopsis language="python">
           <methodname>set_scale</methodname>
@@ -855,12 +1021,62 @@
       </variablelist>
       
       <para>
-        Sets the current scale of the canvas, i.e. the number of pixels to use for each device unit.
+        Sets the current scale of the canvas, i.e. the number of pixels
+        to use for each device unit.
       </para>
     </refsect2>
     
-    <refsect2 id="method-goocanvasview--update">
-      <title>goocanvas.CanvasView.update</title>
+    <refsect2 id="method-goocanvas--unregister-item">
+      <title>goocanvas.Canvas.unregister_item</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>unregister_item</methodname>
+          <methodparam><parameter role="keyword">model</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">model</parameter>&nbsp;:</term>
+          <listitem><simpara>The item model whose canvas item is being finalized.</simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>
+        This function should be called in the finalize method of
+        <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>
+        objects, to remove the canvas item from the GooCanvas's hash table.
+      </para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvas--unregister-widget-item">
+      <title>goocanvas.Canvas.unregister_widget_item</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>unregister_widget_item</methodname>
+          <methodparam><parameter role="keyword">witem</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">witem</parameter>&nbsp;:</term>
+          <listitem><simpara>A
+            <link linkend="class-canvas-widget"><classname>goocanvas.Widget</classname></link> item.
+          </simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>
+        Unregisters a widget item from the canvas, when the item is no longer in the canvas.
+      </para>
+      <para>
+        This function should only be used by
+        <link linkend="class-canvas-widget"><classname>goocanvas.Widget</classname></link>
+        and ubclass implementations.
+      </para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvas--update">
+      <title>goocanvas.Canvas.update</title>
       
       <programlisting><methodsynopsis language="python">
           <methodname>update</methodname>
@@ -870,12 +1086,11 @@
       </variablelist>
       
       <para>
-        Updates any item views that need updating.
+        Updates any items that need updating.
         This is only intended to be used by subclasses of 
-        <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link> or
-        <link linkend="class-canvas-item-view"><classname>goocanvas.CanvasItemView</classname></link> 
-        implementation. If the bounds of items change, they will request a redraw of the old and 
-        new bounds so the display is updated correctly.
+        <link linkend="class-canvas"><classname>goocanvas.Canvas</classname></link> or
+        <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
+        implementation.
       </para>
     </refsect2>
 
@@ -884,34 +1099,34 @@
   <refsect1>
     <title>Signals</title>
 
-    <refsect2 id="signal-goocanvasview--item-view-created">
+    <refsect2 id="signal-goocanvas--item-created">
       <title>The "item-view-created" goocanvas.CanvasView Signal</title>
 
       <programlisting><methodsynopsis language="python"><methodname>callback</methodname>
-            <methodparam><parameter>canvas_view</parameter></methodparam>
-            <methodparam><parameter>item_view</parameter></methodparam>
+            <methodparam><parameter>canvas</parameter></methodparam>
             <methodparam><parameter>item</parameter></methodparam>
+            <methodparam><parameter>model</parameter></methodparam>
             <methodparam><parameter>user_param</parameter></methodparam>
             <methodparam><parameter>...</parameter></methodparam>
           </methodsynopsis></programlisting>
 
       <variablelist>
         <varlistentry>
-          <term><parameter>canvas_view</parameter>&nbsp;:</term>
+          <term><parameter>canvas</parameter>&nbsp;:</term>
           <listitem><simpara>
-            The <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link>.
-          </simpara></listitem>
-        </varlistentry>
-        <varlistentry>
-          <term><parameter>item_view</parameter>&nbsp;:</term>
-          <listitem><simpara>
-            The new <link linkend="class-canvas-item-view"><classname>goocanvas.CanvasItemView</classname></link>.
+            The <link linkend="class-canvas"><classname>goocanvas.Canvas</classname></link>.
           </simpara></listitem>
         </varlistentry>
         <varlistentry>
           <term><parameter>item</parameter>&nbsp;:</term>
           <listitem><simpara>
-            The <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>.
+            The new <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>.
+          </simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter>model</parameter>&nbsp;:</term>
+          <listitem><simpara>
+            The <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link>.
           </simpara></listitem>
         </varlistentry>
         <varlistentry>
@@ -928,17 +1143,17 @@
       </variablelist>
 
       <para>
-        The 'item-view-created" signal is emitted when the a new item view is created.
-        Applications can set up signal handlers for the new item views here.
+        The 'item-created" signal is emitted when the a new canvas item is created.
+        Applications can set up signal handlers for the new items here.
       </para>
 
     </refsect2>
     
-    <refsect2 id="signal-goocanvasview--set-scroll-adjustments">
-      <title>The "set-scroll-adjustments" goocanvas.CanvasView Signal</title>
+    <refsect2 id="signal-goocanvas--set-scroll-adjustments">
+      <title>The "set-scroll-adjustments" goocanvas.Canvas Signal</title>
       
       <programlisting><methodsynopsis language="python"><methodname>callback</methodname>
-          <methodparam><parameter>canvas_view</parameter></methodparam>
+          <methodparam><parameter>canvas</parameter></methodparam>
           <methodparam><parameter>hadjustment</parameter></methodparam>
           <methodparam><parameter>vadjustment</parameter></methodparam>
           <methodparam><parameter>user_param</parameter></methodparam>
@@ -947,9 +1162,9 @@
       
       <variablelist>
         <varlistentry>
-          <term><parameter>canvas_view</parameter>&nbsp;:</term>
+          <term><parameter>canvas</parameter>&nbsp;:</term>
           <listitem><simpara>
-              The <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link>.
+              The <link linkend="class-canvas"><classname>goocanvas.Canvas</classname></link>.
             </simpara></listitem>
         </varlistentry>
         <varlistentry>

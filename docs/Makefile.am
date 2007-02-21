@@ -10,8 +10,8 @@ XMLFILES = 												\
 	reference/pygoocanvas-ref.xml						\
 	reference/pygoocanvas-hierarchy.xml					\
 	reference/pygoocanvas-core-classes.xml				\
-	reference/pygoocanvas-std-items.xml				\
-	reference/pygoocanvas-canvas-view.xml				\
+	reference/pygoocanvas-std-items.xml					\
+	reference/pygoocanvas-canvas.xml					\
 	reference/pygoocanvas-canvas-model.xml				\
 	reference/pygoocanvas-canvas-model-simple.xml		\
 	reference/pygoocanvas-canvas-item.xml				\
@@ -31,7 +31,7 @@ HTML_DATA =									\
 	html/class-hierarchy.html				\
 	html/pygoocanvas-core-classes.html		\
 	html/pygoocanvas-std-items.html			\
-	html/class-canvas-view.html				\
+	html/class-canvas.html					\
 	html/class-canvas-model.html			\
 	html/class-canvas-model-simple.html		\
 	html/class-canvas-item.html				\
