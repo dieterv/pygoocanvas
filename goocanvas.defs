@@ -1030,6 +1030,29 @@
   )
 )
 
+(define-method get_requested_area
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_get_requested_area")
+  (return-type "gboolean")
+  (parameters
+    '("cairo_t*" "cr")
+    '("GooCanvasBounds*" "requested_area")
+  )
+)
+
+(define-method allocate_area
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_allocate_area")
+  (return-type "none")
+  (parameters
+    '("cairo_t*" "cr")
+    '("GooCanvasBounds*" "requested_area")
+    '("GooCanvasBounds*" "allocated_area")
+    '("gdouble" "x_offset")
+    '("gdouble" "y_offset")
+  )
+)
+
 (define-function goo_canvas_item_class_install_child_property
   (c-name "goo_canvas_item_class_install_child_property")
   (return-type "none")
@@ -1173,6 +1196,25 @@
     '("cairo_t*" "cr")
     '("GooCanvasBounds*" "bounds")
     '("gdouble" "scale")
+  )
+)
+(define-virtual get_requested_area
+  (of-object "GooCanvasItem")
+  (return-type "gboolean")
+  (parameters
+    '("cairo_t*" "cr")
+    '("GooCanvasBounds*" "requested_area")
+  )
+)
+(define-virtual allocate_area
+  (of-object "GooCanvasItem")
+  (return-type "none")
+  (parameters
+    '("cairo_t*" "cr")
+    '("GooCanvasBounds*" "requested_area")
+    '("GooCanvasBounds*" "allocated_area")
+    '("gdouble" "x_offset")
+    '("gdouble" "y_offset")
   )
 )
 (define-virtual get_transform

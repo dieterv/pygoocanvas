@@ -1,5 +1,11 @@
 2007-02-21  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
+	* goocanvas.defs: add allocate_area() and get_requested_area() methods and
+	virtuals of goocanvas.Item
+	* docs/reference/*: some more work on docs
+
+2007-02-21  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
 	* docs/reference/*: started to restructure docs after the API change
 
 2007-02-20  Gian Mario Tagliaretti  <gianmt@gnome.org>

@@ -32,10 +32,24 @@
 				<methodparam><parameter role="keyword">step_time</parameter></methodparam>
 				<methodparam><parameter role="keyword">type</parameter></methodparam>
 			</methodsynopsis>
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitem--ensure-updated">ensure_updated</link></methodname>
+				<methodparam></methodparam>
+			</methodsynopsis>
 	
 			<methodsynopsis language="python">
 				<methodname><link linkend="method-goocanvasitem--find-child">find_child</link></methodname>
 				<methodparam><parameter role="keyword">child</parameter></methodparam>
+			</methodsynopsis>
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitem--get-bounds">get_bounds</link></methodname>
+				<methodparam></methodparam>
+			</methodsynopsis>
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitem--get-canvas">get_canvas</link></methodname>
+				<methodparam></methodparam>
 			</methodsynopsis>
 	
 			<methodsynopsis language="python">
@@ -44,7 +58,15 @@
 			</methodsynopsis>
 	
 			<methodsynopsis language="python">
-				<methodname><link linkend="method-goocanvasitem--get-model">get_model</link></methodname>
+				<methodname><link linkend="method-goocanvasitem--get-child-properties">get_child_properties</link></methodname>
+			</methodsynopsis>
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitem--get-item-at">get_item_at</link></methodname>
+			</methodsynopsis>
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitem--get-item-at">get_model</link></methodname>
 			</methodsynopsis>
 	
 			<methodsynopsis language="python">
@@ -56,11 +78,19 @@
 			</methodsynopsis>
 	
 			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitem--get-transform">get_style</link></methodname>
+			</methodsynopsis>
+			
+			<methodsynopsis language="python">
 				<methodname><link linkend="method-goocanvasitem--get-transform">get_transform</link></methodname>
 			</methodsynopsis>
 	
 			<methodsynopsis language="python">
 				<methodname><link linkend="method-goocanvasitem--is-container">is_container</link></methodname>
+			</methodsynopsis>
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitem--is-visible">is_visible</link></methodname>
 			</methodsynopsis>
 	
 			<methodsynopsis language="python">
@@ -73,6 +103,13 @@
 				<methodparam><parameter role="keyword">old_position</parameter></methodparam>
 				<methodparam><parameter role="keyword">new_position</parameter></methodparam>
 			</methodsynopsis>
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitem--paint">paint</link></methodname>
+				<methodparam><parameter role="keyword">cr</parameter></methodparam>
+				<methodparam><parameter role="keyword">bounds</parameter></methodparam>
+				<methodparam><parameter role="keyword">scale</parameter></methodparam>
+			</methodsynopsis>
 	
 			<methodsynopsis language="python">
 				<methodname><link linkend="method-goocanvasitem--raise-">raise_</link></methodname>
@@ -81,6 +118,11 @@
 	
 			<methodsynopsis language="python">
 				<methodname><link linkend="method-goocanvasitem--remove-child">remove_child</link></methodname>
+				<methodparam><parameter role="keyword">child_num</parameter></methodparam>
+			</methodsynopsis>
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitem--request-update">request_update</link></methodname>
 				<methodparam><parameter role="keyword">child_num</parameter></methodparam>
 			</methodsynopsis>
 	
@@ -98,8 +140,36 @@
 			</methodsynopsis>
 	
 			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitem--set-canvas">set_canvas</link></methodname>
+				<methodparam><parameter role="keyword">canvas</parameter></methodparam>
+			</methodsynopsis>
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitem--set-child-properties">set_child_properties</link></methodname>
+				<methodparam><parameter role="keyword">properties</parameter></methodparam>
+			</methodsynopsis>
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitem--set-model">set_model</link></methodname>
+				<methodparam><parameter role="keyword">model</parameter></methodparam>
+			</methodsynopsis>
+			
+			<methodsynopsis language="python">
 				<methodname><link linkend="method-goocanvasitem--set-parent">set_parent</link></methodname>
 				<methodparam><parameter role="keyword">parent</parameter></methodparam>
+			</methodsynopsis>
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitem--set-simple-transform">set_simple_transform</link></methodname>
+				<methodparam><parameter role="keyword">x</parameter></methodparam>
+				<methodparam><parameter role="keyword">y</parameter></methodparam>
+				<methodparam><parameter role="keyword">scale</parameter></methodparam>
+				<methodparam><parameter role="keyword">rotation</parameter></methodparam>
+			</methodsynopsis>
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitem--set-style">set_style</link></methodname>
+				<methodparam><parameter role="keyword">style</parameter></methodparam>
 			</methodsynopsis>
 	
 			<methodsynopsis language="python">
@@ -130,6 +200,11 @@
 				<methodparam><parameter role="keyword">tx</parameter></methodparam>
 				<methodparam><parameter role="keyword">ty</parameter></methodparam>
 			</methodsynopsis>
+			
+			<methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitem--update">update</link></methodname>
+				<methodparam></methodparam>
+			</methodsynopsis>
 		</classsynopsis>
 	</refsect1>
 
@@ -154,9 +229,21 @@
 						<tbody>
 	
 						<row valign="top">
+							<entry>"can-focus"</entry>
+							<entry>Read / Write</entry>
+							<entry>If the item can take the keyboard focus. Default value: False</entry>
+						</row>
+						
+						<row valign="top">
 							<entry>"description"</entry>
 							<entry>Read / Write</entry>
 							<entry>A description of the item for use by assistive technologies. Default value: NULL</entry>
+						</row>
+						
+						<row valign="top">
+							<entry>"parent"</entry>
+							<entry>Read / Write</entry>
+							<entry>The parent item.</entry>
 						</row>
 	
 						<row valign="top">
@@ -203,45 +290,131 @@
 		<title>goocanvas.Item Signal Prototypes</title>
 		<variablelist>
 			<varlistentry>
-				<term><link linkend="signal-goocanvasitem--changed">"changed"</link></term>
+				<term><link linkend="signal-goocanvasitem--button-press-events">"button-press-event"</link></term>
 				<listitem>
 					<methodsynopsis language="python"><methodname>callback</methodname>
 						<methodparam><parameter>item</parameter></methodparam>
-						<methodparam><parameter>recompute_bounds</parameter></methodparam>
+						<methodparam><parameter>target_item</parameter></methodparam>
+                    	<methodparam><parameter>event</parameter></methodparam>
 						<methodparam><parameter>user_param</parameter></methodparam>
 						<methodparam><parameter>...</parameter></methodparam>
 					</methodsynopsis>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term><link linkend="signal-goocanvasitem--child-added">"child-added"</link></term>
+				<term><link linkend="signal-goocanvasitem--button-release-event">"button-release-event"</link></term>
 				<listitem>
 					<methodsynopsis language="python"><methodname>callback</methodname>
 						<methodparam><parameter>item</parameter></methodparam>
-						<methodparam><parameter>child_num</parameter></methodparam>
+                        <methodparam><parameter>target_item</parameter></methodparam>
+						<methodparam><parameter>event</parameter></methodparam>
 						<methodparam><parameter>user_param</parameter></methodparam>
 						<methodparam><parameter>...</parameter></methodparam>
 					</methodsynopsis>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term><link linkend="signal-goocanvasitem--child-moved">"child-moved"</link></term>
+				<term><link linkend="signal-goocanvasitem--child-notify">"child-notify"</link></term>
 				<listitem>
 					<methodsynopsis language="python"><methodname>callback</methodname>
 						<methodparam><parameter>item</parameter></methodparam>
-						<methodparam><parameter>old_child_num</parameter></methodparam>
-						<methodparam><parameter>new_child_num</parameter></methodparam>
+						<methodparam><parameter>pspec</parameter></methodparam>
 						<methodparam><parameter>user_param</parameter></methodparam>
 						<methodparam><parameter>...</parameter></methodparam>
 					</methodsynopsis>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term><link linkend="signal-goocanvasitem--child-removed">"child-removed"</link></term>
+				<term><link linkend="signal-goocanvasitem--enter-notify-event">"enter-notify-event"</link></term>
 				<listitem>
 					<methodsynopsis language="python"><methodname>callback</methodname>
 						<methodparam><parameter>item</parameter></methodparam>
-						<methodparam><parameter>child_num</parameter></methodparam>
+						<methodparam><parameter>target_item</parameter></methodparam>
+                        <methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+            <varlistentry>
+				<term><link linkend="signal-goocanvasitem--focus-in-event">"focus-in-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>item</parameter></methodparam>
+						<methodparam><parameter>target_item</parameter></methodparam>
+                        <methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+            <varlistentry>
+				<term><link linkend="signal-goocanvasitem--focus-out-event">"focus-out-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>item</parameter></methodparam>
+						<methodparam><parameter>target_item</parameter></methodparam>
+                        <methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+            <varlistentry>
+				<term><link linkend="signal-goocanvasitem--grab-broken-event">"grab-broken-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>item</parameter></methodparam>
+						<methodparam><parameter>target_item</parameter></methodparam>
+                        <methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+            <varlistentry>
+				<term><link linkend="signal-goocanvasitem--key-press-event">"key-press-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>item</parameter></methodparam>
+						<methodparam><parameter>target_item</parameter></methodparam>
+                        <methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+            <varlistentry>
+				<term><link linkend="signal-goocanvasitem--key-release-event">"key-release-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>item</parameter></methodparam>
+						<methodparam><parameter>target_item</parameter></methodparam>
+                        <methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+            <varlistentry>
+				<term><link linkend="signal-goocanvasitem--leave-notify-event">"leave-notify-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>item</parameter></methodparam>
+						<methodparam><parameter>target_item</parameter></methodparam>
+                        <methodparam><parameter>event</parameter></methodparam>
+						<methodparam><parameter>user_param</parameter></methodparam>
+						<methodparam><parameter>...</parameter></methodparam>
+					</methodsynopsis>
+				</listitem>
+			</varlistentry>
+            <varlistentry>
+				<term><link linkend="signal-goocanvasitem--motion-notify-event">"motion-notify-event"</link></term>
+				<listitem>
+					<methodsynopsis language="python"><methodname>callback</methodname>
+						<methodparam><parameter>item</parameter></methodparam>
+						<methodparam><parameter>target_item</parameter></methodparam>
+                        <methodparam><parameter>event</parameter></methodparam>
 						<methodparam><parameter>user_param</parameter></methodparam>
 						<methodparam><parameter>...</parameter></methodparam>
 					</methodsynopsis>
@@ -255,13 +428,15 @@
 		<para>
 			<link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>
 			is implementated by 
-			<link linkend="class-canvas-rect"><classname>goocanvas.Rect</classname></link>
-			<link linkend="class-canvas-rect"><classname>goocanvas.Ellipse</classname></link>
-			<link linkend="class-canvas-rect"><classname>goocanvas.Path</classname></link>
-			<link linkend="class-canvas-rect"><classname>goocanvas.Polyline</classname></link>
-			<link linkend="class-canvas-rect"><classname>goocanvas.Text</classname></link>
-			<link linkend="class-canvas-rect"><classname>goocanvas.Image</classname></link>
-			<link linkend="class-canvas-rect"><classname>goocanvas.Group</classname></link>
+			<link linkend="class-canvas-rect"><classname>goocanvas.Rect</classname></link>,
+			<link linkend="class-canvas-ellipse"><classname>goocanvas.Ellipse</classname></link>,
+			<link linkend="class-canvas-path"><classname>goocanvas.Path</classname></link>,
+			<link linkend="class-canvas-polyline"><classname>goocanvas.Polyline</classname></link>,
+			<link linkend="class-canvas-text"><classname>goocanvas.Text</classname></link>,
+			<link linkend="class-canvas-image"><classname>goocanvas.Image</classname></link>,
+			<link linkend="class-canvas-group"><classname>goocanvas.Group</classname></link>,
+            <link linkend="class-canvas-widget"><classname>goocanvas.Widget</classname></link>,
+            <link linkend="class-canvas-table"><classname>goocanvas.Table</classname></link>,
 			<link linkend="class-canvas-item-simple"><classname>goocanvas.ItemSimple</classname></link>
 		</para>
 	</refsect1>
