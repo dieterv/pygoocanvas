@@ -15,52 +15,6 @@
 		<classsynopsis language="python">
 			<ooclass><classname>goocanvas.ItemModelSimple</classname></ooclass>
 			<ooclass><classname>gobject.GObject</classname></ooclass>
-
-			<methodsynopsis language="python">
-				<methodname><link linkend="method-goocanvasitemmodelsimple--changed">changed</link></methodname>
-				<methodparam><parameter role="keyword">recompute_bounds</parameter></methodparam>
-			</methodsynopsis>
-
-            <methodsynopsis language="python">
-				<methodname><link linkend="method-goocanvasitemmodelsimple--check-in-path">check_in_path</link></methodname>
-				<methodparam><parameter role="keyword">x</parameter></methodparam>
-				<methodparam><parameter role="keyword">y</parameter></methodparam>
-				<methodparam><parameter role="keyword">cr</parameter></methodparam>
-				<methodparam><parameter role="keyword">pointer_events</parameter></methodparam>
-			</methodsynopsis>
-            
-            <methodsynopsis language="python">
-				<methodname><link linkend="method-goocanvasitemmodelsimple--check-style">check_style</link></methodname>
-				<methodparam></methodparam>
-			</methodsynopsis>
-
-			<methodsynopsis language="python">
-				<methodname><link linkend="method-goocanvasitemmodelsimple--get-path-bounds">get_path_bounds</link></methodname>
-				<methodparam><parameter role="keyword">cr</parameter></methodparam>
-				<methodparam><parameter role="keyword">bounds</parameter></methodparam>
-			</methodsynopsis>
-
-			<methodsynopsis language="python">
-				<methodname><link linkend="method-goocanvasitemmodelsimple--paint-path">paint_path</link></methodname>
-				<methodparam><parameter role="keyword">cr</parameter></methodparam>
-			</methodsynopsis>
-
-			<methodsynopsis language="python">
-				<methodname><link linkend="method-goocanvasitemmodelsimple--set-model"></link>set_model</methodname>
-				<methodparam><parameter role="keyword">model</parameter></methodparam>
-			</methodsynopsis>
-
-			<methodsynopsis language="python">
-				<methodname><link linkend="method-goocanvasitemmodelsimple--user-bounds-to-device">user_bounds_to_device</link></methodname>
-				<methodparam><parameter role="keyword">cr</parameter></methodparam>
-				<methodparam><parameter role="keyword">bounds</parameter></methodparam>
-			</methodsynopsis>
-
-            <methodsynopsis language="python">
-				<methodname><link linkend="method-goocanvasitemmodelsimple--user-bounds-to-parent">user_bounds_to_parent</link></methodname>
-				<methodparam><parameter role="keyword">cr</parameter></methodparam>
-				<methodparam><parameter role="keyword">bounds</parameter></methodparam>
-			</methodsynopsis>
 		</classsynopsis>
 	</refsect1>
 
@@ -217,14 +171,13 @@
 		<para>
 			<link linkend="class-canvas-item-model-simple"><classname>goocanvas.ItemModelSimple</classname></link>
 			is implementated by 
-			<link linkend="class-canvas-rect-model"><classname>goocanvas.Rect</classname></link>
-			<link linkend="class-canvas-ellipse-model"><classname>goocanvas.Ellipse</classname></link>
-			<link linkend="class-canvas-path-model"><classname>goocanvas.Path</classname></link>
-			<link linkend="class-canvas-polyline-model"><classname>goocanvas.Polyline</classname></link>
-			<link linkend="class-canvas-text-model"><classname>goocanvas.Text</classname></link>
-			<link linkend="class-canvas-image-model"><classname>goocanvas.Image</classname></link>
-			<link linkend="class-canvas-group-model"><classname>goocanvas.Group</classname></link>
-            <link linkend="class-canvas-table-model"><classname>goocanvas.TableModel</classname></link>
+			<link linkend="class-canvas-rect-model"><classname>goocanvas.RectModel</classname></link>
+			<link linkend="class-canvas-ellipse-model"><classname>goocanvas.EllipseModel</classname></link>
+			<link linkend="class-canvas-path-model"><classname>goocanvas.PathModel</classname></link>
+			<link linkend="class-canvas-polyline-model"><classname>goocanvas.PolylineModel</classname></link>
+			<link linkend="class-canvas-text-model"><classname>goocanvas.TextModel</classname></link>
+			<link linkend="class-canvas-image-model"><classname>goocanvas.ImageModel</classname></link>
+			<link linkend="class-canvas-group-model"><classname>goocanvas.GroupModel</classname></link>
 		</para>
 	</refsect1>
 
@@ -240,217 +193,12 @@
 	<refsect1>
 		<title>Description</title>
 			<link linkend="class-canvas-item-model-simple"><classname>goocanvas.ItemModelSimple</classname></link> 
-			is used as a base class for all of the standard canvas items.
-            It can also be used as the base class for new custom canvas items.
+			is used as a base class for all of the standard canvas item models.
             It provides default implementations for many of the
             <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> methods.
-            For very simple items, all that is needed is to implement the create_path() method.
-            (GooCanvasEllipse, GooCanvasRect and GooCanvasPath do this.)
-            More complicated items need to implement the update(), paint() and get_item_at() methods.
-            (GooCanvasImage, GooCanvasPolyline, GooCanvasText and GooCanvasWidget do this.)
-            They may also need to override some of the other GooCanvasItem methods such as set_canvas(),
-            set_parent() or allocate_area() if special code is needed. (GooCanvasWidget does this to make
-            sure the GtkWidget is embedded in the GooCanvas widget correctly.)
-	</refsect1>
-
-	<refsect1>
-	<title>Methods</title>
-		
-		<refsect2 id="method-goocanvasitemmodelsimple--changed">
-			<title>goocanvas.ItemModelSimple.changed</title>
-			<programlisting><methodsynopsis language="python">
-				<methodname>changed</methodname>
-				<methodparam><parameter role="keyword">recompute_bounds</parameter></methodparam>
-			</methodsynopsis></programlisting>
-
-			<variablelist>
-				<varlistentry>
-					<term><parameter role="keyword">recompute_bounds</parameter>&nbsp;:</term>
-					<listitem><simpara>If the item's bounds need to be recomputed.</simpara></listitem>
-				</varlistentry>
-			</variablelist>
-
-			<para>
-				This method is intended to be used by subclasses of
-                <link linkend="class-canvas-item-model-simple"><classname>goocanvas.ItemModelSimple</classname></link>.
-                It is used as a callback for the "changed" signal of the item models.
-                It requests an update or redraw of the item as appropriate.
-			</para>
-		</refsect2>
-
-        <refsect2 id="method-goocanvasitemmodelsimple--check-in-path">
-			<title>goocanvas.ItemModelSimple.check_in_path</title>
-			<programlisting><methodsynopsis language="python">
-				<methodname>check_in_path</methodname>
-				<methodparam><parameter role="keyword">x</parameter></methodparam>
-				<methodparam><parameter role="keyword">y</parameter></methodparam>
-				<methodparam><parameter role="keyword">cr</parameter></methodparam>
-				<methodparam><parameter role="keyword">pointer_events</parameter></methodparam>
-			</methodsynopsis></programlisting>
-
-			<variablelist>
-				<varlistentry>
-					<term><parameter role="keyword">x</parameter>&nbsp;:</term>
-					<listitem><simpara>the x coordinate of the point.</simpara></listitem>
-				</varlistentry>
-				<varlistentry>
-					<term><parameter role="keyword">y</parameter>&nbsp;:</term>
-					<listitem><simpara>the y coordinate of the point.</simpara></listitem>
-				</varlistentry>
-				<varlistentry>
-					<term><parameter role="keyword">cr</parameter>&nbsp;:</term>
-					<listitem><simpara>a cairo context.</simpara></listitem>
-				</varlistentry>
-				<varlistentry>
-					<term><parameter role="keyword">pointer_events</parameter>&nbsp;:</term>
-					<listitem><simpara>specifies which parts of the path to check.</simpara></listitem>
-				</varlistentry>
-				<varlistentry>
-					<term><emphasis>Returns</emphasis>&nbsp;:</term>
-					<listitem><simpara>True if the given point is in the current path.</simpara></listitem>
-				</varlistentry>
-			</variablelist>
-
-			<para>
-				Checks if the given point is in the current path.
-			</para>
-		</refsect2>
-
-        <refsect2 id="method-goocanvasitemmodelsimple--check-style">
-			<title>goocanvas.ItemModelSimple.check_style</title>
-			<programlisting><methodsynopsis language="python">
-				<methodname>check_style</methodname>
-				<methodparam></methodparam>
-			</methodsynopsis></programlisting>
-
-			<variablelist>
-			</variablelist>
-
-			<para>
-				This method is intended to be used by subclasses of
-                <link linkend="class-canvas-item-model-simple"><classname>goocanvas.ItemModelSimple</classname></link>,
-                typically in their update() or get_requested_area() methods.
-                It ensures that the item's style is setup correctly. If the item has its own
-                <link linkend="class-canvas-style"><classname>goocanvas.Style</classname></link>
-                it makes sure the parent is set correctly.
-                If it doesn't have its own style it uses the parent item's style.
-			</para>
-		</refsect2>
-
-		<refsect2 id="method-goocanvasitemmodelsimple--get-path-bounds">
-			<title>goocanvas.ItemModelSimple.get_path_bounds</title>
-			<programlisting><methodsynopsis language="python">
-				<methodname>get_path_bounds</methodname>
-				<methodparam><parameter role="keyword">cr</parameter></methodparam>
-				<methodparam><parameter role="keyword">bounds</parameter></methodparam>
-			</methodsynopsis></programlisting>
-
-			<variablelist>
-				<varlistentry>
-					<term><parameter role="keyword">cr</parameter>&nbsp;:</term>
-					<listitem><simpara>A cairo context.</simpara></listitem>
-				</varlistentry>
-				<varlistentry>
-					<term><parameter role="keyword">bounds</parameter>&nbsp;:</term>
-					<listitem><simpara>The GooCanvasBounds struct to store the resulting bounding box.</simpara></listitem>
-				</varlistentry>
-			</variablelist>
-
-			<para>
-				Calculates the bounds of the current path in device space,
-                storing the results in the given GooCanvasBounds struct.
-			</para>
-		</refsect2>
-
-		<refsect2 id="method-goocanvasitemmodelsimple--paint-path">
-			<title>goocanvas.ItemModelSimple.paint_path</title>
-			<programlisting><methodsynopsis language="python">
-				<methodname>paint_path</methodname>
-				<methodparam><parameter role="keyword">cr</parameter></methodparam>
-			</methodsynopsis></programlisting>
-
-			<variablelist>
-				<varlistentry>
-					<term><parameter role="keyword">cr</parameter>&nbsp;:</term>
-					<listitem><simpara>A cairo context.</simpara></listitem>
-				</varlistentry>
-			</variablelist>
-
-			<para>
-				Paints the current path, using the item's style settings.
-			</para>
-		</refsect2>
-
-        <refsect2 id="method-goocanvasitemmodelsimple--set-model">
-			<title>goocanvas.ItemModelSimple.set_model</title>
-			<programlisting><methodsynopsis language="python">
-				<methodname>set_model</methodname>
-				<methodparam><parameter role="keyword">model</parameter></methodparam>
-			</methodsynopsis></programlisting>
-
-			<variablelist>
-				<varlistentry>
-					<term><parameter role="keyword">model</parameter>&nbsp;:</term>
-					<listitem><simpara>The model that item will view.</simpara></listitem>
-				</varlistentry>
-			</variablelist>
-
-			<para>
-				This function should be called by subclasses of
-                <link linkend="class-canvas-item-model-simple"><classname>goocanvas.ItemModelSimple</classname></link>
-                in their set_model() method.
-			</para>
-		</refsect2>
-
-		<refsect2 id="method-goocanvasitemmodelsimple--user-bounds-to-device">
-			<title>goocanvas.ItemModelSimple.user_bounds_to_device</title>
-			<programlisting><methodsynopsis language="python">
-				<methodname>user_bounds_to_device</methodname>
-				<methodparam><parameter role="keyword">cr</parameter></methodparam>
-				<methodparam><parameter role="keyword">bounds</parameter></methodparam>
-			</methodsynopsis></programlisting>
-
-			<variablelist>
-				<varlistentry>
-					<term><parameter role="keyword">cr</parameter>&nbsp;:</term>
-					<listitem><simpara>a cairo context.</simpara></listitem>
-				</varlistentry>
-				<varlistentry>
-					<term><parameter role="keyword">bounds</parameter>&nbsp;:</term>
-					<listitem><simpara>the bounds of the item, in the item's coordinate space.</simpara></listitem>
-				</varlistentry>
-			</variablelist>
-
-			<para>
-				Converts the item's bounds to a bounding box in device space.
-			</para>
-		</refsect2>
-
-        <refsect2 id="method-goocanvasitemmodelsimple--user-bounds-to-parent">
-			<title>goocanvas.ItemModelSimple.user_bounds_to_parent</title>
-			<programlisting><methodsynopsis language="python">
-				<methodname>user_bounds_to_parent</methodname>
-				<methodparam><parameter role="keyword">cr</parameter></methodparam>
-				<methodparam><parameter role="keyword">bounds</parameter></methodparam>
-			</methodsynopsis></programlisting>
-
-			<variablelist>
-				<varlistentry>
-					<term><parameter role="keyword">cr</parameter>&nbsp;:</term>
-					<listitem><simpara>A cairo context.</simpara></listitem>
-				</varlistentry>
-				<varlistentry>
-					<term><parameter role="keyword">bounds</parameter>&nbsp;:</term>
-					<listitem><simpara>the bounds of the item, in the item's coordinate space.</simpara></listitem>
-				</varlistentry>
-			</variablelist>
-
-			<para>
-				Converts the item's bounds to a bounding box in its parent's coordinate space.
-                If the item has no transformation matrix set then no conversion is needed.
-                This is typically needed when implementing the get_requested_area() method for subclasses of
-                <link linkend="class-canvas-item-model-simple"><classname>goocanvas.ItemModelSimple</classname></link>.
-			</para>
-		</refsect2>
+            Subclasses of <link linkend="class-canvas-item-model-simple"><classname>goocanvas.ItemModelSimple</classname></link>
+            only need to implement the create_item() method of the
+            <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link>
+            interface, to create the default canvas item to view the item model.
 	</refsect1>
 </refentry>
