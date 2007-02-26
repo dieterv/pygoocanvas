@@ -12,12 +12,10 @@ XMLFILES = 												\
 	reference/pygoocanvas-core-classes.xml				\
 	reference/pygoocanvas-std-items.xml					\
 	reference/pygoocanvas-canvas.xml					\
-	reference/pygoocanvas-canvas-model.xml				\
-	reference/pygoocanvas-canvas-model-simple.xml		\
 	reference/pygoocanvas-canvas-item.xml				\
 	reference/pygoocanvas-canvas-item-simple.xml		\
-	reference/pygoocanvas-canvas-item-view.xml			\
-	reference/pygoocanvas-canvas-item-view-simple.xml	\
+    reference/pygoocanvas-canvas-item-model.xml			\
+    reference/pygoocanvas-canvas-item-model-simple.xml	\
 	reference/pygoocanvas-ellipse.xml					\
 	reference/pygoocanvas-image.xml						\
 	reference/pygoocanvas-path.xml						\
@@ -27,25 +25,23 @@ XMLFILES = 												\
 
 
 HTMLdir = $(datadir)/gtk-doc/html/pygoocanvas
-HTML_DATA =									\
-	html/class-hierarchy.html				\
-	html/pygoocanvas-core-classes.html		\
-	html/pygoocanvas-std-items.html			\
-	html/class-canvas.html					\
-	html/class-canvas-model.html			\
-	html/class-canvas-model-simple.html		\
-	html/class-canvas-item.html				\
-	html/class-canvas-item-simple.html		\
-	html/class-canvas-item-view.html		\
-	html/class-canvas-item-view-simple.html	\
-	html/class-canvas-ellipse.html			\
-	html/class-canvas-image.html			\
-	html/class-canvas-path.html				\
-	html/class-canvas-polyline.html			\
-	html/class-canvas-rect.html				\
-	html/class-canvas-text.html				\
-	html/index.html							\
-	html/index.sgml							\
+HTML_DATA =										\
+	html/class-hierarchy.html					\
+	html/pygoocanvas-core-classes.html			\
+	html/pygoocanvas-std-items.html				\
+	html/class-canvas.html						\
+	html/class-canvas-item.html					\
+	html/class-canvas-item-simple.html			\
+    html/class-canvas-item-model.html			\
+	html/class-canvas-item-model-simple.html	\
+	html/class-canvas-ellipse.html				\
+	html/class-canvas-image.html				\
+	html/class-canvas-path.html					\
+	html/class-canvas-polyline.html				\
+	html/class-canvas-rect.html					\
+	html/class-canvas-text.html					\
+	html/index.html								\
+	html/index.sgml								\
 	html/pygoocanvas.devhelp
 
 CSS_FILES = $(PYGOBJECT_PYGDOCS)/style.css
