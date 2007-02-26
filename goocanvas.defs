@@ -1785,6 +1785,16 @@
   )
 )
 
+(define-method user_bounds_to_parent
+  (of-object "GooCanvasItemSimple")
+  (c-name "goo_canvas_item_simple_user_bounds_to_parent")
+  (return-type "none")
+  (parameters
+    '("cairo_t*" "cr")
+    '("GooCanvasBounds*" "bounds")
+  )
+)
+
 (define-method check_in_path
   (of-object "GooCanvasItemSimple")
   (c-name "goo_canvas_item_simple_check_in_path")
@@ -1819,6 +1829,15 @@
   (of-object "GooCanvasItemSimple")
   (c-name "goo_canvas_item_simple_check_style")
   (return-type "none")
+)
+
+(define-method set_model
+  (of-object "GooCanvasItemSimple")
+  (c-name "goo_canvas_item_simple_set_model")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItemModel*" "model")
+  )
 )
 
 (define-function goo_canvas_item_model_simple_get_type
