@@ -300,6 +300,29 @@
   )
 )
 
+(define-method get_items_at
+  (of-object "GooCanvas")
+  (c-name "goo_canvas_get_items_at")
+  (return-type "GList*")
+  (parameters
+    '("gdouble" "x")
+    '("gdouble" "y")
+    '("gboolean" "is_pointer_event")
+  )
+)
+
+(define-method get_items_in_area
+  (of-object "GooCanvas")
+  (c-name "goo_canvas_get_items_in_area")
+  (return-type "GList*")
+  (parameters
+    '("GooCanvasBounds*" "area")
+    '("gboolean" "inside_area")
+    '("gboolean" "allow_overlaps")
+    '("gboolean" "include_containers")
+  )
+)
+
 (define-method get_scale
   (of-object "GooCanvas")
   (c-name "goo_canvas_get_scale")
@@ -782,6 +805,16 @@
   )
 )
 
+(define-method get_transform_for_child
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_get_transform_for_child")
+  (return-type "gboolean")
+  (parameters
+    '("GooCanvasItem*" "child")
+    '("cairo_matrix_t*" "transform")
+  )
+)
+
 (define-method get_canvas
   (of-object "GooCanvasItem")
   (c-name "goo_canvas_item_get_canvas")
@@ -962,16 +995,17 @@
   )
 )
 
-(define-method get_item_at
+(define-method get_items_at
   (of-object "GooCanvasItem")
-  (c-name "goo_canvas_item_get_item_at")
-  (return-type "GooCanvasItem*")
+  (c-name "goo_canvas_item_get_items_at")
+  (return-type "GList*")
   (parameters
     '("gdouble" "x")
     '("gdouble" "y")
     '("cairo_t*" "cr")
     '("gboolean" "is_pointer_event")
     '("gboolean" "parent_is_visible")
+    '("GList*" "found_items")
   )
 )
 
@@ -1151,6 +1185,14 @@
     '("GParamSpec*" "pspec")
   )
 )
+(define-virtual get_transform_for_child
+  (of-object "GooCanvasItem")
+  (return-type "gboolean")
+  (parameters
+    '("GooCanvasItem*" "child")
+    '("cairo_matrix_t*" "transform")
+  )
+)
 (define-virtual get_parent
   (of-object "GooCanvasItem")
   (return-type "GooCanvasItem*")
@@ -1169,15 +1211,16 @@
     '("GooCanvasBounds*" "bounds")
   )
 )
-(define-virtual get_item_at
+(define-virtual get_items_at
   (of-object "GooCanvasItem")
-  (return-type "GooCanvasItem*")
+  (return-type "GList*")
   (parameters
     '("gdouble" "x")
     '("gdouble" "y")
     '("cairo_t*" "cr")
     '("gboolean" "is_pointer_event")
     '("gboolean" "parent_is_visible")
+    '("GList*" "found_items")
   )
 )
 (define-virtual update
@@ -1868,9 +1911,9 @@
     '("GooCanvasBounds*" "bounds")
   )
 )
-(define-virtual simple_get_item_at
+(define-virtual simple_is_item_at
   (of-object "GooCanvasItemSimple")
-  (return-type "GooCanvasItem*")
+  (return-type "gboolean")
   (parameters
     '("gdouble" "x")
     '("gdouble" "y")
@@ -2272,6 +2315,14 @@
 (define-function goo_cairo_matrix_copy
   (c-name "goo_cairo_matrix_copy")
   (return-type "cairo_matrix_t*")
+  (parameters
+    '("cairo_matrix_t*" "matrix")
+  )
+)
+
+(define-function goo_cairo_matrix_free
+  (c-name "goo_cairo_matrix_free")
+  (return-type "none")
   (parameters
     '("cairo_matrix_t*" "matrix")
   )
