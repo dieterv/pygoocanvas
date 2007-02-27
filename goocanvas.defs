@@ -872,7 +872,10 @@
 (define-method get_transform
   (of-object "GooCanvasItem")
   (c-name "goo_canvas_item_get_transform")
-  (return-type "cairo_matrix_t*")
+  (return-type "gboolean")
+  (parameters
+    '("cairo_matrix_t*" "transform")
+  )
 )
 
 (define-method set_transform
@@ -1262,7 +1265,10 @@
 )
 (define-virtual get_transform
   (of-object "GooCanvasItem")
-  (return-type "cairo_matrix_t*")
+  (return-type "gboolean")
+  (parameters
+    '("cairo_matrix_t*" "transform")
+  )
 )
 (define-virtual set_transform
   (of-object "GooCanvasItem")
@@ -1527,7 +1533,10 @@
 (define-method get_transform
   (of-object "GooCanvasItemModel")
   (c-name "goo_canvas_item_model_get_transform")
-  (return-type "cairo_matrix_t*")
+  (return-type "gboolean")
+  (parameters
+    '("cairo_matrix_t*" "transform")
+  )
 )
 
 (define-method set_transform
@@ -1736,7 +1745,10 @@
 )
 (define-virtual get_transform
   (of-object "GooCanvasItemModel")
-  (return-type "cairo_matrix_t*")
+  (return-type "gboolean")
+  (parameters
+    '("cairo_matrix_t*" "transform")
+  )
 )
 (define-virtual set_transform
   (of-object "GooCanvasItemModel")
