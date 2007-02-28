@@ -15,6 +15,20 @@ typedef int Py_ssize_t;
 extern Pycairo_CAPI_t *Pycairo_CAPI;
 extern PyTypeObject PyGooCanvasBounds_Type;
 
+static PyObject *
+_glist_to_pylist_objs (GList *source)
+{
+    GList *iter;
+    PyObject *dest = PyList_New (0);
+    for (iter = source; iter != NULL; iter = iter->next)
+    {
+        PyObject *item = pygobject_new ((GObject *)iter->data);
+        PyList_Append (dest, item);
+        Py_DECREF (item);
+    }
+    return dest;
+}
+
 #if 0
 
 static PyObject *
@@ -1411,4 +1425,75 @@ _wrap_goo_canvas_item_model_install_child_property (PyObject *cls,
 
     Py_INCREF(Py_None);
     return Py_None;
+}
+
+%%
+override goo_canvas_get_items_at kwargs
+static PyObject *
+_wrap_goo_canvas_get_items_at(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char     *kwlist[] = { "x", "y", "is_pointer_event", NULL };
+    PyObject        *point_event, *ret;
+    gdouble         x, y;
+    GList           *item_list;
+    gboolean        is_pointer_event;
+    
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "ddO:get_items_at",
+                                     kwlist,
+                                     &x, &y, &point_event))
+        return NULL;
+    
+    is_pointer_event = (PyObject_IsTrue(point_event)) ? TRUE : FALSE;
+    
+    item_list = goo_canvas_get_items_at(GOO_CANVAS(self->obj),
+                                        x, y, is_pointer_event);
+    
+    if (!item_list) {
+        Py_INCREF (Py_None);
+        return Py_None;
+    }
+    
+    ret = _glist_to_pylist_objs(item_list);
+    g_list_free(item_list);
+    return ret;
+}
+
+%%
+override goo_canvas_get_items_in_area kwargs
+static PyObject *
+_wrap_goo_canvas_get_items_in_area(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char     *kwlist[] = { "area", "inside_area", "include_overlaps",
+                                  "include_containers",  NULL };
+    PyObject        *inside_area, *include_containers, *include_overlaps, *ret;
+    PyObject        *area;
+    GList           *item_list;
+    gboolean        inside, include_cont, include_over;
+    
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "O!OOO:get_items_at",
+                                     kwlist,
+                                     &PyGooCanvasBounds_Type, &area, &inside_area,
+                                     &include_overlaps, &include_containers))
+        return NULL;
+
+    inside = (PyObject_IsTrue(inside_area)) ? TRUE : FALSE;
+    include_cont = (PyObject_IsTrue(include_containers)) ? TRUE : FALSE;
+    include_over = (PyObject_IsTrue(include_overlaps)) ? TRUE : FALSE;
+    
+    item_list = goo_canvas_get_items_in_area (GOO_CANVAS(self->obj),
+                                              &((PyGooCanvasBounds *) area)->bounds,
+                                              inside,
+                                              include_over,
+                                              include_cont);
+    if (!item_list) {
+        Py_INCREF (Py_None);
+        return Py_None;
+    }
+    
+    
+    ret = _glist_to_pylist_objs(item_list);
+    g_list_free(item_list);
+    return ret;
 }
