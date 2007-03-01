@@ -66,6 +66,19 @@
         <methodparam><parameter role="keyword">is_pointer_event</parameter></methodparam>
       </methodsynopsis>
       <methodsynopsis language="python">
+        <methodname><link linkend="method-goocanvas--get-items-at">get_items_at</link></methodname>
+        <methodparam><parameter role="keyword">x</parameter></methodparam>
+        <methodparam><parameter role="keyword">y</parameter></methodparam>
+        <methodparam><parameter role="keyword">is_pointer_event</parameter></methodparam>
+      </methodsynopsis>
+      <methodsynopsis language="python">
+        <methodname><link linkend="method-goocanvas--get-items-in-area">get_items_in_area</link></methodname>
+        <methodparam><parameter role="keyword">area</parameter></methodparam>
+        <methodparam><parameter role="keyword">inside_area</parameter></methodparam>
+        <methodparam><parameter role="keyword">allow_overlaps</parameter></methodparam>
+        <methodparam><parameter role="keyword">including_containers</parameter></methodparam>
+      </methodsynopsis>
+      <methodsynopsis language="python">
         <methodname><link linkend="method-goocanvas--get-root-item">get_root_item</link></methodname>
         <methodparam></methodparam>
       </methodsynopsis>
@@ -596,6 +609,81 @@
       </variablelist>
       
       <para>Gets the item at the given point.</para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvas--get-items-at">
+      <title>goocanvas.Canvas.get_items_at</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>get_items_at</methodname>
+          <methodparam><parameter role="keyword">x</parameter></methodparam>
+          <methodparam><parameter role="keyword">y</parameter></methodparam>
+          <methodparam><parameter role="keyword">is_pointer_event</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">x</parameter>&nbsp;:</term>
+          <listitem><simpara>The x coordinate of the point.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">y</parameter>&nbsp;:</term>
+          <listitem><simpara>The y coordinate of the point.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">is_pointer_event</parameter>&nbsp;:</term>
+          <listitem><simpara>True if the "pointer-events" property of items should be used
+                             to determine which parts of the item are tested.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><emphasis>Returns</emphasis>&nbsp;:</term>
+          <listitem><simpara>A list of items found at the given point, with the top item at
+                             the start of the list, or None if no items were found. </simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>Gets all items at the given point.</para>
+    </refsect2>
+    
+    <refsect2 id="method-goocanvas--get-items-in-area">
+      <title>goocanvas.Canvas.get_items_in_area</title>
+      
+      <programlisting><methodsynopsis language="python">
+          <methodname>get_items_in_area</methodname>
+          <methodparam><parameter role="keyword">area</parameter></methodparam>
+          <methodparam><parameter role="keyword">inside_area</parameter></methodparam>
+          <methodparam><parameter role="keyword">allow_overlaps</parameter></methodparam>
+          <methodparam><parameter role="keyword">include_containers</parameter></methodparam>
+        </methodsynopsis></programlisting>
+      
+      <variablelist>
+        <varlistentry>
+          <term><parameter role="keyword">area</parameter>&nbsp;:</term>
+          <listitem><simpara>The area to compare with each item's bounds.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">inside_area</parameter>&nbsp;:</term>
+          <listitem><simpara>True if items inside area should be returned, or False if items outside
+                             area should be returned.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">allow_overlaps</parameter>&nbsp;:</term>
+          <listitem><simpara>True if items which are partly inside and partly outside
+                             should be returned.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><parameter role="keyword">include_containers</parameter>&nbsp;:</term>
+          <listitem><simpara>True if containers should be checked as well as normal items.</simpara></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><emphasis>Returns</emphasis>&nbsp;:</term>
+          <listitem><simpara>A list of items in the given area, or None if no items are found.</simpara></listitem>
+        </varlistentry>
+      </variablelist>
+      
+      <para>
+        Gets a list of items inside or outside a given area.
+      </para>
     </refsect2>
     
     <refsect2 id="method-goocanvas--get-root-item">

@@ -37,7 +37,6 @@
 			<methodsynopsis language="python">
 				<methodname><link linkend="method-goocanvasitemsimple--get-path-bounds">get_path_bounds</link></methodname>
 				<methodparam><parameter role="keyword">cr</parameter></methodparam>
-				<methodparam><parameter role="keyword">bounds</parameter></methodparam>
 			</methodsynopsis>
 
 			<methodsynopsis language="python">
@@ -349,16 +348,20 @@
 					<term><parameter role="keyword">cr</parameter>&nbsp;:</term>
 					<listitem><simpara>A cairo context.</simpara></listitem>
 				</varlistentry>
-				<varlistentry>
-					<term><parameter role="keyword">bounds</parameter>&nbsp;:</term>
-					<listitem><simpara>The GooCanvasBounds struct to store the resulting bounding box.</simpara></listitem>
+                <varlistentry>
+					<term><emphasis>Returns</emphasis>&nbsp;:</term>
+					<listitem><simpara>The goocanvas.Bounds holding the bounding box
+                        of the item in device space, converted to user space coordinates</simpara></listitem>
 				</varlistentry>
 			</variablelist>
 
 			<para>
 				Calculates the bounds of the current path in device space,
-                storing the results in the given GooCanvasBounds struct.
+                storing the results in a goocanvas.Bounds.
 			</para>
+            <para>
+                This method should be used only while implementing custom items
+            </para>
 		</refsect2>
 
 		<refsect2 id="method-goocanvasitemsimple--paint-path">

@@ -254,35 +254,22 @@ override goo_canvas_item_simple_get_path_bounds kwargs
 static PyObject *
 _wrap_goo_canvas_item_simple_get_path_bounds(PyGObject *self, PyObject *args, PyObject *kwargs)
 {
-    static char *kwlist[] = { "cr", "bounds", NULL };
+    static char *kwlist[] = { "cr", NULL };
     PyObject *py_bounds;
     PycairoContext *cr;
-    GooCanvasBounds *bounds;
-    gint bbounds, i;
+    GooCanvasBounds bounds = {0,};
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O!O:GooCanvasItemSimple.get_path_bounds", 
-        kwlist, &PycairoContext_Type, &cr, &py_bounds))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O!:get_path_bounds", 
+        kwlist, &PycairoContext_Type, &cr))
         return NULL;
     
-    bbounds = PySequence_Length(py_bounds);
-    bounds = g_new(GooCanvasBounds, bbounds);
-    for (i = 0; i < bbounds; i++) {
-        PyObject *item = PySequence_GetItem(py_bounds, i);
-        Py_DECREF(item);
-        if (!PyArg_ParseTuple(item, "iiii", &bounds[i].x1, &bounds[i].y1, &bounds[i].x2, &bounds[i].y2)) {
-            PyErr_Clear();
-            PyErr_SetString(PyExc_TypeError,
-                            "sequence members must be 4-tuples");
-            g_free(bounds);
-            return NULL;
-        }
-    }   
-
-    goo_canvas_item_simple_get_path_bounds(GOO_CANVAS_ITEM_SIMPLE(self->obj), 
-                                            cr->ctx, bounds);
-    g_free(bounds);
-    Py_INCREF(Py_None);
-    return Py_None;
+    GooCanvasItemSimple *simple = (GooCanvasItemSimple*) self->obj;
+    
+    goo_canvas_item_simple_get_path_bounds (simple, cr->ctx, &bounds);
+    
+    py_bounds = pygoo_canvas_bounds_new(&bounds);
+    
+    return py_bounds;    
 }
 
 %%
@@ -1492,6 +1479,44 @@ _wrap_goo_canvas_get_items_in_area(PyGObject *self, PyObject *args, PyObject *kw
         return Py_None;
     }
     
+    
+    ret = _glist_to_pylist_objs(item_list);
+    g_list_free(item_list);
+    return ret;
+}
+
+%%
+override goo_canvas_item_get_items_at kwargs
+static PyObject *
+_wrap_goo_canvas_item_get_items_at(PyGObject *self, PyObject *args, PyObject *kwargs)
+{
+    static char     *kwlist[] = { "x", "y", "cr", "is_pointer_event",
+                                  "parent_is_visible", NULL };
+    PyObject        *point_event, *ret, *parent_visible;
+    gdouble         x, y;
+    GList           *item_list;
+    gboolean        is_pointer_event;
+    gboolean        parent_is_visible;
+    PycairoContext  *cr;
+    
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "ddOOO:get_items_at",
+                                     kwlist,
+                                     &x, &y, &cr, &point_event,
+                                     &parent_visible))
+        return NULL;
+    
+    is_pointer_event = (PyObject_IsTrue(point_event)) ? TRUE : FALSE;
+    parent_is_visible = (PyObject_IsTrue(parent_visible)) ? TRUE : FALSE;
+    
+    item_list = goo_canvas_item_get_items_at(GOO_CANVAS_ITEM(self->obj),
+                                             x, y, cr->ctx, is_pointer_event,
+                                             parent_is_visible, NULL);
+    
+    if (!item_list) {
+        Py_INCREF (Py_None);
+        return Py_None;
+    }
     
     ret = _glist_to_pylist_objs(item_list);
     g_list_free(item_list);

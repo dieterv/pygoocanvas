@@ -73,7 +73,7 @@
             </methodsynopsis>
 
             <methodsynopsis language="python">
-                <methodname><link linkend="method-goocanvasitem--get-item-at">get_item_at</link></methodname>
+                <methodname><link linkend="method-goocanvasitem--get-items-at">get_items_at</link></methodname>
                 <methodparam><parameter role="keyword">x</parameter></methodparam>
                 <methodparam><parameter role="keyword">y</parameter></methodparam>
                 <methodparam><parameter role="keyword">cr</parameter></methodparam>
@@ -743,10 +743,10 @@
             </para>
         </refsect2>
 
-        <refsect2 id="method-goocanvasitem--get-item-at">
-            <title>goocanvas.Item.get_item_at</title>
+        <refsect2 id="method-goocanvasitem--get-items-at">
+            <title>goocanvas.Item.get_items_at</title>
             <programlisting><methodsynopsis language="python">
-                <methodname>get_item_at</methodname>
+                <methodname>get_items_at</methodname>
                 <methodparam><parameter role="keyword">x</parameter></methodparam>
                 <methodparam><parameter role="keyword">y</parameter></methodparam>
                 <methodparam><parameter role="keyword">cr</parameter></methodparam>
@@ -779,12 +779,13 @@
                 </varlistentry>
                 <varlistentry>
                     <term><emphasis>Returns</emphasis>&nbsp;:</term>
-                    <listitem><simpara>The item found at the given point, or None if no item was found.</simpara></listitem>
+                    <listitem><simpara>A list of items found at the given point, or None if no
+                                       item was found.</simpara></listitem>
                 </varlistentry>
             </variablelist>
 
             <para>
-                Gets the item at the given point.
+                Gets the items at the given point.
             </para>
         </refsect2>
 
