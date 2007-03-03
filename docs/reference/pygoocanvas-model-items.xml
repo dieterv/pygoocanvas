@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<chapter id="pygoocanvas-model-items" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>PyGooCanvas Canvas Item Models Reference</title>
+
+<!-- GooCanvas OBJECTS -->
+
+	<xi:include href="pygoocanvas-ellipse-model.xml"/>
+	<xi:include href="pygoocanvas-group-model.xml"/>
+	<xi:include href="pygoocanvas-image-model.xml"/>
+    <xi:include href="pygoocanvas-path-model.xml"/>
+	<xi:include href="pygoocanvas-polyline-model.xml"/>
+	<xi:include href="pygoocanvas-rect-model.xml"/>
+	<xi:include href="pygoocanvas-text-model.xml"/>
+    <xi:include href="pygoocanvas-table-model.xml"/>
+
+</chapter>

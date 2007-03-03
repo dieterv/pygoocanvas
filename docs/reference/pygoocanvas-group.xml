@@ -1,0 +1,88 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+      "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="class-canvas-group">
+
+	<refnamediv>
+		<refname>goocanvas.Group</refname>
+		<refpurpose>A group of items.</refpurpose>
+	</refnamediv>
+	
+	<refsect1>
+		<title>Synopsis</title>
+	
+		<classsynopsis language="python">
+			<ooclass><classname>goocanvas.Group</classname></ooclass>
+			<ooclass><classname>goocanvas.ItemSimple</classname></ooclass>
+			
+			<constructorsynopsis language="python">
+				<methodname><link linkend="constructor-canvas-group">goocanvas.Group</link></methodname>
+				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis>
+		</classsynopsis>
+	</refsect1>
+
+	<refsect1>
+		<title>Ancestry</title>
+
+<synopsis>+-- <link linkend="class-gobject">gobject.GObject</link>
+	+-- <link linkend="class-canvas-item-simple">goocanvas.ItemSimple</link>
+		+-- <link linkend="class-canvas-group">goocanvas.Group</link>
+</synopsis>
+
+	</refsect1>
+
+	<refsect1>
+		<title>Implemented Interfaces</title>
+		<para>
+			<link linkend="class-canvas-group"><classname>goocanvas.Group</classname></link>
+			implements 
+			<link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>
+		</para>
+	</refsect1>
+
+	<refsect1>
+		<title>Description</title>
+			<link linkend="class-canvas-group"><classname>goocanvas.Group</classname></link> 
+			represents a group of items. Groups can be nested to any depth, to create a hierarchy of items.
+            Items are ordered within each group, with later items being displayed above earlier items.
+            It is a subclass of 
+			<link linkend="class-canvas-item-simple"><classname>goocanvas.ItemSimple</classname></link> 
+			and so inherits all of the style properties such as "stroke-color", "fill-color" and "line-width". 
+			Setting a style property on a <link linkend="class-canvas-group"><classname>goocanvas.Group</classname></link>
+            will affect all children of the <link linkend="class-canvas-group"><classname>goocanvas.Group</classname></link>
+            (unless the children override the property setting).
+            It also implements the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
+			interface, so you can use the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
+			functions such as <methodname><link linkend="method-goocanvasitem--raise-">goocanvas.Item.raise_()</link></methodname> 
+			and <methodname><link linkend="method-goocanvasitem--rotate-">goocanvas.Item.rotate()</link></methodname>, 
+            and the properties such as "visibility" and "pointer-events". 
+	</refsect1>
+
+	<refsect1 id="constructor-canvas-group">
+		<title>Constructor</title>
+		
+		<programlisting><constructorsynopsis language="python">
+				<methodname>goocanvas.Group</methodname>
+				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">properties</parameter>&nbsp;:</term>
+				<listitem><simpara>A comma separated properties as **kwargs.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara>A new 
+						<link linkend="class-canvas-group"><classname>goocanvas.Group</classname></link>
+					</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		<para>
+			Creates a new canvas group item.
+		</para>
+	</refsect1>
+
+</refentry>

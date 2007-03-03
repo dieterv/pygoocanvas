@@ -5,11 +5,14 @@
 
 <!-- GooCanvas OBJECTS -->
 
-	<xi:include href="pygoocanvas-ellipse.xml"/>
-	<xi:include href="pygoocanvas-image.xml"/>
-	<xi:include href="pygoocanvas-path.xml"/>
-	<xi:include href="pygoocanvas-polyline.xml"/>
-	<xi:include href="pygoocanvas-rect.xml"/>
-	<xi:include href="pygoocanvas-text.xml"/>
+    <xi:include href="pygoocanvas-ellipse.xml"/>
+    <xi:include href="pygoocanvas-image.xml"/>
+    <xi:include href="pygoocanvas-group.xml"/>
+    <xi:include href="pygoocanvas-path.xml"/>
+    <xi:include href="pygoocanvas-polyline.xml"/>
+    <xi:include href="pygoocanvas-rect.xml"/>
+    <xi:include href="pygoocanvas-text.xml"/>
+    <xi:include href="pygoocanvas-table.xml"/>
+    <xi:include href="pygoocanvas-widget.xml"/>
 	
 </chapter>

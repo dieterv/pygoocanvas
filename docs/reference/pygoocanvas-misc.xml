@@ -1,0 +1,226 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+      "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="class-canvas-misc">
+
+    <refnamediv>
+		<refname>Miscellaneous Items</refname>
+		<refpurpose>Miscellaneous items.</refpurpose>
+	</refnamediv>
+
+    <refsect1>
+		<title>Synopsis</title>
+	
+		<classsynopsis language="python">
+			<ooclass><classname>goocanvas.Bounds</classname></ooclass>
+			
+			<constructorsynopsis language="python">
+				<methodname><link linkend="constructor-canvas-bounds">goocanvas.Bounds</link></methodname>
+				<methodparam><parameter role="keyword">coords</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis>
+		</classsynopsis>
+	</refsect1>
+
+	<refsect1>
+		<title>Ancestry</title>
+
+<synopsis>+-- <link linkend="class-canvas-bounds">goocanvas.Bounds</link>
+</synopsis>
+
+	</refsect1>
+
+    <refsect1 id="attributes-goocanvasbounds">
+		<title>goocanvas.Bounds Attributes</title>
+	
+		<blockquote role="properties">
+			<informaltable pgwide="1" frame="none">
+				<tgroup cols="3">
+					<colspec column="1" colwidth="1in"/>
+					<colspec column="2" colwidth="1in"/>
+					<colspec column="3" colwidth="3.5in"/>
+						<tbody>
+						<row valign="top">
+							<entry>"x1"</entry>
+							<entry>Read/Write</entry>
+							<entry>The left edge.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"y1"</entry>
+							<entry>Read/Write</entry>
+							<entry>The top edge.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"x2"</entry>
+							<entry>Read/Write</entry>
+							<entry>The right edge.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"y2"</entry>
+							<entry>Read/Write</entry>
+							<entry>The bottom edge.</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</informaltable>
+		</blockquote>
+	</refsect1>
+
+	
+	<refsect1>
+		<title>Description</title>
+			<link linkend="class-canvas-bounds"><classname>goocanvas.Bounds</classname></link> 
+			represents the bounding box of an item in the canvas.
+	</refsect1>
+
+	<refsect1 id="constructor-canvas-bounds">
+		<title>Constructor</title>
+		
+		<programlisting><constructorsynopsis language="python">
+				<methodname>goocanvas.Bounds</methodname>
+				<methodparam><parameter role="keyword">coords</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">coords</parameter>&nbsp;:</term>
+				<listitem><simpara>The four coords of the bounding box</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara>A new 
+						<link linkend="class-canvas-bounds"><classname>goocanvas.Bounds</classname></link>
+					</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		<para>
+			Creates a new canvas bounds item.
+		</para>
+		<para>
+			Here's an example showing how to create bounds at (100.0, 100.0, 200.0, 200.0).
+		</para>
+<programlisting>
+bounds = goocanvas.Bounds(100.0, 100.0, 200.0, 200.0)
+</programlisting>
+	</refsect1>
+	
+	<refsect1>
+		<title>Synopsis</title>
+	
+		<classsynopsis language="python">
+			<ooclass><classname>goocanvas.Points</classname></ooclass>
+			
+			<constructorsynopsis language="python">
+				<methodname><link linkend="constructor-canvas-points">goocanvas.Points</link></methodname>
+				<methodparam><parameter role="keyword">points</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis>
+		</classsynopsis>
+	</refsect1>
+
+	<refsect1>
+		<title>Ancestry</title>
+
+<synopsis>+-- <link linkend="class-canvas-points">goocanvas.Points</link>
+</synopsis>
+
+	</refsect1>
+
+	<refsect1>
+		<title>Description</title>
+			<link linkend="class-canvas-points"><classname>goocanvas.Points</classname></link> 
+			represents an array of points.
+	</refsect1>
+
+	<refsect1 id="constructor-canvas-points">
+		<title>Constructor</title>
+		
+		<programlisting><constructorsynopsis language="python">
+				<methodname>goocanvas.Points</methodname>
+				<methodparam><parameter role="keyword">points</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">points</parameter>&nbsp;:</term>
+				<listitem><simpara>A list of tuples containing the coords pair.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara>A new 
+						<link linkend="class-canvas-points"><classname>goocanvas.Points</classname></link>
+					</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		<para>
+			Creates a new canvas points item.
+		</para>
+		<para>
+			Here's an example showing how to create points.
+		</para>
+<programlisting>
+points = goocanvas.Points([(100.0, 100.0), (200.0, 200.0)])
+</programlisting>
+	</refsect1>
+
+    <refsect1>
+		<title>Synopsis</title>
+	
+		<classsynopsis language="python">
+			<ooclass><classname>goocanvas.LineDash</classname></ooclass>
+			
+			<constructorsynopsis language="python">
+				<methodname><link linkend="constructor-canvas-linedash">goocanvas.LineDash</link></methodname>
+				<methodparam><parameter role="keyword">data</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis>
+		</classsynopsis>
+	</refsect1>
+
+	<refsect1>
+		<title>Ancestry</title>
+
+<synopsis>+-- <link linkend="class-canvas-linedash">goocanvas.LineDash</link>
+</synopsis>
+
+	</refsect1>
+
+	<refsect1>
+		<title>Description</title>
+			<link linkend="class-canvas-linedash"><classname>goocanvas.LineDash</classname></link> 
+			specifies a dash pattern to be used when drawing items.
+	</refsect1>
+
+	<refsect1 id="constructor-canvas-linedash">
+		<title>Constructor</title>
+		
+		<programlisting><constructorsynopsis language="python">
+				<methodname>goocanvas.LineDash</methodname>
+				<methodparam><parameter role="keyword">data</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">data</parameter>&nbsp;:</term>
+				<listitem><simpara>A list of line/space pairs.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara>A new 
+						<link linkend="class-canvas-linedash"><classname>goocanvas.LineDash</classname></link>
+					</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		<para>
+			Creates a new canvas linedash item.
+		</para>
+		<para>
+			Here's an example showing how to create linedash.
+		</para>
+<programlisting>
+linedash = goocanvas.LineDash([5.0, 10.0, 20.0, 10.0, 5.0])
+</programlisting>
+	</refsect1>
+
+</refentry>

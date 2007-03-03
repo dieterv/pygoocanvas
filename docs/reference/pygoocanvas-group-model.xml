@@ -1,0 +1,88 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+      "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="class-canvas-group-model">
+
+	<refnamediv>
+		<refname>goocanvas.GroupModel</refname>
+		<refpurpose>A model for group of items.</refpurpose>
+	</refnamediv>
+	
+	<refsect1>
+		<title>Synopsis</title>
+	
+		<classsynopsis language="python">
+			<ooclass><classname>goocanvas.GroupModel</classname></ooclass>
+			<ooclass><classname>goocanvas.ItemModelSimple</classname></ooclass>
+			
+			<constructorsynopsis language="python">
+				<methodname><link linkend="constructor-canvas-group-model">goocanvas.GroupModel</link></methodname>
+				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis>
+		</classsynopsis>
+	</refsect1>
+
+	<refsect1>
+		<title>Ancestry</title>
+
+<synopsis>+-- <link linkend="class-gobject">gobject.GObject</link>
+	+-- <link linkend="class-canvas-item-model-simple">goocanvas.ItemModelSimple</link>
+		+-- <link linkend="class-canvas-group-model">goocanvas.GroupModel</link>
+</synopsis>
+
+	</refsect1>
+
+	<refsect1>
+		<title>Implemented Interfaces</title>
+		<para>
+			<link linkend="class-canvas-group-model"><classname>goocanvas.GroupModel</classname></link>
+			implements 
+			<link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link>
+		</para>
+	</refsect1>
+
+	<refsect1>
+		<title>Description</title>
+			<link linkend="class-canvas-group-model"><classname>goocanvas.GroupModel</classname></link> 
+			represents a group of items. Groups can be nested to any depth, to create a hierarchy of items.
+            Items are ordered within each group, with later items being displayed above earlier items.
+            It is a subclass of 
+			<link linkend="class-canvas-item-model-simple"><classname>goocanvas.ItemModelSimple</classname></link> 
+			and so inherits all of the style properties such as "stroke-color", "fill-color" and "line-width". 
+			Setting a style property on a <link linkend="class-canvas-group-model"><classname>goocanvas.GroupModel</classname></link>
+            will affect all children of the <link linkend="class-canvas-group-model"><classname>goocanvas.GroupModel</classname></link>
+            (unless the children override the property setting).
+            It also implements the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> 
+			interface, so you can use the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> 
+			functions such as <methodname><link linkend="method-goocanvasitemmodel--raise-">goocanvas.ItemModel.raise_()</link></methodname> 
+			and <methodname><link linkend="method-goocanvasitem--rotate-">goocanvas.ItemModel.rotate()</link></methodname>, 
+            and the properties such as "visibility" and "pointer-events". 
+	</refsect1>
+
+	<refsect1 id="constructor-canvas-group-model">
+		<title>Constructor</title>
+		
+		<programlisting><constructorsynopsis language="python">
+				<methodname>goocanvas.GroupModel</methodname>
+				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">properties</parameter>&nbsp;:</term>
+				<listitem><simpara>A comma separated properties as **kwargs.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara>A new 
+						<link linkend="class-canvas-group-model"><classname>goocanvas.GroupModel</classname></link>
+					</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		<para>
+			Creates a new canvas model group item.
+		</para>
+	</refsect1>
+
+</refentry>

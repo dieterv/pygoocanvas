@@ -6,9 +6,9 @@
 <!-- GooCanvas OBJECTS -->
 
 	<xi:include href="pygoocanvas-canvas.xml"/>
-	<xi:include href="pygoocanvas-canvas-item.xml"/>
-	<xi:include href="pygoocanvas-canvas-item-simple.xml"/>
-    <xi:include href="pygoocanvas-canvas-item-model.xml"/>
-    <xi:include href="pygoocanvas-canvas-item-model-simple.xml"/>
+	<xi:include href="pygoocanvas-item.xml"/>
+	<xi:include href="pygoocanvas-item-simple.xml"/>
+    <xi:include href="pygoocanvas-item-model.xml"/>
+    <xi:include href="pygoocanvas-item-model-simple.xml"/>
 
 </chapter>

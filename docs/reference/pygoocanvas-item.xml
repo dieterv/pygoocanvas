@@ -82,7 +82,7 @@
             </methodsynopsis>
 
             <methodsynopsis language="python">
-                <methodname><link linkend="method-goocanvasitem--get-item-at">get_model</link></methodname>
+                <methodname><link linkend="method-goocanvasitem--get-model">get_model</link></methodname>
                 <methodparam></methodparam>
             </methodsynopsis>
 
@@ -318,6 +318,7 @@
         </blockquote>
 
     </refsect1>
+
     <refsect1 id="signal-prototypes-goocanvasitem">
         <title>goocanvas.Item Signal Prototypes</title>
         <variablelist>

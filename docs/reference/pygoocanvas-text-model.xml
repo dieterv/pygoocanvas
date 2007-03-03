@@ -2,22 +2,22 @@
 <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
       "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 
-<refentry id="class-canvas-text">
+<refentry id="class-canvas-text-model">
 
 	<refnamediv>
-		<refname>goocanvas.Text</refname>
-		<refpurpose>A text item.</refpurpose>
+		<refname>goocanvas.TextModel</refname>
+		<refpurpose>A model for text items.</refpurpose>
 	</refnamediv>
 	
 	<refsect1>
 		<title>Synopsis</title>
 	
 		<classsynopsis language="python">
-			<ooclass><classname>goocanvas.Text</classname></ooclass>
-			<ooclass><classname>goocanvas.ItemSimple</classname></ooclass>
+			<ooclass><classname>goocanvas.TextModel</classname></ooclass>
+			<ooclass><classname>goocanvas.ItemModelModelSimple</classname></ooclass>
 			
 			<constructorsynopsis language="python">
-				<methodname><link linkend="constructor-canvas-text">goocanvas.Text</link></methodname>
+				<methodname><link linkend="constructor-canvas-text-model">goocanvas.TextModel</link></methodname>
 				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
 			</constructorsynopsis>
 		</classsynopsis>
@@ -27,14 +27,14 @@
 		<title>Ancestry</title>
 
 <synopsis>+-- <link linkend="class-gobject">gobject.GObject</link>
-	+-- <link linkend="class-canvas-item-simple">goocanvas.ItemSimple</link>
-		+-- <link linkend="class-canvas-text">goocanvas.Text</link>
+	+-- <link linkend="class-canvas-item-model-model-simple">goocanvas.ItemModelModelSimple</link>
+		+-- <link linkend="class-canvas-text-model">goocanvas.TextModel</link>
 </synopsis>
 
 	</refsect1>
 	
-	<refsect1 id="properties-goocanvastext">
-		<title>goocanvas.Text Properties</title>
+	<refsect1 id="properties-goocanvastextmodel">
+		<title>goocanvas.TextModel Properties</title>
 	
 		<blockquote role="properties">
 			<informaltable pgwide="1" frame="none">
@@ -106,29 +106,29 @@
 	<refsect1>
 		<title>Implemented Interfaces</title>
 		<para>
-			<link linkend="class-canvas-text"><classname>goocanvas.Text</classname></link>
+			<link linkend="class-canvas-text-model"><classname>goocanvas.TextModel</classname></link>
 			implements 
-			<link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>
+			<link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link>
 		</para>
 	</refsect1>
 
 	<refsect1>
 		<title>Description</title>
-			<link linkend="class-canvas-text"><classname>goocanvas.Text</classname></link> 
+			<link linkend="class-canvas-text-model"><classname>goocanvas.TextModel</classname></link> 
 			represents a text item. It is a subclass of 
-			<link linkend="class-canvas-item-simple"><classname>goocanvas.ItemSimple</classname></link> 
+			<link linkend="class-canvas-item-model-model-simple"><classname>goocanvas.ItemModelModelSimple</classname></link> 
 			and so inherits all of the style properties such as "stroke-color", "fill-color" and "line-width". 
-			It also implements the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
-			interface, so you can use the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
-			functions such as <methodname><link linkend="method-goocanvasitem--raise-">goocanvas.Item.raise_()</link></methodname> 
-			and <methodname><link linkend="method-goocanvasitem--rotate-">goocanvas.Item.rotate()</link></methodname> 
+			It also implements the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> 
+			interface, so you can use the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> 
+			functions such as <methodname><link linkend="method-goocanvasitemmodel--raise-">goocanvas.ItemModel.raise_()</link></methodname> 
+			and <methodname><link linkend="method-goocanvasitemmodel--rotate-">goocanvas.ItemModel.rotate()</link></methodname> 
 	</refsect1>
 
-	<refsect1 id="constructor-canvas-text">
+	<refsect1 id="constructor-canvas-text-model">
 		<title>Constructor</title>
 		
 		<programlisting><constructorsynopsis language="python">
-				<methodname>goocanvas.Text</methodname>
+				<methodname>goocanvas.TextModel</methodname>
 				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
 			</constructorsynopsis></programlisting>
 		
@@ -140,21 +140,25 @@
 			<varlistentry>
 				<term><emphasis>Returns</emphasis>&nbsp;:</term>
 				<listitem><simpara>A new 
-						<link linkend="class-canvas-text"><classname>goocanvas.Text</classname></link>
+						<link linkend="class-canvas-text-model"><classname>goocanvas.TextModel</classname></link>
 					</simpara></listitem>
 			</varlistentry>
 		</variablelist>
 		<para>
-			Creates a new canvas text item.
+			Creates a new canvas text model item.
 		</para>
 		<para>
-			Here's an example showing how to create a text item with the bottom
+			Here's an example showing how to create a text model item with the bottom
 			right of the text box placed at (500,500):
 		</para>
 <programlisting>
-text = goocanvas.Text(string="Hello, World!", x=500, y=500
-						width=200, anchor=gtk.ANCHOR_SE,
-						fill_color="blue")
+text = goocanvas.TextModel(parent=root,
+                           string="Hello, World!",
+                           x=500,
+                           y=500,
+                           width=200,
+                           anchor=gtk.ANCHOR_SE,
+                           fill_color="blue")
 </programlisting>
 	</refsect1>
 

@@ -2,29 +2,29 @@
 <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
       "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 
-<refentry id="class-canvas-polyline">
+<refentry id="class-canvas-polyline-model">
 
 	<refnamediv>
-		<refname>goocanvas.Polyline</refname>
-		<refpurpose>A polyline item (a series of lines with optional arrows).</refpurpose>
+		<refname>goocanvas.PolylineModel</refname>
+		<refpurpose>A model for polyline items (a series of lines with optional arrows).</refpurpose>
 	</refnamediv>
 	
 	<refsect1>
 		<title>Synopsis</title>
 	
 		<classsynopsis language="python">
-			<ooclass><classname>goocanvas.Polyline</classname></ooclass>
-			<ooclass><classname>goocanvas.ItemSimple</classname></ooclass>
+			<ooclass><classname>goocanvas.PolylineModel</classname></ooclass>
+			<ooclass><classname>goocanvas.ItemModelModelSimple</classname></ooclass>
 			
 			<constructorsynopsis language="python">
-				<methodname><link linkend="constructor-canvas-polyline">goocanvas.Polyline</link></methodname>
+				<methodname><link linkend="constructor-canvas-polyline-model">goocanvas.PolylineModel</link></methodname>
 				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
 			</constructorsynopsis>
 		</classsynopsis>
 <programlisting>
 <emphasis role="bold">Functions</emphasis>
 <methodsynopsis language="python">
-	<methodname><link linkend="function-goocanvas--polyline-new-line">goocanvas.polyline_new_line</link></methodname>
+	<methodname><link linkend="function-goocanvas--polyline-model-new-line">goocanvas.polyline_model_new_line</link></methodname>
 	<methodparam><parameter role="keyword">parent</parameter></methodparam>
 	<methodparam><parameter role="keyword">x1</parameter></methodparam>
 	<methodparam><parameter role="keyword">y1</parameter></methodparam>
@@ -38,14 +38,14 @@
 		<title>Ancestry</title>
 
 <synopsis>+-- <link linkend="class-gobject">gobject.GObject</link>
-	+-- <link linkend="class-canvas-item-simple">goocanvas.ItemSimple</link>
-		+-- <link linkend="class-canvas-polyline">goocanvas.Polyline</link>
+	+-- <link linkend="class-canvas-item-model-model-simple">goocanvas.ItemModelModelSimple</link>
+		+-- <link linkend="class-canvas-polyline-model">goocanvas.PolylineModel</link>
 </synopsis>
 
 	</refsect1>
 	
-	<refsect1 id="properties-goocanvaspolyline">
-		<title>goocanvas.Polyline Properties</title>
+	<refsect1 id="properties-goocanvaspolyline-model">
+		<title>goocanvas.PolylineModel Properties</title>
 	
 		<blockquote role="properties">
 			<informaltable pgwide="1" frame="none">
@@ -98,32 +98,32 @@
 	<refsect1>
 		<title>Implemented Interfaces</title>
 		<para>
-			<link linkend="class-canvas-polyline"><classname>goocanvas.Polyline</classname></link>
+			<link linkend="class-canvas-polyline-model"><classname>goocanvas.PolylineModel</classname></link>
 			implements 
-			<link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>
+			<link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link>
 		</para>
 	</refsect1>
 
 	<refsect1>
 		<title>Description</title>
-			<link linkend="class-canvas-polyline"><classname>goocanvas.Polyline</classname></link> 
-			represents a polyline item, which is a series of one or more lines, with optional arrows at either end.
+			<link linkend="class-canvas-polyline-model"><classname>goocanvas.PolylineModel</classname></link> 
+			represents a model for polyline items, which is a series of one or more lines, with optional arrows at either end.
 
 			It is a subclass of 
-			<link linkend="class-canvas-item-simple"><classname>goocanvas.ItemSimple</classname></link> 
+			<link linkend="class-canvas-item-model-model-simple"><classname>goocanvas.ItemModelModelSimple</classname></link> 
 			and so inherits all of the style properties such as "stroke-color", "fill-color" and "line-width".
 
-			It also implements the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
-			interface, so you can use the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
-			functions such as <methodname><link linkend="method-goocanvasitem--raise-">goocanvas.Item.raise_()</link></methodname> 
-			and <methodname><link linkend="method-goocanvasitem--rotate-">goocanvas.Item.rotate()</link></methodname>
+			It also implements the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> 
+			interface, so you can use the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> 
+			functions such as <methodname><link linkend="method-goocanvasitemmodel--raise-">goocanvas.ItemModel.raise_()</link></methodname> 
+			and <methodname><link linkend="method-goocanvasitemmodel--rotate-">goocanvas.ItemModel.rotate()</link></methodname>
 	</refsect1>
 
-	<refsect1 id="constructor-canvas-polyline">
+	<refsect1 id="constructor-canvas-polyline-model">
 		<title>Constructor</title>
 		
 		<programlisting><constructorsynopsis language="python">
-				<methodname>goocanvas.Polyline</methodname>
+				<methodname>goocanvas.PolylineModel</methodname>
 				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
 			</constructorsynopsis></programlisting>
 		
@@ -135,7 +135,7 @@
 			<varlistentry>
 				<term><emphasis>Returns</emphasis>&nbsp;:</term>
 				<listitem><simpara>A new 
-						<link linkend="class-canvas-polyline"><classname>goocanvas.Polyline</classname></link>
+						<link linkend="class-canvas-polyline-model"><classname>goocanvas.PolylineModel</classname></link>
 					</simpara></listitem>
 			</varlistentry>
 		</variablelist>
@@ -147,17 +147,21 @@
 		</para>
 <programlisting>
 	p_points = goocanvas.Points([(100.0, 100.0), (300.0, 100.0), (200.0, 300.0)])
-	polyline = goocanvas.Polyline(points=p_points, close_path=True, stroke_color="red", fill_color="blue")
+	polyline = goocanvas.PolylineModel(parent = root,
+                                       points=p_points,
+                                       close_path=True,
+                                       stroke_color="red",
+                                       fill_color="blue")
 </programlisting>
 
 	</refsect1>
 	<refsect1>
 		<title>Functions</title>
-		<refsect2 id="function-goocanvas--polyline-new-line">
-			<title>goocanvas.polyline_new_line</title>
+		<refsect2 id="function-goocanvas--polyline-model-new-line">
+			<title>goocanvas.polyline_model_new_line</title>
 			
 			<programlisting><methodsynopsis language="python">
-					<methodname>goocanvas.polyline_new_line</methodname>
+					<methodname>goocanvas.polyline_model_new_line</methodname>
 					<methodparam><parameter role="keyword">parent</parameter></methodparam>
 					<methodparam><parameter role="keyword">x1</parameter></methodparam>
 					<methodparam><parameter role="keyword">y1</parameter></methodparam>
@@ -194,7 +198,7 @@
 			</variablelist>
 			
 			<para>
-				Creates a new polyline item with a single line.
+				Creates a new polyline model item with a single line.
 			</para>
 		</refsect2>
 	</refsect1>

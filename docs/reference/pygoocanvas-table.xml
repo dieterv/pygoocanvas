@@ -1,0 +1,271 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+      "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="class-canvas-table">
+
+	<refnamediv>
+		<refname>goocanvas.Table</refname>
+		<refpurpose>A table container to layout items.</refpurpose>
+	</refnamediv>
+	
+	<refsect1>
+		<title>Synopsis</title>
+	
+		<classsynopsis language="python">
+			<ooclass><classname>goocanvas.Table</classname></ooclass>
+			<ooclass><classname>goocanvas.Group</classname></ooclass>
+			
+			<constructorsynopsis language="python">
+				<methodname><link linkend="constructor-canvas-table">goocanvas.Table</link></methodname>
+				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis>
+		</classsynopsis>
+	</refsect1>
+
+	<refsect1>
+		<title>Ancestry</title>
+
+<synopsis>+-- <link linkend="class-gobject">gobject.GObject</link>
+	+-- <link linkend="class-canvas-item-simple">goocanvas.ItemSimple</link>
+		+-- <link linkend="class-canvas-group">goocanvas.Group</link>
+			+-- <link linkend="class-canvas-table">goocanvas.Table</link>
+</synopsis>
+	</refsect1>
+
+    <refsect1 id="properties-goocanvastable">
+        <title>goocanvas.Table Properties</title>
+    
+        <blockquote role="properties">
+            <informaltable pgwide="1" frame="none">
+                <tgroup cols="3">
+                    <colspec column="1" colwidth="1in"/>
+                    <colspec column="2" colwidth="1in"/>
+                    <colspec column="3" colwidth="3.5in"/>
+                        <tbody>
+
+                        <row valign="top">
+                            <entry>"column-spacing"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The default space between columns. Allowed values: >= 0 Default value: 0</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"height"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The requested height of the table, or -1 to use the default height. Default value: -1</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"homogeneous-columns"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>If all columns are the same width. Default value: False</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"homogeneous-rows"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>If all rows are the same height. Default value: False</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"row-spacing"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The default space between rows. Allowed values: >= 0 Default value: 0</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"width"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The requested width of the table, or -1 to use the default width. Default value: -1</entry>
+                        </row>
+
+                    </tbody>
+                </tgroup>
+            </informaltable>
+        </blockquote>
+    </refsect1>
+
+    <refsect1 id="child-properties-goocanvastable">
+        <title>goocanvas.Table Child Properties</title>
+    
+        <blockquote role="properties">
+            <informaltable pgwide="1" frame="none">
+                <tgroup cols="3">
+                    <colspec column="1" colwidth="1in"/>
+                    <colspec column="2" colwidth="1in"/>
+                    <colspec column="3" colwidth="3.5in"/>
+                        <tbody>
+
+                        <row valign="top">
+                            <entry>"bottom-padding"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>Extra space to add below the item. Allowed values: >= 0 Default value: 0.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"column"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The column to place the item in. Allowed values: &lt;= 65535 Default value: 0.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"columns"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The number of columns that the item spans. Allowed values: &lt;= 65535 Default value: 1.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"left-padding"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>Extra space to add to the left of the item. Allowed values: >= 0 Default value: 0.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"right-padding"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>Extra space to add to the right of the item. Allowed values: >= 0 Default value: 0.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"row"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The row to place the item in. Allowed values: &lt;= 65535 Default value: 0.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"rows"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The number of rows that the item spans. Allowed values: &lt;= 65535 Default value: 1.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"top-padding"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>Extra space to add above the item. Allowed values: >= 0 Default value: 0.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"x-align"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The horizontal position of the item within its allocated space.
+                                   0.0 is left-aligned, 1.0 is right-aligned.
+                                   Allowed values: [0,1]
+                                   Default value: 0.5.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"x-expand"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>If the item expands horizontally as the table expands. Default value: False.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"x-fill"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>If the item fills all horizontal allocated space. Default value: False.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"x-shrink"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>If the item can shrink smaller than its requested size horizontally. Default value: False.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"y-align"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The vertical position of the item within its allocated space.
+                                   0.0 is top-aligned, 1.0 is bottom-aligned. Allowed values: [0,1]
+                                   Default value: 0.5.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"y-expand"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>If the item expands vertically as the table expands. Default value: False.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"y-fill"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>If the item fills all vertical allocated space. Default value: False.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"y-shrink"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>If the item can shrink smaller than its requested size vertically. Default value: False.</entry>
+                        </row>
+
+                    </tbody>
+                </tgroup>
+            </informaltable>
+        </blockquote>
+    </refsect1>
+	<refsect1>
+		<title>Implemented Interfaces</title>
+		<para>
+			<link linkend="class-canvas-table"><classname>goocanvas.Table</classname></link>
+			implements 
+			<link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>
+		</para>
+	</refsect1>
+
+	<refsect1>
+		<title>Description</title>
+			<link linkend="class-canvas-table"><classname>goocanvas.Table</classname></link> 
+			<para>
+                is a table container used to lay out other canvas items.
+                It is used in a similar way to how the GtkTable widget is used to lay out GTK+ widgets.
+            </para>
+            <para>
+                Items are added to the table using the normal methods, then
+                <methodname><link linkend="method-goocanvasitem--set-child-properties">set_child_properties</link></methodname>
+                s used to specify how each child item is to be positioned within the table (i.e. which row and column
+                it is in, how much padding it should have and whether it should expand or shrink).
+            </para>
+            <para>
+                <link linkend="class-canvas-table"><classname>goocanvas.Table</classname></link> is a subclass of
+                <link linkend="class-canvas-item-simple"><classname>goocanvas.ItemSimple</classname></link>
+                and so inherits all of the style properties such as "stroke-color", "fill-color" and "line-width".
+                Setting a style property on a <link linkend="class-canvas-table"><classname>goocanvas.Table</classname></link>
+                will affect all children of the <link linkend="class-canvas-table"><classname>goocanvas.Table</classname></link>
+                (unless the children override the property setting).
+            </para>
+            <para>
+                <link linkend="class-canvas-table"><classname>goocanvas.Table</classname></link> implements the
+                <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> nterface, so you can use the
+                <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> functions such as
+                <methodname><link linkend="method-goocanvasitem--raise-">raise_</link></methodname> and
+                <methodname><link linkend="method-goocanvasitem--rotate">rotate</link></methodname>,
+                and the properties such as "visibility" and "pointer-events".
+            </para>            
+	</refsect1>
+
+	<refsect1 id="constructor-canvas-table">
+		<title>Constructor</title>
+		
+		<programlisting><constructorsynopsis language="python">
+				<methodname>goocanvas.Table</methodname>
+				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">properties</parameter>&nbsp;:</term>
+				<listitem><simpara>A comma separated properties as **kwargs.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara>A new 
+						<link linkend="class-canvas-table"><classname>goocanvas.Table</classname></link>
+					</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		<para>
+			Creates a new canvas table item.
+		</para>
+	</refsect1>
+
+</refentry>

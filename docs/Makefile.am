@@ -11,17 +11,31 @@ XMLFILES = 												\
 	reference/pygoocanvas-hierarchy.xml					\
 	reference/pygoocanvas-core-classes.xml				\
 	reference/pygoocanvas-std-items.xml					\
+    reference/pygoocanvas-model-items.xml				\
+    reference/pygoocanvas-misc-items.xml				\
 	reference/pygoocanvas-canvas.xml					\
-	reference/pygoocanvas-canvas-item.xml				\
-	reference/pygoocanvas-canvas-item-simple.xml		\
-    reference/pygoocanvas-canvas-item-model.xml			\
-    reference/pygoocanvas-canvas-item-model-simple.xml	\
+	reference/pygoocanvas-item.xml						\
+	reference/pygoocanvas-item-simple.xml				\
+    reference/pygoocanvas-item-model.xml				\
+    reference/pygoocanvas-item-model-simple.xml			\
 	reference/pygoocanvas-ellipse.xml					\
+    reference/pygoocanvas-ellipse-model.xml				\
+    reference/pygoocanvas-group.xml						\
+    reference/pygoocanvas-group-model.xml				\
 	reference/pygoocanvas-image.xml						\
+    reference/pygoocanvas-image-model.xml				\
+    reference/pygoocanvas-misc.xml						\
 	reference/pygoocanvas-path.xml						\
+    reference/pygoocanvas-path-model.xml				\
 	reference/pygoocanvas-polyline.xml					\
+    reference/pygoocanvas-polyline-model.xml			\
 	reference/pygoocanvas-rect.xml						\
-	reference/pygoocanvas-text.xml
+    reference/pygoocanvas-rect-model.xml				\
+	reference/pygoocanvas-text.xml						\
+    reference/pygoocanvas-table.xml						\
+    reference/pygoocanvas-table-model.xml				\
+    reference/pygoocanvas-text-model.xml				\
+	reference/pygoocanvas-widget.xml
 
 
 HTMLdir = $(datadir)/gtk-doc/html/pygoocanvas
@@ -29,17 +43,31 @@ HTML_DATA =										\
 	html/class-hierarchy.html					\
 	html/pygoocanvas-core-classes.html			\
 	html/pygoocanvas-std-items.html				\
+    html/pygoocanvas-model-items.html			\
+    html/pygoocanvas-misc-items.html			\
 	html/class-canvas.html						\
-	html/class-canvas-item.html					\
-	html/class-canvas-item-simple.html			\
-    html/class-canvas-item-model.html			\
-	html/class-canvas-item-model-simple.html	\
+	html/class-item.html						\
+	html/class-item-simple.html					\
+    html/class-item-model.html					\
+	html/class-item-model-simple.html			\
 	html/class-canvas-ellipse.html				\
+    html/class-canvas-ellipse-model.html		\
+    html/class-canvas-group.html				\
+    html/class-canvas-group-model.html			\
 	html/class-canvas-image.html				\
+    html/class-canvas-image-model.html			\
+    html/class-canvas-misc.html					\
 	html/class-canvas-path.html					\
+    html/class-canvas-path-model.html			\
 	html/class-canvas-polyline.html				\
+    html/class-canvas-polyline-model.html		\
 	html/class-canvas-rect.html					\
+    html/class-canvas-rect-model.html			\
 	html/class-canvas-text.html					\
+    html/class-canvas-table.html				\
+    html/class-canvas-table-model.html			\
+    html/class-canvas-text-model.html			\
+    html/class-canvas-widget.html				\
 	html/index.html								\
 	html/index.sgml								\
 	html/pygoocanvas.devhelp

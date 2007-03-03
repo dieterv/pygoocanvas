@@ -2,22 +2,22 @@
 <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
       "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 
-<refentry id="class-canvas-rect">
+<refentry id="class-canvas-rect-model">
 
 	<refnamediv>
-		<refname>goocanvas.Rect</refname>
-		<refpurpose>A rectangle item.</refpurpose>
+		<refname>goocanvas.RectModel</refname>
+		<refpurpose>A model for rectangle items.</refpurpose>
 	</refnamediv>
 	
 	<refsect1>
 		<title>Synopsis</title>
 	
 		<classsynopsis language="python">
-			<ooclass><classname>goocanvas.Rect</classname></ooclass>
-			<ooclass><classname>goocanvas.ItemSimple</classname></ooclass>
+			<ooclass><classname>goocanvas.RectModel</classname></ooclass>
+			<ooclass><classname>goocanvas.ItemModelModelSimple</classname></ooclass>
 			
 			<constructorsynopsis language="python">
-				<methodname><link linkend="constructor-canvas-rect">goocanvas.Rect</link></methodname>
+				<methodname><link linkend="constructor-canvas-rect-model">goocanvas.RectModel</link></methodname>
 				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
 			</constructorsynopsis>
 		</classsynopsis>
@@ -27,14 +27,14 @@
 		<title>Ancestry</title>
 
 <synopsis>+-- <link linkend="class-gobject">gobject.GObject</link>
-	+-- <link linkend="class-canvas-item-simple">goocanvas.ItemSimple</link>
-		+-- <link linkend="class-canvas-rect">goocanvas.Rect</link>
+	+-- <link linkend="class-canvas-item-model-model-simple">goocanvas.ItemModelModelSimple</link>
+		+-- <link linkend="class-canvas-rect-model">goocanvas.RectModel</link>
 </synopsis>
 
 	</refsect1>
 	
-	<refsect1 id="properties-goocanvasrect">
-		<title>goocanvas.Rect Properties</title>
+	<refsect1 id="properties-goocanvasrectmodel">
+		<title>goocanvas.RectModel Properties</title>
 	
 		<blockquote role="properties">
 			<informaltable pgwide="1" frame="none">
@@ -88,29 +88,29 @@
 	<refsect1>
 		<title>Implemented Interfaces</title>
 		<para>
-			<link linkend="class-canvas-rect"><classname>goocanvas.Rect</classname></link>
+			<link linkend="class-canvas-rect-model"><classname>goocanvas.RectModel</classname></link>
 			implements 
-			<link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>
+			<link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link>
 		</para>
 	</refsect1>
 
 	<refsect1>
 		<title>Description</title>
-			<link linkend="class-canvas-rect"><classname>goocanvas.Rect</classname></link> 
-			represents a rectangle item. It is a subclass of 
-			<link linkend="class-canvas-item-simple"><classname>goocanvas.ItemSimple</classname></link> 
+			<link linkend="class-canvas-rect-model"><classname>goocanvas.RectModel</classname></link> 
+			represents a model for rectangle items. It is a subclass of 
+			<link linkend="class-canvas-item-model-model-simple"><classname>goocanvas.ItemModelModelSimple</classname></link> 
 			and so inherits all of the style properties such as "stroke-color", "fill-color" and "line-width". 
-			It also implements the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
-			interface, so you can use the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
-			functions such as <methodname><link linkend="method-goocanvasitem--raise-">goocanvas.Item.raise_()</link></methodname> 
-			and <methodname><link linkend="method-goocanvasitem--rotate-">goocanvas.Item.rotate()</link></methodname> 
+			It also implements the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> 
+			interface, so you can use the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> 
+			functions such as <methodname><link linkend="method-goocanvasitemmodel--raise-">goocanvas.ItemModel.raise_()</link></methodname> 
+			and <methodname><link linkend="method-goocanvasitemmodel--rotate-">goocanvas.ItemModel.rotate()</link></methodname> 
 	</refsect1>
 
-	<refsect1 id="constructor-canvas-rect">
+	<refsect1 id="constructor-canvas-rect-model">
 		<title>Constructor</title>
 		
 		<programlisting><constructorsynopsis language="python">
-				<methodname>goocanvas.Rect</methodname>
+				<methodname>goocanvas.RectModel</methodname>
 				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
 			</constructorsynopsis></programlisting>
 		
@@ -122,21 +122,26 @@
 			<varlistentry>
 				<term><emphasis>Returns</emphasis>&nbsp;:</term>
 				<listitem><simpara>A new 
-						<link linkend="class-canvas-rect"><classname>goocanvas.Rect</classname></link>
+						<link linkend="class-canvas-rect-model"><classname>goocanvas.RectModel</classname></link>
 					</simpara></listitem>
 			</varlistentry>
 		</variablelist>
 		<para>
-			Creates a new canvas rect item.
+			Creates a new canvas rect model item.
 		</para>
 		<para>
 			Here's an example showing how to create a rectangle at (100,100)
 			with a width of 200 and a height of 100.
 		</para>
 <programlisting>
-rect = goocanvas.Rect(x=100, y=100, width=200, height=100,
-				stroke_color="red", fill_color="blue",
-				line_width=5.0)
+rect = goocanvas.RectModel(parent=root,
+                           x=100,
+                           y=100,
+                           width=200,
+                           height=100,
+                           stroke_color="red",
+                           fill_color="blue",
+                           line_width=5.0)
 </programlisting>
 	</refsect1>
 

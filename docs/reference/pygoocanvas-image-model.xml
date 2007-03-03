@@ -2,22 +2,22 @@
 <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
       "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 
-<refentry id="class-canvas-image">
+<refentry id="class-canvas-image-model">
 
 	<refnamediv>
-		<refname>goocanvas.Image</refname>
-		<refpurpose>An Image item.</refpurpose>
+		<refname>goocanvas.ImageModel</refname>
+		<refpurpose>A model for image items.</refpurpose>
 	</refnamediv>
 	
 	<refsect1>
 		<title>Synopsis</title>
 	
 		<classsynopsis language="python">
-			<ooclass><classname>goocanvas.Image</classname></ooclass>
-			<ooclass><classname>goocanvas.ItemSimple</classname></ooclass>
+			<ooclass><classname>goocanvas.ImageModel</classname></ooclass>
+			<ooclass><classname>goocanvas.ItemModelModelSimple</classname></ooclass>
 			
 			<constructorsynopsis language="python">
-				<methodname><link linkend="constructor-canvas-image">goocanvas.Image</link></methodname>
+				<methodname><link linkend="constructor-canvas-image-model">goocanvas.ImageModel</link></methodname>
 				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
 			</constructorsynopsis>
 		</classsynopsis>
@@ -27,14 +27,14 @@
 		<title>Ancestry</title>
 
 <synopsis>+-- <link linkend="class-gobject">gobject.GObject</link>
-	+-- <link linkend="class-canvas-item-simple">goocanvas.ItemSimple</link>
-		+-- <link linkend="class-canvas-image">goocanvas.Image</link>
+	+-- <link linkend="class-canvas-item-model-model-simple">goocanvas.ItemModelModelSimple</link>
+		+-- <link linkend="class-canvas-image-model">goocanvas.ImageModel</link>
 </synopsis>
 
 	</refsect1>
 	
-	<refsect1 id="properties-goocanvasimage">
-		<title>goocanvas.Image Properties</title>
+	<refsect1 id="properties-goocanvasimagemodel">
+		<title>goocanvas.ImageModel Properties</title>
 	
 		<blockquote role="properties">
 			<informaltable pgwide="1" frame="none">
@@ -87,29 +87,29 @@
 	<refsect1>
 		<title>Implemented Interfaces</title>
 		<para>
-			<link linkend="class-canvas-image"><classname>goocanvas.Image</classname></link>
+			<link linkend="class-canvas-image-model"><classname>goocanvas.ImageModel</classname></link>
 			implements 
-			<link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>
+			<link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link>
 		</para>
 	</refsect1>
 
 	<refsect1>
 		<title>Description</title>
-			<link linkend="class-canvas-image"><classname>goocanvas.Image</classname></link> 
+			<link linkend="class-canvas-image-model"><classname>goocanvas.ImageModel</classname></link> 
 			represents an image item. It is a subclass of 
-			<link linkend="class-canvas-item-simple"><classname>goocanvas.ItemSimple</classname></link> 
+			<link linkend="class-canvas-item-model-model-simple"><classname>goocanvas.ItemModelModelSimple</classname></link> 
 			and so inherits all of the style properties such as "operator" and "pointer-events". 
-			It also implements the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
-			interface, so you can use the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
-			functions such as <methodname><link linkend="method-goocanvasitem--raise-">goocanvas.Item.raise_()</link></methodname> 
-			and <methodname><link linkend="method-goocanvasitem--rotate-">goocanvas.Item.rotate()</link></methodname> 
+			It also implements the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> 
+			interface, so you can use the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> 
+			functions such as <methodname><link linkend="method-goocanvasitemmodel--raise-">goocanvas.ItemModel.raise_()</link></methodname> 
+			and <methodname><link linkend="method-goocanvasitemmodel--rotate-">goocanvas.ItemModel.rotate()</link></methodname> 
 	</refsect1>
 
-	<refsect1 id="constructor-canvas-image">
+	<refsect1 id="constructor-canvas-image-model">
 		<title>Constructor</title>
 		
 		<programlisting><constructorsynopsis language="python">
-				<methodname>goocanvas.Image</methodname>
+				<methodname>goocanvas.ImageModel</methodname>
 				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
 			</constructorsynopsis></programlisting>
 		
@@ -121,19 +121,19 @@
 			<varlistentry>
 				<term><emphasis>Returns</emphasis>&nbsp;:</term>
 				<listitem><simpara>A new 
-						<link linkend="class-canvas-image"><classname>goocanvas.Image</classname></link>
+						<link linkend="class-canvas-image-model"><classname>goocanvas.ImageModel</classname></link>
 					</simpara></listitem>
 			</varlistentry>
 		</variablelist>
 		<para>
-			Creates a new canvas image item.
+			Creates a new canvas model image item.
 		</para>
 		<para>
-			Here's an example showing how to create an image at (100.0, 100.0), 
+			Here's an example showing how to create an image model at (100.0, 100.0), 
 			using the given pixbuf at its natural width and height:
 		</para>
 <programlisting>
-image = goocanvas.Image(pixbuf=pixbuf, x=100, y=100)
+image = goocanvas.ImageModel(pixbuf=pixbuf, x=100, y=100)
 </programlisting>
 	</refsect1>
 

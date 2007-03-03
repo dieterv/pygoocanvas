@@ -2,22 +2,22 @@
 <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
       "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 
-<refentry id="class-canvas-ellipse">
+<refentry id="class-canvas-ellipse-model">
 
 	<refnamediv>
-		<refname>goocanvas.Ellipse</refname>
-		<refpurpose>An ellipse item.</refpurpose>
+		<refname>goocanvas.EllipseModel</refname>
+		<refpurpose>A model for ellipse items.</refpurpose>
 	</refnamediv>
 	
 	<refsect1>
 		<title>Synopsis</title>
 	
 		<classsynopsis language="python">
-			<ooclass><classname>goocanvas.Ellipse</classname></ooclass>
-			<ooclass><classname>goocanvas.ItemSimple</classname></ooclass>
+			<ooclass><classname>goocanvas.EllipseModel</classname></ooclass>
+			<ooclass><classname>goocanvas.ItemSimpleModel</classname></ooclass>
 			
 			<constructorsynopsis language="python">
-				<methodname><link linkend="constructor-canvas-ellipse">goocanvas.Ellipse</link></methodname>
+				<methodname><link linkend="constructor-canvas-ellipse-model">goocanvas.EllipseModel</link></methodname>
 				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
 			</constructorsynopsis>
 		</classsynopsis>
@@ -27,14 +27,14 @@
 		<title>Ancestry</title>
 
 <synopsis>+-- <link linkend="class-gobject">gobject.GObject</link>
-	+-- <link linkend="class-canvas-item-simple">goocanvas.ItemSimple</link>
-		+-- <link linkend="class-canvas-ellipse">goocanvas.Ellipse</link>
+	+-- <link linkend="class-canvas-item-model-simple">goocanvas.ItemModelSimple</link>
+		+-- <link linkend="class-canvas-ellipse-model">goocanvas.EllipseModel</link>
 </synopsis>
 
 	</refsect1>
 	
-	<refsect1 id="properties-goocanvasellipse">
-		<title>goocanvas.Ellipse Properties</title>
+	<refsect1 id="properties-goocanvasellipsemodel">
+		<title>goocanvas.EllipseModel Properties</title>
 	
 		<blockquote role="properties">
 			<informaltable pgwide="1" frame="none">
@@ -75,41 +75,45 @@
 	<refsect1>
 		<title>Implemented Interfaces</title>
 		<para>
-			<link linkend="class-canvas-ellipse"><classname>goocanvas.Ellipse</classname></link>
+			<link linkend="class-canvas-ellipse-model"><classname>goocanvas.EllipseModel</classname></link>
 			implements 
-			<link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>
+			<link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link>
 		</para>
 	</refsect1>
 
 	<refsect1>
 		<title>Description</title>
-			<link linkend="class-canvas-ellipse"><classname>goocanvas.Ellipse</classname></link> 
-			represents an ellipse item. It is a subclass of 
-			<link linkend="class-canvas-item-simple"><classname>goocanvas.ItemSimple</classname></link> 
+			<link linkend="class-canvas-ellipse-model"><classname>goocanvas.EllipseModel</classname></link> 
+			represents a model for ellipse items. It is a subclass of 
+			<link linkend="class-canvas-item-model-simple"><classname>goocanvas.ItemModelSimple</classname></link> 
 			and so inherits all of the style properties such as "stroke-color", "fill-color" and "line-width". 
-			It also implements the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
-			interface, so you can use the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
+			It also implements the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> 
+			interface, so you can use the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> 
 			functions such as <methodname><link linkend="method-goocanvasitem--raise-">goocanvas.Item.raise_()</link></methodname> 
-			and <methodname><link linkend="method-goocanvasitem--rotate-">goocanvas.Item.rotate()</link></methodname> 
+			and <methodname><link linkend="method-goocanvasitem--rotate-">goocanvas.Item.rotate()</link></methodname>.
+            To respond to events such as mouse clicks on the ellipse you must connect to the signal handlers
+            of the corresponding <link linkend="class-canvas-ellipse"><classname>goocanvas.Ellipse</classname></link>
+            objects. (See <methodname><link linkend="method-goocanvas--get-item">get_item</link></methodname> and
+            GooCanvas::item-created.)
 	</refsect1>
 
-	<refsect1 id="constructor-canvas-ellipse">
+	<refsect1 id="constructor-canvas-ellipse-model">
 		<title>Constructor</title>
 		
 		<programlisting><constructorsynopsis language="python">
-				<methodname>goocanvas.Ellipse</methodname>
+				<methodname>goocanvas.EllipseModel</methodname>
 				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
 			</constructorsynopsis></programlisting>
 		
 		<variablelist>
 			<varlistentry>
 				<term><parameter role="keyword">properties</parameter>&nbsp;:</term>
-				<listitem><simpara>A comma separated list of properties.</simpara></listitem>
+				<listitem><simpara>A comma separated properties as **kwargs.</simpara></listitem>
 			</varlistentry>
 			<varlistentry>
 				<term><emphasis>Returns</emphasis>&nbsp;:</term>
 				<listitem><simpara>A new 
-						<link linkend="class-canvas-ellipse"><classname>goocanvas.Ellipse</classname></link>
+						<link linkend="class-canvas-ellipse-model"><classname>goocanvas.EllipseModel</classname></link>
 					</simpara></listitem>
 			</varlistentry>
 		</variablelist>
@@ -122,14 +126,9 @@
 			red outline with a width of 5.0 and filled with blue:
 		</para>
 <programlisting>
-ellipse = goocanvas.Ellipse(parent=root,
-                            center_x=100,
-                            center_y=100,
-                            radius_x=50,
-                            radius_y=30,
-                            stroke_color="red",
-                            fill_color="blue",
-                            line_width=5.0)
+ellipse_model = goocanvas.EllipseModel(parent = root, center_x=100, center_y=100, radius_x=50, radius_y=30,
+				stroke_color="red", fill_color="blue",
+				line_width=5.0)
 </programlisting>
 	</refsect1>
 

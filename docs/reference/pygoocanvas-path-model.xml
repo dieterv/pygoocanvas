@@ -2,22 +2,22 @@
 <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
       "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 
-<refentry id="class-canvas-path">
+<refentry id="class-canvas-path-model">
 
 	<refnamediv>
-		<refname>goocanvas.Path</refname>
-		<refpurpose>A Path item.</refpurpose>
+		<refname>goocanvas.PathModel</refname>
+		<refpurpose>A model for path items.</refpurpose>
 	</refnamediv>
 	
 	<refsect1>
 		<title>Synopsis</title>
 	
 		<classsynopsis language="python">
-			<ooclass><classname>goocanvas.Path</classname></ooclass>
-			<ooclass><classname>goocanvas.ItemSimple</classname></ooclass>
+			<ooclass><classname>goocanvas.PathModel</classname></ooclass>
+			<ooclass><classname>goocanvas.ItemModelModelSimple</classname></ooclass>
 			
 			<constructorsynopsis language="python">
-				<methodname><link linkend="constructor-canvas-path">goocanvas.Path</link></methodname>
+				<methodname><link linkend="constructor-canvas-path-model">goocanvas.PathModel</link></methodname>
 				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
 			</constructorsynopsis>
 		</classsynopsis>
@@ -27,14 +27,14 @@
 		<title>Ancestry</title>
 
 <synopsis>+-- <link linkend="class-gobject">gobject.GObject</link>
-	+-- <link linkend="class-canvas-item-simple">goocanvas.ItemSimple</link>
-		+-- <link linkend="class-canvas-path">goocanvas.Path</link>
+	+-- <link linkend="class-canvas-item-model-model-simple">goocanvas.ItemModelModelSimple</link>
+		+-- <link linkend="class-canvas-path-model">goocanvas.PathModel</link>
 </synopsis>
 
 	</refsect1>
 	
 	<refsect1 id="properties-goocanvaspath">
-		<title>goocanvas.Path Properties</title>
+		<title>goocanvas.PathModel Properties</title>
 	
 		<blockquote role="properties">
 			<informaltable pgwide="1" frame="none">
@@ -59,42 +59,36 @@
 	<refsect1>
 		<title>Implemented Interfaces</title>
 		<para>
-			<link linkend="class-canvas-path"><classname>goocanvas.Path</classname></link>
+			<link linkend="class-canvas-path-model"><classname>goocanvas.PathModel</classname></link>
 			implements 
-			<link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>
+			<link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link>
 		</para>
 	</refsect1>
 
 	<refsect1>
 		<title>Description</title>
-			<link linkend="class-canvas-path"><classname>goocanvas.Path</classname></link> 
+			<link linkend="class-canvas-path-model"><classname>goocanvas.PathModel</classname></link> 
 			represents a path item, which is a series of one or more lines, bezier curves, or elliptical arcs. 
 
 			It is a subclass of 
-			<link linkend="class-canvas-item-simple"><classname>goocanvas.ItemSimple</classname></link> 
+			<link linkend="class-canvas-item-model-model-simple"><classname>goocanvas.ItemModelModelSimple</classname></link> 
 			and so inherits all of the style properties such as "stroke-color", "fill-color" and "line-width".
 
-			It also implements the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
-			interface, so you can use the <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
-			functions such as <methodname><link linkend="method-goocanvasitem--raise-">goocanvas.Item.raise_()</link></methodname> 
-			and <methodname><link linkend="method-goocanvasitem--rotate-">goocanvas.Item.rotate()</link></methodname>
+			It also implements the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> 
+			interface, so you can use the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> 
+			functions such as <methodname><link linkend="method-goocanvasitemmodel--raise-">goocanvas.ItemModel.raise_()</link></methodname> 
+			and <methodname><link linkend="method-goocanvasitemmodel--rotate-">goocanvas.ItemModel.rotate()</link></methodname>
 
-			<link linkend="class-canvas-path"><classname>goocanvas.Path</classname></link> uses the same path specification strings 
+			<link linkend="class-canvas-path-model"><classname>goocanvas.PathModel</classname></link> uses the same path specification strings 
 			as the Scalable Vector Graphics (SVG) path element. For details see the 
 			<ulink url="http://www.w3.org/Graphics/SVG/">SVG Specification</ulink>
-
-			To respond to events such as mouse clicks on the path you must connect to the signal handlers of the corresponding 
-			<link linkend="class-canvas-path-view"><classname>goocanvas.PathView</classname></link> object. 
-			(See <methodname><link linkend="method-goocanvasview--get-item-view">goocanvas.CanvasView.get_item_view()</link></methodname>
-			and <link linkend="class-canvas-view"><classname>goocanvas.CanvasView</classname></link> signal 
-			<link linkend="signal-goocanvasview--item-view-created">"item-view-created"</link>)
 	</refsect1>
 
-	<refsect1 id="constructor-canvas-path">
+	<refsect1 id="constructor-canvas-path-model">
 		<title>Constructor</title>
 		
 		<programlisting><constructorsynopsis language="python">
-				<methodname>goocanvas.Path</methodname>
+				<methodname>goocanvas.PathModel</methodname>
 				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
 			</constructorsynopsis></programlisting>
 		
@@ -106,32 +100,32 @@
 			<varlistentry>
 				<term><emphasis>Returns</emphasis>&nbsp;:</term>
 				<listitem><simpara>A new 
-						<link linkend="class-canvas-path"><classname>goocanvas.Path</classname></link>
+						<link linkend="class-canvas-path-model"><classname>goocanvas.PathModel</classname></link>
 					</simpara></listitem>
 			</varlistentry>
 		</variablelist>
 		<para>
-			Creates a new canvas path item.
+			Creates a new canvas path model item.
 		</para>
 		<para>
 			Here's an example showing how to create a red line from (20,20) to (40,40):
 		</para>
 <programlisting>
-	path = goocanvas.Path(data="M 20 20 L 40 40", stroke_color="red")
+	path = goocanvas.PathModel(data="M 20 20 L 40 40", stroke_color="red")
 </programlisting>
 
 		<para>
 			This example creates a cubic bezier curve from (20,100) to (100,100) with the control points at (20,50) and (100,50):
 		</para>
 <programlisting>
-	path = goocanvas.Path(data="M20,100 C20,50 100,50 100,100", stroke_color="blue")
+	path = goocanvas.PathModel(data="M20,100 C20,50 100,50 100,100", stroke_color="blue")
 </programlisting>
 
 		<para>
 			This example uses an elliptical arc to create a filled circle with one quarter missing:
 		</para>
 <programlisting>
-	path = goocanvas.Path(data="M200,500 h-150 a150,150 0 1,0 150,-150 z", fill_color="red", stroke_color="blue", line_width=5.0,)
+	path = goocanvas.PathModel(data="M200,500 h-150 a150,150 0 1,0 150,-150 z", fill_color="red", stroke_color="blue", line_width=5.0,)
 </programlisting>
 
 	</refsect1>

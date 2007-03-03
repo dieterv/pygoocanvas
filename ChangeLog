@@ -1,3 +1,7 @@
+2007-03-03  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* docs/reference/*: docs fairly completed
+
 2007-03-01  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* goocanvas.override: wrap goo_canvas_item_get_items_at(),

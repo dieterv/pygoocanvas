@@ -35,11 +35,7 @@
 
   <xi:include href="pygoocanvas-core-classes.xml"/>
   <xi:include href="pygoocanvas-std-items.xml"/>
-
-  <!--
-  <xi:include href="pygoocanvas-stdcanvas-classes.xml"/>
-  <xi:include href="pygoocanvas-views-classes.xml"/>
-  <xi:include href="pygoocanvas-misc-classes.xml"/>
-  -->
+  <xi:include href="pygoocanvas-model-items.xml"/>
+  <xi:include href="pygoocanvas-misc-items.xml"/>
 
 </book>

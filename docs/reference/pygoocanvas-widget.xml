@@ -1,0 +1,144 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+      "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="class-canvas-widget">
+
+	<refnamediv>
+		<refname>goocanvas.Widget</refname>
+		<refpurpose>An embedded widget item.</refpurpose>
+	</refnamediv>
+	
+	<refsect1>
+		<title>Synopsis</title>
+	
+		<classsynopsis language="python">
+			<ooclass><classname>goocanvas.Widget</classname></ooclass>
+			<ooclass><classname>goocanvas.ItemSimple</classname></ooclass>
+			
+			<constructorsynopsis language="python">
+				<methodname><link linkend="constructor-canvas-widget">goocanvas.Widget</link></methodname>
+				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis>
+		</classsynopsis>
+	</refsect1>
+
+	<refsect1>
+		<title>Ancestry</title>
+
+<synopsis>+-- <link linkend="class-gobject">gobject.GObject</link>
+	+-- <link linkend="class-canvas-item-simple">goocanvas.ItemSimple</link>
+		+-- <link linkend="class-canvas-widget">goocanvas.Widget</link>
+</synopsis>
+
+	</refsect1>
+	
+	<refsect1 id="properties-goocanvaswidget">
+		<title>goocanvas.Widget Properties</title>
+	
+		<blockquote role="properties">
+			<informaltable pgwide="1" frame="none">
+				<tgroup cols="3">
+					<colspec column="1" colwidth="1in"/>
+					<colspec column="2" colwidth="1in"/>
+					<colspec column="3" colwidth="3.5in"/>
+						<tbody>
+						<row valign="top">
+							<entry>"anchor"</entry>
+							<entry>Read/Write</entry>
+							<entry>How to position the widget relative to the item's x and y coordinate settings.
+                                    Default value: gtk.ANCHOR_NORTH_WEST</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"height"</entry>
+							<entry>Read/Write</entry>
+							<entry>The height of the widget, or -1 to use its requested height. Default value: -1</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"widget"</entry>
+							<entry>Read/Write</entry>
+							<entry>The widget to place in the canvas.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"width"</entry>
+							<entry>Read/Write</entry>
+							<entry>The width of the widget, or -1 to use its requested width. Default value: -1</entry>
+						</row>
+                        <row valign="top">
+							<entry>"x"</entry>
+							<entry>Read/Write</entry>
+							<entry>The x coordinate of the widget. Default value: 0</entry>
+						</row>
+                        <row valign="top">
+							<entry>"y"</entry>
+							<entry>Read/Write</entry>
+							<entry>he y coordinate of the widget. Default value: 0</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</informaltable>
+		</blockquote>
+	</refsect1>
+
+	<refsect1>
+		<title>Implemented Interfaces</title>
+		<para>
+			<link linkend="class-canvas-widget"><classname>goocanvas.Widget</classname></link>
+			implements 
+			<link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link>
+		</para>
+	</refsect1>
+
+	<refsect1>
+		<title>Description</title>
+			<link linkend="class-canvas-widget"><classname>goocanvas.Widget</classname></link> 
+			provides support for placing any GtkWidget in the canvas.
+            Note that there are a number of limitations in the use of GooCanvasWidget:
+            It doesn't support any transformation besides simple translation. This means you can't scale a canvas with a GooCanvasWidget in it.
+            It doesn't support layering, so you can't place other items beneath or above the GooCanvasWidget.
+            It doesn't support rendering of widgets to a given cairo_t, which means you can't output the widget to a pdf or postscript file.
+            It doesn't have a model/view variant like the other standard items, so it can only be used in a simple canvas without a model.
+	</refsect1>
+
+	<refsect1 id="constructor-canvas-widget">
+		<title>Constructor</title>
+		
+		<programlisting><constructorsynopsis language="python">
+				<methodname>goocanvas.Widget</methodname>
+				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">properties</parameter>&nbsp;:</term>
+				<listitem><simpara>A comma separated properties as **kwargs.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara>A new 
+						<link linkend="class-canvas-widget"><classname>goocanvas.Widget</classname></link>
+					</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		<para>
+			Creates a new canvas widget item.
+		</para>
+		<para>
+			Here's an example showing how to create an entry widget centered at (100.0, 100.0):
+		</para>
+<programlisting>
+entry = gtk.Entry()
+ellipse = goocanvas.Widget(parent = root,
+                           widget = entry,
+                           x = 100,
+                           y = 100,
+                           width = -1,
+                           height = -1,
+                           anchor = gtk.ANCHOR_CENTER)
+</programlisting>
+	</refsect1>
+
+</refentry>
