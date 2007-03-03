@@ -1522,3 +1522,44 @@ _wrap_goo_canvas_item_get_items_at(PyGObject *self, PyObject *args, PyObject *kw
     g_list_free(item_list);
     return ret;
 }
+
+%%
+override goo_canvas_item_get_transform noargs
+static PyObject *
+_wrap_goo_canvas_item_get_transform(PyGObject *self)
+{
+    PyObject        *matrix;
+    cairo_matrix_t  transform = {0,};
+    gboolean        res;
+    
+    res = goo_canvas_item_get_transform(GOO_CANVAS_ITEM(self->obj), &transform);
+    
+    if (!res) {
+        Py_INCREF(Py_None);
+        return Py_None;
+    }
+    
+    matrix = PycairoMatrix_FromMatrix(&transform);
+    return matrix;
+}
+
+%%
+override goo_canvas_item_model_get_transform noargs
+static PyObject *
+_wrap_goo_canvas_item_model_get_transform(PyGObject *self)
+{
+    PyObject        *matrix;
+    cairo_matrix_t  transform = {0,};
+    gboolean        res;
+    
+    res = goo_canvas_item_model_get_transform(GOO_CANVAS_ITEM_MODEL(self->obj),
+                                              &transform);
+    
+    if (!res) {
+        Py_INCREF(Py_None);
+        return Py_None;
+    }
+    
+    matrix = PycairoMatrix_FromMatrix(&transform);
+    return matrix;
+}
