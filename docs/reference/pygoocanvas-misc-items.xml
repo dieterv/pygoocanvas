@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
-<chapter id="pygoocanvas-std-items" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter id="pygoocanvas-misc-items" xmlns:xi="http://www.w3.org/2001/XInclude">
 	<title>PyGooCanvas Miscellaneous Items Reference</title>
 
 <!-- GooCanvas OBJECTS -->
