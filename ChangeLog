@@ -1,6 +1,11 @@
 2007-03-05  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
-	* demo/timer_demo: new example (and test)
+	* demo/clipping_demo.py: new example
+	* demo/demo.py: add new example clipping_demo.py
+
+2007-03-05  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* demo/timer_demo.py: new example (and test)
 
 2007-03-03  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
