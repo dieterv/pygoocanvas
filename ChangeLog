@@ -1,3 +1,7 @@
+2007-03-05  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* demo/timer_demo: new example (and test)
+
 2007-03-03  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* goocanvas.override: fix goo_canvas_item_get_transform ()
