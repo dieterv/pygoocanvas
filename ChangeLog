@@ -1,5 +1,10 @@
 2007-03-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
+	* demo/units-demo.py: new example
+	* demo/Makefile.am: add units-demo.py
+
+2007-03-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
 	* demo/animation_demo.py: new example
 	* demo/demo.py: add new example animation_demo.py
 	* demo/Makefile.am: add animation_demo.py

@@ -20,5 +20,6 @@ EXTRA_DIST =	simple-demo.py		\
 		toroid.png			\
 		timer_demo.py		\
 		clipping_demo.py	\
-        animation_demo.py
+        animation_demo.py	\
+        units-demo.py
 
