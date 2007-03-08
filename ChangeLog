@@ -1,3 +1,8 @@
+2007-03-08  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* goocanvas.defs: add new API goo_canvas_create_cairo_context and
+	goo_canvas_item_get_requested_height
+
 2007-03-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* demo/units-demo.py: new example
