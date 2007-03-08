@@ -851,6 +851,12 @@
   )
 )
 
+(define-method remove
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_remove")
+  (return-type "none")
+)
+
 (define-method is_container
   (of-object "GooCanvasItem")
   (c-name "goo_canvas_item_is_container")
@@ -1528,6 +1534,12 @@
   (parameters
     '("GooCanvasItemModel*" "parent")
   )
+)
+
+(define-method remove
+  (of-object "GooCanvasItemModel")
+  (c-name "goo_canvas_item_model_remove")
+  (return-type "none")
 )
 
 (define-method is_container
