@@ -1,3 +1,7 @@
+2007-03-10  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* docs/reference/pygoocanvas-style.xml: new
+
 2007-03-09  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* goocanvas.defs: add new API goo_canvas_item_remove and

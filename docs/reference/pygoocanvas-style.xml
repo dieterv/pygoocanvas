@@ -1,0 +1,278 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+        "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="class-canvas-style">
+
+    <refnamediv>
+        <refname>goocanvas.Style</refname>
+            <refpurpose>Support for cascading style properties for canvas items.</refpurpose>
+    </refnamediv>
+
+    <refsect1>
+        <title>Synopsis</title>
+
+        <classsynopsis language="python">
+            <ooclass><classname>goocanvas.Style</classname></ooclass>
+            <ooclass><classname>gobject.GObject</classname></ooclass>
+
+            <constructorsynopsis language="python">
+                <methodname><link linkend="constructor-canvas-style">goocanvas.Style</link></methodname>
+                <methodparam></methodparam>
+            </constructorsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasstyle--copy">copy</link></methodname>
+                <methodparam></methodparam>
+            </methodsynopsis>
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasstyle--get-parent">get_parent</link></methodname>
+                <methodparam></methodparam>
+            </methodsynopsis>
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasstyle--get-style-property">get_style_property</link></methodname>
+                <methodparam><parameter role="keyword">property_id</parameter></methodparam>
+            </methodsynopsis>
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasstyle--set-fill-options">set_fill_options</link></methodname>
+                <methodparam><parameter role="keyword">cr</parameter></methodparam>
+            </methodsynopsis>
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasstyle--set-parent">set_parent</link></methodname>
+                <methodparam><parameter role="keyword">parent</parameter></methodparam>
+            </methodsynopsis>
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasstyle--set-stroke-options">set_stroke_options</link></methodname>
+                <methodparam><parameter role="keyword">cr</parameter></methodparam>
+            </methodsynopsis>
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasstyle--set-style-property">set_style_property</link></methodname>
+                <methodparam><parameter role="keyword">property_id</parameter></methodparam>
+                <methodparam><parameter role="keyword">value</parameter></methodparam>
+            </methodsynopsis>
+</classsynopsis>
+
+    </refsect1>
+
+    <refsect1>
+        <title>Ancestry</title>
+
+<synopsis>+-- <link linkend="class-gobject">gobject.GObject</link>
+        +-- <link linkend="class-canvas-style">goocanvas.Style</link>
+</synopsis>
+
+    </refsect1>
+
+    <refsect1>
+        <title>Description</title>
+            <para>
+                <link linkend="class-canvas-style"><classname>goocanvas.Style</classname></link>
+                provides support for cascading style properties for canvas items.
+                It is intended to be used when implementing new canvas items.
+            </para>
+            <para>
+                Style properties are identified by a unique GQuark, and contain arbitrary data stored in a GValue.
+            </para>
+            <para>
+                <link linkend="class-canvas-style"><classname>goocanvas.Style</classname></link>
+                also provides a few convenience functions such as
+                <methodname><link linkend="method-goocanvasstyle--set-stroke-options">set_stroke_options</link></methodname>
+                and <methodname><link linkend="method-goocanvasstyle--set-fill-options">set_fill_options</link></methodname>
+                which efficiently apply an item's standard style properties to the given cairo_t.
+            </para>
+    </refsect1>
+
+    <refsect1 id="constructor-canvas-style">
+        <title>Constructor</title>
+        
+        <programlisting><constructorsynopsis language="python">
+                <methodname>goocanvas.Style</methodname>
+            </constructorsynopsis></programlisting>
+        
+        <variablelist>
+            <varlistentry>
+                <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                <listitem><simpara>A new 
+                        <link linkend="class-canvas-style"><classname>goocanvas.Style</classname></link>
+                    </simpara></listitem>
+            </varlistentry>
+        </variablelist>
+        <para>
+            Creates a new canvas Style object.
+        </para>
+    </refsect1>
+
+    <refsect1>
+        <title>Methods</title>
+
+        <refsect2 id="method-goocanvasstyle--copy">
+            <title>goocanvas.Style.copy</title>
+
+            <programlisting><methodsynopsis language="python">
+                <methodname>convert_from_item_scopypace</methodname>
+                    <methodparam></methodparam>
+                </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>A copy of the given <link linkend="class-canvas-style">
+                    <classname>goocanvas.Style</classname></link></simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Copies the given <link linkend="class-canvas-style"><classname>goocanvas.Style</classname></link>,
+                by copying all of its properties. Though the parent of the new style is left unset.
+            </para>
+        </refsect2>
+
+        <refsect2 id="method-goocanvasstyle--get-parent">
+            <title>goocanvas.Style.get_parent</title>
+
+            <programlisting><methodsynopsis language="python">
+                    <methodname>get_parent</methodname>
+                    <methodparam></methodparam>
+                </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>The parent of the given style, or None.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Gets the parent of the style.
+            </para>
+        </refsect2>
+
+        <refsect2 id="method-goocanvasstyle--get-style-property">
+            <title>goocanvas.Style.get_style_property</title>
+
+            <programlisting><methodsynopsis language="python">
+                    <methodname>get_style_property</methodname>
+                    <methodparam><parameter role="keyword">property_id</parameter></methodparam>
+                </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">property_id</parameter>&nbsp;:</term>
+                    <listitem><simpara>The property identifier.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>The property value, or None if it isn't set.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Gets the value of a property.
+            </para>
+            <para>
+                This searches though all the <link linkend="class-canvas-style"><classname>goocanvas.Style</classname></link>'s
+                own list of property settings and also all ancestor
+                <link linkend="class-canvas-style"><classname>goocanvas.Style</classname></link> objects.
+            </para>
+        </refsect2>
+
+        <refsect2 id="method-goocanvasstyle--set-fill-options">
+            <title>goocanvas.Style.set_fill_options</title>
+
+            <programlisting><methodsynopsis language="python">
+                    <methodname>set_fill_options</methodname>
+                    <methodparam><parameter role="keyword">cr</parameter></methodparam>
+                </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">cr</parameter>&nbsp;:</term>
+                    <listitem><simpara>A cairo context.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>True if a paint source is set,
+                                or False if the fill should be skipped.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Sets the standard cairo fill options using the given style.
+            </para>
+        </refsect2>
+
+        <refsect2 id="method-goocanvasstyle--set-parent">
+            <title>goocanvas.Style.set_parent</title>
+
+            <programlisting><methodsynopsis language="python">
+                <methodname>set_parent</methodname>
+                <methodparam><parameter role="keyword">parent</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">parent</parameter>&nbsp;:</term>
+                    <listitem><simpara>The new parent</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Sets the parent of the style.
+            </para>
+        </refsect2>
+
+        <refsect2 id="method-goocanvasstyle--set-stroke-options">
+            <title>goocanvas.Style.set_stroke_options</title>
+
+            <programlisting><methodsynopsis language="python">
+                    <methodname>set_stroke_options</methodname>
+                    <methodparam><parameter role="keyword">cr</parameter></methodparam>
+                </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">cr</parameter>&nbsp;:</term>
+                    <listitem><simpara>A cairo context.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>True if a paint source is set,
+                                or False if the stroke should be skipped.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Sets the standard cairo stroke options using the given style.
+            </para>
+        </refsect2>
+
+        <refsect2 id="method-goocanvasstyle--set-style-property">
+            <title>goocanvas.Style.set_style_property</title>
+
+            <programlisting><methodsynopsis language="python">
+                <methodname>set_style_property</methodname>
+                <methodparam><parameter role="keyword">property_id</parameter></methodparam>
+                <methodparam><parameter role="keyword">value</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">property_id</parameter>&nbsp;:</term>
+                    <listitem><simpara>the property identifier.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">value</parameter>&nbsp;:</term>
+                    <listitem><simpara>	 the value of the property.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Sets a property in the style, replacing any current setting.
+            </para>
+            <para>
+                Note that this will override the property setting in ancestor
+                <link linkend="class-canvas-style"><classname>goocanvas.Style</classname></link> objects.
+            </para>
+        </refsect2>
+    </refsect1>
+</refentry>

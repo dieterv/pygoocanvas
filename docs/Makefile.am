@@ -18,6 +18,7 @@ XMLFILES = 												\
 	reference/pygoocanvas-item-simple.xml				\
     reference/pygoocanvas-item-model.xml				\
     reference/pygoocanvas-item-model-simple.xml			\
+    reference/pygoocanvas-style.xml						\
 	reference/pygoocanvas-ellipse.xml					\
     reference/pygoocanvas-ellipse-model.xml				\
     reference/pygoocanvas-group.xml						\
@@ -50,6 +51,7 @@ HTML_DATA =										\
 	html/class-item-simple.html					\
     html/class-item-model.html					\
 	html/class-item-model-simple.html			\
+    html/class-canvas-style.html				\
 	html/class-canvas-ellipse.html				\
     html/class-canvas-ellipse-model.html		\
     html/class-canvas-group.html				\
