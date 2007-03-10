@@ -47,10 +47,10 @@ HTML_DATA =										\
     html/pygoocanvas-model-items.html			\
     html/pygoocanvas-misc-items.html			\
 	html/class-canvas.html						\
-	html/class-item.html						\
-	html/class-item-simple.html					\
-    html/class-item-model.html					\
-	html/class-item-model-simple.html			\
+	html/class-canvas-item.html					\
+	html/class-canvas-item-simple.html			\
+    html/class-canvas-item-model.html			\
+	html/class-canvas-item-model-simple.html	\
     html/class-canvas-style.html				\
 	html/class-canvas-ellipse.html				\
     html/class-canvas-ellipse-model.html		\

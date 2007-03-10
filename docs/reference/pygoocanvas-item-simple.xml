@@ -45,7 +45,7 @@
 			</methodsynopsis>
 
 			<methodsynopsis language="python">
-				<methodname><link linkend="method-goocanvasitemsimple--set-model"></link>set_model</methodname>
+				<methodname><link linkend="method-goocanvasitemsimple--set_model"></link>set_model</methodname>
 				<methodparam><parameter role="keyword">model</parameter></methodparam>
 			</methodsynopsis>
 
@@ -84,13 +84,13 @@
 						<tbody>
 						<row valign="top">
 							<entry>"antialias"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The antialiasing mode to use. Default value: cairo.ANTIALIAS_DEFAULT</entry>
 						</row>
                         
                         <row valign="top">
 							<entry>"clip-fill-rule"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The fill rule used to determine which parts of the item are clipped.
                                    Default value: cairo.FILL_RULE_WINDING</entry>
 						</row>
@@ -130,56 +130,56 @@
 
 						<row valign="top">
 							<entry>"fill-rule"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The fill rule used to determine which parts of the item are filled. Default value: cairo.FILL_RULE_WINDING</entry>
 						</row>
                         
                         <row valign="top">
 							<entry>"font"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The base font to use for the text. Default value: None</entry>
 						</row>
                         
                         <row valign="top">
 							<entry>"font-desc"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The attributes specifying which font to use.</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"line-cap"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The line cap style to use. Default value: cairo.LINE_CAP_BUTT</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"line-dash"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The dash pattern to use.</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"line-join"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The line join style to use. Default value: cairo.LINE_JOIN_MITER</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"line-join-miter-limit"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The smallest angle to use with miter joins, in degrees. 
 								Bevel joins will be used below this limit. Allowed values: >= 0 Default value: 10.</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"line-width"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The line width to use for the item's perimeter. Allowed values: >= 0 Default value: 0</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"operator"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The compositing operator to use. Default value: cairo.OPERATOR_OVER</entry>
 						</row>
 
@@ -197,7 +197,7 @@
 
 						<row valign="top">
 							<entry>"stroke-pattern"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The pattern to use to paint the perimeter of the item.</entry>
 						</row>
 
@@ -383,7 +383,7 @@
 			</para>
 		</refsect2>
 
-        <refsect2 id="method-goocanvasitemsimple--set-model">
+        <refsect2 id="method-goocanvasitemsimple--set_model">
 			<title>goocanvas.ItemSimple.set_model</title>
 			<programlisting><methodsynopsis language="python">
 				<methodname>set_model</methodname>
