@@ -1,3 +1,7 @@
+2007-03-11  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* docs/reference/*: some fixes on docs and updating to the new api.
+
 2007-03-10  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* docs/reference/pygoocanvas-style.xml: new

@@ -46,55 +46,55 @@
 
 						<row valign="top">
 							<entry>"alignment"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>How to align the text. Default value: pango.ALIGN_LEFT.</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"anchor"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>How to position the text relative to the given x and y coordinates. Default value: gtk.ANCHOR_NORTH_WEST.</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"font"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The base font to use for the text. Default value: None.</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"font-desc"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The attributes specifying which font to use.</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"text"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The text to display. Default value: None.</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"use-markup"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>Whether to parse PangoMarkup in the text, to support different styles. Default value: False.</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"width"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The width to use to layout the text. Default value: -1.</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"x"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The x coordinate of the text. Default value: 0.</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"y"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The y coordinate of the text. Default value: 0.</entry>
 						</row>
 					</tbody>

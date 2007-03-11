@@ -214,8 +214,8 @@
 
 	<refsect1>
 		<title>Description</title>
-			<link linkend="class-canvas-table-model"><classname>goocanvas.TableModel</classname></link> 
 			<para>
+                <link linkend="class-canvas-table-model"><classname>goocanvas.TableModel</classname></link> 
                 is a table container used to lay out other canvas items.
                 It is used in a similar way to how the GtkTable widget is used to lay out GTK+ widgets.
             </para>

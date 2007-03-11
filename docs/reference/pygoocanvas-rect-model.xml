@@ -46,37 +46,37 @@
 
 						<row valign="top">
 							<entry>"height"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The height of the rectangle. Allowed values: >= 0. Default value: 0.</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"radius_x"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The horizontal radius to use for rounded corners. Allowed values: >= 0. Default value: 0.</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"radius_y"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The vertical radius to use for rounded corners. Allowed values: >= 0. Default value: 0.</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"width"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The width of the rectangle. Allowed values: >= 0. Default value: 0.</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"x"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The x coordinate of the rectangle. Default value: 0.</entry>
 						</row>
 
 						<row valign="top">
 							<entry>"y"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The y coordinate of the rectangle. Default value: 0.</entry>
 						</row>
 					</tbody>

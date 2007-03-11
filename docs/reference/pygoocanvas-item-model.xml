@@ -146,6 +146,11 @@
             </methodsynopsis>
 
             <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitemmodel--remove">remove</link></methodname>
+                <methodparam></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
                 <methodname><link linkend="method-goocanvasitemmodel--remove-child">remove_child</link></methodname>
                 <methodparam><parameter role="keyword">child_num</parameter></methodparam>
             </methodsynopsis>
@@ -262,25 +267,25 @@
 
                         <row valign="top">
                             <entry>"can-focus"</entry>
-                            <entry>Read / Write</entry>
+                            <entry>Read/Write</entry>
                             <entry>If the item can take the keyboard focus. Default value: False</entry>
                         </row>
 
                         <row valign="top">
                             <entry>"description"</entry>
-                            <entry>Read / Write</entry>
+                            <entry>Read/Write</entry>
                             <entry>A description of the item for use by assistive technologies. Default value: NULL</entry>
                         </row>
 
                         <row valign="top">
                             <entry>"parent"</entry>
-                            <entry>Read / Write</entry>
+                            <entry>Read/Write</entry>
                             <entry>The parent item.</entry>
                         </row>
 
                         <row valign="top">
                             <entry>"pointer-events"</entry>
-                            <entry>Read / Write</entry>
+                            <entry>Read/Write</entry>
                             <entry>Specifies when the item receives pointer events. Default value:
                                 goocanvas.EVENTS_VISIBLE_MASK|goocanvas.EVENTS_PAINTED_MASK|
                                 goocanvas.EVENTS_FILL_MASK|goocanvas.EVENTS_STROKE_MASK</entry>
@@ -288,26 +293,26 @@
 
                         <row valign="top">
                             <entry>"title"</entry>
-                            <entry>Read / Write</entry>
+                            <entry>Read/Write</entry>
                             <entry>A short context-rich description of the item for use by 
                                 assistive technologies. Default value: NULL</entry>
                         </row>
 
                         <row valign="top">
                             <entry>"transform"</entry>
-                            <entry>Read / Write</entry>
+                            <entry>Read/Write</entry>
                             <entry>The transformation matrix of the item. </entry>
                         </row>
 
                         <row valign="top">
                             <entry>"visibility"</entry>
-                            <entry>Read / Write</entry>
+                            <entry>Read/Write</entry>
                             <entry>When the canvas item is visible. Default value: goocanvas.ITEM_VISIBLE.</entry>
                         </row>
 
                         <row valign="top">
                             <entry>"visibility-threshold"</entry>
-                            <entry>Read / Write</entry>
+                            <entry>Read/Write</entry>
                             <entry>The scale threshold at which the item becomes visible. 
                                 Allowed values: >= 0 Default value: 0</entry>
                         </row>
@@ -1045,6 +1050,24 @@
     
             <para>
                 Raises an item in the stacking order.
+            </para>
+        </refsect2>
+
+        <refsect2 id="method-goocanvasitemmodel--remove">
+            <title>goocanvas.ItemModel.remove</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>remove</methodname>
+                <methodparam></methodparam>
+            </methodsynopsis></programlisting>
+    
+            <variablelist>
+            </variablelist>
+    
+            <para>
+                Removes a model from its parent. If the model is in a canvas it will be removed.
+            </para>
+            <para>
+                This would normally also result in the model being freed.
             </para>
         </refsect2>
 

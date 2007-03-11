@@ -103,6 +103,12 @@
             </methodsynopsis>
 
             <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--get-requested-height">get_requested_height</link></methodname>
+                <methodparam><parameter role="keyword">cr</parameter></methodparam>
+                <methodparam><parameter role="keyword">width</parameter></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
                 <methodname><link linkend="method-goocanvasitem--get-transform">get_style</link></methodname>
                 <methodparam></methodparam>
             </methodsynopsis>
@@ -143,6 +149,11 @@
             <methodsynopsis language="python">
                 <methodname><link linkend="method-goocanvasitem--raise-">raise_</link></methodname>
                 <methodparam><parameter role="keyword">above</parameter></methodparam>
+            </methodsynopsis>
+
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--remove">remove</link></methodname>
+                <methodparam></methodparam>
             </methodsynopsis>
 
             <methodsynopsis language="python">
@@ -878,6 +889,42 @@
             </para>
         </refsect2>
 
+        <refsect2 id="method-goocanvasitem--get-requested-height">
+            <title>goocanvas.Item.get_requested_height</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>get_requested_height</methodname>
+                <methodparam><parameter role="keyword">cr</parameter></methodparam>
+                <methodparam><parameter role="keyword">width</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">cr</parameter>&nbsp;:</term>
+                    <listitem><simpara>A cairo context.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">width</parameter>&nbsp;:</term>
+                    <listitem><simpara>The width that the item may be allocated.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>The requested height of the item, given the allocated width,
+                    or -1 if the item doesn't support this method or its height doesn't change when
+                    allocated different widths.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                This function is only intended to be used when implementing new canvas items,
+                specifically layout items such as
+                <link linkend="class-canvas-table"><classname>goocanvas.Table</classname></link>.
+            </para>
+            <para>
+                It gets the requested height of a child item, assuming it is allocated the given width.
+                This is useful for text items whose requested height may change depending on the allocated width.
+            </para>
+        </refsect2>
+
         <refsect2 id="method-goocanvasitem--get-style">
             <title>goocanvas.Item.get_style</title>
             <programlisting><methodsynopsis language="python">
@@ -1047,6 +1094,24 @@
     
             <para>
                 Raises an item in the stacking order.
+            </para>
+        </refsect2>
+
+        <refsect2 id="method-goocanvasitem--remove">
+            <title>goocanvas.Item.remove</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>remove</methodname>
+                <methodparam></methodparam>
+            </methodsynopsis></programlisting>
+    
+            <variablelist>
+            </variablelist>
+    
+            <para>
+                Removes an item from its parent. If the item is in a canvas it will be removed.
+            </para>
+            <para>
+                This would normally also result in the item being freed.
             </para>
         </refsect2>
 

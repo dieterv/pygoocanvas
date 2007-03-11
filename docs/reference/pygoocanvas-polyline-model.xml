@@ -56,37 +56,37 @@
 					<tbody>
 						<row valign="top">
 							<entry>"arrow-length"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The length of the arrows, as a multiple of the line width. Allowed values: >= 0. Default value: 5.</entry>
 						</row>
 						<row valign="top">
 							<entry>"arrow-tip-length"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The length of the arrow tip, as a multiple of the line width. Allowed values: >= 0. Default value: 4.</entry>
 						</row>
 						<row valign="top">
 							<entry>"arrow-width"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The width of the arrows, as a multiple of the line width. Allowed values: >= 0. Default value: 4.</entry>
 						</row>
 						<row valign="top">
 							<entry>"close-path"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>If the last point should be connected to the first. Default value: False.</entry>
 						</row>
 						<row valign="top">
 							<entry>"end-arrow"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>If an arrow should be displayed at the end of the polyline. Default value: False.</entry>
 						</row>
 						<row valign="top">
 							<entry>"points"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The array of points.</entry>
 						</row>
 						<row valign="top">
 							<entry>"start-arrow"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>If an arrow should be displayed at the start of the polyline. Default value: False.</entry>
 						</row>
 					</tbody>

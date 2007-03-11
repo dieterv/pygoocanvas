@@ -45,7 +45,7 @@
 			</methodsynopsis>
 
 			<methodsynopsis language="python">
-				<methodname><link linkend="method-goocanvasitemsimple--set_model"></link>set_model</methodname>
+				<methodname><link linkend="method-goocanvasitemsimple--set-model">set_model</link></methodname>
 				<methodparam><parameter role="keyword">model</parameter></methodparam>
 			</methodsynopsis>
 
@@ -118,7 +118,7 @@
 
 						<row valign="top">
 							<entry>"fill-pattern"</entry>
-							<entry>Read / Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The pattern to use to paint the interior of the item.</entry>
 						</row>
 
@@ -383,7 +383,7 @@
 			</para>
 		</refsect2>
 
-        <refsect2 id="method-goocanvasitemsimple--set_model">
+        <refsect2 id="method-goocanvasitemsimple--set-model">
 			<title>goocanvas.ItemSimple.set_model</title>
 			<programlisting><methodsynopsis language="python">
 				<methodname>set_model</methodname>
