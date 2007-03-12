@@ -1,3 +1,8 @@
+2007-03-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* demo/demo.py: some updating
+	* demo/table_demo.py: testing new API and properties
+
 2007-03-11  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* docs/reference/*: some fixes on docs and updating to the new api.

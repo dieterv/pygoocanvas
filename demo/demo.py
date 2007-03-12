@@ -292,17 +292,17 @@ class MyCanvas(object):
         return vbox
 
     def write_pdf_clicked (self, button, canvas):
-    	print "In write_pdf_clicked"
+        print "In write_pdf_clicked"
 
-  	surface = cairo.PDFSurface ("demo.pdf", 9 * 72, 10 * 72)
-	cr = cairo.Context (surface)
+        surface = cairo.PDFSurface ("demo.pdf", 9 * 72, 10 * 72)
+        cr = cairo.Context (surface)
 
-	''' Place it in the middle of our 9x10 page. '''
-  	cr.translate (20, 130)
+        ''' Place it in the middle of our 9x10 page. '''
+        cr.translate (20, 130)
 
-  	canvas.render (cr, None, 1.0)
+        canvas.render (cr, None, 1.0)
 
-  	cr.show_page ()
+        cr.show_page ()
     
     def setup_heading (self, root, text, pos):
         x = (pos % 3) * 200 + 100
@@ -624,6 +624,18 @@ class MyCanvas(object):
                                    font = "Sans 12",
                                    fill_color = "goldenrod")
         self.setup_item_signals (textitem)
+        
+        textitem = goocanvas.Text (parent = root,
+                                   text = "Ellipsized text.",
+                                   x = 20,
+                                   y = 420,
+                                   width = 115,
+                                   anchor = gtk.ANCHOR_W,
+                                   font = "Sans 12",
+                                   fill_color = "blue",
+                                   ellipsize = pango.ELLIPSIZE_END)
+        self.setup_item_signals (textitem)
+        
 
     def setup_invisible_texts (self, root):
         text = goocanvas.Text (parent = root,

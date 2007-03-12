@@ -93,12 +93,14 @@ def create_table (parent, row, column, embedding_level, x, y, rotation, scale, d
 
     return table
 
-def create_demo_table (root):
+def create_demo_table (root, x, y, width, height):
     table = goocanvas.Table (parent = root,
                              row_spacing = 4.0,
-                             column_spacing = 4.0)
+                             column_spacing = 4.0,
+                             width = width,
+                             height = height)
     
-    table.translate (400, 200)
+    table.translate (x, y)
 
     square = goocanvas.Rect (parent = table, 
                              x = 0.0, 
@@ -108,8 +110,12 @@ def create_demo_table (root):
 
     table.set_child_properties (square, 
                                 row = 0,
-                                column = 0)
-
+                                column = 0,
+                                x_shrink = True)
+    
+    square.set_data ("id", "Red square")
+    square.connect ("button_press_event", on_button_press)
+    
     circle = goocanvas.Ellipse (parent = table,
                                 center_x = 0,
                                 center_y = 0,
@@ -119,8 +125,12 @@ def create_demo_table (root):
 
     table.set_child_properties (circle,
                                 row = 0,
-                                column = 1)
-
+                                column = 1,
+                                x_shrink = True)
+    
+    circle.set_data ("id", "Blue circle")
+    circle.connect ("button_press_event", on_button_press)
+  
     p = goocanvas.Points([(25, 0), (0, 50), (50, 50)])
     triangle = goocanvas.Polyline (parent = table, 
                                    close_path = True,
@@ -129,7 +139,67 @@ def create_demo_table (root):
 
     table.set_child_properties (triangle,
                                 row = 0,
-                                column = 2)
+                                column = 2,
+                                x_shrink = True)
+    
+    triangle.set_data ("id", "Yellow triangle")
+    triangle.connect ("button_press_event", on_button_press)
+
+def create_width_for_height_table (root, x, y, width, height, rotation):
+
+    text = "This is a long paragraph that will have to be split over a few \
+           lines so we can see if its allocated height changes when its \
+           allocated width is changed."
+
+    table = goocanvas.Table (parent = root,
+                             width = width,
+                             height = height)
+
+    table.translate (x, y)
+    table.rotate (rotation, 0, 0)
+
+    item = goocanvas.Rect (parent = table,
+                           x = 0.0,
+                           y = 0.0,
+                           width = width - 2,
+                           height = 10.0,
+                           fill_color = "red")
+
+    table.set_child_properties (item,
+                                row = 0,
+                                column = 0,
+                                x_shrink = True)
+
+    item = goocanvas.Text (parent = table,
+                           text = text,
+                           x = 0,
+                           y = 0,
+                           width = -1,
+                           anchor = gtk.ANCHOR_NW)
+
+    table.set_child_properties (item,
+                                row = 1,
+                                column = 0,
+                                x_expand = True,
+                                x_fill = True,
+                                x_shrink = True,
+                                y_expand = True,
+                                y_fill = True)
+
+    item.set_data ("id", "Text Item")
+    item.connect ("button_press_event", on_button_press)
+
+    item = goocanvas.Rect (parent = table,
+                           x = 0.0,
+                           y = 0.0,
+                           width = width - 2,
+                           height = 10.0,
+                           fill_color = "red")
+    
+    table.set_child_properties (item,
+                                row = 2,
+                                column = 0,
+                                x_shrink = True)
 
 window = gtk.Window (gtk.WINDOW_TOPLEVEL)
 window.set_default_size (640, 600)
@@ -150,12 +220,13 @@ vbox.pack_start (scrolled_win, True, True, 0)
 canvas = goocanvas.Canvas ()
 canvas.flags () & gtk.CAN_FOCUS
 canvas.set_size_request (600, 450)
-canvas.set_bounds (0, 0, 1000, 1000)
+canvas.set_bounds (0, 0, 1000, 2000)
 scrolled_win.add (canvas)
 
 root = canvas.get_root_item ()
-
-create_demo_table (root)
+  
+create_demo_table (root, 400, 200, -1, -1)
+create_demo_table (root, 400, 260, 100, -1)
 
 create_table (root, -1, -1, 0, 10, 10, 0, 1.0, DEMO_TEXT_ITEM)
 create_table (root, -1, -1, 0, 180, 10, 30, 1.0, DEMO_TEXT_ITEM)
@@ -172,6 +243,11 @@ create_table (root, -1, -1, 1, 200, 200, 30, 0.8, DEMO_TEXT_ITEM)
 table = create_table (root, -1, -1, 0, 10, 700, 0, 1.0, DEMO_WIDGET_ITEM)
 table.props.width = 300.0
 table.props.height = 200.0
+
+create_width_for_height_table (root, 100, 1000, 200, -1, 0)
+create_width_for_height_table (root, 100, 1200, 300, -1, 0)
+create_width_for_height_table (root, 500, 1000, 200, -1, 30)
+create_width_for_height_table (root, 500, 1200, 300, -1, 30)
 
 window.show_all()
 
