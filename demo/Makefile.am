@@ -1,25 +1,26 @@
 ## Process this file with automake to produce Makefile.in
 
-EXTRA_DIST =	simple-demo.py		\
-		fifteen_demo.py		\
-		features_demo.py	\
-		custom.py 			\
-		custom-simple.py	\
-		paths_demo.py		\
-		dashes.py			\
-		arrowhead_demo.py	\
-		mv-simple-demo.py	\
-		demo.py				\
-		events_demo.py		\
-		flower.png			\
-		focus_demo.py		\
-		grabs_demo.py		\
-		polyline-test.py	\
-		scalability_demo.py	\
-		table_demo.py		\
-		toroid.png			\
-		timer_demo.py		\
-		clipping_demo.py	\
-        animation_demo.py	\
-        units-demo.py
-
+EXTRA_DIST =	misc/simple-demo.py		\
+		misc/dashes.py			\
+		misc/polyline-test.py		\
+		misc/mv-simple-demo.py 		\
+		misc/timer_demo.py		\
+		misc/units-demo.py 		\
+		customs/custom-simple.py 	\
+		customs/custom.py 		\
+		images/toroid.png		\
+		images/flower.png		\
+		simple_demo/fifteen_demo.py	\
+		simple_demo/features_demo.py 	\
+		simple_demo/paths_demo.py	\
+		simple_demo/arrowhead_demo.py	\
+		simple_demo/demo.py		\
+		simple_demo/events_demo.py	\
+		simple_demo/focus_demo.py	\
+		simple_demo/grabs_demo.py	\
+		simple_demo/scalability_demo.py	\
+		simple_demo/table_demo.py	\
+		simple_demo/toroid.png		\
+		simple_demo/clipping_demo.py	\
+		simple_demo/animation_demo.py 	\
+		mv_demo/mv_animation_demo.py

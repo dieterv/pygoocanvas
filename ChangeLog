@@ -1,4 +1,9 @@
-2007-03-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
+2007-03-18  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* demo/*: restructured demo directories, now it's cleaner
+	* demo/mv_demo/mv_animation_demo.py: new example
+
+2007-03-11  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* demo/demo.py: some updating
 	* demo/table_demo.py: testing new API and properties
