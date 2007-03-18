@@ -27,7 +27,7 @@ def create_canvas_scalability ():
     
     ''' Create the canvas and board '''
 
-    pixbuf = gtk.gdk.pixbuf_new_from_file("toroid.png")
+    pixbuf = gtk.gdk.pixbuf_new_from_file("../images/toroid.png")
     width = pixbuf.get_width () + 3
     height = pixbuf.get_height () +1
     

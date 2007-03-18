@@ -710,8 +710,8 @@ class MyCanvas(object):
                         visibility = goocanvas.ITEM_INVISIBLE)
 
     def plant_flower (self, root, x, y, anchor):
-        surface = cairo.ImageSurface.create_from_png ("flower.png")
-        
+        surface = cairo.ImageSurface.create_from_png ("../images/flower.png")
+
         w = surface.get_width ()
         h = surface.get_height ()
         
@@ -724,9 +724,9 @@ class MyCanvas(object):
                                  width = w,
                                  height = h)
         self.setup_item_signals (image)
-        
+
     def setup_images (self, root):
-        im = gtk.gdk.pixbuf_new_from_file ("toroid.png")
+        im = gtk.gdk.pixbuf_new_from_file ("../images/toroid.png")
         
         if im:
             w = im.get_width ()

@@ -1,5 +1,11 @@
 2007-03-18  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
+	* demo/mv_demo/mv_clipping_demo.py: new example
+	* demo/simple_demo/clipping_demo.py: small fix
+	* demo/* updated examples with new paths
+
+2007-03-18  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
 	* demo/*: restructured demo directories, now it's cleaner
 	* demo/mv_demo/mv_animation_demo.py: new example
 
@@ -145,7 +151,7 @@
 
 2007-02-11  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
-	* goocanvas.override: fix get_child_properties() of both Item 
+	* goocanvas.override: fix get_child_properties() of both Item
 	and ItemModel.
 
 2007-02-11  Gian Mario Tagliaretti  <gianmt@gnome.org>
@@ -154,7 +160,7 @@
 
 2007-02-11  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
-	* goocanvas.override: fix set_child_properties() of both Item 
+	* goocanvas.override: fix set_child_properties() of both Item
 	and ItemModel.
 
 2007-02-04  Gian Mario Tagliaretti  <gianmt@gnome.org>
@@ -165,23 +171,23 @@
 
 	* goocanvas.override: wrap function  goo_canvas_polyline_model_new_line()
 	fix goo_canvas_polyline_new_line for python-2.5.
-	
+
 	* goocanvas.defs: wrap function  goo_canvas_polyline_model_new_line() as
 	goocanvas.polyline_model_new_line().
 
 2007-02-03  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
-	* goocanvas.override: wrap goo_canvas_item_model_get_child_properties()	
-	and goo_canvas_item_model_set_child_properties() 
+	* goocanvas.override: wrap goo_canvas_item_model_get_child_properties()
+	and goo_canvas_item_model_set_child_properties()
 
 2007-02-03  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
-	* goocanvas.override: wrap goo_canvas_item_get_child_properties, 
+	* goocanvas.override: wrap goo_canvas_item_get_child_properties,
 	fix set_child_properties() parent->child checking.
 
 2007-02-02  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
-	* goocanvas.override: wrap goo_canvas_item_set_child_properties 
+	* goocanvas.override: wrap goo_canvas_item_set_child_properties
 
 2007-01-28  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
@@ -198,7 +204,7 @@
 	* goocanvas.override (_py_goo_canvas_style_set_property): Allow
 	setting property values of cairo types Matrix and Pattern.
 	Fixes LP#78363.
-	
+
 	* goocanvas.override (_py_canvas_style_get_property)
 	(_py_goo_canvas_style_set_property)
 	(_wrap_goo_canvas_style_get_property)
@@ -272,7 +278,7 @@
 
 2006-12-30  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
-	* goocanvas.defs: fix method Canvas.pointer_grab it has to 
+	* goocanvas.defs: fix method Canvas.pointer_grab it has to
 	accept cursor = None
 	demo/*: some more examples
 
@@ -290,7 +296,7 @@
 
 2006-12-27  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
-	* goocanvas.defs: lower and raise_ methods should accept None, 
+	* goocanvas.defs: lower and raise_ methods should accept None,
 	fix function name polyline_new_line
 
 2006-12-24  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
@@ -299,7 +305,7 @@
 	* goocanvas.override: updated manually wrapped API and ignored *_new
 	* demo/simple-demo.py: updated with new API
 	* demo/mv-simple-demo.py: new example model-view
-	
+
 === 0.4.2 ===
 2006-10-29  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
@@ -319,7 +325,7 @@
 
 2006-09-17  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
-	* goocanvas.defs: added missing methods of ItemView, get_transform, 
+	* goocanvas.defs: added missing methods of ItemView, get_transform,
 	set_transform, get_combined_transform, get_item_view_at.
 
 2006-09-17  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
@@ -369,7 +375,7 @@
 	GooCanvasItemViewSimple.item setter.
 	(_wrap_goo_canvas_item_view_simple__set_flags): Implement
 	GooCanvasItemViewSimple.flags setter.
-	(_wrap_goo_canvas_item_view_simple__set_bounds) 
+	(_wrap_goo_canvas_item_view_simple__set_bounds)
 	(_wrap_goo_canvas_item_view_simple__get_bounds): Implement getter
 	and setter for GooCanvasItemViewSimple.bounds.
 
@@ -379,8 +385,8 @@
 === 0.4.0 ===
 2006-08-25  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
-	* configure.in: require pygobject 2.10.1 which is the minumum 
-	required version to compile without docs and change version 
+	* configure.in: require pygobject 2.10.1 which is the minumum
+	required version to compile without docs and change version
 	to 0.4 according to goocanvas version.
 
 2006-08-25  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
@@ -400,7 +406,7 @@
 
 	* docs/Makefile.am: remove $(CSS_FILES) since is not needed
 	and breaks distcheck (thanks to Marco Pesenti Gritti)
-	
+
 	* configure.in: get rid of the gtk+ dependency, pygtk already
 	takes care of that (thanks to Marco Pesenti Gritti)
 
@@ -481,9 +487,9 @@
 2006-08-10  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
 	* docs/: imported the docs infrastructure
-	
+
 	* Makefile.am: added docs stuff
-	
+
 	* configure.in: depend from pygobject-2.11.1 to build the docs
 
 2006-08-07  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
@@ -504,7 +510,7 @@
 
 	* demo/paths-demo.py:
 	add paths-demo.py.
-	
+
 	* demo/Makefile.am:
 	add paths-demo.py
 
@@ -576,12 +582,12 @@
 
 	* goocanvas.override: Add the possibility to parse polyline
 	properties with the constructor goocanvas.polyline_new_line()
-	
+
 2006-07-12  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
 	* demo/features-demo.py:
 	add features-demo.py.
-	
+
 	* demo/Makefile.am:
 	add features-demo.py, fix fifteen-demo.py.
 
@@ -607,13 +613,13 @@
 2006-07-07  Gian Mario Tagliaretti  <g.tagliaretti@parafenalia.org>
 
 	* goocanvas.override (_wrap_goo_canvas_polyline_new_line): Add
-	this wrapper as goocanvas.polyline_new_line() and ignore 
+	this wrapper as goocanvas.polyline_new_line() and ignore
 	goo_canvas_item_new
-    
+
 	* goocanvas.defs: renamed goo_canvas_polyline_new_line to
 	polyline_new_line
 
-	* TODO: Add support for properties to polyline_new_line() 
+	* TODO: Add support for properties to polyline_new_line()
 
 2006-06-26  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
@@ -677,4 +683,3 @@
 	codegenerator : CairoMatrixArg for cairo_matrix_t*.
 	* goocanvas.override:
 	Remove overrides for methods now codegenerated.
- 
