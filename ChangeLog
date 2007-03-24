@@ -1,3 +1,10 @@
+2007-03-23  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* demo/Makefile.am: small fixes
+	* configure.ac: bump to version 0.7.0 and require goocanvas 0.7
+	but I don't fire a release (still require goocanvas from CVS to compile)
+	* demo/mv_demo/mv_animation_demo.py: new example
+
 2007-03-18  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* demo/mv_demo/mv_clipping_demo.py: new example

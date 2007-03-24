@@ -20,7 +20,7 @@ EXTRA_DIST =	misc/simple-demo.py		\
 		simple_demo/grabs_demo.py	\
 		simple_demo/scalability_demo.py	\
 		simple_demo/table_demo.py	\
-		simple_demo/toroid.png		\
 		simple_demo/clipping_demo.py	\
 		simple_demo/animation_demo.py 	\
-		mv_demo/mv_animation_demo.py
+		mv_demo/mv_animation_demo.py 	\
+		mv_demo/mv_clipping_demo.py
