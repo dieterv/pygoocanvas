@@ -59,7 +59,7 @@ class MyCanvas(object):
         canvas.scroll_to (500, 500)
         
     def animate_ellipse_clicked (self, button, canvas):
-        self.ellipse2.animate (100, 100, 1, 90, 1000, 40,
+        self.ellipse2.animate (100, 100, 1, 90, True, 1000, 40,
                                goocanvas.ANIMATE_BOUNCE)
     
     def stop_animation_clicked (self, button, canvas):

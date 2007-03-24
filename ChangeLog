@@ -1,3 +1,8 @@
+2007-03-24  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* demo/simple_demo/demo.py: fix ellipse animation
+	by proppy@gmail.com fixes LP#95468
+
 2007-03-23  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* demo/Makefile.am: small fixes
