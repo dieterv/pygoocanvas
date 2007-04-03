@@ -1,3 +1,9 @@
+2007-04-03  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* arg-types.py: Register some const-GooCanvasBounds* argtypes.
+
+	* goocanvas.defs (allocate_area): Add consts to follow goocanvas API.
+
 2007-03-24  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* demo/simple_demo/demo.py: fix ellipse animation

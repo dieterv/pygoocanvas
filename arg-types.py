@@ -65,6 +65,7 @@ class BoundsPtrArg(ArgType):
         info.codeafter.append('   return pygoo_canvas_bounds_new(ret);\n');
 
 matcher.register('GooCanvasBounds*', BoundsPtrArg())
+matcher.register('const-GooCanvasBounds*', BoundsPtrArg())
 
 class GooCanvasBoundPtrReturn(reversewrapper.ReturnType):
     def get_c_type(self):
@@ -96,6 +97,7 @@ class GooCanvasBoundPtrParam(reversewrapper.Parameter):
         self.wrapper.add_pyargv_item("py_%s" % self.name)
 
 matcher.register_reverse("GooCanvasBounds*", GooCanvasBoundPtrParam)
+matcher.register_reverse("const-GooCanvasBounds*", GooCanvasBoundPtrParam)
 
 class GObjectReturn(reversewrapper.GObjectReturn):
     def write_conversion(self):

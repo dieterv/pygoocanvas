@@ -1262,7 +1262,7 @@
   (return-type "none")
   (parameters
     '("cairo_t*" "cr")
-    '("GooCanvasBounds*" "bounds")
+    '("const-GooCanvasBounds*" "bounds")
     '("gdouble" "scale")
   )
 )
@@ -1279,8 +1279,8 @@
   (return-type "none")
   (parameters
     '("cairo_t*" "cr")
-    '("GooCanvasBounds*" "requested_area")
-    '("GooCanvasBounds*" "allocated_area")
+    '("const-GooCanvasBounds*" "requested_area")
+    '("const-GooCanvasBounds*" "allocated_area")
     '("gdouble" "x_offset")
     '("gdouble" "y_offset")
   )
@@ -1956,7 +1956,7 @@
   (return-type "none")
   (parameters
     '("cairo_t*" "cr")
-    '("GooCanvasBounds*" "bounds")
+    '("const-GooCanvasBounds*" "bounds")
   )
 )
 (define-virtual simple_is_item_at
