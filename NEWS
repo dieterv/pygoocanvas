@@ -1,3 +1,27 @@
+PyGooCanvas 0.8.0	(Apr 03 2007)
+=================
+
+ o Register some const-GooCanvasBounds* argtypes (Gustavo)
+ o Fix ellipse animation by proppy@gmail.com fixes LP#95468
+ o Restructured examples and docs (Gian Mario)
+ o Add new API following goocanvas (Gian Mario)
+   goo_canvas_item_remove
+   goo_canvas_item_model_remove
+   goo_canvas_create_cairo_context
+   goo_canvas_item_get_requested_height
+ o Fix goo_canvas_item_get_transform and
+   goo_canvas_item_model_get_transform (Gian Mario)
+ o Wrap wrap goo_canvas_item_get_items_at(Gian Mario)
+ o Fix goo_canvas_item_simple_get_path_bounds (Gian Mario)
+ o Wrap goo_canvas_get_items_at goo_canvas_get_items_in_area (Gian Mario)
+ o Wrap few more methods as classmethod (Gian Mario)
+   GooCanvasItem.install_child_property
+   GooCanvasItemModel.install_child_property
+   GooCanvasItemModel.find_child_property
+   GooCanvasItem.list_child_properties
+   GooCanvasItemModel.list_child_properties
+ 
+
 PyGooCanvas 0.6.0	(Feb 19 2007)
 =================
 
