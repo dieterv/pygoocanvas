@@ -506,15 +506,30 @@ _wrap_goo_canvas_item_remove_child(PyGObject *self, PyObject *args, PyObject *kw
     return Py_None;
 }
 %%
-override goo_canvas_get_bounds args
+override goo_canvas_get_bounds noargs
 static PyObject *
-_wrap_goo_canvas_get_bounds(PyGObject *self, PyObject *args)
+_wrap_goo_canvas_get_bounds(PyGObject *self)
 {
     gdouble left, right, top, bottom;
     
     goo_canvas_get_bounds(GOO_CANVAS(self->obj), &left, &right, &top, &bottom);
     
     return Py_BuildValue("dddd", left, right, top, bottom);
+}
+
+%%
+override goo_canvas_item_get_bounds noargs
+static PyObject *
+_wrap_goo_canvas_item_get_bounds(PyGObject *self)
+{
+    PyObject        *py_bounds;
+    GooCanvasBounds bounds = {0,};
+        
+    goo_canvas_item_get_bounds(GOO_CANVAS_ITEM(self->obj), &bounds);
+
+    py_bounds = pygoo_canvas_bounds_new(&bounds);
+
+    return py_bounds;
 }
 
 %%

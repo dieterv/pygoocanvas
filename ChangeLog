@@ -1,3 +1,8 @@
+2007-04-07  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* goocanvas.override: manually wrap goo_canvas_item_get_bounds,
+	set noargs to goo_canvas_get_bounds.
+
 === 0.8.0 ===
 2007-04-03  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
