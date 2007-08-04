@@ -1,7 +1,11 @@
+2007-08-04  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* goocanvas.defs: add goocanvas.ItemSimple.get_line_width
+
 2007-08-03  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* configure.ac: fix compilation on Solaris, patch by
-    JerryYu <jijun.yu@sun.com>. Fixes LP#130106
+	JerryYu <jijun.yu@sun.com>. Fixes LP#130106
 
 2007-04-07  Gian Mario Tagliaretti  <gianmt@gnome.org>
 

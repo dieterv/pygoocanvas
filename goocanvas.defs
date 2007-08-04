@@ -1922,6 +1922,12 @@
   (return-type "none")
 )
 
+(define-method get_line_width
+  (of-object "GooCanvasItemSimple")
+  (c-name "goo_canvas_item_simple_get_line_width")
+  (return-type "gdouble")
+)
+
 (define-method set_model
   (of-object "GooCanvasItemSimple")
   (c-name "goo_canvas_item_simple_set_model")
