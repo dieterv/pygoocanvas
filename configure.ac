@@ -105,7 +105,9 @@ PKG_CHECK_MODULES(PYGOOCANVAS, [ dnl
                          goocanvas >= goocanvas_required_version,
                          pycairo >= pycairo_required_version
                          ])
-PYGOOCANVAS_LIBS=`echo $PYGOOCANVAS_LIBS | sed -e "s/$export_dynamic//"`
+if test -n "$export_dynamic"; then
+	PYGOOCANVAS_LIBS=`echo $PYGOOCANVAS_LIBS | sed -e "s/$export_dynamic//"`
+fi
 PYGTK_DATADIR=`pkg-config --variable=datadir pygtk-2.0`
 
 AC_SUBST(PYGTK_CFLAGS)
