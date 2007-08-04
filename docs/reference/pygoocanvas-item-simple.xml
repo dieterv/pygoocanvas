@@ -34,6 +34,11 @@
 				<methodparam></methodparam>
 			</methodsynopsis>
 
+            <methodsynopsis language="python">
+				<methodname><link linkend="method-goocanvasitemsimple--get-line-width">get_line_width</link></methodname>
+				<methodparam></methodparam>
+			</methodsynopsis>
+
 			<methodsynopsis language="python">
 				<methodname><link linkend="method-goocanvasitemsimple--get-path-bounds">get_path_bounds</link></methodname>
 				<methodparam><parameter role="keyword">cr</parameter></methodparam>
@@ -332,6 +337,25 @@
                 <link linkend="class-canvas-style"><classname>goocanvas.Style</classname></link>
                 it makes sure the parent is set correctly.
                 If it doesn't have its own style it uses the parent item's style.
+			</para>
+		</refsect2>
+
+        <refsect2 id="method-goocanvasitemsimple--get-line-width">
+			<title>goocanvas.ItemSimple.get_line_width</title>
+			<programlisting><methodsynopsis language="python">
+				<methodname>get_line_width</methodname>
+				<methodparam></methodparam>
+			</methodsynopsis></programlisting>
+
+			<variablelist>
+                <varlistentry>
+					<term><emphasis>Returns</emphasis>&nbsp;:</term>
+					<listitem><simpara>The item's line width.</simpara></listitem>
+				</varlistentry>
+			</variablelist>
+
+			<para>
+				Gets the item's line width.
 			</para>
 		</refsect2>
 

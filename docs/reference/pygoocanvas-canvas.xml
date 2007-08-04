@@ -214,6 +214,31 @@
                         </row>
                         
                         <row valign="top">
+                            <entry>"automatic-bounds"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>If the bounds are automatically calculated based
+                                    on the bounds of all the items in the canvas.</entry>
+                        </row>
+                        
+                        <row valign="top">
+                            <entry>"bounds-from-origin"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>If the automatic bounds are calculated from the origin.</entry>
+                        </row>
+                        
+                        <row valign="top">
+                            <entry>"bounds-padding"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The padding added to the automatic bounds.</entry>
+                        </row>
+                        
+                        <row valign="top">
+                            <entry>"integer-layout"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>If all item layout is done to the nearest integer.</entry>
+                        </row>
+                        
+                        <row valign="top">
                             <entry>"resolution_x"</entry>
                             <entry>Read/Write</entry>
                             <entry>The horizontal resolution of the display, in dots per inch. Allowed values: >= 0
@@ -232,6 +257,18 @@
                             <entry>Read/Write</entry>
                             <entry>The number of pixels to use for each device unit. Allowed values: >= 0
                                          Default value: 1</entry>
+                        </row>
+                        
+                        <row valign="top">
+                            <entry>"scale-x"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The horizontal magnification factor of the canvas.</entry>
+                        </row>
+                        
+                        <row valign="top">
+                            <entry>"scale-y"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The vertical magnification factor of the canvas.</entry>
                         </row>
                         
                         <row valign="top">

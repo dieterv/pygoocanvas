@@ -672,7 +672,8 @@
             <variablelist>
                 <varlistentry>
                     <term><emphasis>Returns</emphasis>&nbsp;:</term>
-                    <listitem><simpara>A tuple containing the four coordinates.</simpara></listitem>
+                    <listitem><simpara>A <link linkend="class-canvas-bounds"><classname>goocanvas.Bounds</classname></link>
+                    holding the four coordinates.</simpara></listitem>
                 </varlistentry>
             </variablelist>
 

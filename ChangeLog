@@ -1,5 +1,13 @@
 2007-08-04  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
+	* docs/reference/goocanvas.xml: add new properties.
+
+	* docs/reference/goocanvas-item-simple.xml: document get_line_width
+
+	* docs/reference/goocanvas-item.xml: fix docs for get_bounds.
+
+2007-08-04  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
 	* goocanvas.defs: add goocanvas.ItemSimple.get_line_width
 
 2007-08-03  Gian Mario Tagliaretti  <gianmt@gnome.org>
