@@ -1,3 +1,13 @@
+PyGooCanvas 0.9.0	(Aug 18 2007)
+=================
+
+ o Wrap goo_canvas_item_get_bounds (Gian Mario)
+ o fix compilation on Solaris, patch by
+   JerryYu <jijun.yu@sun.com>. Fixes LP#130106 (Gian Mario)
+ o Add goocanvas.ItemSimple.get_line_width (Gian Mario)
+ o Docs updated fixes LP#124921 (Gian Mario)
+
+
 PyGooCanvas 0.8.0	(Apr 03 2007)
 =================
 
