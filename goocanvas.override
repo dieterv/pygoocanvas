@@ -1578,3 +1578,23 @@ _wrap_goo_canvas_item_model_get_transform(PyGObject *self)
     matrix = PycairoMatrix_FromMatrix(&transform);
     return matrix;
 }
+
+%%
+override-attr GooCanvasItemSimple.bounds
+
+static int
+_wrap_goo_canvas_item_simple__set_bounds(PyGObject *self, PyObject *py_value, void *closure)
+{
+    if (!PyObject_IsInstance(py_value, (PyObject*) &PyGooCanvasBounds_Type)) {
+        PyErr_SetString(PyExc_TypeError, "value must be goocanvas.Bounds");
+        return -1;
+    }
+    GOO_CANVAS_ITEM_SIMPLE(pygobject_get(self))->bounds = ((PyGooCanvasBounds*) py_value)->bounds;
+    return 0;
+}
+
+static PyObject*
+_wrap_goo_canvas_item_simple__get_bounds(PyGObject *self, void *closure)
+{
+    return pygoo_canvas_bounds_new(&GOO_CANVAS_ITEM_SIMPLE(pygobject_get(self))->bounds);
+}

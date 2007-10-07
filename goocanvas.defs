@@ -56,7 +56,8 @@
    ("double" "bounds.x1")
    ("double" "bounds.x2")
    ("double" "bounds.y1")
-   ("double" "bounds.y2"))
+   ("double" "bounds.y2")
+   ("GooCanvasBounds" "bounds"))
 )
 
 (define-object Image
