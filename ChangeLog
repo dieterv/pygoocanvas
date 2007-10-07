@@ -1,5 +1,9 @@
 2007-10-07  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* goocanvas.override: include config.h so that with recent
+	pygtk-codegen we get a __version__ attribute on the module defined
+	for free.
+
 	* configure.ac bump version to 0.9.1.
 
 	* goocanvas.defs:
