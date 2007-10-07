@@ -1,5 +1,9 @@
 2007-10-07  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* Makefile.am:
+	* configure.ac:
+	* pygoocanvas.pc.in: Install a .pc file.
+
 	* goocanvas.override: include config.h so that with recent
 	pygtk-codegen we get a __version__ attribute on the module defined
 	for free.

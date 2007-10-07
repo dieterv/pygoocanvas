@@ -137,6 +137,7 @@ AC_CONFIG_FILES(
   demo/Makefile
   docs/Makefile
   docs/reference/entities.docbook
+  pygoocanvas.pc
 )
 
 GTK_DOC_CHECK(1.4)

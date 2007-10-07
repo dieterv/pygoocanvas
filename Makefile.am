@@ -32,3 +32,9 @@ CLEANFILES = goocanvas.c
 		--prefix py$* $*.defs) > gen-$*.c \
 	    && cp gen-$*.c $*.c \
 	    && rm -f gen-$*.c
+
+
+
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = pygoocanvas.pc
+EXTRA_DIST += pygoocanvas.pc
