@@ -3,7 +3,7 @@
 	* goocanvas.defs:
 	* goocanvas.override: Add goocanvas.ItemSimple.bounds getsets.
 
-=== 0.8.0 ===
+=== 0.9.0 ===
 2007-08-18  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* NEWS: Update.
