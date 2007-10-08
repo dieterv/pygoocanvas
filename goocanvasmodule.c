@@ -3,6 +3,7 @@
 #endif
 
 #include <pygobject.h>
+#define NO_IMPORT_PYGTK
 #include <pygtk/pygtk.h>
 #include <goocanvas.h>
 
