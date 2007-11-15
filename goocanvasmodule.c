@@ -74,6 +74,7 @@ initgoocanvas (void)
     pyg_register_gtype_custom(GOO_TYPE_CAIRO_MATRIX,
 			      _cairo_matrix_from_gvalue,
 			      _cairo_matrix_to_gvalue);
+    PyModule_AddObject(m, "TYPE_CAIRO_PATTERN", pyg_type_wrapper_new(GOO_TYPE_CAIRO_PATTERN));
     pyg_register_gtype_custom(GOO_TYPE_CAIRO_PATTERN,
 			      _cairo_pattern_from_gvalue,
 			      _cairo_pattern_to_gvalue);
