@@ -1,3 +1,7 @@
+2007-11-19  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* demo/customs/custom-svg.py: New custom example for SVG images.
+
 2007-11-15  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* goocanvasmodule.c: fix object registration TYPE_CAIRO_PATTERN.
