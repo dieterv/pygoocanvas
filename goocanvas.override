@@ -210,6 +210,7 @@ modulename goocanvas
 import gobject.GObject as PyGObject_Type
 import gtk.Container as PyGtkContainer_Type
 import gtk.Adjustment as PyGtkAdjustment_Type
+import gtk.gdk.CairoContext as PyGdkCairoContext_Type
 
 %%
 ignore
@@ -648,7 +649,7 @@ _wrap_GooCanvasItem__proxy_do_update(GooCanvasItem *self, gboolean entire_tree,
 
     py_bounds = PyObject_CallMethod(py_self, "do_update", "iN",
                                     entire_tree,
-                                    PycairoContext_FromContext(cairo_reference(cr), NULL, NULL));
+                                    PycairoContext_FromContext(cairo_reference(cr), &PyGdkCairoContext_Type, NULL));
     if (py_bounds)
         *bounds = ((PyGooCanvasBounds *) py_bounds)->bounds;
     else

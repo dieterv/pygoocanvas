@@ -772,6 +772,28 @@
   )
 )
 
+(define-method get_child_property
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_get_child_property")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItem*" "child")
+    '("const-gchar*" "property_name")
+    '("GValue*" "value")
+  )
+)
+
+(define-method set_child_property
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_set_child_property")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItem*" "child")
+    '("const-gchar*" "property_name")
+    '("const-GValue*" "value")
+  )
+)
+
 (define-method get_child_properties
   (of-object "GooCanvasItem")
   (c-name "goo_canvas_item_get_child_properties")
@@ -897,6 +919,18 @@
   (return-type "none")
   (parameters
     '("cairo_matrix_t*" "matrix")
+  )
+)
+
+(define-method get_simple_transform
+  (of-object "GooCanvasItem")
+  (c-name "goo_canvas_item_get_simple_transform")
+  (return-type "gboolean")
+  (parameters
+    '("gdouble*" "x")
+    '("gdouble*" "y")
+    '("gdouble*" "scale")
+    '("gdouble*" "rotation")
   )
 )
 
@@ -1482,6 +1516,28 @@
   )
 )
 
+(define-method get_child_property
+  (of-object "GooCanvasItemModel")
+  (c-name "goo_canvas_item_model_get_child_property")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItemModel*" "child")
+    '("const-gchar*" "property_name")
+    '("GValue*" "value")
+  )
+)
+
+(define-method set_child_property
+  (of-object "GooCanvasItemModel")
+  (c-name "goo_canvas_item_model_set_child_property")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItemModel*" "child")
+    '("const-gchar*" "property_name")
+    '("const-GValue*" "value")
+  )
+)
+
 (define-method get_child_properties
   (of-object "GooCanvasItemModel")
   (c-name "goo_canvas_item_model_get_child_properties")
@@ -1582,6 +1638,18 @@
   (return-type "none")
   (parameters
     '("cairo_matrix_t*" "matrix")
+  )
+)
+
+(define-method get_simple_transform
+  (of-object "GooCanvasItemModel")
+  (c-name "goo_canvas_item_model_get_simple_transform")
+  (return-type "gboolean")
+  (parameters
+    '("gdouble*" "x")
+    '("gdouble*" "y")
+    '("gdouble*" "scale")
+    '("gdouble*" "rotation")
   )
 )
 
@@ -2276,6 +2344,16 @@
     '("GtkAnchorType" "anchor")
   )
   (varargs #t)
+)
+
+(define-method get_natural_extents
+  (of-object "GooCanvasText")
+  (c-name "goo_canvas_text_get_natural_extents")
+  (return-type "none")
+  (parameters
+    '("PangoRectangle*" "ink_rect")
+    '("PangoRectangle*" "logical_rect")
+  )
 )
 
 (define-function goo_canvas_text_model_get_type

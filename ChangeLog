@@ -1,3 +1,14 @@
+2008-04-27  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* configure.ac bump version to 0.10.0 and require goocanvas 0.10.
+
+	* goocanvas.defs: update with new API.
+	
+	* goocanvas.override:
+	* argtypes.py: fix a bug introduced by pycairo API change, see
+	LP bug #222503 reported by David Boucher.
+
+
 2007-11-19  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* demo/customs/custom-svg.py: New custom example for SVG images.
