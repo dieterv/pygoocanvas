@@ -1,3 +1,15 @@
+2008-04-29  Gian Mario Tagliaretti  <gianmt@gnome.org>
+	
+	* goocanvas.override:
+	(goo_canvas_text_get_natural_extents)
+	(goo_canvas_item_get_simple_transform)
+	(goo_canvas_item_model_get_simple_transform)
+	(goo_canvas_item_set_child_property)
+	(goo_canvas_item_get_child_property)
+	(goo_canvas_item_model_set_child_property)
+	(goo_canvas_item_model_get_child_property)
+	manually wrap the above methods.
+
 2008-04-27  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* configure.ac bump version to 0.10.0 and require goocanvas 0.10.

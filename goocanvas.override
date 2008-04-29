@@ -1601,3 +1601,276 @@ _wrap_goo_canvas_item_simple__get_bounds(PyGObject *self, void *closure)
 {
     return pygoo_canvas_bounds_new(&GOO_CANVAS_ITEM_SIMPLE(pygobject_get(self))->bounds);
 }
+
+%%
+override goo_canvas_text_get_natural_extents noargs
+static PyObject *
+_wrap_goo_canvas_text_get_natural_extents(PyGObject *self)
+{
+    PangoRectangle ink_rect, logical_rect;
+
+    goo_canvas_text_get_natural_extents(GOO_CANVAS_TEXT(self->obj), &ink_rect,
+                                        &logical_rect);
+    
+    return Py_BuildValue("((iiii)(iiii))",
+			 ink_rect.x, ink_rect.y,
+			 ink_rect.width, ink_rect.height,
+			 logical_rect.x, logical_rect.y,
+			 logical_rect.width, logical_rect.height);
+}
+
+%%
+override goo_canvas_item_get_simple_transform noargs
+static PyObject *
+_wrap_goo_canvas_item_get_simple_transform(PyGObject *self)
+{
+    gdouble x, y, scale, rotation;
+    
+    goo_canvas_item_get_simple_transform(GOO_CANVAS_ITEM(self->obj), &x, &y,
+                                         &scale, &rotation);
+    
+    return Py_BuildValue("dddd", x, y, scale, rotation);
+}
+
+%%
+override goo_canvas_item_model_get_simple_transform noargs
+static PyObject *
+_wrap_goo_canvas_item_model_get_simple_transform(PyGObject *self)
+{
+    gdouble x, y, scale, rotation;
+    
+    goo_canvas_item_model_get_simple_transform(GOO_CANVAS_ITEM_MODEL(self->obj),
+                                               &x, &y, &scale, &rotation);
+    
+    return Py_BuildValue("dddd", x, y, scale, rotation);
+}
+
+%%
+override goo_canvas_item_set_child_property kwargs
+static PyObject *
+_wrap_goo_canvas_item_set_child_property(PyGObject *self,
+                                         PyObject *args,
+                                         PyObject *kwargs)
+{
+    static char    *kwlist[] = { "child", "property", "value", NULL };
+    gchar *property_name;
+    PyGObject *pychild;
+    GooCanvasItem *item, *child;
+    PyGObject *pyvalue;
+    GObjectClass *class;
+    GParamSpec *pspec;
+    GValue value = { 0, } ;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "O!sO:GooCanvasItem.set_child_property",
+                                     kwlist,
+                                    &PyGooCanvasItem_Type, &pychild,
+                                    &property_name, &pyvalue)) {
+        return NULL;
+    }
+    
+    item = GOO_CANVAS_ITEM(self->obj);
+    child = GOO_CANVAS_ITEM(pychild->obj);
+
+    if (goo_canvas_item_find_child(item, child) == -1) {
+        PyErr_SetString(PyExc_TypeError,
+                        "first argument must be a child");
+        return NULL;
+    }
+
+    class = G_OBJECT_GET_CLASS(self->obj);
+    pspec = goo_canvas_item_class_find_child_property(class, property_name);
+    if (!pspec) {
+        gchar buf[512];
+        g_snprintf(buf, sizeof(buf),
+                   "item does not support property `%s'",
+                   property_name);
+        PyErr_SetString(PyExc_TypeError, buf);
+
+        return NULL;
+    }
+
+    g_value_init(&value, G_PARAM_SPEC_VALUE_TYPE(pspec));
+
+    pyg_value_from_pyobject(&value, (PyObject*)pyvalue);
+
+    goo_canvas_item_set_child_property(item,
+                                       child,
+                                       property_name,
+                                       &value);
+    g_value_unset(&value);
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+%%
+override goo_canvas_item_get_child_property 
+static PyObject *
+_wrap_goo_canvas_item_get_child_property(PyGObject *self,
+                                         PyObject *args,
+                                         PyObject *kwargs)
+{
+    static char    *kwlist[] = { "child", "property", NULL };
+    PyGObject *pychild;
+    gchar *property_name;
+    GooCanvasItem *item, *child;
+    GObjectClass *class;
+    GParamSpec *pspec;
+    GValue value = { 0, } ;
+    PyObject *ret;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "O!s:GooCanvasItem.get_child_property",
+                                     kwlist, &PyGooCanvasItem_Type, &pychild,
+                                     &property_name)) {
+        return NULL;
+    }
+
+    item = GOO_CANVAS_ITEM(self->obj);
+    child = GOO_CANVAS_ITEM(pychild->obj);
+
+    if (goo_canvas_item_find_child(item, child) == -1) {
+        PyErr_SetString(PyExc_TypeError,
+                        "first argument must be a child");
+        return NULL;
+    }
+
+    class = G_OBJECT_GET_CLASS(item);
+    pspec = goo_canvas_item_class_find_child_property(class, property_name);
+    if (!pspec) {
+        gchar buf[512];
+        g_snprintf(buf, sizeof(buf),
+                   "item does not support property `%s'",
+                   property_name);
+
+        PyErr_SetString(PyExc_TypeError, buf);
+        return NULL;
+    }
+
+    g_value_init(&value, G_PARAM_SPEC_VALUE_TYPE(pspec));
+
+    goo_canvas_item_get_child_property(item,
+                                       child,
+                                       property_name,
+                                       &value);
+
+    ret = pyg_value_as_pyobject(&value, TRUE);
+    g_value_unset(&value);
+
+    return ret;
+}
+
+%%
+override goo_canvas_item_model_set_child_property kwargs
+static PyObject *
+_wrap_goo_canvas_item_model_set_child_property(PyGObject *self,
+                                         PyObject *args,
+                                         PyObject *kwargs)
+{
+    static char    *kwlist[] = { "child", "property", "value", NULL };
+    gchar *property_name;
+    PyGObject *pychild;
+    GooCanvasItemModel *item, *child;
+    PyGObject *pyvalue;
+    GObjectClass *class;
+    GParamSpec *pspec;
+    GValue value = { 0, } ;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                "O!sO:GooCanvasItemModel.set_child_property",
+                                kwlist,
+                                &PyGooCanvasItemModel_Type, &pychild,
+                                &property_name, &pyvalue)) {
+        return NULL;
+    }
+    
+    item = GOO_CANVAS_ITEM_MODEL(self->obj);
+    child = GOO_CANVAS_ITEM_MODEL(pychild->obj);
+
+    if (goo_canvas_item_model_find_child(item, child) == -1) {
+        PyErr_SetString(PyExc_TypeError,
+                        "first argument must be a child");
+        return NULL;
+    }
+
+    class = G_OBJECT_GET_CLASS(self->obj);
+    pspec = goo_canvas_item_model_class_find_child_property(class, property_name);
+    if (!pspec) {
+        gchar buf[512];
+        g_snprintf(buf, sizeof(buf),
+                   "item model does not support property `%s'",
+                   property_name);
+        PyErr_SetString(PyExc_TypeError, buf);
+
+        return NULL;
+    }
+
+    g_value_init(&value, G_PARAM_SPEC_VALUE_TYPE(pspec));
+
+    pyg_value_from_pyobject(&value, (PyObject*)pyvalue);
+
+    goo_canvas_item_model_set_child_property(item,
+                                             child,
+                                             property_name,
+                                             &value);
+    g_value_unset(&value);
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+%%
+override goo_canvas_item_model_get_child_property 
+static PyObject *
+_wrap_goo_canvas_item_model_get_child_property(PyGObject *self,
+                                         PyObject *args,
+                                         PyObject *kwargs)
+{
+    static char    *kwlist[] = { "child", "property", NULL };
+    PyGObject *pychild;
+    gchar *property_name;
+    GooCanvasItemModel *item, *child;
+    GObjectClass *class;
+    GParamSpec *pspec;
+    GValue value = { 0, } ;
+    PyObject *ret;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                "O!s:GooCanvasItemModel.get_child_property",
+                                kwlist, &PyGooCanvasItemModel_Type, &pychild,
+                                &property_name)) {
+        return NULL;
+    }
+
+    item = GOO_CANVAS_ITEM_MODEL(self->obj);
+    child = GOO_CANVAS_ITEM_MODEL(pychild->obj);
+
+    if (goo_canvas_item_model_find_child(item, child) == -1) {
+        PyErr_SetString(PyExc_TypeError,
+                        "first argument must be a child");
+        return NULL;
+    }
+
+    class = G_OBJECT_GET_CLASS(item);
+    pspec = goo_canvas_item_model_class_find_child_property(class, property_name);
+    if (!pspec) {
+        gchar buf[512];
+        g_snprintf(buf, sizeof(buf),
+                   "item model does not support property `%s'",
+                   property_name);
+
+        PyErr_SetString(PyExc_TypeError, buf);
+        return NULL;
+    }
+
+    g_value_init(&value, G_PARAM_SPEC_VALUE_TYPE(pspec));
+
+    goo_canvas_item_model_get_child_property(item,
+                                             child,
+                                             property_name,
+                                             &value);
+
+    ret = pyg_value_as_pyobject(&value, TRUE);
+    g_value_unset(&value);
+
+    return ret;
+}
