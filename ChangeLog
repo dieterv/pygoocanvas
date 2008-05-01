@@ -1,4 +1,9 @@
+2008-05-01  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* configure.ac: bump version to 0.10.1.
+
 === 0.10.0 ===
+2008-05-01  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* NEWS: Updated
 
