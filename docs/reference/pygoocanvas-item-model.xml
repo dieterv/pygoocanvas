@@ -69,7 +69,14 @@
 
             <methodsynopsis language="python">
                 <methodname><link linkend="method-goocanvasitemmodel--get-child-properties">get_child_properties</link></methodname>
-                <methodparam></methodparam>
+                <methodparam><parameter role="keyword">child</parameter></methodparam>
+                <methodparam><parameter role="keyword">...</parameter></methodparam>
+            </methodsynopsis>
+            
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitemmodel--get-child-property">get_child_property</link></methodname>
+                <methodparam><parameter role="keyword">child</parameter></methodparam>
+                <methodparam><parameter role="keyword">property</parameter></methodparam>
             </methodsynopsis>
 
             <methodsynopsis language="python">
@@ -103,12 +110,17 @@
             </methodsynopsis>
 
             <methodsynopsis language="python">
-                <methodname><link linkend="method-goocanvasitemmodel--get-transform">get_style</link></methodname>
+                <methodname><link linkend="method-goocanvasitemmodel--get-style">get_style</link></methodname>
                 <methodparam></methodparam>
             </methodsynopsis>
 
             <methodsynopsis language="python">
                 <methodname><link linkend="method-goocanvasitemmodel--get-transform">get_transform</link></methodname>
+                <methodparam></methodparam>
+            </methodsynopsis>
+            
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitemmodel--get-simple-transform">get_simple_transform</link></methodname>
                 <methodparam></methodparam>
             </methodsynopsis>
 
@@ -180,7 +192,14 @@
 
             <methodsynopsis language="python">
                 <methodname><link linkend="method-goocanvasitemmodel--set-child-properties">set_child_properties</link></methodname>
+                <methodparam><parameter role="keyword">child</parameter></methodparam>
                 <methodparam><parameter role="keyword">properties</parameter></methodparam>
+            </methodsynopsis>
+            
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitemmodel--set-child-property">set_child_property</link></methodname>
+                <methodparam><parameter role="keyword">child</parameter></methodparam>
+                <methodparam><parameter role="keyword">property</parameter></methodparam>
             </methodsynopsis>
 
             <methodsynopsis language="python">
@@ -723,7 +742,7 @@
             <programlisting><methodsynopsis language="python">
                 <methodname>get_child_properties</methodname>
                 <methodparam><parameter role="keyword">child</parameter></methodparam>
-                <methodparam><parameter role="keyword">...</parameter></methodparam>
+                <methodparam><parameter role="keyword">properties</parameter></methodparam>
             </methodsynopsis></programlisting>
 
             <variablelist>
@@ -734,7 +753,7 @@
                     </simpara></listitem>
                 </varlistentry>
                 <varlistentry>
-                    <term><parameter role="keyword">...</parameter>&nbsp;:</term>
+                    <term><parameter role="keyword">properties</parameter>&nbsp;:</term>
                     <listitem><simpara>property names as string</simpara></listitem>
                 </varlistentry>
                 <varlistentry>
@@ -745,6 +764,36 @@
 
             <para>
                 Gets the values of one or more child properties of child.
+            </para>
+        </refsect2>
+        
+        <refsect2 id="method-goocanvasitemmodel--get-child-property">
+            <title>goocanvas.ItemModel.get_child_property</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>get_child_property</methodname>
+                <methodparam><parameter role="keyword">child</parameter></methodparam>
+                <methodparam><parameter role="keyword">property</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">child</parameter>&nbsp;:</term>
+                    <listitem><simpara>a child
+                    <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link>
+                    </simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">property</parameter>&nbsp;:</term>
+                    <listitem><simpara>property name as string</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>The property value.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Gets the value of the property of child.
             </para>
         </refsect2>
 
@@ -896,6 +945,28 @@
 
             <para>
                 Gets the item's style. If the item doesn't have its own style it will return its parent's style.
+            </para>
+        </refsect2>
+        
+        <refsect2 id="method-goocanvasitemmodel--get-simple-transform">
+            <title>goocanvas.ItemModel.get_simple_transform</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>get_simple_transform</methodname>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>A 4 item tuple containing the item's x, y, scale and rotation.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+    
+            <para>
+                This function can be used to get the position, scale and rotation of an item, providing that
+                the item has a simple transformation matrix (e.g. set with
+                <methodname><link linkend="method-goocanvasitemmodel--set-simple-transform">goocanvas.ItemModel.set_simple_transform</link></methodname>(),
+                or using a combination of simple translate, scale and rotate operations).
+                If the item has a complex transformation matrix the results will be incorrect.
             </para>
         </refsect2>
 
@@ -1204,6 +1275,30 @@
                 Sets the values of one or more child properties of child.
             </para>
         </refsect2>
+        
+        <refsect2 id="method-goocanvasitemmodel--set-child-property">
+            <title>goocanvas.ItemModel.set_child_property</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>set_child_property</methodname>
+                <methodparam><parameter role="keyword">child</parameter></methodparam>
+                <methodparam><parameter role="keyword">property</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">child</parameter>&nbsp;:</term>
+                    <listitem><simpara>A child <link linkend="class-canvas-item-model">goocanvas.ItemModel</link></simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">property</parameter>&nbsp;:</term>
+                    <listitem><simpara>The property to set as string</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Sets a child property of child.
+            </para>
+        </refsect2>
 
         <refsect2 id="method-goocanvasitemmodel--set-model">
             <title>goocanvas.ItemModel.set_model</title>
@@ -1239,8 +1334,15 @@
             </variablelist>
 
             <para>
-                Sets the parent of the item.
+                This function is only intended to be used when implementing new canvas item models
+                (specifically container models such as
+                <link linkend="class-canvas-group-model">goocanvas.GroupModel</link>).
+                It sets the parent of the child model. 
             </para>
+            <note>
+                This function cannot be used to add a model to a group or to change the parent of a model.
+                To do that use the "parent" property.
+            </note>
         </refsect2>
 
         <refsect2 id="method-goocanvasitemmodel--set-simple-transform">

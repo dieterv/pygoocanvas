@@ -1,3 +1,13 @@
+2008-05-01  Gian Mario Tagliaretti  <gianmt@gnome.org>
+	
+	* docs/reference/pygoocanvas-item-model.xml
+	* docs/reference/pygoocanvas-item-simple.xml
+	* docs/reference/pygoocanvas-item.xml
+	* docs/reference/pygoocanvas-canvas.xml
+	* docs/reference/pygoocanvas-text.xml
+	* docs/reference/pygoocanvas-table.xml
+	docs updated.
+
 2008-04-29  Gian Mario Tagliaretti  <gianmt@gnome.org>
 	
 	* goocanvas.override:

@@ -233,6 +233,13 @@
                         </row>
                         
                         <row valign="top">
+                            <entry>"clear-background"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>If the background is cleared before the canvas is painted.
+                            Default value: <literal>True</literal></entry>
+                        </row>
+                        
+                        <row valign="top">
                             <entry>"integer-layout"</entry>
                             <entry>Read/Write</entry>
                             <entry>If all item layout is done to the nearest integer.</entry>

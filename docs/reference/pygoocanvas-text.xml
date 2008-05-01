@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
-      "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+	"http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 
 <refentry id="class-canvas-text">
 
@@ -20,6 +20,12 @@
 				<methodname><link linkend="constructor-canvas-text">goocanvas.Text</link></methodname>
 				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
 			</constructorsynopsis>
+			
+			<methodsynopsis language="python">
+		   	 <methodname><link linkend="method-goocanvastext--get_natural_extents">convert_from_item_space</link></methodname>
+				<methodparam></methodparam>
+			</methodsynopsis>
+
 		</classsynopsis>
 	</refsect1>
 
@@ -157,5 +163,32 @@ text = goocanvas.Text(string="Hello, World!", x=500, y=500
 						fill_color="blue")
 </programlisting>
 	</refsect1>
+	
+	<refsect1>
+        <title>Methods</title>
 
+        <refsect2 id="method-goocanvastext--get-natural-extents">
+            <title>goocanvas.Text.get_natural_extents</title>
+
+            <programlisting><methodsynopsis language="python">
+                <methodname>get_natural_extents</methodname>
+                    <methodparam></methodparam>
+                </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>a 2-tuple containing two 4-tuples representing the ink and
+					logical rectangles used to store the extents of glyph as drawn.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Gets the natural extents of the text, in the text item's coordinate space.
+				The final extents of the text may be different, if the text item is placed
+				in a layout container such as
+				<link linkend="class-canvas-table"><classname>goocanvas.Table</classname></link>.
+            </para>
+        </refsect2>
+	</refsect1>
 </refentry>

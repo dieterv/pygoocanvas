@@ -117,7 +117,7 @@
 
 						<row valign="top">
 							<entry>"fill-color-rgba"</entry>
-							<entry>Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The color to use to paint the interior of the item, specified as a 32-bit integer value. Default value: 0</entry>
 						</row>
 
@@ -196,7 +196,7 @@
 
 						<row valign="top">
 							<entry>"stroke-color-rgba"</entry>
-							<entry>Write</entry>
+							<entry>Read/Write</entry>
 							<entry>The color to use for the item's perimeter, specified as a 32-bit integer value. Default value: 0</entry>
 						</row>
 

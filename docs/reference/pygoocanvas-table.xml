@@ -67,17 +67,43 @@
                             <entry>Read/Write</entry>
                             <entry>If all rows are the same height. Default value: False</entry>
                         </row>
+			
+			<row valign="top">
+                            <entry>"horiz-grid-line-width"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The width of the grid line to draw between rows. Allowed values: >= 0.  Default value: 0.</entry>
+                        </row>
 
                         <row valign="top">
                             <entry>"row-spacing"</entry>
                             <entry>Read/Write</entry>
                             <entry>The default space between rows. Allowed values: >= 0 Default value: 0</entry>
                         </row>
+			
+			<row valign="top">
+                            <entry>"vert-grid-line-width"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The width of the grid line to draw between columns. Allowed values: >= 0.  Default value: 0.</entry>
+                        </row>
 
                         <row valign="top">
                             <entry>"width"</entry>
                             <entry>Read/Write</entry>
                             <entry>The requested width of the table, or -1 to use the default width. Default value: -1</entry>
+                        </row>
+			
+			<row valign="top">
+                            <entry>"x-border-spacing"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The amount of spacing between the lefmost and rightmost cells and the border grid line.
+			    Allowed values: >= 0. Default value: 0.</entry>
+                        </row>
+			
+			<row valign="top">
+                            <entry>"y-border-spacing"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The amount of spacing between the topmost and bottommost cells and the border grid line.
+			    Allowed values: >= 0. Default value: 0.</entry>
                         </row>
 
                     </tbody>
