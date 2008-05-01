@@ -1,3 +1,17 @@
+PyGooCanvas 0.10.0	(May 01 2008)
+==================
+
+ o Install a .pc file (Gustavo)
+ o Add goocanvas.ItemSimple.bounds getsets (Gustavo)
+ o prevent PYGTK from being imported into goocanvasmodule,
+   patch from Randall Wood. Fixes LP#150412
+ o fix object registration TYPE_CAIRO_PATTERN (Gian Mario)
+ o New custom example for SVG images. (Gian Mario)
+ o update with new goocanvas 0.10 API (Gian Mario)
+ o fix a bug introduced by pycairo API change, see LP#222503
+   reported by David Boucher (Gian Mario)
+ o Update docs according to new API (Gian Mario)
+
 PyGooCanvas 0.9.0	(Aug 18 2007)
 =================
 
