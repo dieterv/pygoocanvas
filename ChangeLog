@@ -1,3 +1,9 @@
+2008-05-13  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* goocanvas.defs:
+	* goocanvas.override: wrap goocanvas.Points fields,
+	reported by Bruno Coudoin.
+
 2008-05-01  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* configure.ac: bump version to 0.10.1.

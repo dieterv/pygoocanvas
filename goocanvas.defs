@@ -101,6 +101,9 @@
   (gtype-id "GOO_TYPE_CANVAS_POINTS")
   (copy-func "goo_canvas_points_ref")
   (release-func "goo_canvas_points_unref")
+  (fields
+   ("double*" "coords")
+   ("int" "num_points"))
 )
 
 (define-object Polyline
