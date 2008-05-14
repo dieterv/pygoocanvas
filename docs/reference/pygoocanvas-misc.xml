@@ -127,6 +127,33 @@ bounds = goocanvas.Bounds(100.0, 100.0, 200.0, 200.0)
 </synopsis>
 
 	</refsect1>
+	
+	<refsect1 id="attributes-goocanvaspoints">
+		<title>goocanvas.Points Attributes</title>
+	
+		<blockquote role="properties">
+			<informaltable pgwide="1" frame="none">
+				<tgroup cols="3">
+					<colspec column="1" colwidth="1in"/>
+					<colspec column="2" colwidth="1in"/>
+					<colspec column="3" colwidth="3.5in"/>
+						<tbody>
+						<row valign="top">
+							<entry>"coords"</entry>
+							<entry>Read</entry>
+							<entry>The coordinates of the points, as a list of tuples.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"num_points"</entry>
+							<entry>Read</entry>
+							<entry>The number of points.</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</informaltable>
+		</blockquote>
+	</refsect1>
 
 	<refsect1>
 		<title>Description</title>
