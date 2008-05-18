@@ -1,6 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 
 EXTRA_DIST =	misc/simple-demo.py		\
+		misc/gradient-demo.py		\
 		misc/dashes.py			\
 		misc/polyline-test.py		\
 		misc/mv-simple-demo.py 		\

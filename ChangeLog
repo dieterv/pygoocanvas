@@ -1,3 +1,8 @@
+2008-05-18  Gian Mario Tagliaretti  <gianmt@gnome.org>
+	
+	* demo/misc/gradient-demo-py:
+	add a gradient demo to test fill_pattern.
+
 2008-05-14  Gian Mario Tagliaretti  <gianmt@gnome.org>
 	
 	* docs/reference/pygoocanvas-misc.xml:
