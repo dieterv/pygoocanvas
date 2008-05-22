@@ -106,7 +106,6 @@
             <methodsynopsis language="python">
                 <methodname><link linkend="method-goocanvasitem--get-requested-area">get_requested_area</link></methodname>
                 <methodparam><parameter role="keyword">cr</parameter></methodparam>
-                <methodparam><parameter role="keyword">requested_area</parameter></methodparam>
             </methodsynopsis>
 
             <methodsynopsis language="python">
@@ -912,7 +911,6 @@
             <programlisting><methodsynopsis language="python">
                 <methodname>get_requested_area</methodname>
                 <methodparam><parameter role="keyword">cr</parameter></methodparam>
-                <methodparam><parameter role="keyword">requested_area</parameter></methodparam>
             </methodsynopsis></programlisting>
 
             <variablelist>
@@ -921,21 +919,16 @@
                     <listitem><simpara>A cairo context.</simpara></listitem>
                 </varlistentry>
                 <varlistentry>
-                    <term><parameter role="keyword">requested_area</parameter>&nbsp;:</term>
-                    <listitem><simpara>A GooCanvasBounds to return the requested area in, in the
-                                       parent's coordinate space.</simpara></listitem>
-                </varlistentry>
-                <varlistentry>
                     <term><emphasis>Returns</emphasis>&nbsp;:</term>
-                    <listitem><simpara>True if the item should be allocated space.</simpara></listitem>
+                    <listitem><simpara>A <link linkend="class-canvas-bounds"><classname>goocanvas.Bounds
+                    </classname></link> containing the requested area.</simpara></listitem>
                 </varlistentry>
             </variablelist>
 
             <para>
-                This is used by GooCanvasTable and other layout items to get the requested area of each of their children.
-            </para>
-            <para>
-                FIXME: This method is currently broken, it needs to be manually wrapped returning the bounds instead of True/False.
+                This function is only intended to be used when implementing new canvas items, specifically layout items such as
+                <link linkend="class-canvas-table"><classname>goocanvas.Table</classname></link>.
+                It gets the requested area of a child item.
             </para>
         </refsect2>
 
@@ -1565,7 +1558,6 @@
                 <methodname>update</methodname>
                 <methodparam><parameter role="keyword">entire_tree</parameter></methodparam>
                 <methodparam><parameter role="keyword">cr</parameter></methodparam>
-                <methodparam><parameter role="keyword">bounds</parameter></methodparam>
             </methodsynopsis></programlisting>
 
             <variablelist>
@@ -1578,13 +1570,16 @@
                     <listitem><simpara>A cairo context.</simpara></listitem>
                 </varlistentry>
                 <varlistentry>
-                    <term><parameter role="keyword">bounds</parameter>&nbsp;:</term>
-                    <listitem><simpara>A GooCanvasBounds to return the new bounds in.</simpara></listitem>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>A <link linkend="class-canvas-bounds"><classname>goocanvas.Bounds
+                    </classname></link> containing the requested area.</simpara></listitem>
                 </varlistentry>
             </variablelist>
 
             <para>
-                Updates the item, if needed, and any children.
+                This function is only intended to be used when implementing new canvas items, specifically layout items such as
+                <link linkend="class-canvas-group"><classname>goocanvas.Group</classname></link>.
+                Updates the item, if needed, and any children, returning the bounding box.
             </para>
         </refsect2>
     </refsect1>

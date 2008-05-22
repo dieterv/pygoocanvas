@@ -1,5 +1,12 @@
 2008-05-18  Gian Mario Tagliaretti  <gianmt@gnome.org>
 	
+	* goocanvas.override: (goo_canvas_item_get_requested_area)
+	(goo_canvas_item_update) Manually wrap.
+	
+	* docs/reference/pygoocanvas-item.xml: update the docs.
+
+2008-05-18  Gian Mario Tagliaretti  <gianmt@gnome.org>
+	
 	* demo/misc/gradient-demo-py:
 	add a gradient demo to test fill_pattern.
 
