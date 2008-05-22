@@ -1944,3 +1944,31 @@ _wrap_goo_canvas_item_update(PyGObject *self, PyObject *args, PyObject *kwargs)
     
     return pygoo_canvas_bounds_new(&bounds);
 }
+
+%%
+override goo_canvas_item_get_transform_for_child kwargs
+static PyObject *
+_wrap_goo_canvas_item_get_transform_for_child(PyGObject *self,
+                                              PyObject *args,
+                                              PyObject *kwargs)
+{
+    static char *kwlist[] = { "child", NULL };
+    PyGObject *child;
+    int ret;
+    cairo_matrix_t *transform = NULL;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "O!:GooCanvasItem.get_transform_for_child",
+                                     kwlist, &PyGooCanvasItem_Type, &child))
+        return NULL;
+    
+    ret = goo_canvas_item_get_transform_for_child(GOO_CANVAS_ITEM(self->obj),
+                                                  GOO_CANVAS_ITEM(child->obj),
+                                                  transform);
+    
+    if (ret)
+        return PycairoMatrix_FromMatrix(transform);
+    else
+        Py_INCREF(Py_None);
+        return Py_None;
+}

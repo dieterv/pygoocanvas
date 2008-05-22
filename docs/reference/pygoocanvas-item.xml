@@ -128,6 +128,11 @@
                 <methodname><link linkend="method-goocanvasitem--get-transform">get_transform</link></methodname>
                 <methodparam></methodparam>
             </methodsynopsis>
+            
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvasitem--get-transform-for-child">get_transform_for_child</link></methodname>
+                <methodparam><parameter role="keyword">child</parameter></methodparam>
+            </methodsynopsis>
 
             <methodsynopsis language="python">
                 <methodname><link linkend="method-goocanvasitem--is-container">is_container</link></methodname>
@@ -264,7 +269,6 @@
                 <methodname><link linkend="method-goocanvasitem--update">update</link></methodname>
                 <methodparam><parameter role="keyword">entire_tree</parameter></methodparam>
                 <methodparam><parameter role="keyword">cr</parameter></methodparam>
-                <methodparam><parameter role="keyword">bounds</parameter></methodparam>
             </methodsynopsis>
         </classsynopsis>
     </refsect1>
@@ -1023,6 +1027,31 @@
     
             <para>
                 Gets the transformation matrix of an item.
+            </para>
+        </refsect2>
+        
+        <refsect2 id="method-goocanvasitem--get-transform-for-child">
+            <title>goocanvas.Item.get_transform_for_child</title>
+            <programlisting><methodsynopsis language="python">
+                <methodname>get_transform_for_child</methodname>
+                <methodparam><parameter role="keyword">child</parameter></methodparam>
+            </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">child</parameter>&nbsp;:</term>
+                    <listitem><simpara>A child of item.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>The transformation matrix or None</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Gets the transformation matrix of an item combined with any special transform needed for the given child.
+                These special transforms are used by layout items such as
+                <link linkend="class-canvas-table"><classname>goocanvas.Table</classname></link>.
             </para>
         </refsect2>
 
