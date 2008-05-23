@@ -66,6 +66,7 @@ class MyCanvas(object):
         self.ellipse2.stop_animation()
     
     def move_ellipse_clicked (self, button, canvas):
+        self.ellipse2.set_transform(None)
         if self.last_state == 0:
             self.ellipse2.props.center_x = 300
             self.ellipse2.props.center_y = 70

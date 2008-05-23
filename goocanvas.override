@@ -1972,3 +1972,28 @@ _wrap_goo_canvas_item_get_transform_for_child(PyGObject *self,
         Py_INCREF(Py_None);
         return Py_None;
 }
+
+%%
+override goo_canvas_item_set_transform kwargs
+static PyObject *
+_wrap_goo_canvas_item_set_transform(PyGObject *self,
+                                    PyObject *args,
+                                    PyObject *kwargs)
+{
+    static char *kwlist[] = { "matrix", NULL };
+    PyObject *py_matrix;
+    cairo_matrix_t *matrix = NULL;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+                                     "O:GooCanvasItem.set_transform",
+                                     kwlist, &py_matrix))
+        return NULL;
+    
+    if (py_matrix && (py_matrix != Py_None))
+        matrix = &((PycairoMatrix*)(py_matrix))->matrix;
+    
+    goo_canvas_item_set_transform(GOO_CANVAS_ITEM(self->obj), matrix);
+    
+    Py_INCREF(Py_None);
+    return Py_None;
+}
