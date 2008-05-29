@@ -1,3 +1,8 @@
+2008-05-29  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* docs/reference/pygoocanvas-item.xml: Fix docs for the method
+	set_child_property.
+
 2008-05-23  Gian Mario Tagliaretti  <gianmt@gnome.org>
 	
 	* goocanvas.override: (goo_canvas_item_model_set_transform)

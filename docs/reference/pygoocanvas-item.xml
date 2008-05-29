@@ -1349,6 +1349,7 @@
                 <methodname>set_child_property</methodname>
                 <methodparam><parameter role="keyword">child</parameter></methodparam>
                 <methodparam><parameter role="keyword">property</parameter></methodparam>
+                <methodparam><parameter role="keyword">value</parameter></methodparam>
             </methodsynopsis></programlisting>
 
             <variablelist>
@@ -1359,6 +1360,10 @@
                 <varlistentry>
                     <term><parameter role="keyword">property</parameter>&nbsp;:</term>
                     <listitem><simpara>The property to set as string</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">varlistentry</parameter>&nbsp;:</term>
+                    <listitem><simpara>The value to set for the property.</simpara></listitem>
                 </varlistentry>
             </variablelist>
 
