@@ -2023,3 +2023,16 @@ _wrap_goo_canvas_item_model_set_transform(PyGObject *self,
     Py_INCREF(Py_None);
     return Py_None;
 }
+
+%%
+override goo_canvas_create_cairo_context noargs
+static PyObject *
+_wrap_goo_canvas_create_cairo_context(PyGObject *self)
+{
+    cairo_t *ret;
+
+    ret = goo_canvas_create_cairo_context(GOO_CANVAS(self->obj));
+    
+    cairo_reference(ret);
+    return PycairoContext_FromContext(ret, &PyGdkCairoContext_Type, NULL);
+}
