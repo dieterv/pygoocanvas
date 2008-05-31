@@ -1,4 +1,8 @@
-2008-05-23  Gian Mario Tagliaretti  <gianmt@gnome.org>
+2008-05-31  Gian Mario Tagliaretti  <gianmt@gnome.org>
+	
+	* docs/Makefile.am: make ENABLE_DOCS actually work.
+
+2008-05-29  Gian Mario Tagliaretti  <gianmt@gnome.org>
 	
 	* goocanvas.override: (goo_canvas_create_cairo_context)
 	Manually wrap, fix a bad API change in Pycairo.
