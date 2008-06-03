@@ -1,3 +1,8 @@
+2008-06-03  Gian Mario Tagliaretti  <gianmt@gnome.org>
+	
+	* demo/swfdec-demo: play (and drag around...) a flash file
+	into a canvas item.
+
 2008-06-01  Gian Mario Tagliaretti  <gianmt@gnome.org>
 	
 	* tests/*: add unit tests.
