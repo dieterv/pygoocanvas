@@ -1,3 +1,17 @@
+PyGooCanvas 0.12.0	(Sep 21 2008)
+==================
+
+ o wrap goocanvas.Points fields (Gian Mario)
+ o add a gradient demo to test fill_pattern (Gian Mario)
+ o wrap Item.get_requested_area() and  Item.update() (Gian Mario)
+ o wrap Item.get_transform_for_child() (Gian Mario)
+ o manually wrap Item.set_transform() and ItemModel.set_transform(). It' is now
+   possible to use None to unset the matrix (Gian Mario)
+ o manually wrap goocanvas.create_cairo_context() and fix a bad API change
+   in Pycairo. (Gian Mario)
+ o demo play (and drag around...) a flash file into a canvas item. (Gian Mario)
+ o some docs fixes.
+
 PyGooCanvas 0.10.0	(May 01 2008)
 ==================
 
