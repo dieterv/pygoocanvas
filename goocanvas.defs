@@ -298,6 +298,36 @@
   )
 )
 
+(define-method get_static_root_item
+  (of-object "GooCanvas")
+  (c-name "goo_canvas_get_static_root_item")
+  (return-type "GooCanvasItem*")
+)
+
+(define-method set_static_root_item
+  (of-object "GooCanvas")
+  (c-name "goo_canvas_set_static_root_item")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItem*" "item")
+  )
+)
+
+(define-method get_static_root_item_model
+  (of-object "GooCanvas")
+  (c-name "goo_canvas_get_static_root_item_model")
+  (return-type "GooCanvasItemModel*")
+)
+
+(define-method set_static_root_item_model
+  (of-object "GooCanvas")
+  (c-name "goo_canvas_set_static_root_item_model")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItemModel*" "model")
+  )
+)
+
 (define-method get_item
   (of-object "GooCanvas")
   (c-name "goo_canvas_get_item")
@@ -452,6 +482,16 @@
   )
 )
 
+(define-method convert_bounds_to_item_space
+  (of-object "GooCanvas")
+  (c-name "goo_canvas_convert_bounds_to_item_space")
+  (return-type "none")
+  (parameters
+    '("GooCanvasItem*" "item")
+    '("GooCanvasBounds*" "bounds")
+  )
+)
+
 (define-method pointer_grab
   (of-object "GooCanvas")
   (c-name "goo_canvas_pointer_grab")
@@ -537,6 +577,16 @@
   (return-type "none")
   (parameters
     '("GooCanvasBounds*" "bounds")
+  )
+)
+
+(define-method request_item_redraw
+  (of-object "GooCanvas")
+  (c-name "goo_canvas_request_item_redraw")
+  (return-type "none")
+  (parameters
+    '("const-GooCanvasBounds*" "bounds")
+    '("gboolean" "is_static")
   )
 )
 

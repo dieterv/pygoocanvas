@@ -1,4 +1,14 @@
-2008-11-6  Gian Mario Tagliaretti  <gianmt@gnome.org>
+2008-11-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
+	
+	* goocanvas.defs: (request_item_redraw)
+        (convert_bounds_to_item_space)
+        (get_static_root_item)
+        (set_static_root_item)
+        (get_static_root_item_model)
+        (set_static_root_item_model)
+        add new goocanvas.Canvas methods
+
+2008-11-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
 	
 	* goocanvas.defs: add goocanvas.Grid and GridModel
 
