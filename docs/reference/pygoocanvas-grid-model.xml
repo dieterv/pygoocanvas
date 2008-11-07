@@ -1,0 +1,266 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+      "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="class-canvas-grid-model">
+
+	<refnamediv>
+		<refname>goocanvas.GridModel</refname>
+		<refpurpose>A model for grid items.</refpurpose>
+	</refnamediv>
+	
+	<refsect1>
+		<title>Synopsis</title>
+	
+		<classsynopsis language="python">
+			<ooclass><classname>goocanvas.GridModel</classname></ooclass>
+			<ooclass><classname>goocanvas.ItemModelSimple</classname></ooclass>
+			
+			<constructorsynopsis language="python">
+				<methodname><link linkend="constructor-canvas-grid-model">goocanvas.GridModel</link></methodname>
+				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis>
+		</classsynopsis>
+	</refsect1>
+
+	<refsect1>
+		<title>Ancestry</title>
+
+<synopsis>+-- <link linkend="class-gobject">gobject.GObject</link>
+	+-- <link linkend="class-canvas-item-model-simple">goocanvas.ItemModelSimple</link>
+		+-- <link linkend="class-canvas-grid-model">goocanvas.GridModel</link>
+</synopsis>
+
+	</refsect1>
+	
+	<refsect1 id="properties-goocanvasgridmodel">
+		<title>goocanvas.GridModel Properties</title>
+	
+		<blockquote role="properties">
+			<informaltable pgwide="1" frame="none">
+				<tgroup cols="3">
+					<colspec column="1" colwidth="1in"/>
+					<colspec column="2" colwidth="1in"/>
+					<colspec column="3" colwidth="3.5in"/>
+						<tbody>
+						<row valign="top">
+							<entry>"border_color"</entry>
+							<entry>Write</entry>
+							<entry>The color to use for the border. Default value: <literal>None</literal>.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"border-color-rgba"</entry>
+							<entry>Read/Write</entry>
+							<entry>The color to use for the border, specified as a 32-bit integer value. Default value: 0.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"border-pattern"</entry>
+							<entry>Read/Write</entry>
+							<entry>The cairo pattern to paint the border with.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"border-pixbuf"</entry>
+							<entry>Write</entry>
+							<entry>The pixbuf to use to draw the border.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"border-width"</entry>
+							<entry>Read/Write</entry>
+							<entry>The width of the border around the grid. Default value: -1.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"height"</entry>
+							<entry>Read/Write</entry>
+							<entry>The height of the grid. Allowed values: >= 0. Default value: 0.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"horz-grid-line-color"</entry>
+							<entry>Write</entry>
+							<entry>The color to use for the horizontal grid lines. Default value: <literal>None</literal>.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"horz-grid-line-color-rgba"</entry>
+							<entry>Read/Write</entry>
+							<entry>The color to use for the horizontal grid lines, specified as a 32-bit
+                            integer value. Default value: 0.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"horz-grid-line-pattern"</entry>
+							<entry>Read/Write</entry>
+							<entry>The cairo pattern to paint the horizontal grid lines with.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"horz-grid-line-pixbuf"</entry>
+							<entry>Write</entry>
+							<entry>The pixbuf to use to draw the horizontal grid lines.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"horz-grid-line-width"</entry>
+							<entry>Read/Write</entry>
+							<entry>The width of the horizontal grid lines. Default value: -1.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"vert-grid-line-color"</entry>
+							<entry>Write</entry>
+							<entry>The color to use for the vertical grid lines. Default value: <literal>None</literal>.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"vert-grid-line-color-rgba"</entry>
+							<entry>Read/Write</entry>
+							<entry>The color to use for the vertical grid lines, specified as a 32-bit
+                            integer value. Default value: 0.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"vert-grid-line-pattern"</entry>
+							<entry>Read/Write</entry>
+							<entry>The cairo pattern to paint the vertical grid lines with.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"vert-grid-line-pixbuf"</entry>
+							<entry>Write</entry>
+							<entry>The pixbuf to use to draw the vertical grid lines.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"vert-grid-line-width"</entry>
+							<entry>Read/Write</entry>
+							<entry>The width of the vertical grid lines. Default value: -1.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"width"</entry>
+							<entry>Read/Write</entry>
+							<entry>The width of the grid. Allowed values: >= 0. Default value: 0.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"x"</entry>
+							<entry>Read/Write</entry>
+							<entry>The x coordinate of the grid. Default value: 0.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"x-offset"</entry>
+							<entry>Read/Write</entry>
+							<entry>The distance before the first vertical grid line.
+                            Allowed values: >= 0. Default value: 0.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"x-step"</entry>
+							<entry>Read/Write</entry>
+							<entry>The distance between the vertical grid lines.
+                            Allowed values: >= 0. Default value: 10.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"y"</entry>
+							<entry>Read/Write</entry>
+							<entry>The y coordinate of the grid. Default value: 0.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"y-offset"</entry>
+							<entry>Read/Write</entry>
+							<entry>The distance before the first horizontal grid line.
+                            Allowed values: >= 0. Default value: 0.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"y-step"</entry>
+							<entry>Read/Write</entry>
+							<entry>The distance between the horizontal grid lines.
+                            Allowed values: >= 0. Default value: 10.</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</informaltable>
+		</blockquote>
+	</refsect1>
+
+	<refsect1>
+		<title>Implemented Interfaces</title>
+		<para>
+			<link linkend="class-canvas-grid-model"><classname>goocanvas.GridModel</classname></link>
+			implements 
+			<link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link>
+		</para>
+	</refsect1>
+
+	<refsect1>
+		<title>Description</title>
+			<link linkend="class-canvas-grid-model"><classname>goocanvas.GridModel</classname></link> represents a model for grid items.
+            It is a subclass of <link linkend="class-canvas-item-model-simple"><classname>goocanvas.ItemModelSimple</classname></link>
+            and so inherits all of the style properties such as "stroke-color", "fill-color" and "line-width".
+            It also implements the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link>
+            interface, so you can use the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link>
+            functions such as <methodname><link linkend="method-goocanvasitemmodel--raise-">goocanvas.ItemModel.raise_()</link></methodname> 
+			and <methodname><link linkend="method-goocanvasitemmodel--rotate">goocanvas.ItemModel.rotate()</link></methodname>.
+            To respond to events such as mouse clicks on the ellipse you must connect to the signal handlers
+            of the corresponding <link linkend="class-canvas-grid"><classname>goocanvas.Grid</classname></link>
+            objects. (See <methodname><link linkend="method-goocanvas--get-item">get_item</link></methodname> and
+            GooCanvas::item-created.)
+	</refsect1>
+
+	<refsect1 id="constructor-canvas-grid-model">
+		<title>Constructor</title>
+		
+		<programlisting><constructorsynopsis language="python">
+				<methodname>goocanvas.GridModel</methodname>
+				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
+			</constructorsynopsis></programlisting>
+		
+		<variablelist>
+			<varlistentry>
+				<term><parameter role="keyword">properties</parameter>&nbsp;:</term>
+				<listitem><simpara>A comma separated list of properties.</simpara></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><emphasis>Returns</emphasis>&nbsp;:</term>
+				<listitem><simpara>A new 
+						<link linkend="class-canvas-grid-model"><classname>goocanvas.GridModel</classname></link>
+					</simpara></listitem>
+			</varlistentry>
+		</variablelist>
+		<para>
+			Creates a new canvas grid model.
+		</para>
+		<para>
+			Here's an example showing how to create a grid model:
+		</para>
+<programlisting>
+grid = goocanvas.GridModel(parent=root,
+                            x=100,
+                            y=100,
+                            width=400,
+                            height=200,
+                            x_step=20,
+                            Y_step=20,
+                            x_offset=10,
+                            y_offset=10,
+                            horz_grid_line_width=4.0,
+                            horz_grid_line_color="yellow",
+                            vert_grid_line_width=2.0,
+                            vert_grid_line_color="red",
+                            border_width=3.0,
+                            border_color="white",
+                            fill_color="blue"
+                            )
+</programlisting>
+	</refsect1>
+
+</refentry>

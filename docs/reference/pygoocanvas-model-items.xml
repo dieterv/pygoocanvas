@@ -6,6 +6,7 @@
 <!-- GooCanvas OBJECTS -->
 
 	<xi:include href="pygoocanvas-ellipse-model.xml"/>
+	<xi:include href="pygoocanvas-grid-model.xml"/>
 	<xi:include href="pygoocanvas-group-model.xml"/>
 	<xi:include href="pygoocanvas-image-model.xml"/>
     <xi:include href="pygoocanvas-path-model.xml"/>

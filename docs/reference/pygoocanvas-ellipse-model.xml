@@ -89,8 +89,8 @@
 			and so inherits all of the style properties such as "stroke-color", "fill-color" and "line-width". 
 			It also implements the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> 
 			interface, so you can use the <link linkend="class-canvas-item-model"><classname>goocanvas.ItemModel</classname></link> 
-			functions such as <methodname><link linkend="method-goocanvasitem--raise-">goocanvas.Item.raise_()</link></methodname> 
-			and <methodname><link linkend="method-goocanvasitem--rotate-">goocanvas.Item.rotate()</link></methodname>.
+			functions such as <methodname><link linkend="method-goocanvasitemmodel--raise-">goocanvas.ItemModel.raise_()</link></methodname> 
+			and <methodname><link linkend="method-goocanvasitemmodel--rotate-">goocanvas.ItemModel.rotate()</link></methodname>.
             To respond to events such as mouse clicks on the ellipse you must connect to the signal handlers
             of the corresponding <link linkend="class-canvas-ellipse"><classname>goocanvas.Ellipse</classname></link>
             objects. (See <methodname><link linkend="method-goocanvas--get-item">get_item</link></methodname> and

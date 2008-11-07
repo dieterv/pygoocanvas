@@ -1,3 +1,18 @@
+2008-11-07  Gian Mario Tagliaretti  <gianmt@gnome.org>
+	
+	* docs/reference/pygoocanvas-grid.xml:
+	* docs/reference/pygoocanvas-grid-model.xml: Add docs for the new grid
+	item and model
+
+	* docs/Makefile.am:
+	* docs/reference/pygoocanvas-ellipse-model.xml:
+	* docs/reference/pygoocanvas-std-items.xml:
+	* docs/reference/pygoocanvas-canvas.xml:
+	* docs/reference/pygoocanvas-ref.xml:
+	* docs/reference/pygoocanvas-hierarchy.xml:
+	* docs/reference/pygoocanvas-model-items.xml:
+	Update docs with new API.
+
 2008-11-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
 	
 	* goocanvas.defs: (request_item_redraw)

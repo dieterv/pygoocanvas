@@ -22,6 +22,11 @@
             </constructorsynopsis>
 
             <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvas--convert-bounds-to-item-space">convert_bounds_to_item_space</link></methodname>
+                <methodparam><parameter role="keyword">item</parameter></methodparam>
+                <methodparam><parameter role="keyword">bounds</parameter></methodparam>
+            </methodsynopsis>
+            <methodsynopsis language="python">
                 <methodname><link linkend="method-goocanvas--convert-from-item-space">convert_from_item_space</link></methodname>
                 <methodparam><parameter role="keyword">item</parameter></methodparam>
                 <methodparam><parameter role="keyword">x</parameter></methodparam>
@@ -95,6 +100,14 @@
                 <methodparam></methodparam>
             </methodsynopsis>
             <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvas--get-static-root-item">get_static_root_item</link></methodname>
+                <methodparam></methodparam>
+            </methodsynopsis>
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvas--get-static-root-item-model">get_static_root_item_model</link></methodname>
+                <methodparam></methodparam>
+            </methodsynopsis>
+            <methodsynopsis language="python">
                 <methodname><link linkend="method-goocanvas--grab-focus">grab_focus</link></methodname>
                 <methodparam><parameter role="keyword">item</parameter></methodparam>
             </methodsynopsis>
@@ -132,6 +145,11 @@
                 <methodparam><parameter role="keyword">scale</parameter></methodparam>
             </methodsynopsis>
             <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvas--request-item-redraw">request_item_redraw</link></methodname>
+                <methodparam><parameter role="keyword">bounds</parameter></methodparam>
+                <methodparam><parameter role="keyword">is_static</parameter></methodparam>
+            </methodsynopsis>
+            <methodsynopsis language="python">
                 <methodname><link linkend="method-goocanvas--request-redraw">request_redraw</link></methodname>
                 <methodparam><parameter role="keyword">bounds</parameter></methodparam>
             </methodsynopsis>
@@ -162,6 +180,14 @@
             <methodsynopsis language="python">
                 <methodname><link linkend="method-goocanvas--set-scale">set_scale</link></methodname>
                 <methodparam><parameter role="keyword">scale</parameter></methodparam>
+            </methodsynopsis>
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvas--set-static-root-item">set_static_root_item</link></methodname>
+                <methodparam><parameter role="keyword">item</parameter></methodparam>
+            </methodsynopsis>
+            <methodsynopsis language="python">
+                <methodname><link linkend="method-goocanvas--set-static-root-item-model">set_static_root_item_model</link></methodname>
+                <methodparam><parameter role="keyword">model</parameter></methodparam>
             </methodsynopsis>
             <methodsynopsis language="python">
                 <methodname><link linkend="method-goocanvas--unregister-item">unregister_item</link></methodname>
@@ -375,6 +401,34 @@
 
 	<refsect1>
         <title>Methods</title>
+
+        <refsect2 id="method-goocanvas--convert-bounds-to-item-space">
+            <title>goocanvas.Canvas.convert_bounds_to_item_space</title>
+
+            <programlisting><methodsynopsis language="python">
+                <methodname>convert_bounds_to_item_space</methodname>
+                    <methodparam><parameter role="keyword">item</parameter></methodparam>
+                    <methodparam><parameter role="keyword">bounds</parameter></methodparam>
+                </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">item</parameter>&nbsp;:</term>
+                    <listitem><simpara>A <link linkend="class-canvas-item">goocanvas.Item
+                            </link></simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">bounds</parameter>&nbsp;:</term>
+                    <listitem><simpara>the bounds in device space.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                Converts the bound in device space to a bounding box in item space.
+                This is useful in the item paint() methods to convert the bounds to
+                be painted to the item's coordinate space.
+            </para>
+        </refsect2>
 
         <refsect2 id="method-goocanvas--convert-from-item-space">
             <title>goocanvas.Canvas.convert_from_item_space</title>
@@ -812,6 +866,44 @@
                 Gets the current scale of the canvas, i.e. the number of pixels to use for each device unit.
             </para>
         </refsect2>
+        
+        <refsect2 id="method-goocanvas--get-static-root-item">
+            <title>goocanvas.Canvas.get_static_root_item</title>
+            
+            <programlisting><methodsynopsis language="python">
+                    <methodname>get_static_root_item</methodname>
+                </methodsynopsis></programlisting>
+            
+            <variablelist>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>the static root item, or <literal>None</literal>.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+            
+            <para>
+                Gets the static root item of the canvas.
+            </para>
+        </refsect2>
+        
+        <refsect2 id="method-goocanvas--get-static-root-item-model">
+            <title>goocanvas.Canvas.get_static_root_item_model</title>
+            
+            <programlisting><methodsynopsis language="python">
+                    <methodname>get_static_root_item_model</methodname>
+                </methodsynopsis></programlisting>
+            
+            <variablelist>
+                <varlistentry>
+                    <term><emphasis>Returns</emphasis>&nbsp;:</term>
+                    <listitem><simpara>the static root item model, or <literal>None</literal>.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+            
+            <para>
+                Gets the static root item model of the canvas.
+            </para>
+        </refsect2>
 
         <refsect2 id="method-goocanvas--grab-focus">
             <title>goocanvas.Canvas.grab_focus</title>
@@ -1018,6 +1110,31 @@
             <para>Renders all or part of a canvas to the given cairo context.</para>
         </refsect2>
         
+        <refsect2 id="method-goocanvas--request-item-redraw">
+            <title>goocanvas.Canvas.request_item_redraw</title>
+            
+            <programlisting><methodsynopsis language="python">
+                    <methodname>request_item_redraw</methodname>
+                    <methodparam><parameter role="keyword">bounds</parameter></methodparam>
+                    <methodparam><parameter role="keyword">is_static</parameter></methodparam>
+                </methodsynopsis></programlisting>
+            
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">bounds</parameter>&nbsp;:</term>
+                    <listitem><simpara>the bounds of the item to redraw.</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter role="keyword">is_static</parameter>&nbsp;:</term>
+                    <listitem><simpara>if the item is static.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+            
+            <para>
+                Requests that the given bounds be redrawn.
+            </para>
+        </refsect2>
+        
         <refsect2 id="method-goocanvas--request-redraw">
             <title>goocanvas.Canvas.request_redraw</title>
             
@@ -1179,6 +1296,46 @@
             <para>
                 Sets the current scale of the canvas, i.e. the number of pixels
                 to use for each device unit.
+            </para>
+        </refsect2>
+        
+        <refsect2 id="method-goocanvas--set-static-root-item">
+            <title>goocanvas.Canvas.set_static_root_item</title>
+            
+            <programlisting><methodsynopsis language="python">
+                    <methodname>set_static_root_item</methodname>
+                    <methodparam><parameter role="keyword">item</parameter></methodparam>
+                </methodsynopsis></programlisting>
+            
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">item</parameter>&nbsp;:</term>
+                    <listitem><simpara>the static root item.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+            
+            <para>
+               Sets the static root item. Any existing static items are removed.
+            </para>
+        </refsect2>
+        
+        <refsect2 id="method-goocanvas--set-static-root-item-model">
+            <title>goocanvas.Canvas.set_static_root_item_model</title>
+            
+            <programlisting><methodsynopsis language="python">
+                    <methodname>set_static_root_item_model</methodname>
+                    <methodparam><parameter role="keyword">model</parameter></methodparam>
+                </methodsynopsis></programlisting>
+            
+            <variablelist>
+                <varlistentry>
+                    <term><parameter role="keyword">model</parameter>&nbsp;:</term>
+                    <listitem><simpara>the static root item model.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+            
+            <para>
+               Sets the static root item model. Any existing static items are removed.
             </para>
         </refsect2>
         
