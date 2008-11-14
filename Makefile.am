@@ -13,9 +13,9 @@ EXTRA_DIST = goocanvas.defs goocanvas.override arg-types.py
 
 # goocanvas module
 pyexec_LTLIBRARIES = goocanvasmodule.la
-goocanvasmodule_la_LDFLAGS = -module -avoid-version -export-symbols-regex initgoocanvas
+goocanvasmodule_la_LDFLAGS = -module -avoid-version -no-undefined -export-symbols-regex initgoocanvas
 goocanvasmodule_la_CFLAGS = $(PYGOOCANVAS_CFLAGS)
-goocanvasmodule_la_LIBADD = $(PYGOOCANVAS_LIBS)
+goocanvasmodule_la_LIBADD = $(PYGOOCANVAS_LIBS) $(PYTHON_LDFLAGS)
 goocanvasmodule_la_SOURCES = goocanvasmodule.c 
 nodist_goocanvasmodule_la_SOURCES = goocanvas.c
 goocanvas.c: goocanvas.defs goocanvas.override arg-types.py
@@ -38,3 +38,10 @@ CLEANFILES = goocanvas.c
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = pygoocanvas.pc
 EXTRA_DIST += pygoocanvas.pc
+
+if PLATFORM_WIN32
+# Python .pyd modules are simply DLLs, but they have to be called .pyd for
+# python to find them, and libtool only creates .dll.
+install-exec-hook:
+	mv $(pyexecdir)/goocanvasmodule.dll $(pyexecdir)/goocanvas.pyd
+endif

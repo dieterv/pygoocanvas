@@ -1,3 +1,14 @@
+2008-11-14  Armin Burgmeier  <armin@arbur.net>
+
+	* acinclude.m4: Obtain flags for linking against python. This is
+	required on Windows, since shared libraries are not allowed to contain
+	undefined references.
+
+	* Makefile.am: Added the -no-undefined flag to ldflags to create a
+	shared library on Windows, and rename the resulting file to .pyd,
+	since python modules must end on .pyd on Windows (even though they are
+	actually DLL files).
+
 2008-11-07  Gian Mario Tagliaretti  <gianmt@gnome.org>
 	
 	* docs/reference/pygoocanvas-grid.xml:
