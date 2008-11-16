@@ -356,6 +356,17 @@
         <title>goocanvas.Item Signal Prototypes</title>
         <variablelist>
             <varlistentry>
+                <term><link linkend="signal-goocanvasitem--animation-finished">"animation-finished"</link></term>
+                <listitem>
+                    <methodsynopsis language="python"><methodname>callback</methodname>
+                        <methodparam><parameter>item</parameter></methodparam>
+                        <methodparam><parameter>stopped</parameter></methodparam>
+                        <methodparam><parameter>user_param</parameter></methodparam>
+                        <methodparam><parameter>...</parameter></methodparam>
+                    </methodsynopsis>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
                 <term><link linkend="signal-goocanvasitem--button-press-event">"button-press-event"</link></term>
                 <listitem>
                     <methodsynopsis language="python"><methodname>callback</methodname>
@@ -1620,6 +1631,48 @@
 
     <refsect1>
         <title>Signals</title>
+        
+        <refsect2 id="signal-goocanvasitem--animation-finished">
+            <title>The "animation-finished" goocanvas.Item Signal</title>
+            
+            <programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+                    <methodparam><parameter>item</parameter></methodparam>
+                    <methodparam><parameter>stopped</parameter></methodparam>
+                    <methodparam><parameter>user_param</parameter></methodparam>
+                    <methodparam><parameter>...</parameter></methodparam>
+                </methodsynopsis></programlisting>
+            
+            <variablelist>
+                <varlistentry>
+                    <term><parameter>item</parameter>&nbsp;:</term>
+                    <listitem><simpara>
+                            The <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
+                            that received the signal.
+                        </simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter>stopped</parameter>&nbsp;:</term>
+                    <listitem><simpara>
+                            if the animation was explicitly stopped. 
+                        </simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter>user_param</parameter>&nbsp;:</term>
+                    <listitem><simpara>the first user parameter (if any) specified
+                            with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link>
+                            method
+                        </simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter>...</parameter>&nbsp;:</term>
+                    <listitem><simpara>additional user parameters (if any)</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+            
+            <para>
+                The "animation-finished" signal is emitted when the item animation has finished.
+            </para>
+        </refsect2>
         
         <refsect2 id="signal-goocanvasitem--button-press-event">
             <title>The "button-press-events" goocanvas.Item Signal</title>

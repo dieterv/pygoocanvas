@@ -1,3 +1,7 @@
+2008-11-17  Gian Mario Tagliaretti  <gianmt@gnome.org>
+	
+	* docs/reference/pygoocanvas-item.xml: add animation-finished signal
+
 2008-11-14  Armin Burgmeier  <armin@arbur.net>
 
 	* acinclude.m4: Obtain flags for linking against python. This is
