@@ -37,15 +37,6 @@ def main(argv):
                           font="Sans 24")
     root.add_child(item, 1)
     item.rotate(45, 300, 300)
-    
-    def on_click(widget):
-        print "clicked on ", widget
-    
-    button = gtk.Button("Sample button")
-    wid = goocanvas.Widget(parent=root,
-                           widget = button,
-                           x=300, y=300)
-    button.connect("clicked", on_click)
 
     gtk.main()
 
