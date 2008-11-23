@@ -22,7 +22,7 @@
 			</constructorsynopsis>
 			
 			<methodsynopsis language="python">
-		   	 <methodname><link linkend="method-goocanvastext--get_natural_extents">convert_from_item_space</link></methodname>
+		   	 <methodname><link linkend="method-goocanvastext--get-natural-extents">get_natural_extents</link></methodname>
 				<methodparam></methodparam>
 			</methodsynopsis>
 
@@ -134,9 +134,9 @@
 		<title>Constructor</title>
 		
 		<programlisting><constructorsynopsis language="python">
-				<methodname>goocanvas.Text</methodname>
-				<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
-			</constructorsynopsis></programlisting>
+			<methodname>goocanvas.Text</methodname>
+			<methodparam><parameter role="keyword">properties</parameter><initializer>None</initializer></methodparam>
+		</constructorsynopsis></programlisting>
 		
 		<variablelist>
 			<varlistentry>
@@ -146,8 +146,8 @@
 			<varlistentry>
 				<term><emphasis>Returns</emphasis>&nbsp;:</term>
 				<listitem><simpara>A new 
-						<link linkend="class-canvas-text"><classname>goocanvas.Text</classname></link>
-					</simpara></listitem>
+					<link linkend="class-canvas-text"><classname>goocanvas.Text</classname></link>
+				</simpara></listitem>
 			</varlistentry>
 		</variablelist>
 		<para>
@@ -185,9 +185,9 @@ text = goocanvas.Text(string="Hello, World!", x=500, y=500
 
             <para>
                 Gets the natural extents of the text, in the text item's coordinate space.
-				The final extents of the text may be different, if the text item is placed
-				in a layout container such as
-				<link linkend="class-canvas-table"><classname>goocanvas.Table</classname></link>.
+		The final extents of the text may be different, if the text item is placed
+		in a layout container such as
+		<link linkend="class-canvas-table"><classname>goocanvas.Table</classname></link>.
             </para>
         </refsect2>
 	</refsect1>

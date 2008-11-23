@@ -1,3 +1,7 @@
+2008-11-23  Gian Mario Tagliaretti  <gianmt@gnome.org>
+	
+	* docs/reference/pygoocanvas-text.xml: fix method name.
+
 2008-11-17  Gian Mario Tagliaretti  <gianmt@gnome.org>
 	
 	* docs/reference/pygoocanvas-item.xml: add animation-finished signal
