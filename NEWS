@@ -1,3 +1,11 @@
+PyGooCanvas 0.13.0	(Nov 30 2008)
+==================
+
+ o Update docs with new API. (Gian Mario)
+ o Update build system in order to compile on Windows (Armin Burgmeier)
+ o wrap new goocanvas.Canvas methods (Gian Mario)
+ o add goocanvas.Grid and goocanvas.GridModel (Gian Mario)
+
 PyGooCanvas 0.12.0	(Sep 21 2008)
 ==================
 

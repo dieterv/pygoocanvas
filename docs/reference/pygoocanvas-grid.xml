@@ -105,6 +105,18 @@
 						</row>
 						
                         <row valign="top">
+							<entry>"show-horz-grid-lines"</entry>
+							<entry>Read/Write</entry>
+							<entry>If the horizontal grid lines are shown. Default value: <literal>True</literal>.</entry>
+						</row>
+						
+                        <row valign="top">
+							<entry>"show-vert-grid-lines"</entry>
+							<entry>Read/Write</entry>
+							<entry>If the vertical grid lines are shown. Default value: <literal>True</literal>.</entry>
+						</row>
+						
+                        <row valign="top">
 							<entry>"horz-grid-line-width"</entry>
 							<entry>Read/Write</entry>
 							<entry>The width of the horizontal grid lines. Default value: -1.</entry>

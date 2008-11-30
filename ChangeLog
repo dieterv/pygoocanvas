@@ -1,5 +1,15 @@
-2008-11-23  Gian Mario Tagliaretti  <gianmt@gnome.org>
+=== 0.13.0 ===
+2008-11-30  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* NEWS: Update.
 	
+	* configure.ac: bump version number to 0.13.0
+	
+	* docs/reference/pygoocanvas-canvas.xml:
+	* docs/reference/pygoocanvas-grid.xml: Update docs.
+
+2008-11-23  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
 	* docs/reference/pygoocanvas-text.xml: fix method name.
 
 2008-11-17  Gian Mario Tagliaretti  <gianmt@gnome.org>

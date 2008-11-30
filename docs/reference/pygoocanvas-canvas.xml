@@ -272,14 +272,22 @@
                         </row>
                         
                         <row valign="top">
-                            <entry>"resolution_x"</entry>
+                            <entry>"redraw-when-scrolled"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>If the canvas is completely redrawn when scrolled, to
+                            reduce the flicker of static items.
+                            Default value: <literal>False</literal>.</entry>
+                        </row>
+                        
+                        <row valign="top">
+                            <entry>"resolution-x"</entry>
                             <entry>Read/Write</entry>
                             <entry>The horizontal resolution of the display, in dots per inch. Allowed values: >= 0
                                          Default value: 96</entry>
                         </row>
                         
                         <row valign="top">
-                            <entry>"resolution_y"</entry>
+                            <entry>"resolution-y"</entry>
                             <entry>Read/Write</entry>
                             <entry>The vertical resolution of the display, in dots per inch. Allowed values: >= 0
                                          Default value: 96</entry>
