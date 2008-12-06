@@ -1,5 +1,9 @@
 2008-12-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
+	* goocanvas.override: ignore grid constructors.
+
+2008-12-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
 	* demo/simple_demo/table_demo.py:
 	* demo/simple_demo/demo.py:
 	Include table_demo into a notebook page of demo.py
