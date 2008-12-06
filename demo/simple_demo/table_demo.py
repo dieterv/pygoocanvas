@@ -201,54 +201,61 @@ def create_width_for_height_table (root, x, y, width, height, rotation):
                                 column = 0,
                                 x_shrink = True)
 
-window = gtk.Window (gtk.WINDOW_TOPLEVEL)
-window.set_default_size (640, 600)
-window.connect ("delete_event", gtk.main_quit)
-window.realize()
+def create_canvas_table ():
+    vbox = gtk.VBox (False, 4)
+    vbox.set_border_width (4)
+    
+    hbox = gtk.HBox (False, 4)
+    vbox.pack_start (hbox, False, False, 0)
+    
+    scrolled_win = gtk.ScrolledWindow ()
+    scrolled_win.set_shadow_type (gtk.SHADOW_IN)
+    vbox.pack_start (scrolled_win, True, True, 0)
+    
+    canvas = goocanvas.Canvas ()
+    canvas.flags () & gtk.CAN_FOCUS
+    canvas.set_size_request (600, 450)
+    canvas.set_bounds (0, 0, 1000, 2000)
+    scrolled_win.add (canvas)
+    
+    root = canvas.get_root_item ()
+      
+    create_demo_table (root, 400, 200, -1, -1)
+    create_demo_table (root, 400, 260, 100, -1)
+    
+    create_table (root, -1, -1, 0, 10, 10, 0, 1.0, DEMO_TEXT_ITEM)
+    create_table (root, -1, -1, 0, 180, 10, 30, 1.0, DEMO_TEXT_ITEM)
+    create_table (root, -1, -1, 0, 350, 10, 60, 1.0, DEMO_TEXT_ITEM)
+    create_table (root, -1, -1, 0, 500, 10, 90, 1.0, DEMO_TEXT_ITEM)
+    
+    
+    table = create_table (root, -1, -1, 0, 30, 150, 0, 1.0, DEMO_TEXT_ITEM)
+    table.props.width = 300.0
+    table.props.height = 100.0
+    
+    create_table (root, -1, -1, 1, 200, 200, 30, 0.8, DEMO_TEXT_ITEM)
+    
+    table = create_table (root, -1, -1, 0, 10, 700, 0, 1.0, DEMO_WIDGET_ITEM)
+    table.props.width = 300.0
+    table.props.height = 200.0
+    
+    create_width_for_height_table (root, 100, 1000, 200, -1, 0)
+    create_width_for_height_table (root, 100, 1200, 300, -1, 0)
+    create_width_for_height_table (root, 500, 1000, 200, -1, 30)
+    create_width_for_height_table (root, 500, 1200, 300, -1, 30)
+    
+    return vbox
 
-vbox = gtk.VBox (False, 4)
-vbox.set_border_width (4)
-window.add (vbox)
+def main ():
+    v = create_canvas_table ()
+    
+    w = gtk.Window()
+    w.connect("destroy", gtk.main_quit)   
+    w.add(v)
+    w.show_all()
+    
+    gtk.main()
 
-hbox = gtk.HBox (False, 4)
-vbox.pack_start (hbox, False, False, 0)
+if __name__ == "__main__":
+    main()
 
-scrolled_win = gtk.ScrolledWindow ()
-scrolled_win.set_shadow_type (gtk.SHADOW_IN)
-vbox.pack_start (scrolled_win, True, True, 0)
-
-canvas = goocanvas.Canvas ()
-canvas.flags () & gtk.CAN_FOCUS
-canvas.set_size_request (600, 450)
-canvas.set_bounds (0, 0, 1000, 2000)
-scrolled_win.add (canvas)
-
-root = canvas.get_root_item ()
-  
-create_demo_table (root, 400, 200, -1, -1)
-create_demo_table (root, 400, 260, 100, -1)
-
-create_table (root, -1, -1, 0, 10, 10, 0, 1.0, DEMO_TEXT_ITEM)
-create_table (root, -1, -1, 0, 180, 10, 30, 1.0, DEMO_TEXT_ITEM)
-create_table (root, -1, -1, 0, 350, 10, 60, 1.0, DEMO_TEXT_ITEM)
-create_table (root, -1, -1, 0, 500, 10, 90, 1.0, DEMO_TEXT_ITEM)
-
-
-table = create_table (root, -1, -1, 0, 30, 150, 0, 1.0, DEMO_TEXT_ITEM)
-table.props.width = 300.0
-table.props.height = 100.0
-
-create_table (root, -1, -1, 1, 200, 200, 30, 0.8, DEMO_TEXT_ITEM)
-
-table = create_table (root, -1, -1, 0, 10, 700, 0, 1.0, DEMO_WIDGET_ITEM)
-table.props.width = 300.0
-table.props.height = 200.0
-
-create_width_for_height_table (root, 100, 1000, 200, -1, 0)
-create_width_for_height_table (root, 100, 1200, 300, -1, 0)
-create_width_for_height_table (root, 500, 1000, 200, -1, 30)
-create_width_for_height_table (root, 500, 1200, 300, -1, 30)
-
-window.show_all()
-
-gtk.main ()

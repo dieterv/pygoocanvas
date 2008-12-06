@@ -1,3 +1,9 @@
+2008-12-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* demo/simple_demo/table_demo.py:
+	* demo/simple_demo/demo.py:
+	Include table_demo into a notebook page of demo.py
+
 === 0.13.0 ===
 2008-11-30  Gian Mario Tagliaretti  <gianmt@gnome.org>
 

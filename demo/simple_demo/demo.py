@@ -4,7 +4,7 @@ import array, math
 import fifteen_demo, arrowhead_demo, features_demo
 import paths_demo, scalability_demo, grabs_demo
 import events_demo, focus_demo, clipping_demo
-import animation_demo
+import animation_demo, table_demo
 
 class MyCanvas(object):
     def __init__(self):
@@ -34,6 +34,7 @@ class MyCanvas(object):
         notebook.append_page(focus_demo.create_focus_page (), gtk.Label("Focus"))
         notebook.append_page(animation_demo.create_animation_page (), gtk.Label("Animation"))
         notebook.append_page(clipping_demo.create_clipping_page (), gtk.Label("Clipping"))
+        notebook.append_page(table_demo.create_canvas_table (), gtk.Label("Table"))
         window.show_all()
 
     def main(self):
