@@ -26,7 +26,7 @@ class MyCanvas(object):
         notebook.append_page(self.create_canvas_primitives (), gtk.Label("Primitives"))
         notebook.append_page(arrowhead_demo.create_canvas_arrowhead (), gtk.Label("Arrowhead"))
         notebook.append_page(fifteen_demo.create_canvas_fifteen (), gtk.Label("Fifteen"))
-        notebook.append_page(features_demo.create_canvas_features (), gtk.Label("Features"))
+        notebook.append_page(features_demo.create_canvas_features (), gtk.Label("Reparent"))
         notebook.append_page(scalability_demo.create_canvas_scalability (), gtk.Label("Scalability"))
         notebook.append_page(grabs_demo.create_grabs_page (), gtk.Label("Grabs"))
         notebook.append_page(events_demo.create_events_page (), gtk.Label("Events"))
@@ -348,21 +348,27 @@ class MyCanvas(object):
         self.setup_heading(group, "Lines", 4)
         self.setup_heading(group, "Polygons", 7)
 
-    def create_stipple (self, color_name, stipple_data):
+    def create_stipple (self, color_name):
         color = gtk.gdk.color_parse (color_name)
+        
+        stipple_data = array.array('B', [0, 0, 0, 255,   0, 0, 0, 0,   
+                                         0, 0, 0, 0,   0, 0, 0, 255])
+        
         stipple_data[2] = stipple_data[14] = color.red >> 8
         stipple_data[1] = stipple_data[13] = color.green >> 8
         stipple_data[0] = stipple_data[12] = color.blue >> 8
-        surface = cairo.ImageSurface.create_for_data (stipple_data, cairo.FORMAT_ARGB32, 2, 2, 8)
+        
+        print stipple_data
+
+        surface = cairo.ImageSurface.create_for_data (stipple_data,
+                                                      cairo.FORMAT_ARGB32,
+                                                      2, 2, 8)
         pattern = cairo.SurfacePattern(surface)
         pattern.set_extend (cairo.EXTEND_REPEAT)
     
         return pattern    
     
     def setup_rectangles (self, root):
-        stipple_data = array.array('i', [0, 0, 0, 255,   0, 0, 0, 0,   
-                                         0, 0, 0, 0,   0, 0, 0, 255])
-        
         item = goocanvas.Rect (parent = root,
                                x = 20,
                                y = 30,
@@ -372,7 +378,7 @@ class MyCanvas(object):
                                line_width = 8.0)
         self.setup_item_signals (item)
         
-        pattern = self.create_stipple ("mediumseagreen", stipple_data)
+        pattern = self.create_stipple ("mediumseagreen")
         item = goocanvas.Rect (parent = root,
                                x = 90,
                                y = 40,
@@ -421,8 +427,6 @@ class MyCanvas(object):
         self.setup_item_signals (item)
         
     def setup_ellipses (self, root):
-        stipple_data = array.array('i', [0, 0, 0, 255,   0, 0, 0, 0,   
-                                         0, 0, 0, 0,   0, 0, 0, 255])
         ellipse1 = goocanvas.Ellipse (parent = root,
                                       center_x = 245,
                                       center_y = 45,
@@ -443,7 +447,7 @@ class MyCanvas(object):
                                            title = "An ellipse")
         self.setup_item_signals (self.ellipse2)
         
-        pattern = self.create_stipple ("cadetblue", stipple_data)
+        pattern = self.create_stipple ("cadetblue")
         ellipse3 = goocanvas.Ellipse (parent = root,
                                       center_x = 245,
                                       center_y = 110,
@@ -476,13 +480,45 @@ class MyCanvas(object):
                 j += 1
 
     def make_hilbert (self, root):
-        '''hilbert = "urdrrulurulldluuruluurdrurddldrrruluurdrurddldrddlulldrdldrrurd"
-        stipple_data = array.array('i', [0, 0, 0, 255,   0, 0, 0, 0,   
-                                         0, 0, 0, 0,   0, 0, 0, 255])
-        points = goocanvas.Poiints([(340, 290),])
-        pp = len(hilbert)+1
-        p = pp*2'''
-        pass
+        SCALE = 7
+        hilbert = "urdrrulurulldluuruluurdrurddldrrruluurdrurddldrddlulldrdldrrurd"
+
+        points = [(340, 290),]
+        count = 0
+        
+        for letter in hilbert:
+            if letter == 'u':
+                p = points[count][0]
+                p1 = points[count][1] - SCALE
+                points.append (tuple([p, p1]))
+            if letter == 'd':
+                p = points[count][0]
+                p1 = points[count][1] + SCALE
+                points.append (tuple([p, p1]))
+            if letter == 'l':
+                p = points[count][0] - SCALE
+                p1 = points[count][1]
+                points.append (tuple([p, p1]))
+            if letter == 'r':
+                p = points[count][0] + SCALE
+                p1 = points[count][1]
+                points.append (tuple([p, p1]))
+            count += 1
+
+        points = goocanvas.Points(points)
+        
+        pattern = self.create_stipple("red")
+        
+        item = goocanvas.Polyline (parent = root,
+                                   close_path = False,
+				   points = points,
+				   line_width = 4.0,
+				   stroke_pattern = pattern,
+				   line_cap = cairo.LINE_CAP_SQUARE,
+				   line_join = cairo.LINE_JOIN_MITER)
+        
+        self.setup_item_signals (item)
+
     
     def setup_lines (self, root):
         self.polish_diamond (root)
@@ -542,11 +578,9 @@ class MyCanvas(object):
         self.setup_item_signals (polyline5)
     
     def setup_polygons (self, root):
-        stipple_data = array.array('i', [0, 0, 0, 255,   0, 0, 0, 0,   
-                                         0, 0, 0, 0,   0, 0, 0, 255])
         points = goocanvas.Points ([(210.0, 320.0), (210.0, 380.0), 
                                     (260.0, 350.0)])
-        pattern = self.create_stipple ("blue", stipple_data)
+        pattern = self.create_stipple ("blue")
         polyline1 = goocanvas.Polyline (parent = root,
                                         close_path = True,
                                         line_width = 1.0,
@@ -590,9 +624,7 @@ class MyCanvas(object):
         return group
 
     def setup_texts (self, root):
-        stipple_data = array.array('i', [0, 0, 0, 255,   0, 0, 0, 0,   
-                                         0, 0, 0, 0,   0, 0, 0, 255])
-        pattern = self.create_stipple ("blue", stipple_data)
+        pattern = self.create_stipple ("blue")
         par = self.make_anchor (root, 420.0, 20.0)
         item = goocanvas.Text (parent = par,
                                text = "Anchor NW",
@@ -747,6 +779,60 @@ class MyCanvas(object):
         self.plant_flower (root,  20.0, 280.0, gtk.ANCHOR_SW)
         self.plant_flower (root, 180.0, 280.0, gtk.ANCHOR_SE)
 
+    def setup_static_items (self, canvas):
+        static_root = canvas.get_static_root_item ()
+      
+        ''' All static items in one place in the canvas should be placed in the
+            same group. '''
+
+        group = goocanvas.Group (parent=static_root)
+      
+        item = goocanvas.polyline_new_line (group,
+                                            40.0, 410.0,
+                                            40.0, 330.0,
+                                            stroke_color = "midnightblue",
+                                            line_width = 3.0,
+                                            end_arrow = True,
+                                            arrow_tip_length = 3.0,
+                                            arrow_length = 4.0,
+                                            arrow_width = 3.5)
+        self.setup_item_signals (item)
+      
+        item = goocanvas.polyline_new_line (group,
+                                            32.0, 370.0,
+                                            48.0, 370.0,
+                                            stroke_color = "midnightblue",
+                                            line_width = 3.0)
+        self.setup_item_signals (item);
+      
+        item = goocanvas.Text (parent = group,
+                               text = "N",
+                               x = 40,
+                               y = 320,
+                               width = -1,
+                               anchor = gtk.ANCHOR_S,
+                               font = "Sans 12")
+        self.setup_item_signals (item);
+        
+    def setup_grids (self, root):
+        item = goocanvas.Grid (parent = root,
+                              x = 80,
+                              y = 310,
+                              width = 90,
+                              height = 90,
+                              x_step = 10,
+                              y_step = 10,
+                              x_offset = 5,
+                              y_offset = 5,
+                              stroke_color = "yellow",
+                              fill_color = "pink",
+                              border_width = 2.0,
+                              border_color = "red",
+                              vert_grid_line_color = "lightblue",
+                              horz_grid_line_width = 1.0,
+                              vert_grid_line_width = 1.0,
+                              vert_grid_lines_on_top =  True)
+    
     def setup_canvas (self, canvas):
         root = canvas.get_root_item ()
         root.connect("button_press_event", self.on_background_button_press)
@@ -757,7 +843,9 @@ class MyCanvas(object):
         self.setup_polygons (root)
         self.setup_texts (root)
         self.setup_invisible_texts (root)
-        self.setup_images(root)
+        self.setup_static_items (canvas)
+        self.setup_images (root)
+        self.setup_grids (root)
 
 if __name__ == "__main__":
     mycanvas = MyCanvas()

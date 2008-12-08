@@ -1,6 +1,7 @@
-2008-12-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
+2008-12-07  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
-	* demo/simple_demo/demo.py: Add example for static item and grid.
+	* demo/simple_demo/demo.py: Add example for static item and grid,
+	fix some code in demo.
 
 2008-12-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
