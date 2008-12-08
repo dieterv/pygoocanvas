@@ -214,6 +214,7 @@ import gtk.gdk.CairoContext as PyGdkCairoContext_Type
 
 %%
 ignore
+goo_canvas_new
 goo_canvas_ellipse_new
 goo_canvas_ellipse_model_new
 goo_canvas_group_new

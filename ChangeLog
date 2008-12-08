@@ -1,3 +1,8 @@
+2008-12-08  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* goocanvas.override: ignore canvas constructor, we use
+	gobject.New also for the canvas, so we can easily set properties.
+
 2008-12-07  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* demo/simple_demo/demo.py: Add example for static item and grid,
