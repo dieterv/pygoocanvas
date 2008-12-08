@@ -1,5 +1,10 @@
 2008-12-08  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
+	* demo/simple_demo/demo.py: Workaround a bug in pycairo, fix by
+	Gustavo J. A. M. Carneiro.
+
+2008-12-08  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
 	* goocanvas.override: ignore canvas constructor, we use
 	gobject.New also for the canvas, so we can easily set properties.
 

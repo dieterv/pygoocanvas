@@ -6,6 +6,10 @@ import paths_demo, scalability_demo, grabs_demo
 import events_demo, focus_demo, clipping_demo
 import animation_demo, table_demo
 
+## FIXME workaround a bug into pycairo
+## https://bugs.freedesktop.org/show_bug.cgi?id=18947
+foo = []
+
 class MyCanvas(object):
     def __init__(self):
         self.last_state = 0
@@ -357,8 +361,6 @@ class MyCanvas(object):
         stipple_data[2] = stipple_data[14] = color.red >> 8
         stipple_data[1] = stipple_data[13] = color.green >> 8
         stipple_data[0] = stipple_data[12] = color.blue >> 8
-        
-        print stipple_data
 
         surface = cairo.ImageSurface.create_for_data (stipple_data,
                                                       cairo.FORMAT_ARGB32,
@@ -366,6 +368,11 @@ class MyCanvas(object):
         pattern = cairo.SurfacePattern(surface)
         pattern.set_extend (cairo.EXTEND_REPEAT)
     
+        ## FIXME workaround a bug into pycairo
+        ## https://bugs.freedesktop.org/show_bug.cgi?id=18947
+        global foo
+        foo.append(stipple_data)
+
         return pattern    
     
     def setup_rectangles (self, root):
