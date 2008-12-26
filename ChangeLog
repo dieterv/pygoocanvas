@@ -1,3 +1,13 @@
+2008-12-27  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	Bug 565710 – usage example of goocanvas.Text is wrong
+
+	* docs/reference/pygoocanvas-text.xml:
+	* docs/reference/pygoocanvas-text-model.xml: Fix a bug in sample code,
+	patch by: Felipe Reyes.
+
+	* tests/test_grid_item.py: Add new test for grid item.
+
 2008-12-08  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* demo/simple_demo/demo.py: Workaround a bug in pycairo, fix by

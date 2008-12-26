@@ -158,7 +158,7 @@
 			right of the text box placed at (500,500):
 		</para>
 <programlisting>
-text = goocanvas.Text(string="Hello, World!", x=500, y=500
+text = goocanvas.Text(text="Hello, World!", x=500, y=500
 						width=200, anchor=gtk.ANCHOR_SE,
 						fill_color="blue")
 </programlisting>
