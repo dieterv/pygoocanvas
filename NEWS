@@ -1,3 +1,10 @@
+PyGooCanvas 0.13.1	(Dec 27 2008)
+==================
+
+ o Fix a bug in docs #565710 (Felipe Reyes)
+ o Some more code for the demo (Gian Mario, Gustavo)
+ o Fix goocanvas.Grid and goocanvas.GridModel constructors (Gian Mario)
+
 PyGooCanvas 0.13.0	(Nov 30 2008)
 ==================
 
