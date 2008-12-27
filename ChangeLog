@@ -1,5 +1,9 @@
+2008-12-27  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* configure.ac: post release version bump to 0.13.2
+
 === 0.13.1 ===
-2008-11-30  Gian Mario Tagliaretti  <gianmt@gnome.org>
+2008-12-27  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* NEWS: Update.
 	
