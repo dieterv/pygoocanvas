@@ -1675,7 +1675,7 @@
         </refsect2>
         
         <refsect2 id="signal-goocanvasitem--button-press-event">
-            <title>The "button-press-events" goocanvas.Item Signal</title>
+            <title>The "button-press-event" goocanvas.Item Signal</title>
             
             <programlisting><methodsynopsis language="python"><methodname>callback</methodname>
                     <methodparam><parameter>item</parameter></methodparam>
@@ -1724,7 +1724,7 @@
         </refsect2>
 
         <refsect2 id="signal-goocanvasitem--button-release-event">
-            <title>The "button-press-events" goocanvas.Item Signal</title>
+            <title>The "button-release-event" goocanvas.Item Signal</title>
             
             <programlisting><methodsynopsis language="python"><methodname>callback</methodname>
                     <methodparam><parameter>item</parameter></methodparam>
