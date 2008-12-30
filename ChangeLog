@@ -1,5 +1,9 @@
 2008-12-30  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
+	* demo/simple_demo/demo.py: Add an export SVG function.
+
+2008-12-30  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
 	* docs/reference/pygoocanvas-canvas.xml: Fix a typo in canvas signal.
 
 2008-12-28  Gian Mario Tagliaretti  <gianmt@gnome.org>
