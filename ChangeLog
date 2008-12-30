@@ -1,3 +1,7 @@
+2008-12-30  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* docs/reference/pygoocanvas-canvas.xml: Fix a typo in canvas signal.
+
 2008-12-28  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* docs/reference/pygoocanvas-item.xml: Fix a couple of typos in signals.
@@ -10,7 +14,7 @@
 2008-12-27  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* NEWS: Update.
-	
+
 	* configure.ac: bump version number to 0.13.1
 
 2008-12-27  Gian Mario Tagliaretti  <gianmt@gnome.org>
@@ -52,9 +56,9 @@
 2008-11-30  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* NEWS: Update.
-	
+
 	* configure.ac: bump version number to 0.13.0
-	
+
 	* docs/reference/pygoocanvas-canvas.xml:
 	* docs/reference/pygoocanvas-grid.xml: Update docs.
 
@@ -63,7 +67,7 @@
 	* docs/reference/pygoocanvas-text.xml: fix method name.
 
 2008-11-17  Gian Mario Tagliaretti  <gianmt@gnome.org>
-	
+
 	* docs/reference/pygoocanvas-item.xml: add animation-finished signal
 
 2008-11-14  Armin Burgmeier  <armin@arbur.net>
@@ -78,7 +82,7 @@
 	actually DLL files).
 
 2008-11-07  Gian Mario Tagliaretti  <gianmt@gnome.org>
-	
+
 	* docs/reference/pygoocanvas-grid.xml:
 	* docs/reference/pygoocanvas-grid-model.xml: Add docs for the new grid
 	item and model
@@ -93,7 +97,7 @@
 	Update docs with new API.
 
 2008-11-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
-	
+
 	* goocanvas.defs: (request_item_redraw)
         (convert_bounds_to_item_space)
         (get_static_root_item)
@@ -103,25 +107,25 @@
         add new goocanvas.Canvas methods
 
 2008-11-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
-	
+
 	* goocanvas.defs: add goocanvas.Grid and GridModel
 
 === 0.12.0 ===
 2008-06-03  Gian Mario Tagliaretti  <gianmt@gnome.org>
-	
+
 	* demo/swfdec-demo: play (and drag around...) a flash file
 	into a canvas item.
 
 2008-06-01  Gian Mario Tagliaretti  <gianmt@gnome.org>
-	
+
 	* tests/*: add unit tests.
 
 2008-05-31  Gian Mario Tagliaretti  <gianmt@gnome.org>
-	
+
 	* docs/Makefile.am: make ENABLE_DOCS actually work.
 
 2008-05-29  Gian Mario Tagliaretti  <gianmt@gnome.org>
-	
+
 	* goocanvas.override: (goo_canvas_create_cairo_context)
 	Manually wrap, fix a bad API change in Pycairo.
 
@@ -131,40 +135,40 @@
 	set_child_property.
 
 2008-05-23  Gian Mario Tagliaretti  <gianmt@gnome.org>
-	
+
 	* goocanvas.override: (goo_canvas_item_model_set_transform)
 	Manually wrap, is now possible to use None to unset the matrix.
-	
+
 	* demo/simple_demo/demo.py: Test the above.
 
 2008-05-23  Gian Mario Tagliaretti  <gianmt@gnome.org>
-	
+
 	* goocanvas.override: (goo_canvas_item_set_transform)
 	Manually wrap, is now possible to use None to unset the matrix.
-	
+
 	* demo/simple_demo/demo.py: Test the above.
 
 2008-05-22  Gian Mario Tagliaretti  <gianmt@gnome.org>
-	
+
 	* goocanvas.override: (goo_canvas_item_get_transform_for_child)
 	Manually wrap.
-	
+
 	* docs/reference/pygoocanvas-item.xml: update the docs accordingly.
 
 2008-05-22  Gian Mario Tagliaretti  <gianmt@gnome.org>
-	
+
 	* goocanvas.override: (goo_canvas_item_get_requested_area)
 	(goo_canvas_item_update) Manually wrap.
-	
+
 	* docs/reference/pygoocanvas-item.xml: update the docs.
 
 2008-05-18  Gian Mario Tagliaretti  <gianmt@gnome.org>
-	
+
 	* demo/misc/gradient-demo-py:
 	add a gradient demo to test fill_pattern.
 
 2008-05-14  Gian Mario Tagliaretti  <gianmt@gnome.org>
-	
+
 	* docs/reference/pygoocanvas-misc.xml:
 	docs for goocanvas.Points fields.
 
@@ -184,7 +188,7 @@
 	* NEWS: Updated
 
 2008-05-01  Gian Mario Tagliaretti  <gianmt@gnome.org>
-	
+
 	* docs/reference/pygoocanvas-item-model.xml
 	* docs/reference/pygoocanvas-item-simple.xml
 	* docs/reference/pygoocanvas-item.xml
@@ -194,7 +198,7 @@
 	docs updated.
 
 2008-04-29  Gian Mario Tagliaretti  <gianmt@gnome.org>
-	
+
 	* goocanvas.override:
 	(goo_canvas_text_get_natural_extents)
 	(goo_canvas_item_get_simple_transform)
@@ -210,7 +214,7 @@
 	* configure.ac bump version to 0.10.0 and require goocanvas 0.10.
 
 	* goocanvas.defs: update with new API.
-	
+
 	* goocanvas.override:
 	* argtypes.py: fix a bug introduced by pycairo API change, see
 	LP bug #222503 reported by David Boucher.
