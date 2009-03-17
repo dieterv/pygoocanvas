@@ -296,13 +296,15 @@
                         <row valign="top">
                             <entry>"can-focus"</entry>
                             <entry>Read/Write</entry>
-                            <entry>If the item can take the keyboard focus. Default value: False</entry>
+                            <entry>If the item can take the keyboard focus.
+                            Default value: <literal>False</literal>.</entry>
                         </row>
 
                         <row valign="top">
                             <entry>"description"</entry>
                             <entry>Read/Write</entry>
-                            <entry>A description of the item for use by assistive technologies. Default value: NULL</entry>
+                            <entry>A description of the item for use by assistive technologies.
+                            Default value: <literal>None</literal>.</entry>
                         </row>
 
                         <row valign="top">
@@ -316,33 +318,39 @@
                             <entry>Read/Write</entry>
                             <entry>Specifies when the item receives pointer events. Default value:
                                 goocanvas.EVENTS_VISIBLE_MASK|goocanvas.EVENTS_PAINTED_MASK|
-                                goocanvas.EVENTS_FILL_MASK|goocanvas.EVENTS_STROKE_MASK</entry>
+                                goocanvas.EVENTS_FILL_MASK|goocanvas.EVENTS_STROKE_MASK.</entry>
                         </row>
 
                         <row valign="top">
                             <entry>"title"</entry>
                             <entry>Read/Write</entry>
                             <entry>A short context-rich description of the item for use by 
-                                assistive technologies. Default value: NULL</entry>
+                                assistive technologies. Default value: <literal>None</literal>.</entry>
+                        </row>
+
+                        <row valign="top">
+                            <entry>"tooltip"</entry>
+                            <entry>Read/Write</entry>
+                            <entry>The tooltip to display for the item. Default value: <literal>None</literal>.</entry>
                         </row>
 
                         <row valign="top">
                             <entry>"transform"</entry>
                             <entry>Read/Write</entry>
-                            <entry>The transformation matrix of the item. </entry>
+                            <entry>The transformation matrix of the item.</entry>
                         </row>
 
                         <row valign="top">
                             <entry>"visibility"</entry>
                             <entry>Read/Write</entry>
-                            <entry>When the canvas item is visible. Default value: GOO_CANVAS_ITEM_VISIBLE.</entry>
+                            <entry>When the canvas item is visible. Default value: goocanvas.ITEM_VISIBLE.</entry>
                         </row>
 
                         <row valign="top">
                             <entry>"visibility-threshold"</entry>
                             <entry>Read/Write</entry>
                             <entry>The scale threshold at which the item becomes visible. 
-                                Allowed values: >= 0 Default value: 0</entry>
+                                Allowed values: >= 0 Default value: 0.</entry>
                         </row>
 
                     </tbody>
@@ -487,6 +495,32 @@
             </varlistentry>
             <varlistentry>
                 <term><link linkend="signal-goocanvasitem--motion-notify-event">"motion-notify-event"</link></term>
+                <listitem>
+                    <methodsynopsis language="python"><methodname>callback</methodname>
+                        <methodparam><parameter>item</parameter></methodparam>
+                        <methodparam><parameter>target_item</parameter></methodparam>
+                        <methodparam><parameter>event</parameter></methodparam>
+                        <methodparam><parameter>user_param</parameter></methodparam>
+                        <methodparam><parameter>...</parameter></methodparam>
+                    </methodsynopsis>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><link linkend="signal-goocanvasitem--query-tooltip">"query-tooltip"</link></term>
+                <listitem>
+                    <methodsynopsis language="python"><methodname>callback</methodname>
+                        <methodparam><parameter>item</parameter></methodparam>
+                        <methodparam><parameter>x</parameter></methodparam>
+                        <methodparam><parameter>y</parameter></methodparam>
+                        <methodparam><parameter>keyboard_mode</parameter></methodparam>
+                        <methodparam><parameter>tooltip</parameter></methodparam>
+                        <methodparam><parameter>user_param</parameter></methodparam>
+                        <methodparam><parameter>...</parameter></methodparam>
+                    </methodsynopsis>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><link linkend="signal-goocanvasitem--scroll-event">"scroll-event"</link></term>
                 <listitem>
                     <methodsynopsis language="python"><methodname>callback</methodname>
                         <methodparam><parameter>item</parameter></methodparam>
@@ -1702,7 +1736,9 @@
                 <varlistentry>
                     <term><parameter>event</parameter>&nbsp;:</term>
                     <listitem><simpara>
-                            The event data, with coordinates translated to canvas coordinates.
+                            The event data. The x and y fields contain the mouse position in the
+                            item's coordinate space. The root_x and root_y fields contain the same
+                            coordinates converted to the canvas coordinate space. 
                         </simpara></listitem>
                 </varlistentry>
                 <varlistentry>
@@ -1751,7 +1787,9 @@
                 <varlistentry>
                     <term><parameter>event</parameter>&nbsp;:</term>
                     <listitem><simpara>
-                            The event data, with coordinates translated to canvas coordinates.
+                            The event data. The x and y fields contain the mouse position in the
+                            item's coordinate space. The root_x and root_y fields contain the same
+                            coordinates converted to the canvas coordinate space. 
                         </simpara></listitem>
                 </varlistentry>
                 <varlistentry>
@@ -1841,7 +1879,9 @@
                 <varlistentry>
                     <term><parameter>event</parameter>&nbsp;:</term>
                     <listitem><simpara>
-                            The event data, with coordinates translated to canvas coordinates.
+                            The event data. The x and y fields contain the mouse position in the
+                            item's coordinate space. The root_x and root_y fields contain the same
+                            coordinates converted to the canvas coordinate space. 
                         </simpara></listitem>
                 </varlistentry>
                 <varlistentry>
@@ -2159,7 +2199,9 @@
                 <varlistentry>
                     <term><parameter>event</parameter>&nbsp;:</term>
                     <listitem><simpara>
-                            The event data, with coordinates translated to canvas coordinates.
+                            The event data. The x and y fields contain the mouse position in the
+                            item's coordinate space. The root_x and root_y fields contain the same
+                            coordinates converted to the canvas coordinate space. 
                         </simpara></listitem>
                 </varlistentry>
                 <varlistentry>
@@ -2212,7 +2254,9 @@
                 <varlistentry>
                     <term><parameter>event</parameter>&nbsp;:</term>
                     <listitem><simpara>
-                            The event data, with coordinates translated to canvas coordinates.
+                            The event data. The x and y fields contain the mouse position in the
+                            item's coordinate space. The root_x and root_y fields contain the same
+                            coordinates converted to the canvas coordinate space. 
                         </simpara></listitem>
                 </varlistentry>
                 <varlistentry>
@@ -2234,6 +2278,138 @@
 
             <para>
                 The "motion-notify-event" signal is emitted when the mouse moves within an item.
+            </para>
+        </refsect2>
+
+        <refsect2 id="signal-goocanvasitem--query-tooltip">
+            <title>The "query-tooltip" goocanvas.Item Signal</title>
+            
+            <programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+                    <methodparam><parameter>item</parameter></methodparam>
+                    <methodparam><parameter>x</parameter></methodparam>
+                    <methodparam><parameter>y</parameter></methodparam>
+                    <methodparam><parameter>keyboard_mode</parameter></methodparam>
+                    <methodparam><parameter>tooltip</parameter></methodparam>
+                    <methodparam><parameter>user_param</parameter></methodparam>
+                    <methodparam><parameter>...</parameter></methodparam>
+                </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter>item</parameter>&nbsp;:</term>
+                    <listitem><simpara>
+                            The <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
+                            that received the signal.
+                        </simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter>x</parameter>&nbsp;:</term>
+                    <listitem><simpara>
+                            the x coordinate of the mouse.
+                        </simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter>y</parameter>&nbsp;:</term>
+                    <listitem><simpara>
+                            the y coordinate of the mouse.
+                        </simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter>keyboard_mode</parameter>&nbsp;:</term>
+                    <listitem><simpara>
+                            <literal>True</literal> if the tooltip was triggered using the keyboard. 
+                        </simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter>tooltip</parameter>&nbsp;:</term>
+                    <listitem><simpara>
+                            a <link linkend="class-gtktooltip"><classname>gtk.Tooltip</classname></link>
+                        </simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter>user_param</parameter>&nbsp;:</term>
+                    <listitem><simpara>the first user parameter (if any) specified
+                            with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link>
+                            method
+                        </simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter>...</parameter>&nbsp;:</term>
+                    <listitem><simpara>additional user parameters (if any)</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter>Returns</parameter>&nbsp;:</term>
+                    <listitem><simpara>True to stop the signal emission, or False to let it continue.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                The "query-tooltip" signal is emitted when the mouse has paused over the
+                item for a certain amount of time, or the tooltip was requested via the keyboard. 
+            </para>
+            <para>
+                Note that if keyboard_mode is <literal>True</literal>, the values of
+                x and y are undefined and should not be used. 
+            </para>
+            <para>
+                If the item wants to display a tooltip it should update tooltip and return <literal>True</literal>.
+            </para>
+        </refsect2>
+
+        <refsect2 id="signal-goocanvasitem--scroll-event">
+            <title>The "scroll-event" goocanvas.Item Signal</title>
+            
+            <programlisting><methodsynopsis language="python"><methodname>callback</methodname>
+                    <methodparam><parameter>item</parameter></methodparam>
+                    <methodparam><parameter>target_item</parameter></methodparam>
+                    <methodparam><parameter>event</parameter></methodparam>
+                    <methodparam><parameter>user_param</parameter></methodparam>
+                    <methodparam><parameter>...</parameter></methodparam>
+                </methodsynopsis></programlisting>
+
+            <variablelist>
+                <varlistentry>
+                    <term><parameter>item</parameter>&nbsp;:</term>
+                    <listitem><simpara>
+                            The <link linkend="class-canvas-item"><classname>goocanvas.Item</classname></link> 
+                            that received the signal.
+                        </simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter>target_item</parameter>&nbsp;:</term>
+                    <listitem><simpara>
+                            The target of the event.
+                        </simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter>event</parameter>&nbsp;:</term>
+                    <listitem><simpara>
+                            	 The event data. The x and y fields contain the mouse position in the
+                                 item's coordinate space. The root_x and root_y fields contain the same
+                                 coordinates converted to the canvas coordinate space. 
+                        </simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter>user_param</parameter>&nbsp;:</term>
+                    <listitem><simpara>the first user parameter (if any) specified
+                            with the <link linkend="method-gobject--connect"><methodname>connect</methodname>()</link>
+                            method
+                        </simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter>...</parameter>&nbsp;:</term>
+                    <listitem><simpara>additional user parameters (if any)</simpara></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><parameter>Returns</parameter>&nbsp;:</term>
+                    <listitem><simpara>True to stop the signal emission, or False to let it continue.</simpara></listitem>
+                </varlistentry>
+            </variablelist>
+
+            <para>
+                The "scroll-event" signal is emitted when a button in the 4 to 7 range is pressed.
+                Wheel mice are usually configured to generate button press events for buttons
+                4 and 5 when the wheel is turned in an item.
             </para>
         </refsect2>
 

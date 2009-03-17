@@ -212,7 +212,7 @@
 	+-- <link linkend="class-gtkobject">gtk.Object</link>
 		+-- <link linkend="class-gtkwidget">gtk.Widget</link>
 			+-- <link linkend="class-gtkcontainer">gtk.Container</link>
-				+-- <link linkend="class-canvas-view">goocanvas.Canvas</link>
+				+-- <link linkend="class-canvas">goocanvas.Canvas</link>
 </synopsis>
 
     </refsect1>

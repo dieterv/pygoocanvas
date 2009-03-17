@@ -80,6 +80,11 @@
 							<entry>If an arrow should be displayed at the end of the polyline. Default value: False.</entry>
 						</row>
 						<row valign="top">
+							<entry>"height"</entry>
+							<entry>Read/Write</entry>
+							<entry>The height of the polyline. Allowed values: >= 0. Default value: 0.</entry>
+						</row>
+						<row valign="top">
 							<entry>"points"</entry>
 							<entry>Read/Write</entry>
 							<entry>The array of points.</entry>
@@ -88,6 +93,21 @@
 							<entry>"start-arrow"</entry>
 							<entry>Read/Write</entry>
 							<entry>If an arrow should be displayed at the start of the polyline. Default value: False.</entry>
+						</row>
+						<row valign="top">
+							<entry>"width"</entry>
+							<entry>Read/Write</entry>
+							<entry>The width of the polyline. Allowed values: >= 0. Default value: 0.</entry>
+						</row>
+						<row valign="top">
+							<entry>"x"</entry>
+							<entry>Read/Write</entry>
+							<entry>The x coordinate of the left-most point of the polyline. Default value: 0.</entry>
+						</row>
+						<row valign="top">
+							<entry>"y"</entry>
+							<entry>Read/Write</entry>
+							<entry>The y coordinate of the top-most point of the polyline. Default value: 0.</entry>
 						</row>
 					</tbody>
 				</tgroup>

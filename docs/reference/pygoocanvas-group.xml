@@ -32,6 +32,45 @@
 </synopsis>
 
 	</refsect1>
+	
+	<refsect1 id="properties-goocanvasgroup">
+		<title>goocanvas.Group Properties</title>
+	
+		<blockquote role="properties">
+			<informaltable pgwide="1" frame="none">
+				<tgroup cols="3">
+					<colspec column="1" colwidth="1in"/>
+					<colspec column="2" colwidth="1in"/>
+					<colspec column="3" colwidth="3.5in"/>
+						<tbody>
+						<row valign="top">
+							<entry>"height"</entry>
+							<entry>Read/Write</entry>
+							<entry>The height of the group, or -1 to use the default height. Default value: -1.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"width"</entry>
+							<entry>Read/Write</entry>
+							<entry>The width of the group, or -1 to use the default width. Default value: -1.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"x"</entry>
+							<entry>Read/Write</entry>
+							<entry>The x coordinate of the group. Default value: 0.</entry>
+						</row>
+
+						<row valign="top">
+							<entry>"y"</entry>
+							<entry>Read/Write</entry>
+							<entry>The y coordinate of the group. Default value: 0.</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</informaltable>
+		</blockquote>
+	</refsect1>
 
 	<refsect1>
 		<title>Implemented Interfaces</title>

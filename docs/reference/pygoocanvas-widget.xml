@@ -47,7 +47,7 @@
 							<entry>"anchor"</entry>
 							<entry>Read/Write</entry>
 							<entry>How to position the widget relative to the item's x and y coordinate settings.
-                                    Default value: gtk.ANCHOR_NORTH_WEST</entry>
+								Default value: gtk.ANCHOR_NORTH_WEST</entry>
 						</row>
 
 						<row valign="top">
@@ -67,12 +67,12 @@
 							<entry>Read/Write</entry>
 							<entry>The width of the widget, or -1 to use its requested width. Default value: -1</entry>
 						</row>
-                        <row valign="top">
+						<row valign="top">
 							<entry>"x"</entry>
 							<entry>Read/Write</entry>
 							<entry>The x coordinate of the widget. Default value: 0</entry>
 						</row>
-                        <row valign="top">
+						<row valign="top">
 							<entry>"y"</entry>
 							<entry>Read/Write</entry>
 							<entry>he y coordinate of the widget. Default value: 0</entry>

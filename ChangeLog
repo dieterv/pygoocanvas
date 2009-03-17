@@ -1,3 +1,22 @@
+=== 0.14.0 ===
+2009-03-17  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* NEWS: Update.
+
+	* configure.ac: bump version number to 0.14.0
+	
+	* docs/Makefile.am: use variable PYGOBJECT_PYGDOCS instead of
+	hardcoding the path.
+	
+	* docs/reference/pygoocanvas-ellipse.xml
+	* docs/reference/pygoocanvas-polyline.xml
+	* docs/reference/pygoocanvas-group.xml
+	* docs/reference/pygoocanvas-path.xml
+	* docs/reference/pygoocanvas-item.xml
+	* docs/reference/pygoocanvas-widget.xml
+	* docs/reference/pygoocanvas-text.xml: update docs to the new goocanvas
+	API, some random fixes.
+
 2008-12-30  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* demo/simple_demo/demo.py: Add an export SVG function.

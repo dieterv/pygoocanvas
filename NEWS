@@ -1,3 +1,9 @@
+PyGooCanvas 0.14.0	(Mar 17 2009)
+==================
+
+ o Update the docs with new goocanvas API and some random fixes (Gian Mario)
+ o Add an export SVG function in the demo (Gian Mario)
+
 PyGooCanvas 0.13.1	(Dec 27 2008)
 ==================
 
