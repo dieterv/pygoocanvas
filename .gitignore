@@ -24,6 +24,7 @@ Makefile
 PKG-INFO
 stamp-h1
 gtk-doc.make
+ChangeLog
 
 # Build-generated files.
 *.la
