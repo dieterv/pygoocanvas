@@ -1,3 +1,11 @@
+PyGooCanvas 0.14.1	(May 10 2009)
+==================
+
+ o Fix a segfault due to an API change in PycCairo (Gian Mario)
+ o Autogenerate the ChangeLog from git logs (Gian Mario)
+ o Fix the build when using libtool 2.x (Gian Mario)
+ o Make the required changes after the switch to git (Gian Mario)
+
 PyGooCanvas 0.14.0	(Mar 17 2009)
 ==================
 
