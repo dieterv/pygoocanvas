@@ -91,7 +91,7 @@ if test "${enable_docs}" != no; then
   fi
 fi
 
-if test x$enable_docs == xyes; then
+if test x$enable_docs = xyes; then
    if ! $PKG_CONFIG "pygobject-2.0 >= 2.11.3"; then
        AC_MSG_WARN([pygobject-2.0 < 2.11.3; disabling generation of docs])
        enable_docs=no
