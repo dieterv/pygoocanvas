@@ -35,6 +35,8 @@ ChangeLog
 *.so
 .deps
 .libs
+build
+dist
 
 # Codegen output.
 goocanvas.c
