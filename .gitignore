@@ -41,3 +41,7 @@ dist
 # Codegen output.
 goocanvas.c
 
+# Eclipse files.
+.settings
+.project
+.pydevproject
