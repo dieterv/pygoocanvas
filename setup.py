@@ -48,18 +48,19 @@ if not have_pkgconfig():
     raise SystemExit('ERROR: Could not find pkg-config: '
                      'Please check your PATH environment variable.')
 
-MAJOR_VERSION = int(get_m4_define('pygoocanvas_major_version'))
-MINOR_VERSION = int(get_m4_define('pygoocanvas_minor_version'))
-MICRO_VERSION = int(get_m4_define('pygoocanvas_micro_version'))
-VERSION = '%d.%d.%d' % (MAJOR_VERSION, MINOR_VERSION, MICRO_VERSION)
+PYGTK_SUFFIX = '2.0'
+PYGTK_SUFFIX_LONG = 'gtk-' + PYGTK_SUFFIX
+PYGTK_DEFS_DIR = pkgc_get_defs_dir('pygtk-%s' % PYGTK_SUFFIX)
 
 GOOCANVAS_REQUIRED = get_m4_define('goocanvas_required_version')
 PYCAIRO_REQUIRED   = get_m4_define('pycairo_required_version')
 PYGOBJECT_REQUIRED = get_m4_define('pygobject_required_version')
 PYGTK_REQUIRED     = get_m4_define('pygtk_required_version')
 
-PYGTK_SUFFIX = '2.0'
-PYGTK_SUFFIX_LONG = 'gtk-' + PYGTK_SUFFIX
+MAJOR_VERSION = int(get_m4_define('pygoocanvas_major_version'))
+MINOR_VERSION = int(get_m4_define('pygoocanvas_minor_version'))
+MICRO_VERSION = int(get_m4_define('pygoocanvas_micro_version'))
+VERSION = '%d.%d.%d' % (MAJOR_VERSION, MINOR_VERSION, MICRO_VERSION)
 
 GLOBAL_INC += ['.']
 GLOBAL_MACROS += [('PYGOOCANVAS_MAJOR_VERSION', MAJOR_VERSION),
@@ -70,7 +71,6 @@ GLOBAL_MACROS += [('PYGOOCANVAS_MAJOR_VERSION', MAJOR_VERSION),
                   ('HAVE_BIND_TEXTDOMAIN_CODESET', 1)]
 
 CONFIG_FILE    = 'config.h'
-PYGTK_DEFS_DIR = pkgc_get_defs_dir('pygtk-%s' % PYGTK_SUFFIX)
 DEFS_DIR       = os.path.join('share', 'pygtk', PYGTK_SUFFIX, 'defs')
 HTML_DIR       = os.path.join('share', 'gtk-doc', 'html', 'pygoocanvas')
 
@@ -97,6 +97,10 @@ class PyGooCanvasInstallData(InstallData):
 
 
 class PyGooCanvasBuild(build):
+    def run(self):
+        self.createconfigfile()
+        build.run(self)
+
     def createconfigfile(self):
         with open(CONFIG_FILE, 'w') as fo:
             fo.write ('// Configuration header created by setup.py - do not edit\n' \
@@ -113,12 +117,7 @@ class PyGooCanvasBuild(build):
                                                  MICRO_VERSION,
                                                  VERSION))
 
-    def run(self):
-        self.createconfigfile()
-        build.run(self)
 
-
-# GooCanvas
 goocanvas = TemplateExtension(name='goocanvas',
                               pkc_name=('pycairo',
                                         'pygobject-%s' % PYGTK_SUFFIX,
@@ -141,9 +140,10 @@ if goocanvas.can_build():
     ext_modules.append(goocanvas)
     data_files.append((DEFS_DIR, ('goocanvas.defs',)))
     data_files.append((HTML_DIR, glob.glob('docs/html/*.html')))
+else:
+    raise SystemExit('ERROR: Nothing to do, goocanvas could not be built and is essential.')
 
 doclines = __doc__.split('\n')
-
 options = {'bdist_wininst': {'install_script': 'pygoocanvas_postinstall.py'}}
 
 setup(name='pygoocanvas',
