@@ -81,6 +81,15 @@ py_modules = []
 packages = []
 
 
+class PyGooCanvasInstallLib(InstallLib):
+    def run(self):
+        # Modify the base installation dir
+        install_dir = os.path.join(self.install_dir, PYGTK_SUFFIX_LONG)
+        self.set_install_dir(install_dir)
+
+        InstallLib.run(self)
+
+
 class PyGooCanvasInstallData(InstallData):
     def run(self):
         self.add_template_option('VERSION', VERSION)
@@ -165,6 +174,7 @@ setup(name='pygoocanvas',
       data_files=data_files,
       scripts = ['pygoocanvas_postinstall.py'],
       options=options,
-      cmdclass={'install_data': PyGooCanvasInstallData,
+      cmdclass={'install_lib': PyGooCanvasInstallLib,
+                'install_data': PyGooCanvasInstallData,
                 'build_ext': BuildExt,
                 'build': PyGooCanvasBuild})
