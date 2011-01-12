@@ -20,8 +20,8 @@ from distutils.core import setup
 # Check for windows platform
 if sys.platform != 'win32':
     msg =  '*' * 68 + '\n'
-    msg += '* Building PyGTK using distutils is only supported on windows. *\n'
-    msg += '* To build PyGTK in a supported way, read the INSTALL file.    *\n'
+    msg += '* Building PyGooCanvas using distutils is only supported on windows. *\n'
+    msg += '* To build PyGooCanvas in a supported way, read the INSTALL file.    *\n'
     msg += '*' * 68
     raise SystemExit(msg)
 
